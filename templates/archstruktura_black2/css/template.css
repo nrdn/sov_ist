@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'helveticaneuecyrbold';
+    font-family: 'helveticaneuecyrlight';
+   /* -webkit-user-select: none;
+    user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    ms-select: none;*/
+    min-height: 100%;
+}
+body.scrolledPage {
+    padding-top: 110px;
+}
+body > .container.main {
+    /*height: 100%;*/
+}
+.container.main > .container_inner {
+    height: 105%;
+}
+h2, h3, b, strong {
+    /*font-family: 'helveticaneuecyrbold';*/
+}
+.container.main {
+    /*background: url(../images/trace.jpg) 50% -60px no-repeat;*/
+    margin: 0 auto;
+}
+.header {
+    height: 100px;
+    /*outline: 1px solid #fc0;*/
+    background: #fff;
+    overflow: hidden;
+}
+.header_inner {
+    width: 1024px;
+    height: 100px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.moduletable.left_menu {
+    float: left;
+}
+.moduletable.right_menu.left_menu {
+    float: right;
+}
+.left_menu ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 45px;
+}
+.left_menu li {
+    float: left;
+    display: block;
+    margin-right: 23px;
+}
+.right_menu {
+    float: right;
+}
+.main.menu {
+    width: 100%;
+}
+.fixedTopMenuDiv {
+    position: fixed;
+    top:0;
+    background: #fff;
+    box-shadow: 0 -2px 10px #000;
+}
+.calendar {
+   height: 54px;
+     /*outline: 1px solid #f00;
+    background: #000;*/
+    width: 1024px;
+    margin: 0 auto;
+    float: none;
+    clear: both;
+    overflow: hidden;
+    padding-top: 17px;
+}
+.periods div, .types div {
+    float: left;
+    margin-right: 10px;
+}
+.periods {
+    overflow: hidden;
+    float: none;
+    clear: both;
+}
+.types {
+    margin-top: 5px;
+    float: none;
+    clear: both;
+}
+.calendar .day:hover, .calendar .type:hover, .calendar .type2:hover {
+    color: #fc0;
+    cursor: pointer;
+}
+.calendar .active {
+    color: #f00;
+}
+.container_inner {
+    width: 1024px;
+    margin: 0 auto;
+}
+.moduletable li {
+    list-style-type: none;
+}
+.componentheading, .itemBackToTop, .moduleItemReadMore, .moduleItemCategory {
+    display: none;
+}
+._vech {
+    background: #FDF6D6;
+}
+._teatr {
+    background: #C6FBFF;
+}
+._conc {
+    background: #c1c1c1;
+}
+._fest {
+    background: #FE7A91;
+}

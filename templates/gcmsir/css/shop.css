@@ -1,0 +1,42 @@
+.itemListView {
+    margin: 0 45px;
+}
+.itemList {
+    float: left;
+    width: 20%!important;
+    margin-right: 5%;
+}
+.itemList .itemContainer {
+    display: none;
+    margin-bottom: 50px;
+}
+.itemList01 .itemContainer:nth-child(4n) {
+    display: block;
+}
+.itemList02 .itemContainer:nth-child(4n+1) {
+    display: block;
+}
+.itemList03 .itemContainer:nth-child(4n+2) {
+    display: block;
+}
+.itemList04 .itemContainer:nth-child(4n+3) {
+    display: block;
+}
+.clr {
+    clear: both;
+    float: none;
+}
+.container_block.left_block {
+    width: 100%;
+}
+.container_outer {
+    display: block;
+}
+.catItemImageBlock img {
+		width: 100%;
+}
+h3.catItemTitle {
+		font-size: 15px;
+		line-height: 20px;
+		margin-top: 10px;
+}

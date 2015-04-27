@@ -1,0 +1,251 @@
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'helveticaneuecyrbold';
+    font-family: 'helveticaneuecyrlight';
+    min-height: 100%;
+    background: #3F3E42;
+}
+body.scrolledPage {
+    padding-top: 110px;
+}
+.container.main {
+    height: 100%;
+    margin: 0 auto;
+}
+.container.main > .container_inner {
+    min-height: 100%;
+}
+.top_banner {
+    height: 300px;
+    background: #fff;
+    background: url(../images/banner.jpg) 50% no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.top_banner:after {
+    content:'Это Баннер';
+    position: absolute;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    font-size: 140px;
+    line-height: 290px;
+    font-family: 'helveticaneuecyrbold';
+    color: #fff;
+}
+h2 {
+    margin: 0;
+}
+ul, li {
+    padding: 0;
+    margin: 0;
+}
+.header_inner {
+    width: 1024px;
+    height: 70px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.header_inner.head {
+    height: 64px;
+    background: url(../images/lamp.png) 350px 0 no-repeat;
+}
+.header_inner.head > .header_right {
+    float: right;
+    color: #fff;
+    text-align: right;
+    padding-top: 25px;
+}
+.header_inner.head > .header_left {
+    background: url(../images/logo.png) 0 0 no-repeat;
+    background-size: 58px;
+    padding-left: 65px;
+    color: #fff;
+    padding-top: 25px;
+    margin-top: 4px;
+    width: 140px;
+    float: left;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+.header_inner.head > .header_left:hover {
+    text-decoration: underline;
+}
+
+.header_inner.menu {
+
+}
+.header_inner.menu a {
+    color: #fff;
+}
+.header_inner.menu a:hover {
+    color: #f00;
+}
+.moduletable.left_menu {
+    float: left;
+}
+.moduletable.right_menu.left_menu {
+    float: right;
+}
+.left_menu ul {
+    margin: 0;
+    padding: 0;
+    margin-top: 25px;
+}
+.left_menu li {
+    float: left;
+    display: block;
+    margin-right: 23px;
+}
+.left_menu li.item-110 {
+    margin-right: 0;
+}
+.right_menu {
+    float: right;
+}
+.main.menu {
+    width: 100%;
+}
+.fixedTopMenuDiv {
+    position: fixed;
+    top:0;
+    background: #fff;
+}
+.calendar {
+    height: 54px;
+    width: 1024px;
+    margin: 0 auto;
+    float: none;
+    clear: both;
+    overflow: hidden;
+    padding-top: 17px;
+    background: #DADAD9;
+    padding: 20px;
+}
+.date {
+    /*padding: 0 20px;*/
+}
+.date h2 {
+    padding: 10px 20px;
+    background: #ccc;
+}
+.periods div, .types div {
+    float: left;
+    margin-right: 10px;
+}
+.periods div {
+    margin-right: 1px;
+    padding: 3px;
+    border-radius: 50%;
+    min-width: 18px;
+    text-align: center;
+}
+.periods div.mounth {
+    padding: 3px 2px 3px 0;
+}
+.periods {
+    overflow: hidden;
+    float: none;
+    clear: both;
+}
+.types {
+    margin-top: 5px;
+    float: none;
+    clear: both;
+}
+.calendar .type:hover, .calendar .type2:hover {
+    color: #C04900;
+    border-bottom: 3px solid #c04900;
+    cursor: pointer;
+}
+.calendar .active {
+    color: #f00;
+}
+.calendar .day.active {
+    background: #000;
+    color: #ccc;
+}
+.calendar .day:hover {
+    background: #C04900;
+    color: #ccc;
+    cursor: pointer;
+}
+.calendar .type.active, .calendar .type2.active {
+    border-bottom: 3px solid #000;
+    color: #000;
+}
+.container_inner {
+    width: 1064px;
+    margin: 0 auto;
+    background: #fff;
+}
+.moduletable li {
+    list-style-type: none;
+}
+.componentheading, .itemBackToTop, .moduleItemReadMore, .moduleItemCategory {
+    display: none;
+}
+.itemListCategory h2, .itemTitle {
+    background: #ccc;
+    padding: 10px 20px;
+}
+.itemList, .itemFullText {
+    padding: 10px 20px;
+}
+/*
+._vech {
+    background: #FDF6D6;
+}
+._teatr {
+    background: #C6FBFF;
+}
+._conc {
+    background: #c1c1c1;
+}
+._fest {
+    background: #FE7A91;
+}
+*/
+
+.moduletable._vech ._vech, .moduletable._teatr ._teatr, .moduletable._conc ._conc, .moduletable._fest ._fest, .moduletable.no_event .no_event {
+    padding: 15px 25px;
+}
+.moduletable.no_event .no_event {
+    font-family: 'helveticaneuecyrbold';
+    font-size: 20px;
+}
+.moduleItemTitle {
+    font-size: 25px;
+    margin-bottom: 10px;
+    display: block;
+    color: #C04900;
+    text-decoration: none;
+}
+.moduleItemTitle:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+a {
+    color: #C04900;
+}
+a:hover {
+    color: #f00;
+}
+h3 a {
+    color: #C04900;
+    text-decoration: none;
+}
+h3 a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+.itemFullText ul {
+    padding: 40px;
+}

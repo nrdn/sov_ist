@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install version="1.5" type="template">
+	<name>gcmsir</name>
+<files>
+		<filename>index.php</filename>
+</files>
+<positions>
+		<position>right_mod</position>
+		<position>events_mod</position>
+		<position>left_mod</position>
+		<position>k2_tit</position>
+		<position>excursions_left_mod</position>
+		<position>excursions_right_mod</position>
+</positions>
+</install>
