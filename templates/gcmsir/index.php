@@ -1,7 +1,7 @@
 <?php
   $serv_uri=$_SERVER['REQUEST_URI'];
   if ($serv_uri == '/') {
-		header('Location: http://www.nrdnhost.nichost.ru/s/');
+		header('Location: /s/');
 		exit;
 	}
   $K2Itemid = JRequest::getInt('id');

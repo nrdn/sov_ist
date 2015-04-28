@@ -12,9 +12,9 @@ class JConfig {
 	public $debug = '0';
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
-	public $host = 'nrdnhost.mysql';
-	public $user = 'nrdnhost_gcmsir';
-	public $password = 'DbVu2awK';
+	public $host = 'localhost';
+	public $user = 'root';
+	public $password = '';
 	public $db = 'nrdnhost_gcmsir';
 	public $dbprefix = 'v8lin_';
 	public $live_site = '';
