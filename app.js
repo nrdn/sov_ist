@@ -124,23 +124,23 @@ app.route('/auth/history/remove')
 
 
 // === Admin exhibitis Route
-app.route('/auth/exhibitis').get(checkAuth, admin_exhibits.list);
+app.route('/auth/exhibits').get(checkAuth, admin_exhibits.list);
 
 
 // === Admin @add exhibitis Route
-app.route('/auth/exhibitis/add')
+app.route('/auth/exhibits/add')
 	 .get(checkAuth, admin_exhibits.add)
 	 .post(checkAuth, admin_exhibits.add_form);
 
 
 // === Admin @edit exhibitis Route
-app.route('/auth/exhibitis/edit/:id')
+app.route('/auth/exhibits/edit/:id')
 	 .get(checkAuth, admin_exhibits.edit)
 	 .post(checkAuth, admin_exhibits.edit_form);
 
 
 // === Admin @remove exhibitis Route
-app.route('/auth/exhibitis/remove')
+app.route('/auth/exhibits/remove')
 	 .post(checkAuth, admin_exhibits.remove);
 
 

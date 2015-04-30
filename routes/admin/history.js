@@ -67,8 +67,8 @@ exports.add_form = function(req, res) {
       && history.setPropertyLocalised('description', post[locale].description, locale);
   });
 
-  history.interval.start = new Date(Date.UTC(post.interval.start.year, post.interval.start.month, post.interval.start.date));
-  history.interval.end = new Date(Date.UTC(post.interval.end.year, post.interval.end.month, post.interval.end.date));
+  history.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
+  history.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
   if (!post.images) {
     return (function () {
@@ -127,7 +127,7 @@ exports.edit = function(req, res) {
   var id = req.params.id;
 
   History.findById(id).exec(function(err, history) {
-    res.render('auth/historys/edit.jade', {history: history});
+    res.render('auth/history/edit.jade', {history: history});
   });
 }
 
@@ -148,8 +148,8 @@ exports.edit_form = function(req, res) {
     });
 
 
-    history.interval.start = new Date(Date.UTC(post.interval.start.year, post.interval.start.month, post.interval.start.date));
-    history.interval.end = new Date(Date.UTC(post.interval.end.year, post.interval.end.month, post.interval.end.date));
+    history.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
+    history.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
     history.save(function(err, history) {
       res.redirect('/auth/history');

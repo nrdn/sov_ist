@@ -1,0 +1,32 @@
+extends ../../layout
+include ../forms.jade
+
+block title
+	title РЕДАКТИРОВАТЬ ЗАЛ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/add.js')
+
+block content
+	- var year = new Date()
+	- year = year.getFullYear()
+	- var months = ['ЯНВАРЬ', 'ФЕВРАЛЬ', 'МАРТ', 'АПРЕЛЬ', 'МАЙ', 'ИЮНЬ', 'ИЮЛЬ', 'АВГУСТ', 'СЕНТЯБРЬ', 'ОКТЯБРЬ', 'НОЯБРЬ', 'ДЕКАБРЬ']
+	.form_block
+		a.back_link(href='/auth/subsidiarys/') < Назад
+		.title РЕДАКТИРОВАТЬ ЗАЛ
+		form(action="", method="post")
+			.form_title Заголовок:
+			+form_text_single('title', hall)
+			.form_title Филиал:
+			+form_single_select('subsidiary', subsidiarys)
+			.form_title Описание:
+			+form_text_multi('description', hall)
+			.form_title Изображения:
+			.form_images_upload
+				.form_desc_title Перетащи сюда
+			br
+			br
+			input(type='submit', value='отправить')
