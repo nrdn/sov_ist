@@ -9,6 +9,7 @@ html
 				.header_inner
 					.header_logo
 					.menu_block.left
+						a(href='/') главная
 						a(href='/events') события
 						a(href='/contacts') контакты
 					.menu_block.right
@@ -24,7 +25,9 @@ html
 			.content_block
 				.content_columns_block
 					.content_column.main
-						block content
-						.footer_block 2015
+						.content_inner
+							block content
+							.footer_block 2015
 					.content_column.scroll
-						block scroll
+						.content_inner
+							block scroll
