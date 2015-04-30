@@ -6,11 +6,25 @@ html
 		include counters
 		.main_block
 			.header_block
-				.head_title_block
-				.menu_block
-					a(href='/events') СОБЫТИЯ
-					a(href='/contacts') КОНТАКТЫ
-			.content_right_block
-				block content_right
+				.header_inner
+					.header_logo
+					.menu_block.left
+						a(href='/events') события
+						a(href='/contacts') контакты
+					.menu_block.right
+						.social_block
+							a(href='http://vk.com', target='_blank'): img(src='/images/design/social/vk.png')
+							a(href='http://facebook.com', target='_blank'): img(src='/images/design/social/facebook.png')
+							a(href='http://twitter.com', target='_blank'): img(src='/images/design/social/twitter.png')
+							a(href='http://instagram.com', target='_blank'): img(src='/images/design/social/instagram.png')
+						.options_block
+							.option.search поиск
+							.option.lang EN
+					.menu_alt_block
 			.content_block
-				block content
+				.content_columns_block
+					.content_column.main
+						block content
+						.footer_block 2015
+					.content_column.scroll
+						block scroll
