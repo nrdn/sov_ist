@@ -4,6 +4,7 @@ var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
 var Hall = require('../../models/main.js').Hall;
+var Subsidiary = require('../../models/main.js').Subsidiary;
 
 var __appdir = path.dirname(require.main.filename);
 
@@ -47,7 +48,9 @@ exports.list = function(req, res) {
 
 
 exports.add = function(req, res) {
-	res.render('auth/halls/add.jade');
+	Subsidiary.find().exec(function(err, subsidiarys) {
+		res.render('auth/halls/add.jade', {subsidiarys: subsidiarys});
+	});
 }
 
 exports.add_form = function(req, res) {
@@ -127,7 +130,9 @@ exports.edit = function(req, res) {
 	var id = req.params.id;
 
 	Hall.findById(id).exec(function(err, hall) {
-		res.render('auth/halls/edit.jade', {hall: hall});
+		Subsidiary.find().exec(function(err, subsidiarys) {
+			res.render('auth/halls/edit.jade', {hall: hall, subsidiarys: subsidiarys});
+		});
 	});
 }
 

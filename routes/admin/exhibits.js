@@ -4,6 +4,8 @@ var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
 var Exhibit = require('../../models/main.js').Exhibit;
+var Collect = require('../../models/main.js').Collect;
+var Hall = require('../../models/main.js').Hall;
 
 var __appdir = path.dirname(require.main.filename);
 
@@ -47,7 +49,11 @@ exports.list = function(req, res) {
 
 
 exports.add = function(req, res) {
-  res.render('auth/exhibits/add.jade');
+  Collect.find().exec(function(err, collects) {
+    Hall.find().exec(function(err, halls) {
+      res.render('auth/exhibits/add.jade', {collects: collects, halls: halls});
+    });
+  });
 }
 
 exports.add_form = function(req, res) {
@@ -66,6 +72,9 @@ exports.add_form = function(req, res) {
     checkNested(post, [locale, 'description'])
       && exhibit.setPropertyLocalised('description', post[locale].description, locale);
   });
+
+  exhibit.collect = post.collect;
+  exhibit.hall = post.hall;
 
 
   if (!post.images) {
@@ -125,7 +134,11 @@ exports.edit = function(req, res) {
   var id = req.params.id;
 
   Exhibit.findById(id).exec(function(err, exhibit) {
-    res.render('auth/exhibits/edit.jade', {exhibit: exhibit});
+    Collect.find().exec(function(err, collects) {
+      Hall.find().exec(function(err, halls) {
+        res.render('auth/exhibits/edit.jade', {exhibit: exhibit, collects: collects, halls: halls});
+      });
+    });
   });
 }
 
@@ -144,6 +157,9 @@ exports.edit_form = function(req, res) {
       checkNested(post, [locale, 'description'])
         && exhibit.setPropertyLocalised('description', post[locale].description, locale);
     });
+
+    exhibit.collect = post.collect;
+    exhibit.hall = post.hall;
 
 
     exhibit.save(function(err, exhibit) {

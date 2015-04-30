@@ -4,6 +4,8 @@ var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
 var Event = require('../../models/main.js').Event;
+var Category = require('../../models/main.js').Category;
+var Subsidiary = require('../../models/main.js').Subsidiary;
 
 var __appdir = path.dirname(require.main.filename);
 
@@ -47,7 +49,11 @@ exports.list = function(req, res) {
 
 
 exports.add = function(req, res) {
-	res.render('auth/events/add.jade');
+	Subsidiary.find().exec(function(err, subsidiarys) {
+		Category.find().exec(function(err, categorys) {
+			res.render('auth/events/add.jade', {subsidiarys: subsidiarys, categorys: categorys});
+		});
+	});
 }
 
 exports.add_form = function(req, res) {
@@ -130,7 +136,11 @@ exports.edit = function(req, res) {
 	var id = req.params.id;
 
 	Event.findById(id).exec(function(err, event) {
-		res.render('auth/events/edit.jade', {event: event});
+		Subsidiary.find().exec(function(err, subsidiarys) {
+			Category.find().exec(function(err, categorys) {
+				res.render('auth/events/edit.jade', {event: event, subsidiarys: subsidiarys, categorys: categorys});
+			});
+		});
 	});
 }
 
