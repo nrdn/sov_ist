@@ -54,8 +54,6 @@ exports.add_form = function(req, res) {
     checkNested(post, [locale, 'title'])
       && category.setPropertyLocalised('title', post[locale].title, locale);
 
-    checkNested(post, [locale, 'description'])
-      && category.setPropertyLocalised('description', post[locale].description, locale);
   });
 
   category.save(function(err, category) {
@@ -89,8 +87,6 @@ exports.edit_form = function(req, res) {
       checkNested(post, [locale, 'title'])
         && category.setPropertyLocalised('title', post[locale].title, locale);
 
-      checkNested(post, [locale, 'description'])
-        && category.setPropertyLocalised('description', post[locale].description, locale);
     });
 
     category.save(function(err, category) {

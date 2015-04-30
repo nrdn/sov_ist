@@ -30,6 +30,20 @@ mixin form_text_multi(path, object)
 	textarea.ru(name="ru[" + path + "]", rows="8",)= object && object['i18n'][path].get('ru')
 	textarea.en(name="en[" + path + "]", rows="8", disabled)= object && object['i18n'][path].get('en')
 
+
+//- Single Select Form
+
+mixin form_single_select(path, options, select_option)
+	if (!select_options)
+		select(name=path)
+			each option in options
+				option(value=option._id)= option['i18n']['title'].get('ru')
+	else
+		select(name=path)
+			each option in options
+				option(value=option._id, selected=select_option == option._id.toString())= option['i18n']['title'].get('ru')
+
+
 //- Multiple Select Form
 
 mixin form_multiple_select(path, options, select_options)

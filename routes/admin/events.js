@@ -166,7 +166,7 @@ exports.edit_form = function(req, res) {
 		event.category = post.category;
 
 		event.save(function(err, event) {
-			res.redirect('/auth/event');
+			res.redirect('/auth/events');
 		});
 	});
 }

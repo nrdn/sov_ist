@@ -112,7 +112,7 @@ app.route('/auth/history/edit/:id')
 
 
 // === Admin @remove history Route
-app.route('/auth/categorys/remove')
+app.route('/auth/history/remove')
 	 .post(checkAuth, admin_history.remove);
 
 
