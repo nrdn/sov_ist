@@ -9,4 +9,17 @@ $(document).ready(function() {
 		// 		return 'wheel';
 		// }
 	});
+
+	$('.option.search').on('click', function(event) {
+		$('.search_block').toggle().find('.search_input').focus();
+	});
+
+	$(document).on('mouseup', function(event) {
+		var container = $('.search_block');
+
+		!container.is(event.target
+			&& container.has(event.target).length === 0)
+				&& container.hide();
+
+	});
 });

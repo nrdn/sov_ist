@@ -11,7 +11,22 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	background-color #8A4B23
 	z-index 999
 
+.search_block
+	width 100%
+	height 60px
+	display none
+	background-color #318A4E
+
+.search_input
+	display block
+	width 100%
+	font-size 24pt
+	background-color #318A4E
+	border 0
+	outline none
+
 .header_inner
+.search_inner
 	width 90%
 	min-width 1280px
 	padding-top 10px
@@ -41,6 +56,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 .option
 	margin-left 5px
 	float left
+	cursor pointer
+	display block
 
 .header_logo
 	width 60px
@@ -54,6 +71,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .content_column
 	padding-top 80px
+	box-sizing border-box
 	overflow scroll
 	&.main
 		width 75%
@@ -64,3 +82,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	&.scroll
 		width 25%
 		float left
+
+.footer_block
+	padding-top 20px
+	padding-bottom 10px
+	text-align center
