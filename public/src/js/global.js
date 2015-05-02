@@ -45,9 +45,10 @@ $(document).ready(function() {
 	$(document).on('mouseup', function(event) {
 		var container = $('.search_block');
 
-		!container.is(event.target
-			&& container.has(event.target).length === 0)
-				&& container.hide();
-
+		if (!container.is(event.target)
+				&& container.has(event.target).length === 0)
+		{
+				container.hide();
+		}
 	});
 });
