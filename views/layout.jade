@@ -9,13 +9,37 @@ html
 				.header_inner
 					a.header_logo(href='/')
 					.menu_block.left
-						a(href='/about') О музее
-						a(href='/virtual') Виртуальный музей
-						a(href='/events') События
-						a(href='/contacts') Посетителям
-						a(href='/partners') Партнерство
-						a(href='/live') Живая история
-						a(href='/auth') ЗВЕЗДОЧЕТ
+						.menu_item_block
+							a.menu_item(href='/') Музей
+							.menu_drop
+								a.menu_item(href='/news') Новости
+								a.menu_item(href='/history') История музея
+								a.menu_item(href='/subsidiary') Филиалы
+								a.menu_item(href='/exposure') Экспозиция
+								a.menu_item(href='/collections') Коллекции
+								a.menu_item(href='/internships') Стажировки
+								a.menu_item(href='/team') Команда
+								a.menu_item(href='/official') Официальная информация
+						.menu_item_block
+							a.menu_item(href='#') Виртуальный музей
+						.menu_item_block
+							a.menu_item(href='/events') События
+							.menu_drop
+								a.menu_item(href='/events/exhibitions') Выставки
+								a.menu_item(href='/events/excursions') Экскурсии
+								a.menu_item(href='/events/lectures') Лекции
+								a.menu_item(href='/events/xii') Дискуссионная площадка Тверская XXI
+								a.menu_item(href='/events/activities') Мероприятия
+						.menu_item_block
+							a.menu_item(href='/visitors') Посетителям
+							.menu_drop
+								a.menu_item(href='/visitors/souvenirs') Сувенирная продукция
+								a.menu_item(href='/visitors/schedule') Билеты и расписание
+								a.menu_item(href='/visitors/contacts') Контакты
+						.menu_item_block
+							a.menu_item(href='/partners') Партнерство
+						.menu_item_block
+							a.menu_item(href='/live') Живая история
 					.menu_block.right
 						.social_block
 							a(href='http://vk.com', target='_blank'): img(src='/images/design/social/vk.png')

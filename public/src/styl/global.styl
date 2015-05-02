@@ -29,6 +29,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 .search_result
 	width 100%
 	margin-top 10px
+	display none
 	background-color #318A4E
 
 .search_context
@@ -46,12 +47,25 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	overflow hidden
 	&.left
 		float left
-		a
+		.menu_item_block
 			margin-left 15px
-			color white
-			margin-top 6px
-			display inline-block
-			text-decoration none
+			float left
+			.menu_item
+				display block
+				margin-top 6px
+				color white
+				text-decoration none
+				&:hover
+					text-decoration underline
+			.menu_drop
+				width 110px
+				margin-left -10px
+				padding 10px
+				background-color #8A4B23
+				position absolute
+				display none
+			&:hover .menu_drop
+				display block
 	&.right
 		float right
 

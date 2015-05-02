@@ -9,6 +9,10 @@ $(document).ready(function() {
 		},
 		getResult: function (result) {
 			$.post('/search', {search: result}).done(function(data) {
+				data.events.length == 0 && data.exhibits.length == 0
+					? $('.search_result').hide()
+					: $('.search_result').show();
+
 				$('.search_context').hide().children('.context_results_block').empty();
 
 				data.exhibits.forEach(function(exhibit) {
