@@ -8,32 +8,40 @@ block content_style
 
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/jquery-swing-scroll.js' + version)
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/events.js' + version)
 
 
 block content
 	.content_title голубок
+	.content_navigate_block
+		.navigate_title Навигация:
+		.navigate_items_block
+			.navigate_item Раз
+			.navigate_item Два
+			.navigate_item Три
+			.navigate_item Четыре
 	.content_outer_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
-		.content_scroll_block
+		.content_item.event 1
+		.content_item.event.important 2
+		.content_item.event 3
+		.content_item.event 4
+		.content_item.event 5
+		.content_item.event.important 6
+		.content_item.event 7
+		.content_item.event 8
+		.content_item.event 9
+		.content_item.event 10
+		.content_item.event 11
+		.content_item.event 12
 
 block scroll
 	.content_title розочка
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
-	.content_scroll_block
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item
+	.content_scroll_item

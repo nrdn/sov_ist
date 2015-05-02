@@ -12,8 +12,8 @@ $(document).ready(function() {
 
 
 	var $container = $('.content_outer_block').masonry({
-			columnWidth: 60,
-			gutter: 20,
-			isOriginLeft: false
+		columnWidth: 60,
+		gutter: 20,
+		isOriginLeft: false
 	});
 });
