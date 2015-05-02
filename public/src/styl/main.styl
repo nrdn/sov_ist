@@ -1,15 +1,23 @@
 .content_column
 	&.main
 		background-color #DFA3D7
+		.content_outer_block
+			overflow hidden
+			box-size border-box
 		.content_scroll_block
-			width 100%
-			height 120px
+			width 220px
+			height 340px
+			box-size border-box
+			margin-right 20px
+			float left
 			background-color #647A8A
-			margin-top 10px
+			margin-bottom 30px
+			&:nth-child(4n)
+				margin-right 0px
 	&.scroll
 		background-color #48A1DF
 		.content_scroll_block
 			width 100%
 			height 500px
 			background-color #647A8A
-			margin-top 10px
+			margin-bottom 10px
