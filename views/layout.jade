@@ -7,10 +7,14 @@ html
 		.main_block
 			.header_block
 				.header_inner
-					.header_logo
+					a.header_logo(href='/')
 					.menu_block.left
-						a(href='/') главная
-						a(href='/contacts') контакты
+						a(href='/about') О музее
+						a(href='/virtual') Виртуальный музей
+						a(href='/events') События
+						a(href='/contacts') Посетителям
+						a(href='/partners') Партнерство
+						a(href='/live') Живая история
 						a(href='/auth') ЗВЕЗДОЧЕТ
 					.menu_block.right
 						.social_block
@@ -24,7 +28,13 @@ html
 				.search_block
 					.search_inner
 						input.search_input(type='text', placeholder='Найти...')
-						.search_contexts_block
+						.search_result
+							.search_context.exhibits
+								.context_title Экспонаты:
+								.context_results_block
+							.search_context.events
+								.context_title События:
+								.context_results_block
 			.content_block
 				.content_columns_block
 					.content_column.main

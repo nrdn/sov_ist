@@ -103,6 +103,15 @@ categorySchema.plugin(mongooseLocale);
 
 
 // ------------------------
+// *** Index Block ***
+// ------------------------
+
+
+exhibitSchema.index({'title.value': 'text', 'description.value': 'text'}, {language_override:'lg', default_language: 'ru'});
+eventSchema.index({'title.value': 'text', 'description.value': 'text'}, {language_override:'lg', default_language: 'ru'});
+
+
+// ------------------------
 // *** Exports Block ***
 // ------------------------
 

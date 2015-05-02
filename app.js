@@ -46,6 +46,7 @@ app.use(function(req, res, next) {
 
 
 var main = require('./routes/main.js');
+var events = require('./routes/events.js');
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
 
@@ -60,6 +61,7 @@ var admin_events = require('./routes/admin/events.js');
 var admin_categorys = require('./routes/admin/categorys.js');
 
 var options = require('./routes/admin/options.js');
+var globals = require('./routes/globals.js');
 
 
 // ------------------------
@@ -83,10 +85,8 @@ function checkAuth (req, res, next) {
 // === Main Route
 app.route('/').get(main.index);
 
-
-// === Locale Route
-app.route('/lang/:locale').get(main.locale);
-
+// === Main Route
+app.route('/events').get(events.index);
 
 
 // ------------------------
@@ -334,6 +334,19 @@ app.route('/contacts').get(content.contacts);
 app.route('/preview')
 	 .post(options.preview)
 
+
+// ------------------------
+// *** Globals Routers Block ***
+// ------------------------
+
+
+// === Search Route
+app.route('/search')
+	 .post(globals.search)
+
+
+// === Locale Route
+app.route('/lang/:locale').get(globals.locale);
 
 
 // ------------------------
