@@ -88,8 +88,10 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	&.main
 		width 960px
 		float left
-		.content_inner
+		.column_inner_block
 			padding-right 20px
+		.content_outer_block
+			overflow hidden
 	&.scroll
 		width 320px
 		float left
@@ -97,6 +99,22 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 .content_title
 	margin-bottom 30px
 	font-size 24pt
+
+.content_navigate_block
+	overflow hidden
+	margin-bottom 30px
+	.navigate_title
+		font-size 12pt
+		float left
+	.navigate_items_block
+		float left
+		.navigate_item
+			float left
+			margin-left 5px
+			font-size 12pt
+			cursor pointer
+			&:hover
+				text-decoration underline
 
 .footer_block
 	padding-top 20px

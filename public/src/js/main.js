@@ -9,4 +9,11 @@ $(document).ready(function() {
 		// 		return 'wheel';
 		// }
 	});
+
+
+	var $container = $('.content_outer_block').masonry({
+			columnWidth: 60,
+			gutter: 20,
+			isOriginLeft: false
+	});
 });

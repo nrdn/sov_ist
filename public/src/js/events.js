@@ -3,6 +3,4 @@ $(document).ready(function() {
 		factor: 3.5,
 		engine: 'scroll'
 	});
-
-
 });

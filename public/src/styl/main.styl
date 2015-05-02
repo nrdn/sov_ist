@@ -1,23 +1,31 @@
 .content_column
 	&.main
 		background-color #DFA3D7
-		.content_outer_block
-			overflow hidden
-			box-size border-box
-		.content_scroll_block
-			width 220px
-			height 340px
-			box-size border-box
-			margin-right 20px
-			float left
-			background-color #647A8A
-			margin-bottom 30px
-			&:nth-child(4n)
-				margin-right 0px
 	&.scroll
 		background-color #48A1DF
-		.content_scroll_block
-			width 100%
+		.content_scroll_item
 			height 500px
 			background-color #647A8A
 			margin-bottom 10px
+
+.content_item
+	width 220px
+	margin-bottom 20px
+	&.event
+		min-height 220px
+		float right
+		background-color #647A8A
+		&.important
+			width 460px
+			height 460px
+	&.news
+		height 100px
+		background-color #604A8A
+		&:last-child
+			margin-bottom 0px
+
+.content_news_block
+	width 220px
+	background-color #318A4E
+	float right
+	margin-bottom 20px
