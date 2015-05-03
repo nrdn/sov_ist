@@ -8,19 +8,19 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 .header_block
 	position absolute
 	width 100%
-	background-color #8A4B23
+	background-color rgba(0, 0, 0, 0.7)
 	z-index 999
 
 .search_block
 	width 100%
 	display none
-	background-color #318A4E
 
 .search_input
 	display block
 	width 100%
-	font-size 24pt
-	background-color #318A4E
+	font-size 20pt
+	color white
+	background-color rgba(0, 0, 0, 0)
 	border 0
 	margin 0
 	padding 0
@@ -30,7 +30,9 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	width 100%
 	margin-top 10px
 	display none
-	background-color #318A4E
+	color white
+	a
+		color white
 
 .search_context
 	display none
@@ -71,17 +73,30 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .social_block
 	float left
-	 img
-			width 25px
+	img
+		filter: invert(100%)
+		display block
+		float left
+		margin-right 5px
+		width 25px
 
 .options_block
+	filter: invert(100%)
 	float left
+	border-left 1px solid black
 	margin-left 10px
 .option
-	margin-left 5px
+	margin-left 10px
 	float left
 	cursor pointer
 	display block
+	&.lang
+		margin-top 4px
+	&.search
+		width 25px
+		height 25px
+		background url('/images/design/icons/search.png') center no-repeat
+		background-size cover
 
 .header_logo
 	width 60px
