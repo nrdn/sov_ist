@@ -11,10 +11,14 @@ $(document).ready(function() {
 	});
 
 
-	var $container = $('.content_outer_block').masonry({
-		columnWidth: 60,
-		gutter: 20,
-		isOriginLeft: false
+	var $container = $('.content_outer_block');
+
+	$container.imagesLoaded(function() {
+		$container.masonry({
+			columnWidth: 60,
+			gutter: 20,
+			isOriginLeft: false
+		});
 	});
 
 	function getItemElement() {

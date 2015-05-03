@@ -1,6 +1,7 @@
 body
 	margin 0
 	padding 0
+	font 12pt/14pt 'PT Sans'
 
 html, body, .main_block, .content_block, .content_columns_block, .content_column
 	height 100%
@@ -54,18 +55,22 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			float left
 			.menu_item
 				display block
-				margin-top 6px
+				margin-top 4px
+				font 12pt/14pt 'PT Serif'
 				color white
 				text-decoration none
 				&:hover
-					text-decoration underline
+					color red
 			.menu_drop
-				width 110px
+				width 115px
 				margin-left -10px
-				padding 10px
-				background-color #8A4B23
+				padding-top 10px
 				position absolute
 				display none
+				.drop_inner
+					width 115px
+					padding 0 10px 10px 10px
+					background-color rgba(0, 0, 0, 0.7)
 			&:hover .menu_drop
 				display block
 	&.right
@@ -99,11 +104,21 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		background-size cover
 
 .header_logo
-	width 60px
-	height 30px
 	display block
+	overflow hidden
+	margin-right 40px
 	float left
-	background-color #4C8A36
+	.logo_image
+		height 23px
+		display block
+		float left
+	.logo_title
+		margin-left 15px
+		color white
+		text-decoration none
+		width 160px
+		float left
+		font 8pt/10pt 'PT Serif'
 
 .content_columns_block
 	overflow hidden
@@ -111,7 +126,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	margin 0 auto
 
 .content_column
-	padding-top 80px
+	padding-top 100px
 	box-sizing border-box
 	overflow scroll
 	&.main
@@ -126,7 +141,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		float left
 
 .content_title
-	margin-bottom 30px
+	margin-bottom 60px
 	font-size 24pt
 
 .content_navigate_block
@@ -135,6 +150,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	.navigate_title
 		font-size 12pt
 		float left
+		font-weight bold
 	.navigate_items_block
 		float left
 		.navigate_item

@@ -8,41 +8,39 @@ block content_style
 
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/jquery-swing-scroll.js' + version)
+	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/main.js' + version)
 
 
 block content
-	.content_title голубок
+	- var months = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+	.content_title Историю создаете вы
 	.content_navigate_block
-		.navigate_title Навигация:
+		.navigate_title Наши последние события:
 		.navigate_items_block
-			.navigate_item Раз
-			.navigate_item Два
-			.navigate_item Три
-			.navigate_item Четыре
+			.navigate_item экскурсии
+			.navigate_item выствки
+			.navigate_item лекции
+			.navigate_item мероприятия
+			.navigate_item Дискуссионная площадка Тверская XXI
 	.content_outer_block
 		.content_news_block
-			.content_item.news Носорог
-			.content_item.news Декабраз
-			.content_item.news Кролик
-			.content_item.news Ветеринар
-			.content_item.news Кабан
-			.content_item.news Лама
-			.content_item.news Бык
-		.content_item.event 1
-		.content_item.event 2
-		.content_item.event.important 3
-		.content_item.event 4
-		.content_item.event 5
-		.content_item.event 6
-		.content_item.event 7
-		.content_item.event 8
-		.content_item.event 9
-		.content_item.event.important 10
-		.content_item.event 11
-		.content_item.event 12
-		.content_item.event 13
+			each item in news
+				.content_item.news
+					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
+					.item_title= item.i18n.title.get('ru')
+
+		each event in events
+			if (event.status == 'important')
+				.content_item.event.important(style='background-image: url(' + event.images[0].original + ')')
+					.item_date 03/05/2015 - 25/05/2015
+					.item_title= event.i18n.title.get('ru')
+			else
+				.content_item.event
+					img.item_image(src=event.images[0].thumb)
+					.item_date 03.05.2015 - 25.05.2015
+					.item_title= event.i18n.title.get('ru')
 
 block scroll
 	.content_title розочка
