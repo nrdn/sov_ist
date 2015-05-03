@@ -10,8 +10,8 @@ exports.internships = function(req, res) {
   res.render('content/internships.jade');
 }
 
-exports.oficial = function(req, res) {
-  res.render('content/oficial.jade');
+exports.official = function(req, res) {
+  res.render('content/official.jade');
 }
 
 exports.partners = function(req, res) {

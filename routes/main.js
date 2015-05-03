@@ -1,4 +1,5 @@
 var Event = require('../models/main.js').Event;
+var News = require('../models/main.js').News;
 
 function mirrorSort(arr) {
 	var result = [];

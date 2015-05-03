@@ -361,7 +361,7 @@ app.route('/team').get(content.team);
 app.route('/internships').get(content.internships);
 
 // === Oficial Route
-app.route('/oficial').get(content.oficial);
+app.route('/official').get(content.official);
 
 // === Partners Route
 app.route('/partners').get(content.partners);
