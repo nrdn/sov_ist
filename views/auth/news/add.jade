@@ -2,7 +2,7 @@ extends ../../layout
 include ../forms.jade
 
 block title
-	title ДОБАВИТЬ КОЛЛЕКЦИЮ
+	title ДОБАВИТЬ НОВОСТЬ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
@@ -22,9 +22,9 @@ block content_scripts
 
 block content
 	.form_block
-		a.back_link(href='/auth/collects') < Назад
-		.title ДОБАВИТЬ КОЛЛЕКЦИЮ
-		form(action="/auth/collects/add", method="post")
+		a.back_link(href='/auth/news') < Назад
+		.title ДОБАВИТЬ НОВОСТЬ
+		form(action="/auth/news/add", method="post")
 			.form_title Заголовок:
 			+form_text_single('title')
 			.form_title Описание:

@@ -53,6 +53,7 @@ var files = require('./routes/files.js');
 var auth = require('./routes/auth.js');
 
 var admin_history = require('./routes/admin/history.js');
+var admin_news = require('./routes/admin/news.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
 var admin_halls = require('./routes/admin/halls.js');
@@ -87,6 +88,35 @@ app.route('/').get(main.index);
 
 // === Main Route
 app.route('/events').get(events.index);
+
+
+
+// ------------------------
+// *** Admin History Routes Block ***
+// ------------------------
+
+
+
+// === Admin news Route
+app.route('/auth/news').get(checkAuth, admin_news.list);
+
+
+// === Admin @add news Route
+app.route('/auth/news/add')
+	 .get(checkAuth, admin_news.add)
+	 .post(checkAuth, admin_news.add_form);
+
+
+// === Admin @edit news Route
+app.route('/auth/news/edit/:id')
+	 .get(checkAuth, admin_news.edit)
+	 .post(checkAuth, admin_news.edit_form);
+
+
+// === Admin @remove news Route
+app.route('/auth/news/remove')
+	 .post(checkAuth, admin_news.remove);
+
 
 
 // ------------------------
