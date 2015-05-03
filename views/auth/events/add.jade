@@ -29,13 +29,16 @@ block content
 			+form_single_select('category', categorys)
 			.form_title Филиал:
 			+form_single_select('subsidiary', subsidiarys)
+			.form_title Статус
+			input(type='checkbox', name='status', value='important')
+			|важное
 			.form_title Тип:
 			select(name='type')
 				option(value='exhibition') Выставка
 				option(value='tour') Экскурсия
 				option(value='lecture') Лекция
 				option(value='action') Мероприятие
-				option(value='XXI') Дискуссионная площадка Тверская XXI
+				option(value='xxi') Дискуссионная площадка Тверская XXI
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Перетащи сюда

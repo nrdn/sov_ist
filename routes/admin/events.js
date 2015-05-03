@@ -75,6 +75,7 @@ exports.add_form = function(req, res) {
 
 	event.category = post.category;
 	event.type = post.type;
+	event.status = post.status;
 	event.subsidiary = post.subsidiary;
 	event.category = post.category;
 
@@ -162,6 +163,7 @@ exports.edit_form = function(req, res) {
 
 		event.category = post.category;
 		event.type = post.type;
+		event.status = post.status;
 		event.subsidiary = post.subsidiary;
 		event.category = post.category;
 

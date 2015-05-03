@@ -79,6 +79,7 @@ var eventSchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
 	category: { type: Schema.Types.ObjectId, ref: 'Category' },
+	status: String,
 	type: String,
 	images: [{
 		original: String,

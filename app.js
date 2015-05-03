@@ -86,8 +86,11 @@ function checkAuth (req, res, next) {
 // === Main Route
 app.route('/').get(main.index);
 
-// === Main Route
+// === Events Route
 app.route('/events').get(events.index);
+
+// === Events Tag Route
+app.route('/events/:type').get(events.index);
 
 
 
