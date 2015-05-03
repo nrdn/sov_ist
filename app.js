@@ -354,9 +354,36 @@ app.route('/registr')
 // === About Route
 app.route('/about').get(content.about);
 
+// === Team Route
+app.route('/team').get(content.team);
+
+// === Internships Route
+app.route('/internships').get(content.internships);
+
+// === Oficial Route
+app.route('/oficial').get(content.oficial);
+
+// === Partners Route
+app.route('/partners').get(content.partners);
+
+// === Live Route
+app.route('/live').get(content.live);
+
+
+// === Visitors Route
+app.route('/visitors').get(content.visitors);
+
+// === Schedule Route
+app.route('/visitors/schedule').get(content.schedule);
+
+// === Souvenirs Route
+app.route('/visitors/souvenirs').get(content.souvenirs);
 
 // === Contacts Route
-app.route('/contacts').get(content.contacts);
+app.route('/visitors/contacts').get(content.contacts);
+
+
+
 
 
 // ------------------------
