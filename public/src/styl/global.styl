@@ -132,8 +132,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .content_column
 	box-sizing border-box
-	overflow scroll
 	&.main
+		overflow scroll
 		padding-top 90px
 		width 960px
 		float left
@@ -145,6 +145,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		.content_outer_block
 			overflow hidden
 	&.scroll
+		overflow hidden
 		.content_title
 			top 70px
 			width 320px
@@ -154,6 +155,9 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			color white
 			text-shadow: 1px 1px 2px black, 0 0 2em black;
 			font 14pt/16pt 'PT Serif'
+		.content_scroll_items
+			overflow scroll
+			height 100%
 		width 320px
 		float left
 

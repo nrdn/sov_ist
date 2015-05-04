@@ -1,8 +1,8 @@
 $(window).load(function(){
-	var parent = $('.scroll');
+	var parent = $('.content_scroll_items');
 	var max = parent[0].scrollHeight - parent[0].offsetHeight - 20;
 	var scroll_position = 0;
-	var factor = 5.555;
+	var factor = 5.55555;
 
 	parent.on('scroll', function(event) {
 	    var s = $(this).scrollTop(),
