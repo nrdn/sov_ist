@@ -79,6 +79,9 @@ exports.add_form = function(req, res) {
 	event.subsidiary = post.subsidiary;
 	event.category = post.category;
 
+  event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
+  event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
+
 
 	if (!post.images) {
 		return (function () {
@@ -166,6 +169,9 @@ exports.edit_form = function(req, res) {
 		event.status = post.status;
 		event.subsidiary = post.subsidiary;
 		event.category = post.category;
+
+		event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
+		event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
 		event.save(function(err, event) {
 			res.redirect('/auth/events');

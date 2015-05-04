@@ -34,13 +34,15 @@ block content
 		each event in events
 			if (event.status == 'important')
 				.content_item.event.important(style='background-image: url(' + event.images[0].original + ')')
-					.item_date 03/05/2015 - 25/05/2015
-					.item_title= event.i18n.title.get('ru')
+					.item_description
+						.item_date= event.interval.start.getUTCDate() + '/' + event.interval.start.getUTCMonth() + '/' + event.interval.start.getUTCFullYear() + ' - ' + event.interval.end.getUTCDate() + '/' + event.interval.end.getUTCMonth() + '/' + event.interval.end.getUTCFullYear()
+						.item_title= event.i18n.title.get('ru')
 			else
 				.content_item.event
 					img.item_image(src=event.images[0].thumb)
-					.item_date 03.05.2015 - 25.05.2015
-					.item_title= event.i18n.title.get('ru')
+					.item_description
+						.item_date= event.interval.start.getUTCDate() + '/' + event.interval.start.getUTCMonth() + '/' + event.interval.start.getUTCFullYear() + ' - ' + event.interval.end.getUTCDate() + '/' + event.interval.end.getUTCMonth() + '/' + event.interval.end.getUTCFullYear()
+						.item_title= event.i18n.title.get('ru')
 
 block scroll
 	.content_title розочка

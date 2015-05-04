@@ -14,7 +14,7 @@ function mirrorSort(arr) {
 
 exports.index = function(req, res) {
 	News.find().sort('-date').limit(5).exec(function(err, news) {
-		Event.find().sort('-date').limit(6).skip(2).exec(function(err, events) {
+		Event.find().sort('-date').limit(6).exec(function(err, events) {
 			var result = mirrorSort(events);
 			res.render('main', {events: result, news: news});
 		});

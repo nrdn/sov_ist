@@ -36,6 +36,10 @@ block content
 				option(value='lecture', selected=event.type == 'lecture') Лекция
 				option(value='action', selected=event.type == 'action') Мероприятие
 				option(value='xxi', selected=event.type == 'XXI') Дискуссионная площадка Тверская XXI
+			.form_title Дата начала:
+			+form_calendar('date_start', event.interval.start)
+			.form_title Дата конца:
+			+form_calendar('date_end', event.interval.end)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Перетащи сюда
