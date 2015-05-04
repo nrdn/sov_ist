@@ -126,23 +126,31 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	margin 0 auto
 
 .content_column
-	padding-top 100px
 	box-sizing border-box
 	overflow scroll
 	&.main
+		padding-top 90px
 		width 960px
 		float left
+		.content_title
+			margin-bottom 60px
+			font 24pt/26pt 'PT Serif'
 		.column_inner_block
 			padding-right 20px
 		.content_outer_block
 			overflow hidden
 	&.scroll
+		.content_title
+			top 70px
+			width 320px
+			box-sizing border-box
+			padding 10px
+			position absolute
+			color white
+			text-shadow: 1px 1px 2px black, 0 0 2em black;
+			font 14pt/16pt 'PT Serif'
 		width 320px
 		float left
-
-.content_title
-	margin-bottom 60px
-	font-size 24pt
 
 .content_navigate_block
 	overflow hidden
@@ -159,7 +167,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			font-size 12pt
 			cursor pointer
 			&:hover
-				text-decoration underline
+				color red
 
 .footer_block
 	font 10pt/12pt 'PT Serif'

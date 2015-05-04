@@ -4,13 +4,18 @@
 	&.scroll
 		background-color #48A1DF
 		.content_scroll_item
-			height 500px
+			width 320px
+			min-height 200px
+			display block
 			background-color #647A8A
-			margin-bottom 10px
+			// margin-bottom 10px
 
 .content_item
 	width 220px
 	margin-bottom 20px
+	display block
+	text-decoration none
+	color black
 	&.event
 		// min-height 220px
 		float right
@@ -42,6 +47,7 @@
 				.item_title
 					font 16pt/18pt 'PT Sans'
 	&.news
+		border-bottom 1px solid #B8B8B8
 		// height 100px
 		// background-color #604A8A
 		.item_date
