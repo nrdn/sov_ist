@@ -7,7 +7,6 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/main.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/build/libs/js/jquery-swing-scroll.js' + version)
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/main.js' + version)
@@ -46,7 +45,7 @@ block content
 						.item_title= event.i18n.title.get('ru')
 
 block scroll
-	.content_title Государственный центральный музей современной истории России
+	//- .content_title Государственный центральный музей современной истории России
 	img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
 	img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
 	img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
