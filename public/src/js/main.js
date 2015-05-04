@@ -7,8 +7,8 @@ $(window).load(function(){
 	parent.on('scroll', function(event) {
 	    var s = $(this).scrollTop(),
 	        f = $('>:first', parent),l = $('>:last', parent);
-	    if(s > max) {f.appendTo(parent); parent.scrollTop(s - f.height())}
-	    if(s < 5) {l.prependTo(parent);parent.scrollTop(s + l.height()) }
+	    if(s > max) {f.appendTo(parent); parent.scrollTop(s - f.height()); }
+	    if(s < 5) {l.prependTo(parent); parent.scrollTop(s + l.height()); }
 	}).scrollTop(5);
 
 	$('.main').on('scroll', function(event) {
