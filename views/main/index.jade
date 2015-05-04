@@ -19,6 +19,7 @@ block content
 	.content_navigate_block
 		.navigate_title Наши последние события:
 		.navigate_items_block
+			.navigate_item.selected все
 			.navigate_item экскурсии
 			.navigate_item выствки
 			.navigate_item лекции
@@ -35,13 +36,13 @@ block content
 			if (event.status == 'important')
 				a.content_item.event.important(href='/events/' + event.type +'/' + event._id, style='background-image: url(' + event.images[0].original + ')')
 					.item_description
-						.item_date= event.interval.start.getUTCDate() + '/' + event.interval.start.getUTCMonth() + '/' + event.interval.start.getUTCFullYear() + ' - ' + event.interval.end.getUTCDate() + '/' + event.interval.end.getUTCMonth() + '/' + event.interval.end.getUTCFullYear()
+						.item_date= ('0' + event.interval.start.getUTCDate()).slice(-2)  + '/' + ('0' + event.interval.start.getUTCMonth()).slice(-2) + '/' + ('0' + event.interval.start.getUTCFullYear()).slice(-2) + ' - ' + ('0' + event.interval.end.getUTCDate()).slice(-2)  + '/' + ('0' + event.interval.end.getUTCMonth()).slice(-2) + '/' + ('0' + event.interval.end.getUTCFullYear()).slice(-2)
 						.item_title= event.i18n.title.get('ru')
 			else
 				a.content_item.event(href='/events/' + event.type +'/' + event._id)
 					img.item_image(src=event.images[0].thumb)
 					.item_description
-						.item_date= event.interval.start.getUTCDate() + '/' + event.interval.start.getUTCMonth() + '/' + event.interval.start.getUTCFullYear() + ' - ' + event.interval.end.getUTCDate() + '/' + event.interval.end.getUTCMonth() + '/' + event.interval.end.getUTCFullYear()
+						.item_date= ('0' + event.interval.start.getUTCDate()).slice(-2)  + '/' + ('0' + event.interval.start.getUTCMonth()).slice(-2) + '/' + ('0' + event.interval.start.getUTCFullYear()).slice(-2) + ' - ' + ('0' + event.interval.end.getUTCDate()).slice(-2)  + '/' + ('0' + event.interval.end.getUTCMonth()).slice(-2) + '/' + ('0' + event.interval.end.getUTCFullYear()).slice(-2)
 						.item_title= event.i18n.title.get('ru')
 
 block scroll

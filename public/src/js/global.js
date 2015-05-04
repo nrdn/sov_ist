@@ -46,6 +46,11 @@ $(document).ready(function() {
 		$('.search_block').toggle().find('.search_input').focus();
 	});
 
+	$('.navigate_item').on('click', function() {
+		var index = $(this).index('.navigate_item');
+		$('.navigate_item').removeClass('selected').eq(index).addClass('selected');
+	});
+
 	$(document).on('mouseup', function(event) {
 		var container = $('.search_block');
 

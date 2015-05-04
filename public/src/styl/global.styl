@@ -109,6 +109,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	margin-right 40px
 	float left
 	.logo_image
+		min-width 50px
 		height 23px
 		display block
 		float left
@@ -162,12 +163,16 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	.navigate_items_block
 		float left
 		.navigate_item
+			padding-left 3px
+			padding-right 3px
+			border 1px solid white
 			float left
 			margin-left 5px
 			font-size 12pt
 			cursor pointer
 			&:hover
-				color red
+			&.selected
+				border 1px solid black
 
 .footer_block
 	font 10pt/12pt 'PT Serif'
