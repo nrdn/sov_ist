@@ -4,11 +4,42 @@ block title
 	title КОМАНДА
 
 block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
 	link(rel='stylesheet', type='text/css', href='/build/css/team.css' + version)
 
 block content_scripts
+	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/js/blocks.js' + version)
 	script(type='text/javascript', src='/build/js/team.js' + version)
 
 
 block content
 	.content_title Команда
+	.content_outer_block
+
+		.content_item.important(style='background-image: url(/images/design/backgrounds/01.jpg)')
+			.item_description
+				.item_title привет
+
+		.content_item
+			img.item_image(src='/images/design/backgrounds/02.jpg')
+			.item_description
+				.item_title Как дела?
+
+		.content_item
+		.content_item
+		.content_item
+		.content_item
+		.content_item
+		.content_item
+		.content_item
+
+
+block scroll
+	.content_title Государственный центральный музей современной истории России
+	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')

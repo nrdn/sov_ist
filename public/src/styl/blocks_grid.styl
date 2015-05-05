@@ -1,0 +1,57 @@
+.content_column
+	&.main
+		background-color #DFA3D7
+	&.scroll
+		background-color #48A1DF
+		.content_scroll_item
+			width 320px
+			min-height 200px
+			display block
+			background-color #647A8A
+
+.content_item
+	width 220px
+	margin-bottom 20px
+	float left
+	min-height 220px
+	background-color #647A8A
+	text-decoration none
+	color black
+	.item_image
+		width 220px
+		display block
+	.item_description
+		margin-top 10px
+		.item_date
+			font 10pt/12pt 'PT Sans'
+		.item_title
+			font-weight bold
+	&.important
+		background-size cover
+		background-position center
+		width 460px
+		height 460px
+		.item_description
+			box-sizing border-box
+			width 460px
+			color white
+			position absolute
+			padding 10px
+			bottom 0
+			background-color rgba(0, 0, 0, 0.7)
+			.item_date
+				font 10pt/12pt 'PT Sans'
+			.item_title
+				font 16pt/18pt 'PT Sans'
+
+
+
+
+// Test
+
+
+.content_item.h1
+	height 280px
+
+.content_item.h2
+	height 520px
