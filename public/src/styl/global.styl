@@ -82,29 +82,35 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .social_block
 	float left
-	img
-		filter: invert(100%)
+	a
+		color white
+		font 16px/25px 'Icons'
 		display block
 		float left
 		margin-right 5px
 		width 25px
+		text-decoration none
+		&:hover
+			color rgb(196, 20, 59)
 
 .options_block
-	filter: invert(100%)
+	color white
 	float left
-	border-left 1px solid black
+	border-left 1px solid white
 	margin-left 10px
 .option
 	margin-left 10px
 	float left
 	cursor pointer
 	display block
+	&:hover
+		color rgb(196, 20, 59)
 	&.lang
 		margin-top 4px
 	&.search
 		width 25px
 		height 25px
-		background url('/images/design/icons/search.png') center no-repeat
+		font 16px/25px 'Icons'
 		background-size cover
 
 .header_logo

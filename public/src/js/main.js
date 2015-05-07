@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	var current_type = 'all';
 
 	var $container = $('.content_outer_block');
 
@@ -29,5 +30,20 @@ $(document).ready(function() {
 			var elems = [getItemElement(), getItemElement(), getItemElement()];
 			$container.append(elems).masonry('appended', elems);
 		}
+	});
+
+	$('.navigate_item').on('click', function() {
+		var type = $(this).attr('class').split(' ')[1];
+		if (type == current_type) return false;
+		else current_type = type;
+
+		var current_elems = document.getElementsByClassName('event');
+
+		$.ajax({url: '/', method: 'POST', data: {type: type}, async: false }).done(function(elems) {
+			if (elems != 'out') {
+				$elems = $(elems);
+				$container.masonry('remove', current_elems).masonry('layout').append($elems).masonry('appended', $elems);
+			}
+		});
 	});
 });

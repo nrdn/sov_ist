@@ -22,8 +22,8 @@ block content
 			+form_text_single('title', event)
 			.form_title Описание:
 			+form_text_multi('description', event)
-			.form_title Категория:
-			+form_single_select('category', categorys, event.category)
+			.form_title Категории:
+			+form_multiple_select('categorys', categorys, event.categorys)
 			.form_title Филиал:
 			+form_single_select('subsidiary', subsidiarys, event.subsidiary)
 			.form_title Статус

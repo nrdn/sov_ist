@@ -1,9 +1,4 @@
 @font-face {
-    font-family: DinProMedium;
-    src: url('/fonts/DINPro-Medium.otf');
-}
-
-@font-face {
-    font-family: DinProBold;
-    src: url('/fonts/DINPro-Bold.otf');
+    font-family: Icons;
+    src: url('/fonts/icons.ttf');
 }

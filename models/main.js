@@ -78,7 +78,7 @@ var eventSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
-	category: { type: Schema.Types.ObjectId, ref: 'Category' },
+	categorys: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
 	interval: {
 		start: Date,
 		end: Date

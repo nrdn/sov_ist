@@ -1,5 +1,10 @@
+var path = require('path');
+var jade = require('jade');
+
 var Event = require('../models/main.js').Event;
 var News = require('../models/main.js').News;
+
+var __appdir = path.dirname(require.main.filename);
 
 function mirrorSort(arr) {
 	var result = [];
@@ -18,5 +23,21 @@ exports.index = function(req, res) {
 			var result = mirrorSort(events);
 			res.render('main', {events: result, news: news});
 		});
+	});
+}
+
+exports.get_events = function(req, res) {
+	var post = req.body;
+	var query = post.type == 'all' ? {} : {'type': post.type};
+
+	Event.find(query).sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
+		if (events.length > 0) {
+			var mirror = mirrorSort(events);
+			var result = jade.renderFile(__appdir + '/views/events/get_events.jade', {events: mirror});
+			res.send(result);
+		} else {
+			res.send('out');
+		}
+
 	});
 }
