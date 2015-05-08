@@ -2,14 +2,17 @@ $(document).ready(function() {
 	var context = [];
 
 	var $container = $('.content_outer_block');
+	var news_stamp = document.getElementsByClassName('content_news_block')[0];
 
 	$container.imagesLoaded(function() {
 		$container.masonry({
 			columnWidth: 60,
 			gutter: 20,
-			isOriginLeft: false
-		});
+			itemSelector: '.event',
+			isInitLayout: false
+		}).masonry('stamp', news_stamp).masonry('layout');
 	});
+
 
 	function getItemElement() {
 		var elem = document.createElement('div');
