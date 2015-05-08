@@ -47,8 +47,8 @@ $(document).ready(function() {
 	});
 
 	$('.navigate_item').on('click', function() {
-		var index = $(this).index('.navigate_item');
-		$('.navigate_item').removeClass('selected').eq(index).addClass('selected');
+		var index = $(this).index();
+		$(this).parent('.navigate_items_block').children('.navigate_item').removeClass('selected').eq(index).addClass('selected');
 	});
 
 	$(document).on('mouseup', function(event) {

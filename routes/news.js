@@ -10,7 +10,7 @@ var News = require('../models/main.js').News;
 // ------------------------
 
 
-exports.main = function(req, res) {
+exports.index = function(req, res) {
   News.find().limit(5).sort('-date').exec(function(err, news) {
     res.render('news', {news: news});
   });

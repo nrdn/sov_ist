@@ -15,14 +15,19 @@ block content_scripts
 
 
 block content
-	.content_title голубок
+	.content_title События
 	.content_navigate_block
-		.navigate_title Навигация:
+		.navigate_title Филиалы:
 		.navigate_items_block
-			.navigate_item Раз
-			.navigate_item Два
-			.navigate_item Три
-			.navigate_item Четыре
+			each subsidiary in subsidiarys
+				.navigate_item= subsidiary.i18n.title.get('ru')
+
+	.content_navigate_block
+		.navigate_title Категории:
+		.navigate_items_block
+			each category in categorys
+				.navigate_item= category.i18n.title.get('ru')
+
 	.content_outer_block
 		.content_item.event 1
 		.content_item.event.important 2
@@ -38,7 +43,7 @@ block content
 		.content_item.event 12
 
 block scroll
-	.content_title розочка
+	.content_title
 	.content_scroll_items
 		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
 		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')

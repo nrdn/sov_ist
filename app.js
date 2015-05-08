@@ -47,6 +47,7 @@ app.use(function(req, res, next) {
 
 var main = require('./routes/main.js');
 var events = require('./routes/events.js');
+var news = require('./routes/news.js');
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
 
@@ -94,6 +95,14 @@ app.route('/events').get(events.index);
 // === Events Tag Route
 app.route('/events/:type').get(events.index);
 
+// === News Route
+app.route('/news').get(news.index);
+
+// // === Halls Route
+// app.route('/halls').get(halls.index);
+
+// // === Halls Route
+// app.route('/collects').get(collects.index);
 
 
 // ------------------------
