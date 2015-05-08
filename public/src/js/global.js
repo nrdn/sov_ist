@@ -47,8 +47,13 @@ $(document).ready(function() {
 	});
 
 	$('.navigate_item').on('click', function() {
-		var index = $(this).index();
-		$(this).parent('.navigate_items_block').children('.navigate_item').removeClass('selected').eq(index).addClass('selected');
+		$(this).data('clicked', !$(this).data('clicked'));
+
+		if ($(this).data('clicked')) {
+			$(this).addClass('selected');
+		} else {
+			$(this).removeClass('selected');
+		}
 	});
 
 	$(document).on('mouseup', function(event) {

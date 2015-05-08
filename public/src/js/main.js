@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var current_type = 'all';
+	var context = [];
 
 	var $container = $('.content_outer_block');
 
@@ -34,15 +34,17 @@ $(document).ready(function() {
 
 	$('.navigate_item').on('click', function() {
 		var type = $(this).attr('class').split(' ')[1];
-		if (type == current_type) return false;
-		else current_type = type;
+		if (context.indexOf(type) !== -1) context.splice(context.indexOf(type), 1);
+		else context.push(type);
 
 		var current_elems = document.getElementsByClassName('event');
 
-		$.ajax({url: '/', method: 'POST', data: {type: type}, async: false }).done(function(elems) {
+		$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 6}, async: false }).done(function(elems) {
 			if (elems != 'out') {
 				$elems = $(elems);
-				$container.masonry('remove', current_elems).masonry('layout').append($elems).masonry('appended', $elems);
+				$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
+					$container.masonry('layout');
+				});
 			}
 		});
 	});

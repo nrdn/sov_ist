@@ -28,12 +28,15 @@ exports.index = function(req, res) {
 
 exports.get_events = function(req, res) {
 	var post = req.body;
-	var query = post.type == 'all' ? {} : {'type': post.type};
 
-	Event.find(query).sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
+	var Query = post.context
+		? Event.where('type').in(post.context)
+		: Event.find();
+
+	Query.sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
 		if (events.length > 0) {
-			var mirror = mirrorSort(events);
-			var result = jade.renderFile(__appdir + '/views/events/get_events.jade', {events: mirror});
+			// var mirror = mirrorSort(events);
+			var result = jade.renderFile(__appdir + '/views/events/get_events.jade', {events: events});
 			res.send(result);
 		} else {
 			res.send('out');
