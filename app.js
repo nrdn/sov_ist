@@ -90,7 +90,9 @@ app.route('/')
 	.post(main.get_events);
 
 // === Events Route
-app.route('/events').get(events.index);
+app.route('/events')
+	.get(events.index)
+	.post(events.get_events);
 
 // === Events Tag Route
 app.route('/events/:type').get(events.index);
