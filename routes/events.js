@@ -20,7 +20,7 @@ exports.index = function(req, res) {
 exports.get_events = function(req, res) {
 	var post = req.body;
 
-	var Query = post.context
+	var Query = post.context.categorys || post.context.subsidiarys
 		? Event.find({'type': post.context.type}).or([{ 'categorys': {'$in': post.context.categorys || []} }, { 'subsidiary': {'$in': post.context.subsidiarys || []} }])
 		: Event.find({'type': post.context.type});
 
