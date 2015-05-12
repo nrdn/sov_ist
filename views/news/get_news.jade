@@ -1,19 +1,6 @@
 each item in news
-	.news_item
-		.news_date= ('0' + item.date.getUTCDate()).slice(-2) + '.' + ('0' + item.date.getUTCMonth()).slice(-2)
-		.news_title= item.title[0].value.toUpperCase()
-		.news_s_title= item.s_title[0].value.toUpperCase()
-		if (item.images.length > 0)
-			.images_gallery_block
-				.image_preview
-				.images_gallery_cover
-					.images_gallery_outer
-						.images_gallery_inner
-							each image in item.images
-								img.column(src=image.thumb, full=image.original)
-				if (item.images.length > 3)
-					.images_gallery_navigate
-						.gallery_navigate.back назад
-						.gallery_navigate.forward вперед
-		.news_description
-			!= item.description[0].value
+	.content_item.news.important
+		.item_description
+			.item_date= ('0' + item.date.getUTCDate()).slice(-2) + '/' + ('0' + item.date.getUTCMonth()).slice(-2)
+			.item_title= item.i18n.title.get('ru')
+			.item_body= item.i18n.description.get('ru')
