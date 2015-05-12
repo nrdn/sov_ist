@@ -14,11 +14,11 @@ block content_scripts
 
 mixin trimString(str, length)
 	if (str.length > length)
-		!= str.substr(0, length)
+		span.body: != str.substr(0, length)
 		span.etc ...
 		span.hide= str.substr(length, str.length)
 	- else
-		!= str
+		span.body: != str
 
 
 block content
