@@ -12,16 +12,26 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/js/news.js' + version)
 
+mixin trimString(str, length)
+	if (str.length > length)
+		!= str.substr(0, length)
+		span.etc ...
+		span.hide= str.substr(length, str.length)
+	- else
+		!= str
+
+
 block content
 	- var months = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 	.content_title Новости
 	.content_outer_block
 		each item in news
-			.content_item.news.important
+			.content_item.news.important(class=item.i18n.description.get('ru').length > 30 && 'fold')
 				.item_description
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 					.item_title= item.i18n.title.get('ru')
-					.item_body= item.i18n.description.get('ru')
+					.item_body
+						+trimString(item.i18n.description.get('ru'), 120)
 
 block scroll
 	.content_title

@@ -101,6 +101,9 @@ app.route('/events')
 // === Events Tag Route
 app.route('/events/:type').get(events.index);
 
+// === Events Tag Route
+app.route('/events/:type/:id').get(events.event);
+
 // === News Route
 app.route('/news').get(news.index);
 
