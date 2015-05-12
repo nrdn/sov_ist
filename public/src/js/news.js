@@ -11,11 +11,11 @@ $(document).ready(function() {
 		$(this).data('clicked', !$(this).data('clicked'));
 
 		if ($(this).data('clicked')) {
-			$('.etc').hide();
-			$('.hide').show();
+			$(this).find('.etc').hide();
+			$(this).find('.hide').show();
 		} else {
-			$('.etc').show();
-			$('.hide').hide();
+			$(this).find('.etc').show();
+			$(this).find('.hide').hide();
 		}
 		$container.masonry('layout');
 	});
