@@ -22,9 +22,9 @@ $(document).ready(function() {
 		return elem;
 	}
 
-	$('.content_column.main').on('scroll', function() {
+	$('.column_main_inner').on('scroll', function() {
 		var $content_outer = $('.content_outer_block');
-		var $column_main = $('.content_column.main');
+		var $column_main = $('.column_main_inner');
 
 		var outer_offset_bottom = $content_outer.offset().top + $content_outer.height();
 		var column_height = $column_main.height();

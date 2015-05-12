@@ -11,7 +11,7 @@ $(window).load(function(){
 	    if(s < 5) {l.prependTo(parent); parent.scrollTop(s + l.height()); }
 	}).scrollTop(5);
 
-	$('.main').on('scroll', function(event) {
+	$('.column_main_inner').on('scroll', function(event) {
 	    var scroll = $(this).scrollTop();
 	    if (scroll_position > scroll) {
 	       parent.scrollTop(parent.scrollTop() - factor);
