@@ -18,17 +18,19 @@ block content_scripts
 block content
 	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'xii': 'Дискуссионная площадка Тверская XXI', 'action': 'Мероприятия'}
 	.content_title(class=type)= types[type]
+
 	.content_navigate_block.subsidiarys
 		.navigate_title Филиалы:
 		.navigate_items_block
 			each subsidiary in subsidiarys
 				.navigate_item(class=subsidiary._id)= subsidiary.i18n.title.get('ru')
 
-	.content_navigate_block.categorys
-		.navigate_title Категории:
-		.navigate_items_block
-			each category in categorys
-				.navigate_item(class=category._id)= category.i18n.title.get('ru')
+	if (categorys.length > 0)
+		.content_navigate_block.categorys
+			.navigate_title Категории:
+			.navigate_items_block
+				each category in categorys
+					.navigate_item(class=category._id)= category.i18n.title.get('ru')
 
 	.content_outer_block
 		each event in events
