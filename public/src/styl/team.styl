@@ -2,7 +2,6 @@
 	height 280px
 	box-sizing border-box
 	padding-left 30px
-	// background transparent
 	// background-color #B8657B
 	.item_image
 		width 160px
@@ -19,6 +18,9 @@
 			background transparent
 			bottom 15px
 			width 400px
+			text-align center
+			text-shadow none
+			margin-left 0
 			.item_title
 				font-weight bold
 				margin-top 15px
@@ -34,33 +36,24 @@
 				margin-top 15px
 
 	.item_description
-		width 190px
 		font 12pt/14pt 'PT Serif'
 		.item_type
 			font 10pt/12pt 'PT Sans'
 			color #969696
 			margin-top 6px
 
-.content_column.main
-	overflow visible
-
-.content_block
-.content_column
-	height auto
-
-.content_item.important .item_description
-	text-align center
-	text-shadow none
-	margin-left 0
+// .content_block
+// .content_column
+// 	height auto
 
 
 .content_column.scroll
 	.content_scroll_items
+		box-sizing border-box
 		background #ededed
-		overflow visible
-		height auto
+		// height auto
 		padding-top 160px
-		min-height 1660px
+		padding-bottom 146px
 
 .people_info
 	margin 20px auto 0
