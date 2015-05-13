@@ -24,6 +24,7 @@ var historySchema = new Schema({
 		end: Date
 	},
 	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
 	}],
@@ -36,6 +37,7 @@ var exhibitSchema = new Schema({
 	hall: { type: Schema.Types.ObjectId, ref: 'Hall' },
 	collect: { type: Schema.Types.ObjectId, ref: 'Collection' },
 	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
 	}],
@@ -57,6 +59,7 @@ var hallSchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
 	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
 	}],
@@ -86,6 +89,7 @@ var eventSchema = new Schema({
 	status: String,
 	type: String,
 	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
 	}],
