@@ -107,6 +107,9 @@ app.route('/events/:type/:id').get(events.event);
 // === News Route
 app.route('/news').get(news.index);
 
+// === News Route
+app.route('/news/:id').get(news.news);
+
 // === Exposure Route
 app.route('/exposure').get(exposure.index);
 

@@ -16,6 +16,15 @@ exports.index = function(req, res) {
   });
 }
 
+exports.news = function(req, res) {
+  var id = req.params.id;
+
+  News.findById(id).exec(function(err, news) {
+    res.render('news/news.jade', {news: news});
+  });
+}
+
+
 exports.get_news = function(req, res) {
   var post = req.body;
 
