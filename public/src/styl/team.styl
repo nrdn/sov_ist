@@ -1,29 +1,93 @@
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
+
+.content_column.scroll .content_title
+	display none
+
 .content_item
-	height 220px
+	height 260px
 	background transparent
 	.item_image
 		width 150px
-		margin 0 auto
+		//margin 0 auto
 		overflow hidden
+	.item_title
+		font-weight bold
+		margin-top 15px
 	&.important
 		background-size 400px
-		background-position 50% 0
+		background-position 0 0
 		background-repeat no-repeat
+		position relative
+		//cursor pointer
+		.item_description
+			background transparent
+			bottom -40px
+			width 400px
+			.item_title
+				font-weight bold
+				margin-top 15px
+				font 19pt/18pt 'PT Serif'
+				color #000
+				text-shadow none
+				text-align center
+				width 235px
+				margin 0 auto
+				font-weight bold
+			.item_type
+				font-size 13pt
+				margin-top 11px
+
+		/*&:hover
+			animation-name spin
+			animation-duration 400ms
+			animation-iteration-count infinite
+			animation-timing-function linear
+				*/
 	.item_description
 		width 190px
-		margin 0 0px 0 30px
+		//margin 0 0px 0 30px
 		font 12pt/14pt 'PT Serif'
 		.item_type
 			font 10pt/10pt 'PT Serif'
 			color #969696
+			margin-top 6px
 
-.content_item.important .item_description .item_title
-	font 16pt/18pt 'PT Serif'
-	color #000
-	text-shadow none
-	text-align center
+.content_column.main
+	overflow visible
+
+.content_block
+.content_column
+	height auto
 
 .content_item.important .item_description
 	text-align center
 	text-shadow none
-	margin-left: 0;
+	margin-left 0
+
+
+.content_column.scroll
+	.content_scroll_items
+		background #ededed
+		overflow visible
+		height auto
+		padding-top 250px
+		min-height 1560px
+
+.people_info
+	margin 20px auto 0
+	font 12pt/14pt 'PT Serif'
+	width 250px
+
+.people_name
+	margin-bottom 5px
+	margin-top 20px
+	font 12pt/14pt 'PT Serif'
+	font-weight bold
+
+.people_type
+	margin-bottom 5px
+	font 10pt/10pt 'PT Serif'
+	color #969696
