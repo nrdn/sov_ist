@@ -107,7 +107,7 @@ exports.add_form = function(req, res) {
 		var original_path = images_path.original + name + '.jpg';
 		var thumb_path = images_path.thumb + name + '.jpg';
 
-		gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+		gm(public_path + image.path).resize(420, false).write(public_path + thumb_path, function() {
 			gm(public_path + image.path).write(public_path + original_path, function() {
 				hall.images.push({
 					original: original_path,
@@ -213,7 +213,7 @@ exports.edit_form = function(req, res) {
 			var original_path = images_path.original + name + '.jpg';
 			var thumb_path = images_path.thumb + name + '.jpg';
 
-			gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+			gm(public_path + image.path).resize(420, false).write(public_path + thumb_path, function() {
 				gm(public_path + image.path).write(public_path + original_path, function() {
 					hall.images.push({
 						original: original_path,
