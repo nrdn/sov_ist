@@ -1,5 +1,7 @@
 var path = require('path');
+var fs = require('fs');
 var mkdirp = require('mkdirp');
+var del = require('del');
 var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
@@ -79,8 +81,8 @@ exports.add_form = function(req, res) {
 	event.subsidiary = post.subsidiary;
 	event.categorys = post.categorys == '' ? [] : post.categorys;
 
-  event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
-  event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
+	event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
+	event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
 
 	if (!post.images) {
@@ -104,27 +106,33 @@ exports.add_form = function(req, res) {
 
 	post.images.path.forEach(function(item, i) {
 		images.push({
-			path: post.images.path[i]
+			path: post.images.path[i],
+			description: post.images.description[i]
 		});
 	});
 
 	async.forEachSeries(images, function(image, callback) {
-		var name = Date.now();
+		var name = new Date();
+		name = name.getTime();
 		var original_path = images_path.original + name + '.jpg';
 		var thumb_path = images_path.thumb + name + '.jpg';
 
-		gm(public_path + image.path).resize(320, false).write(public_path + thumb_path, function() {
-			gm(public_path + image.path).resize(1100, false).write(public_path + original_path, function() {
+		gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+			gm(public_path + image.path).write(public_path + original_path, function() {
 				event.images.push({
 					original: original_path,
 					thumb: thumb_path,
+					description: [{
+						lg: 'ru',
+						value: image.description
+					}]
 				});
 				callback();
 			});
 		});
 	}, function() {
-		event.save(function(event) {
-			res.redirect('back');
+		event.save(function() {
+			res.redirect('/auth/events');
 		});
 	});
 
@@ -137,12 +145,23 @@ exports.add_form = function(req, res) {
 
 
 exports.edit = function(req, res) {
-	var id = req.params.id;
+  var id = req.params.id;
+  var public_path = __appdir + '/public';
+  var preview_path = '/images/preview/';
+  var images_preview = [];
 
-	Event.findById(id).exec(function(err, event) {
-		Subsidiary.find().exec(function(err, subsidiarys) {
-			Category.find().exec(function(err, categorys) {
-				res.render('auth/events/edit.jade', {event: event, subsidiarys: subsidiarys, categorys: categorys});
+	Subsidiary.find().exec(function(err, subsidiarys) {
+		Category.find().exec(function(err, categorys) {
+			Event.findById(id).exec(function(err, event) {
+				async.forEach(event.images, function(image, callback) {
+					var image_path = __appdir + '/public' + image.original;
+					var image_name = image.original.split('/')[5];
+					fs.createReadStream(image_path).pipe(fs.createWriteStream(public_path + preview_path + image_name));
+					images_preview.push(preview_path + image_name);
+					callback();
+				}, function() {
+					res.render('auth/events/edit.jade', {images_preview: images_preview, event: event, subsidiarys: subsidiarys, categorys: categorys});
+				});
 			});
 		});
 	});
@@ -150,7 +169,9 @@ exports.edit = function(req, res) {
 
 exports.edit_form = function(req, res) {
 	var post = req.body;
+	var files = req.files;
 	var id = req.params.id;
+	var images = [];
 
 	Event.findById(id).exec(function(err, event) {
 
@@ -173,9 +194,65 @@ exports.edit_form = function(req, res) {
 		event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
 		event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
-		event.save(function(err, event) {
-			res.redirect('/auth/events');
+		var public_path = __appdir + '/public';
+
+		var images_path = {
+			original: '/images/events/' + event._id + '/original/',
+			thumb: '/images/events/' + event._id + '/thumb/',
+		}
+
+		del.sync([public_path + images_path.original, public_path + images_path.thumb]);
+
+		if (!post.images) {
+			return (function () {
+				event.images = [];
+				event.save(function() {
+					res.redirect('back');
+				});
+			})();
+		}
+
+		mkdirp.sync(public_path + images_path.original);
+		mkdirp.sync(public_path + images_path.thumb);
+
+		event.images = [];
+
+		post.images.path.forEach(function(item, i) {
+			images.push({
+				path: post.images.path[i],
+				description: post.images.description[i]
+			});
 		});
+
+		async.forEachSeries(images, function(image, callback) {
+			var name = new Date();
+			name = name.getTime();
+			var original_path = images_path.original + name + '.jpg';
+			var thumb_path = images_path.thumb + name + '.jpg';
+
+			gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+				gm(public_path + image.path).write(public_path + original_path, function() {
+					event.images.push({
+						original: original_path,
+						thumb: thumb_path,
+						description: [{
+							lg: 'ru',
+							value: image.description
+						}]
+					});
+					callback();
+				});
+			});
+		}, function() {
+			event.save(function() {
+				res.redirect('back');
+			})
+		});
+
+
+
+
+
 	});
 }
 
