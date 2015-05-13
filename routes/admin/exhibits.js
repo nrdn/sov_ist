@@ -1,5 +1,7 @@
 var path = require('path');
+var fs = require('fs');
 var mkdirp = require('mkdirp');
+var del = require('del');
 var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
@@ -98,27 +100,33 @@ exports.add_form = function(req, res) {
 
   post.images.path.forEach(function(item, i) {
     images.push({
-      path: post.images.path[i]
+      path: post.images.path[i],
+      description: post.images.description[i]
     });
   });
 
   async.forEachSeries(images, function(image, callback) {
-    var name = Date.now();
+    var name = new Date();
+    name = name.getTime();
     var original_path = images_path.original + name + '.jpg';
     var thumb_path = images_path.thumb + name + '.jpg';
 
-    gm(public_path + image.path).resize(false, 140).write(public_path + thumb_path, function() {
-      gm(public_path + image.path).resize(1000, false).write(public_path + original_path, function() {
+    gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+      gm(public_path + image.path).write(public_path + original_path, function() {
         exhibit.images.push({
           original: original_path,
           thumb: thumb_path,
+          description: [{
+            lg: 'ru',
+            value: image.description
+          }]
         });
         callback();
       });
     });
   }, function() {
-    exhibit.save(function(exhibit) {
-      res.redirect('back');
+    exhibit.save(function() {
+      res.redirect('/auth/events');
     });
   });
 
@@ -132,19 +140,34 @@ exports.add_form = function(req, res) {
 
 exports.edit = function(req, res) {
   var id = req.params.id;
+  var public_path = __appdir + '/public';
+  var preview_path = '/images/preview/';
+  var images_preview = [];
 
-  Exhibit.findById(id).exec(function(err, exhibit) {
-    Collect.find().exec(function(err, collects) {
-      Hall.find().exec(function(err, halls) {
-        res.render('auth/exhibits/edit.jade', {exhibit: exhibit, collects: collects, halls: halls});
+
+  Collect.find().exec(function(err, collects) {
+    Hall.find().exec(function(err, halls) {
+      Exhibit.findById(id).exec(function(err, exhibit) {
+        async.forEach(exhibit.images, function(image, callback) {
+          var image_path = __appdir + '/public' + image.original;
+          var image_name = image.original.split('/')[5];
+          fs.createReadStream(image_path).pipe(fs.createWriteStream(public_path + preview_path + image_name));
+          images_preview.push(preview_path + image_name);
+          callback();
+        }, function() {
+          res.render('auth/exhibits/edit.jade', {images_preview: images_preview, exhibit: exhibit, collects: collects, halls: halls});
+        });
       });
     });
   });
+
 }
 
 exports.edit_form = function(req, res) {
   var post = req.body;
+  var files = req.files;
   var id = req.params.id;
+  var images = [];
 
   Exhibit.findById(id).exec(function(err, exhibit) {
 
@@ -162,9 +185,63 @@ exports.edit_form = function(req, res) {
     exhibit.hall = post.hall;
 
 
-    exhibit.save(function(err, exhibit) {
-      res.redirect('/auth/exhibits');
+    var public_path = __appdir + '/public';
+
+    var images_path = {
+      original: '/images/exhibits/' + exhibit._id + '/original/',
+      thumb: '/images/exhibits/' + exhibit._id + '/thumb/',
+    }
+
+    del.sync([public_path + images_path.original, public_path + images_path.thumb]);
+
+    if (!post.images) {
+      return (function () {
+        exhibit.images = [];
+        exhibit.save(function() {
+          res.redirect('back');
+        });
+      })();
+    }
+
+    mkdirp.sync(public_path + images_path.original);
+    mkdirp.sync(public_path + images_path.thumb);
+
+    exhibit.images = [];
+
+    post.images.path.forEach(function(item, i) {
+      images.push({
+        path: post.images.path[i],
+        description: post.images.description[i]
+      });
     });
+
+    async.forEachSeries(images, function(image, callback) {
+      var name = new Date();
+      name = name.getTime();
+      var original_path = images_path.original + name + '.jpg';
+      var thumb_path = images_path.thumb + name + '.jpg';
+
+      gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+        gm(public_path + image.path).write(public_path + original_path, function() {
+          exhibit.images.push({
+            original: original_path,
+            thumb: thumb_path,
+            description: [{
+              lg: 'ru',
+              value: image.description
+            }]
+          });
+          callback();
+        });
+      });
+    }, function() {
+      exhibit.save(function() {
+        res.redirect('back');
+      })
+    });
+
+
+
   });
 }
 
