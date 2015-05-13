@@ -18,13 +18,12 @@ li
 	margin 0
 	padding 0
 	outline 0
-
 body
 	margin 0
 	padding 0
 	font 13pt/15pt 'PT Sans'
 
-html, body, .main_block, .content_block, .content_columns_block, .content_column
+html, body, .main_block, .content_block, .content_columns_block, .content_column, .column_inner_block
 	height 100%
 
 .header_block
@@ -158,14 +157,22 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	&.main
 		overflow-y scroll
 		padding-top 90px
+		overflow hidden
 		width 960px
 		float left
 		.content_title
+			padding-top 90px
 			margin-bottom 60px
 			font 34pt/36pt 'PT Serif'
 			margin-top 70px
 		.column_inner_block
 			padding-right 20px
+			font 24pt/26pt 'PT Serif'
+		.column_main_inner
+			width 955px
+			padding-right 25px
+			overflow-y scroll
+			height 100%
 		.content_outer_block
 			overflow hidden
 	&.scroll
@@ -182,7 +189,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			text-shadow: 1px 1px 2px black, 0 0 2em black;
 			font 14pt/16pt 'PT Serif'
 		.content_scroll_items
-			overflow scroll
+			overflow-y scroll
+			width 335px
 			height 100%
 
 .content_navigate_block

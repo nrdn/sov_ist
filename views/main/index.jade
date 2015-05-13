@@ -21,14 +21,14 @@ block content
 		.navigate_title Наши последние события:
 		.navigate_items_block
 			.navigate_item.tour экскурсии
-			.navigate_item.exhibition выствки
+			.navigate_item.exhibition выставки
 			.navigate_item.lecture лекции
 			.navigate_item.action мероприятия
 			.navigate_item.xxi Дискуссионная площадка Тверская XXI
 	.content_outer_block
 		.content_news_block
 			each item in news
-				a.content_item.news(href='/news/' + item._id)
+				a.content_item.news(href='/news')
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 					.item_title= item.i18n.title.get('ru')
 
@@ -48,6 +48,14 @@ block content
 block scroll
 	.content_title Государственный центральный музей современной истории России
 	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
 		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
 		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
 		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')

@@ -3,6 +3,14 @@ $trl = 225px
 
 .item_date
 	font-weight bold
+	float left
+	margin-right 10px
+
+.item_body
+	margin-top 5px
+
+.hide
+	display none
 
 .content_item
 	box-sizing border-box
@@ -10,28 +18,31 @@ $trl = 225px
 	border-top 1px solid #B8B8B8
 	border-bottom 1px solid #B8B8B8
 	padding 10px
+	background-color white
 	margin-bottom 20px
 	cursor default
-	&:after
-	&:before
-		content ''
-		position absolute
-		display block
-		width 0
-		border-style solid
-	&:after
-		bottom - ($trw - 1)
-		left $trl
-		border-width ($trw - 1) ($trw - 1) 0
-		border-color #FFFFFF transparent
-		z-index 1
-	&:before
-		bottom - $trw
-		left ($trl - 1)
-		border-width $trw $trw 0
-		border-color #B8B8B8 transparent
-		z-index 0
-	&:hover
-		background-color #B8B8B8
+	&.fold
+		cursor pointer
 		&:after
-			display none
+		&:before
+			content ''
+			position absolute
+			display block
+			width 0
+			border-style solid
+		&:after
+			bottom - ($trw - 1)
+			left $trl
+			border-width ($trw - 1) ($trw - 1) 0
+			border-color #FFFFFF transparent
+			z-index 1
+		&:before
+			bottom - $trw
+			left ($trl - 1)
+			border-width $trw $trw 0
+			border-color #B8B8B8 transparent
+			z-index 0
+		&:hover
+			background-color #B8B8B8
+			&:after
+				display none
