@@ -4,11 +4,43 @@ block title
 	title ФИЛИАЛЫ
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/history.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/subsidiarys.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/build/js/history.js' + version)
-
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
+	//script(type='text/javascript', src='/build/js/scroll.js' + version)
+	script(type='text/javascript', src='/build/js/subsidiarys.js' + version)
 
 block content
 	.content_title Филиалы
+	.content_outer_block
+		.content_item.map.important
+		.content_item.right
+			p В структуру музея Современной истории России входят	8 отделов, включая два мемориальных комплекса.
+			p Музей предлагает специальные единые абонементы на посещение всех отделов музея.
+
+			.content_items ГЦМСИР >
+			.content_items «Пресня» >
+			.content_items «Подпольная типография >
+			.content_items 1905-1906 гг.»
+			.content_items Экспозиция на Делегатской >
+			.content_items «Мой дом — Россия»
+			.content_items «Квартира Г.М. Кржижановского» >
+			.content_items «Музей-галерея Е.Евтушенко» >
+			.content_items Мемориал «Катынь» >
+			.content_items Мемориальный комплекс >
+			.content_items «Медное»
+
+
+block scroll
+	.content_title
+	.content_column.scroll
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
