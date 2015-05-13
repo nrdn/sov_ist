@@ -1,5 +1,13 @@
+var path = require('path');
+var fs = require('fs');
+var mkdirp = require('mkdirp');
+var del = require('del');
+var async = require('async');
+var gm = require('gm').subClass({ imageMagick: true });
+
 var News = require('../../models/main.js').News;
 
+var __appdir = path.dirname(require.main.filename);
 
 // ------------------------
 // *** Handlers Block ***
@@ -45,6 +53,8 @@ exports.add = function(req, res) {
 
 exports.add_form = function(req, res) {
 	var post = req.body;
+	var files = req.files;
+	var images = [];
 
 	var news = new News();
 
@@ -59,9 +69,58 @@ exports.add_form = function(req, res) {
 
 	});
 
-	news.save(function(err, news) {
-		res.redirect('back');
+
+	if (!post.images) {
+		return (function () {
+			news.images = [];
+			news.save(function(err, news) {
+				res.redirect('back');
+			});
+		})();
+	}
+
+	var public_path = __appdir + '/public';
+
+	var images_path = {
+		original: '/images/news/' + news._id + '/original/',
+		thumb: '/images/news/' + news._id + '/thumb/',
+	}
+
+	mkdirp.sync(public_path + images_path.original);
+	mkdirp.sync(public_path + images_path.thumb);
+
+	post.images.path.forEach(function(item, i) {
+		images.push({
+			path: post.images.path[i],
+			description: post.images.description[i]
+		});
 	});
+
+	async.forEachSeries(images, function(image, callback) {
+		var name = new Date();
+		name = name.getTime();
+		var original_path = images_path.original + name + '.jpg';
+		var thumb_path = images_path.thumb + name + '.jpg';
+
+		gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+			gm(public_path + image.path).write(public_path + original_path, function() {
+				news.images.push({
+					original: original_path,
+					thumb: thumb_path,
+					description: [{
+						lg: 'ru',
+						value: image.description
+					}]
+				});
+				callback();
+			});
+		});
+	}, function() {
+		news.save(function() {
+			res.redirect('/auth/news');
+		});
+	});
+
 }
 
 
@@ -71,17 +130,30 @@ exports.add_form = function(req, res) {
 
 
 exports.edit = function(req, res) {
-	var id = req.params.id;
+  var id = req.params.id;
+  var public_path = __appdir + '/public';
+  var preview_path = '/images/preview/';
+  var images_preview = [];
 
 	News.findById(id).exec(function(err, news) {
-		res.render('auth/news/edit.jade', {news: news});
+		async.forEach(news.images, function(image, callback) {
+			var image_path = __appdir + '/public' + image.original;
+			var image_name = image.original.split('/')[5];
+			fs.createReadStream(image_path).pipe(fs.createWriteStream(public_path + preview_path + image_name));
+			images_preview.push(preview_path + image_name);
+			callback();
+		}, function() {
+			res.render('auth/news/edit.jade', {images_preview: images_preview, news: news});
+		});
 	});
 }
 
 
 exports.edit_form = function(req, res) {
-	var id = req.params.id;
 	var post = req.body;
+	var files = req.files;
+	var id = req.params.id;
+	var images = [];
 
 
 	News.findById(id).exec(function(err, news) {
@@ -97,9 +169,63 @@ exports.edit_form = function(req, res) {
 
 		});
 
-		news.save(function(err, news) {
-			res.redirect('back');
+
+		var public_path = __appdir + '/public';
+
+		var images_path = {
+			original: '/images/news/' + news._id + '/original/',
+			thumb: '/images/news/' + news._id + '/thumb/',
+		}
+
+		del.sync([public_path + images_path.original, public_path + images_path.thumb]);
+
+		if (!post.images) {
+			return (function () {
+				news.images = [];
+				news.save(function() {
+					res.redirect('back');
+				});
+			})();
+		}
+
+		mkdirp.sync(public_path + images_path.original);
+		mkdirp.sync(public_path + images_path.thumb);
+
+		news.images = [];
+
+		post.images.path.forEach(function(item, i) {
+			images.push({
+				path: post.images.path[i],
+				description: post.images.description[i]
+			});
 		});
+
+		async.forEachSeries(images, function(image, callback) {
+			var name = new Date();
+			name = name.getTime();
+			var original_path = images_path.original + name + '.jpg';
+			var thumb_path = images_path.thumb + name + '.jpg';
+
+			gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+				gm(public_path + image.path).write(public_path + original_path, function() {
+					news.images.push({
+						original: original_path,
+						thumb: thumb_path,
+						description: [{
+							lg: 'ru',
+							value: image.description
+						}]
+					});
+					callback();
+				});
+			});
+		}, function() {
+			news.save(function() {
+				res.redirect('back');
+			})
+		});
+
+
 	});
 }
 

@@ -8,6 +8,9 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content_scripts
+	script(type='text/javascript', src='/build/libs/js/jquery-ui-1.10.4.custom.min.js')
+	script(type='text/javascript', src='/build/libs/js/jquery.filedrop.js')
+	script(type='text/javascript', src='/build/js/upload.js')
 	script(type='text/javascript', src='/build/js/add.js')
 
 //- block content_right
@@ -29,6 +32,9 @@ block content
 			+form_text_single('title')
 			.form_title Описание:
 			+form_text_multi('description')
+			.form_title Изображения:
+			.form_images_upload
+				.form_desc_title Перетащи сюда
 			br
 			br
 			input(type='submit', value='отправить')

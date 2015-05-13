@@ -5,7 +5,12 @@ var mongoose = require('mongoose'),
 var newsSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
-	date: {type: Date, default: Date.now}
+	date: {type: Date, default: Date.now},
+	images: [{
+		description: { type: String, trim: true, locale: true },
+		original: String,
+		thumb: String
+	}]
 });
 
 var userSchema = new Schema({
