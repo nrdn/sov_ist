@@ -76,6 +76,7 @@ var subsidiarySchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	adress: { type: String, trim: true, locale: true },
 	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
 	}],

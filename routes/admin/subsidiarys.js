@@ -1,5 +1,7 @@
 var path = require('path');
+var fs = require('fs');
 var mkdirp = require('mkdirp');
+var del = require('del');
 var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
 
@@ -92,27 +94,33 @@ exports.add_form = function(req, res) {
 
 	post.images.path.forEach(function(item, i) {
 		images.push({
-			path: post.images.path[i]
+			path: post.images.path[i],
+			description: post.images.description[i]
 		});
 	});
 
 	async.forEachSeries(images, function(image, callback) {
-		var name = Date.now();
+		var name = new Date();
+		name = name.getTime();
 		var original_path = images_path.original + name + '.jpg';
 		var thumb_path = images_path.thumb + name + '.jpg';
 
-		gm(public_path + image.path).resize(false, 140).write(public_path + thumb_path, function() {
-			gm(public_path + image.path).resize(1000, false).write(public_path + original_path, function() {
+		gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+			gm(public_path + image.path).write(public_path + original_path, function() {
 				subsidiary.images.push({
 					original: original_path,
 					thumb: thumb_path,
+					description: [{
+						lg: 'ru',
+						value: image.description
+					}]
 				});
 				callback();
 			});
 		});
 	}, function() {
-		subsidiary.save(function(subsidiary) {
-			res.redirect('back');
+		subsidiary.save(function() {
+			res.redirect('/auth/subsidiarys');
 		});
 	});
 
@@ -125,16 +133,29 @@ exports.add_form = function(req, res) {
 
 
 exports.edit = function(req, res) {
-	var id = req.params.id;
+  var id = req.params.id;
+  var public_path = __appdir + '/public';
+  var preview_path = '/images/preview/';
+  var images_preview = [];
 
 	Subsidiary.findById(id).exec(function(err, subsidiary) {
-		res.render('auth/subsidiarys/edit.jade', {subsidiary: subsidiary});
+		async.forEach(subsidiary.images, function(image, callback) {
+			var image_path = __appdir + '/public' + image.original;
+			var image_name = image.original.split('/')[5];
+			fs.createReadStream(image_path).pipe(fs.createWriteStream(public_path + preview_path + image_name));
+			images_preview.push(preview_path + image_name);
+			callback();
+		}, function() {
+			res.render('auth/subsidiarys/edit.jade', {images_preview: images_preview, subsidiary: subsidiary});
+		});
 	});
 }
 
 exports.edit_form = function(req, res) {
 	var post = req.body;
+	var files = req.files;
 	var id = req.params.id;
+	var images = [];
 
 	Subsidiary.findById(id).exec(function(err, subsidiary) {
 
@@ -151,10 +172,62 @@ exports.edit_form = function(req, res) {
 				&& subsidiary.setPropertyLocalised('description', post[locale].description, locale);
 		});
 
+		var public_path = __appdir + '/public';
 
-		subsidiary.save(function(err, subsidiary) {
-			res.redirect('/auth/halls');
+		var images_path = {
+			original: '/images/subsidiarys/' + subsidiary._id + '/original/',
+			thumb: '/images/subsidiarys/' + subsidiary._id + '/thumb/',
+		}
+
+		del.sync([public_path + images_path.original, public_path + images_path.thumb]);
+
+		if (!post.images) {
+			return (function () {
+				subsidiary.images = [];
+				subsidiary.save(function() {
+					res.redirect('back');
+				});
+			})();
+		}
+
+		mkdirp.sync(public_path + images_path.original);
+		mkdirp.sync(public_path + images_path.thumb);
+
+		subsidiary.images = [];
+
+		post.images.path.forEach(function(item, i) {
+			images.push({
+				path: post.images.path[i],
+				description: post.images.description[i]
+			});
 		});
+
+		async.forEachSeries(images, function(image, callback) {
+			var name = new Date();
+			name = name.getTime();
+			var original_path = images_path.original + name + '.jpg';
+			var thumb_path = images_path.thumb + name + '.jpg';
+
+			gm(public_path + image.path).resize(300, false).write(public_path + thumb_path, function() {
+				gm(public_path + image.path).write(public_path + original_path, function() {
+					subsidiary.images.push({
+						original: original_path,
+						thumb: thumb_path,
+						description: [{
+							lg: 'ru',
+							value: image.description
+						}]
+					});
+					callback();
+				});
+			});
+		}, function() {
+			subsidiary.save(function() {
+				res.redirect('back');
+			})
+		});
+
+
 	});
 }
 
