@@ -27,7 +27,7 @@ mixin form_text_single(path, object)
 //- Multiple Text Form
 
 mixin form_text_multi(path, object)
-	textarea.ru(name="ru[" + path + "]", rows="8",)= object && object['i18n'][path].get('ru')
+	textarea.ru.editor(name="ru[" + path + "]", rows="8",)= object && object['i18n'][path].get('ru')
 	textarea.en(name="en[" + path + "]", rows="8", disabled)= object && object['i18n'][path].get('en')
 
 
