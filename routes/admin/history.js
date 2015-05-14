@@ -100,8 +100,8 @@ exports.add_form = function(req, res) {
     var original_path = images_path.original + name + '.jpg';
     var thumb_path = images_path.thumb + name + '.jpg';
 
-    gm(public_path + image.path).resize(false, 140).write(public_path + thumb_path, function() {
-      gm(public_path + image.path).resize(1000, false).write(public_path + original_path, function() {
+    gm(public_path + image.path).resize(520, false).write(public_path + thumb_path, function() {
+      gm(public_path + image.path).write(public_path + original_path, function() {
         history.images.push({
           original: original_path,
           thumb: thumb_path,
