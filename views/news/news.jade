@@ -4,11 +4,11 @@ block title
 	title= 'НОВОСТИ | ' + news.i18n.title.get('ru').toUpperCase()
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/news.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/news_item.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
-	script(type='text/javascript', src='/build/js/news.js' + version)
+	script(type='text/javascript', src='/build/js/news_item.js' + version)
 
 
 block content
@@ -23,18 +23,3 @@ block scroll
 	.content_scroll_items
 		each image in news.images
 			img.content_scroll_item(src=image.thumb)
-
-
-
-		//- img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		//- img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
