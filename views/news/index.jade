@@ -26,11 +26,11 @@ block content
 	.content_title Новости
 	.content_outer_block
 		each item in news
-			.content_item.news.important(class=item.i18n.description.get('ru').length > 30 && 'fold')
+			a.content_item.news.important(href='/news/' + item._id)
 				.item_description
-					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 					.item_title= item.i18n.title.get('ru')
 					.item_body: +trimString(item.i18n.description.get('ru'), 120)
+					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 
 block scroll
 	.content_title

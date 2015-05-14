@@ -1,10 +1,10 @@
-$trw = 10px
-$trl = 225px
+.item_title
+	font-weight bold
 
 .item_date
-	font-weight bold
 	float left
-	margin-right 10px
+	color #B8B8B8
+	margin-top 5px
 
 .item_body
 	margin-top 5px
@@ -13,36 +13,12 @@ $trl = 225px
 	display none
 
 .content_item
+	color black
+	text-decoration none
 	box-sizing border-box
 	width 460px
 	border-top 1px solid #B8B8B8
-	border-bottom 1px solid #B8B8B8
 	padding 10px
 	background-color white
-	margin-bottom 20px
-	cursor default
-	&.fold
-		cursor pointer
-		&:after
-		&:before
-			content ''
-			position absolute
-			display block
-			width 0
-			border-style solid
-		&:after
-			bottom - ($trw - 1)
-			left $trl
-			border-width ($trw - 1) ($trw - 1) 0
-			border-color #FFFFFF transparent
-			z-index 1
-		&:before
-			bottom - $trw
-			left ($trl - 1)
-			border-width $trw $trw 0
-			border-color #B8B8B8 transparent
-			z-index 0
-		&:hover
-			background-color #B8B8B8
-			&:after
-				display none
+	&:hover
+		background-color rgb(240, 240, 240)
