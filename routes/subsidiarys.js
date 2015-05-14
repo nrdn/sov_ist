@@ -1,3 +1,5 @@
 exports.index = function(req, res) {
-	res.render('subsidiarys');
+	Subsidiary.find().exec(function(err, subsidiarys) {
+		res.render('subsidiarys', {subsidiarys: subsidiarys});
+	});
 }
