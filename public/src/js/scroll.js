@@ -1,4 +1,10 @@
 $(window).load(function(){
+	if ($('.content_scroll_item').length > 0 && $('.content_scroll_item').length < 8) {
+		while ($('.content_scroll_item').length < 15) {
+		$('.content_scroll_item').clone().appendTo('.content_scroll_items');
+		}
+	}
+
 	var parent = $('.content_scroll_items');
 	var max = parent[0].scrollHeight - parent[0].offsetHeight - 20;
 	var scroll_position = 0;
