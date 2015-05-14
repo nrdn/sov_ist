@@ -35,7 +35,5 @@ block content
 block scroll
 	.content_title
 	.content_scroll_items
-		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		each item in news
+			img.content_scroll_item(src=item.images[0].thumb)

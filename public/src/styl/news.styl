@@ -1,13 +1,13 @@
-.item_title
-	font-weight bold
-
-.item_date
-	float left
-	color #B8B8B8
-	margin-top 5px
-
-.item_body
-	margin-top 5px
+.content_column
+	&.main
+		// background-color #DFA3D7
+	&.scroll
+		// background-color #48A1DF
+		.content_scroll_item
+			// background-color #647A8A
+			width 320px
+			min-height 200px
+			display block
 
 .hide
 	display none
@@ -20,5 +20,13 @@
 	border-top 1px solid #B8B8B8
 	padding 10px
 	background-color white
+	.item_title
+		font-weight bold
+	.item_date
+		float left
+		color #B8B8B8
+		margin-top 5px
+	.item_body
+		margin-top 5px
 	&:hover
 		background-color rgb(240, 240, 240)
