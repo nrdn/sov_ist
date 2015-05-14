@@ -21,7 +21,7 @@ function uniq(a) {
 
 exports.index = function(req, res) {
 	var categorys = [];
-	Event.find({type: req.params.type}).sort('-date').exec(function(err, events) {
+	Event.find({type: req.params.type}).sort('-date').limit(6).exec(function(err, events) {
 		async.each(events, function(event, callback) {
 			categorys = categorys.concat(event.categorys);
 			callback();
