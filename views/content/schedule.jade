@@ -7,8 +7,75 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/schedule.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/build/js/schedule.js' + version)
+	script(type='text/javascript', src='/build/js/scroll.js' + version)
 
 
 block content
-	.content_title Билеты и расписание
+	.content_title Билеты
+
+	.schedule_block
+		.schedule_block_inner.content_block_left
+			.info_block_title Стоимость
+			p.info_block
+				span.highlited_block Полный билет:
+				| 250 руб.
+			p.info_block
+				span.highlited_block Льготный билет:
+				| 100 руб.
+				br
+				| (для учащихся, студентов вузов РФ, пенсионеров).
+			p.info_block
+				.highlited_block Единый билет:
+				br
+				| (ГЦМСИР и 4 отдела;
+				br
+				| срок действия — 10 дней,
+				br
+				| включая день продажи):
+				br
+				| — для взрослых:: 550 руб.,
+				br
+				| — для учащихся, студентов вузов РФ,
+				br
+				| пенсионеров: 250 руб.
+			p.info_block Любительская фотосъемка: 250 руб.
+			p.info_block Любительская видеосъемка: 500 руб.
+
+		.schedule_block_inner.content_block_right
+			.info_block_title Бесплатный вход
+			p.info_block Дети до 7 лет
+				br
+				| Инвалиды 1,2 групп*
+				br
+				|	Герои Советского Союза
+				br
+				|	Герои Российской Федерации
+				br
+				|	Полные кавалеры Ордена Славы*
+				br
+				|	Члены ИКОМ*
+			p.info_block.highlited_block Первый вторник месяца:
+			p.info_block лица, не достигшие 18 лет;
+				br
+				| члены многодетных семей
+			p.info_block.highlited_block Каждый вторник:
+			p.info_block воспитанники Суворовских военных
+				br
+				| и Нахимовских военно-морских училищ*.
+			p.info_block * по предоставлении соответствующих документов
+
+block scroll
+	.content_title
+	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
