@@ -1,6 +1,6 @@
 $(window).load(function() {
 
-	if ($('.content_scroll_item').length < 5) {
+	if ($('.content_scroll_item').length > 0 && $('.content_scroll_item').length < 5) {
 		while ($('.content_scroll_item').length < 10) {
 			$('.content_scroll_item').clone().appendTo('.content_scroll_items');
 		}
