@@ -28,7 +28,7 @@ app.use(session({
 	secret: 'keyboard cat',
 	cookie: {
 		path: '/',
-		maxAge: 1000 * 60 * 60 // 1 hour
+		maxAge: 1000 * 60 * 60 * 3 // 3 hours
 	}
 }));
 
