@@ -1,3 +1,7 @@
+var Exhibit = require('../models/main.js').Exhibit;
+
 exports.index = function(req, res) {
-	res.render('exposure');
+	Exhibit.find().exec(function(err, exhibits) {
+		res.render('exposure', {exhibits: exhibits});
+	});
 }
