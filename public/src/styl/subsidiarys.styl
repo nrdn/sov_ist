@@ -4,15 +4,116 @@
 	display block
 
 .content_item.map.important
-	width 620px
+	width 642px
 	height 550px
-	background url(/images/design/subsidiarys/mapa.png) no-repeat
-	filter grayscale(1)
+	background url(/images/design/subsidiarys/mapa.png) no-repeat 22px -47px
+	position relative
+	margin-left -24px
+	.subsidiary_item
+		position absolute
+		z-index 100
+		//outline 1px solid #fc0
+		width 100px
+		height 100px
+		background-repeat no-repeat
+		opacity 0.7
+		cursor pointer
+		&.gcmsir
+			top 172px
+			left 231px
+			width 72px
+			height 31px
+			background url(/images/design/subsidiarys/gcmsir.png)
+			background-size 72px
+			&:hover
+			&.current
+				background-position 0 -33px
+		&.presnya
+			top 206px
+			left 130px
+			width 56px
+			height 21px
+			background url(/images/design/subsidiarys/presnya.png)
+			background-size 56px
+			&:hover
+			&.current
+				background-position 0 -24px
+		&.podp
+			top 67px
+			left 209px
+			width 50px
+			height 31px
+			background url(/images/design/subsidiarys/podp.png)
+			background-size 50px
+			&:hover
+			&.current
+				background-position 0 -33px
+		&.deleg
+			top 118px
+			left 237px
+			width 94px
+			height 20px
+			background url(/images/design/subsidiarys/deleg.png)
+			background-size 94px
+			&:hover
+			&.current
+				background-position 0 -21px
+		&.krzh
+			top 261px
+			left 317px
+			width 50px
+			height 31px
+			background url(/images/design/subsidiarys/krzh.png)
+			background-size 50px
+			&:hover
+			&.current
+				background-position 0 -32px
+		&.evtush
+			top 396px
+			left 49px
+			width 30px
+			height 28px
+			background url(/images/design/subsidiarys/evtush.png)
+			background-size 30px
+			&:hover
+			&.current
+				background-position 0 -29px
+		&.katyn
+			top 133px
+			left 25px
+			width 54px
+			height 20px
+			background url(/images/design/subsidiarys/katyn.png)
+			background-size 54px
+			&:hover
+			&.current
+				background-position 0 -22px
+		&.mednoe
+			top 32px
+			left 81px
+			width 60px
+			height 32px
+			background url(/images/design/subsidiarys/mednoe.png)
+			background-size 60px
+			&:hover
+			&.current
+				background-position 0 -33px
+		&:hover
+		&.current
+			opacity 1
+
+.content_items
+	cursor pointer
+	&:hover
+	&.current
+		color #c4143b
 
 .content_item.right
+	position relative
 	width 260px
 
 .content_items
 	font-family 'PT Serif'
 	margin-bottom 13px
-	font-size 15pt
+	font-weight bold
+

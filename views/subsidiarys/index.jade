@@ -10,27 +10,40 @@ block content_style
 block content_scripts
 	//script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
-	//script(type='text/javascript', src='/build/js/subsidiarys.js' + version)
+	script(type='text/javascript', src='/build/js/subsidiarys.js' + version)
 
 block content
 	.content_title Филиалы
 	.content_outer_block
 		.content_item.map.important
+			.subsidiary_item.gcmsir(data-fil='gcmsir')
+			.subsidiary_item.presnya(data-fil='presnya')
+			.subsidiary_item.podp(data-fil='podp')
+			.subsidiary_item.deleg(data-fil='deleg')
+			.subsidiary_item.krzh(data-fil='krzh')
+			.subsidiary_item.evtush(data-fil='evtush')
+			.subsidiary_item.katyn(data-fil='katyn')
+			.subsidiary_item.mednoe(data-fil='mednoe')
+
+
 		.content_item.right
 			p В структуру музея Современной истории России входят	8 отделов, включая два мемориальных комплекса.
 			p Музей предлагает специальные единые абонементы на посещение всех отделов музея.
 
-			.content_items ГЦМСИР >
-			.content_items «Пресня» >
-			.content_items «Подпольная типография >
-			.content_items 1905-1906 гг.»
-			.content_items Экспозиция на Делегатской >
-			.content_items «Мой дом — Россия»
-			.content_items «Квартира Г.М. Кржижановского» >
-			.content_items «Музей-галерея Е.Евтушенко» >
-			.content_items Мемориал «Катынь» >
-			.content_items Мемориальный комплекс >
-			.content_items «Медное»
+			.content_items.gcmsir(data-fil='gcmsir') ГЦМСИР >
+			.content_items.presnya(data-fil='presnya') «Пресня» >
+			.content_items.podp(data-fil='podp') «Подпольная типография >
+				br
+				| 1905-1906 гг.»
+			.content_items.deleg(data-fil='deleg') Экспозиция на Делегатской >
+				br
+				| «Мой дом — Россия»
+			.content_items.krzh(data-fil='krzh') «Квартира Г.М. Кржижановского» >
+			.content_items.evtush(data-fil='evtush') «Музей-галерея Е.Евтушенко» >
+			.content_items.katyn(data-fil='katyn') Мемориал «Катынь» >
+			.content_items.mednoe(data-fil='mednoe') Мемориальный комплекс >
+				br
+				| «Медное»
 
 
 block scroll
