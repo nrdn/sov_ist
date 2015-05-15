@@ -2,7 +2,10 @@
 	height 280px
 	box-sizing border-box
 	padding-left 30px
-	// background-color #B8657B
+	&.current
+		.item_title
+			color #c4143b!important
+
 	.item_image
 		width 160px
 		overflow hidden
@@ -56,13 +59,22 @@
 		padding-bottom 146px
 
 .people_info
-	margin 20px auto 0
+	margin 10px auto 0
 	font 12pt/14pt 'PT Serif'
 	width 250px
+	padding 0 10px 10px
+	border-top 1px solid transparent
+	border-bottom 1px solid transparent
+	&.current
+		background #f4f4f4
+		border-top 1px solid #b8b8b8
+		border-bottom 1px solid #b8b8b8
+		& .people_name
+				color #c4143b
 
 .people_name
 	margin-bottom 5px
-	margin-top 20px
+	margin-top 10px
 	font 12pt/14pt 'PT Serif'
 	font-weight bold
 
