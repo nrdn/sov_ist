@@ -34,12 +34,14 @@ mixin form_text_multi(path, object)
 //- Single Select Form
 
 mixin form_single_select(path, options, select_option)
-	if (!select_options)
+	if (!select_option)
 		select(name=path)
+			option(value='none') нет
 			each option in options
 				option(value=option._id)= option['i18n']['title'].get('ru')
 	else
 		select(name=path)
+			option(value='none') нет
 			each option in options
 				option(value=option._id, selected=select_option == option._id.toString())= option['i18n']['title'].get('ru')
 

@@ -27,10 +27,10 @@ block content
 		form(action="", method="post")
 			.form_title Заголовок:
 			+form_text_single('title', hall)
-			.form_title Филиал:
-			+form_single_select('subsidiary', subsidiarys)
 			.form_title Описание:
 			+form_text_multi('description', hall)
+			.form_title Филиал:
+			+form_single_select('subsidiary', subsidiarys, hall.subsidiary)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи

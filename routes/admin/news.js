@@ -70,6 +70,9 @@ exports.add_form = function(req, res) {
 	});
 
 
+	news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
+
+
 	if (!post.images) {
 		return (function () {
 			news.images = [];
@@ -168,6 +171,9 @@ exports.edit_form = function(req, res) {
 				&& news.setPropertyLocalised('description', post[locale].description, locale);
 
 		});
+
+
+		news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 
 
 		var public_path = __appdir + '/public';

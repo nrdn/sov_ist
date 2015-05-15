@@ -78,7 +78,7 @@ exports.add_form = function(req, res) {
 	event.category = post.category;
 	event.type = post.type;
 	event.status = post.status;
-	event.subsidiary = post.subsidiary;
+	event.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 	event.categorys = post.categorys == '' ? [] : post.categorys;
 
 	event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
@@ -188,7 +188,7 @@ exports.edit_form = function(req, res) {
 		event.category = post.category;
 		event.type = post.type;
 		event.status = post.status;
-		event.subsidiary = post.subsidiary;
+		event.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 		event.categorys = post.categorys == '' ? [] : post.categorys;
 
 		event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));

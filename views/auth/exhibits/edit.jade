@@ -30,9 +30,9 @@ block content
 			.form_title Описание:
 			+form_text_multi('description', exhibit)
 			.form_title Зал:
-			+form_single_select('hall', halls, exhibit)
+			+form_single_select('hall', halls, exhibit.hall)
 			.form_title Коллекция:
-			+form_single_select('collect', collects, exhibit)
+			+form_single_select('collect', collects, exhibit.collect)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи

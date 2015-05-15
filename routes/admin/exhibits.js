@@ -75,8 +75,9 @@ exports.add_form = function(req, res) {
       && exhibit.setPropertyLocalised('description', post[locale].description, locale);
   });
 
-  exhibit.collect = post.collect;
-  exhibit.hall = post.hall;
+
+  exhibit.collect = post.collect != 'none' ? post.collect : undefined;
+  exhibit.hall = post.hall != 'none' ? post.hall : undefined;
 
 
   if (!post.images) {
@@ -126,7 +127,7 @@ exports.add_form = function(req, res) {
     });
   }, function() {
     exhibit.save(function() {
-      res.redirect('/auth/events');
+      res.redirect('back');
     });
   });
 
@@ -181,8 +182,9 @@ exports.edit_form = function(req, res) {
         && exhibit.setPropertyLocalised('description', post[locale].description, locale);
     });
 
-    exhibit.collect = post.collect;
-    exhibit.hall = post.hall;
+
+    exhibit.collect = post.collect != 'none' ? post.collect : undefined;
+    exhibit.hall = post.hall != 'none' ? post.hall : undefined;
 
 
     var public_path = __appdir + '/public';
@@ -236,7 +238,7 @@ exports.edit_form = function(req, res) {
       });
     }, function() {
       exhibit.save(function() {
-        res.redirect('back');
+        res.redirect('/auth/exhibits');
       })
     });
 

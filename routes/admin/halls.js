@@ -72,7 +72,7 @@ exports.add_form = function(req, res) {
 			&& hall.setPropertyLocalised('description', post[locale].description, locale);
 	});
 
-	hall.subsidiary = post.subsidiary;
+	hall.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 
 
 	if (!post.images) {
@@ -175,7 +175,7 @@ exports.edit_form = function(req, res) {
 				&& hall.setPropertyLocalised('description', post[locale].description, locale);
 		});
 
-		hall.subsidiary = post.subsidiary;
+		hall.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 
 		var public_path = __appdir + '/public';
 

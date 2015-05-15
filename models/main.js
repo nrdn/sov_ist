@@ -40,7 +40,7 @@ var exhibitSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	hall: { type: Schema.Types.ObjectId, ref: 'Hall' },
-	collect: { type: Schema.Types.ObjectId, ref: 'Collection' },
+	collect: { type: Schema.Types.ObjectId, ref: 'Collect' },
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,
