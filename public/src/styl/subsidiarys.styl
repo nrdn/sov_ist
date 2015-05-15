@@ -1,3 +1,14 @@
+.content_column
+	&.main
+		// background-color #DFA3D7
+	&.scroll
+		// background-color #48A1DF
+		.content_scroll_item
+			// background-color #647A8A
+			width 320px
+			min-height 200px
+			display block
+
 .content_outer_block
 	overflow hidden
 
@@ -16,6 +27,16 @@
 
 .content_items_block
 	// background-color #B8657B
+	box-sizing border-box
+	padding-left 100px
 	float left
 	margin-left 20px
 	width 460px
+	.content_item
+		color black
+		text-decoration none
+		display block
+		margin-bottom 10px
+		font-weight bold
+		&:hover
+			color rgb(196, 20, 59)

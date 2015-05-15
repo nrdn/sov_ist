@@ -9,6 +9,6 @@ $(document).ready(function() {
 	});
 
 	$('.column_main_inner').on('scroll', function(event) {
-		$('.content_scroll_items').scrollTop($(this).scrollTop())
+		$('.content_scroll_items').scrollTop($(this).scrollTop());
 	});
 });

@@ -16,7 +16,7 @@ block content_scripts
 
 block content
 	.content_title= subsidiary.i18n.title.get('ru')
-	.content_body= subsidiary.i18n.description.get('ru')
+	.content_body: != subsidiary.i18n.description.get('ru')
 
 
 
