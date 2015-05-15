@@ -128,6 +128,8 @@ app.route('/subsidiarys').get(subsidiarys.index);
 // === Subsidiary Route
 app.route('/subsidiarys/:id').get(subsidiarys.subsidiary);
 
+
+
 // ------------------------
 // *** Admin History Routes Block ***
 // ------------------------
