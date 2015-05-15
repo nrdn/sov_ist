@@ -11,7 +11,7 @@ $(document).ready(function() {
 			gutter: 20,
 			itemSelector: '.event',
 			isInitLayout: false
-		}).masonry('stamp', news_stamp).masonry('layout');
+		}).masonry('stamp', news_stamp).masonry('layout').css('opacity', 1);
 	});
 
 	var scrollLoad = function() {
