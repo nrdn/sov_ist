@@ -27,4 +27,5 @@ block scroll
 	.content_title Государственный центральный музей современной истории России
 	.content_scroll_items
 		each subsidiary in subsidiarys
-			img.content_scroll_item(src=subsidiary.images[0].thumb)
+			if (subsidiary.images && subsidiary.images.length > 0)
+				img.content_scroll_item(src=subsidiary.images[0].thumb)
