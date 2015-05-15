@@ -28,11 +28,13 @@ block content
 	.form_block
 		a.back_link(href='/auth/collects') < Назад
 		.title ДОБАВИТЬ КОЛЛЕКЦИЮ
-		form(action="/auth/collects/add", method="post")
+		form(action="/auth/collects/add", method="post", enctype="multipart/form-data")
 			.form_title Заголовок:
 			+form_text_single('title')
 			.form_title Описание:
 			+form_text_multi('description')
+			.form_title Логотип:
+			input(type='file', name='logo')
 			br
 			br
 			input(type='submit', value='отправить')

@@ -1,5 +1,10 @@
+var fs = require('fs');
+var path = require('path');
+var gm = require('gm').subClass({ imageMagick: true });
+
 var Collect = require('../../models/main.js').Collect;
 
+var __appdir = path.dirname(require.main.filename);
 
 // ------------------------
 // *** Handlers Block ***
@@ -45,6 +50,7 @@ exports.add = function(req, res) {
 
 exports.add_form = function(req, res) {
 	var post = req.body;
+	var files = req.files;
 
 	var collect = new Collect();
 
@@ -58,6 +64,15 @@ exports.add_form = function(req, res) {
 			&& collect.setPropertyLocalised('description', post[locale].description, locale);
 
 	});
+
+	if (files.logo) {
+		fs.mkdir(__appdir + '/public/images/collects/' + collect._id, function() {
+			var newPath = __appdir + '/public/images/collects/' + collect._id + '/logo.png';
+			gm(files.logo.path).resize(520, false).write(newPath, function() {
+				collect.logo.path = '/images/collects/' + collect._id + '/logo.png';
+			});
+		});
+	}
 
 	collect.save(function(err, collect) {
 		res.redirect('back');
@@ -82,6 +97,7 @@ exports.edit = function(req, res) {
 exports.edit_form = function(req, res) {
 	var id = req.params.id;
 	var post = req.body;
+	var files = req.files;
 
 
 	Collect.findById(id).exec(function(err, collect) {
@@ -97,8 +113,17 @@ exports.edit_form = function(req, res) {
 
 		});
 
+		if (files.logo) {
+			fs.mkdir(__appdir + '/public/images/collects/' + collect._id, function() {
+				var newPath = __appdir + '/public/images/collects/' + collect._id + '/logo.png';
+				gm(files.logo.path).resize(520, false).write(newPath, function() {
+					collect.logo.path = '/images/collects/' + collect._id + '/logo.png';
+				});
+			});
+		}
+
 		collect.save(function(err, collect) {
-			res.redirect('back');
+			res.redirect('/auth/collects');
 		});
 	});
 }

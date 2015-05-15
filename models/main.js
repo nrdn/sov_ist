@@ -52,9 +52,8 @@ var exhibitSchema = new Schema({
 var collectSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
-	image: {
-		original: String,
-		thumb: String
+	logo: {
+		path: String
 	},
 	date: {type: Date, default: Date.now}
 });
