@@ -56,6 +56,10 @@ $(document).ready(function() {
 		}
 	});
 
+	$('.block').css('color', '#B8B8B8').on('click', function(event) {
+		event.preventDefault();
+	});
+
 	$(document).on('mouseup', function(event) {
 		var container = $('.search_block');
 
