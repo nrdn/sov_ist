@@ -18,6 +18,6 @@ block content
 	.content_outer_block
 		each exhibit in exhibits
 			.content_item.exhibit
-				img.item_image(src=exhibit.images && exhibit.images[0].thumb)
+				img.item_image(src=(exhibit.images && exhibit.images.length > 0) ? exhibit.images[0].thumb : '')
 				.item_description
 					.item_title= exhibit.i18n.title.get('ru')
