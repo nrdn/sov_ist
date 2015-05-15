@@ -1,36 +1,60 @@
 var map;
-var style_array =
-[{"featureType":"landscape","stylers":[{"hue":"#000000"},{"saturation":-100},{"lightness":44},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#00F93f"},{"saturation":100},{"lightness":-40.95294117647059},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00F93f"},{"saturation":100},{"lightness":-51.15294117647059},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#00F93f"},{"saturation":100},{"lightness":-50.35294117647059},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00F93f"},{"saturation":100},{"lightness":-50.35294117647059},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#00F93f"},{"saturation":100},{"lightness":-50.35294117647059},{"gamma":1}]}]
-
+var grayStyles = [
+{
+  featureType: "all",
+  stylers: [
+	  { saturation: -90 },
+	  { lightness: 10 }
+  ]
+},
+];
 function initialize() {
-	var myLatlng = new google.maps.LatLng(55.7285410, 37.6129700);
-
 	var mapOptions = {
-		zoom: 18,
-		center: myLatlng,
-		styles: style_array,
-		zoomControl: true,
-		zoomControlOptions: {
-				style: google.maps.ZoomControlStyle.LARGE,
-				position: google.maps.ControlPosition.LEFT_CENTER
-		}
-	};
+		center: new google.maps.LatLng(55.766172,37.601609),
+		zoom: 17,
+		scrollwheel: false,
+		styles: grayStyles,
+		center: new google.maps.LatLng(55.766172,37.601609),
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+};
 
-	map = new google.maps.Map(document.getElementById('map-canvas'),
-			mapOptions);
+	map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+	/*var contentString = '<div id="content">'+
+    '<h1 id="firstHeading" class="firstHeading">Государственный центральный музей современной истории России</h1>'+
+    '<div id="bodyContent">' +
+    '<h2>Адрес:</h2>' +
+    '<p>125009, Россия, Москва, ' +
+    'Тверская ул., дом 21 </p>' +
+    '<h2>Время работы:</h2>' +
+    '<p>Вторник, среда, пятница: с 10.00 до 18.00, '+
+    'касса до 17.30 </p>'+
+    '<p>Четверг: с 12.00 до 21.00,'+
+    'касса до 20.30 </p>'+
+    '<p>Суббота, воскресенье: с 11.00 до 19.00,'+
+    'касса до 18.30 </p>'+
+    '<p><b>Понедельник — выходной день</b></p>'+
+    '</div>'+
+    '</div>';
+*/
+	var contentString = '<div id="content">Государственный центральный музей <br> современной истории России</div>';
+
 
 	var infowindow = new google.maps.InfoWindow({
-			content: 'Российская государственная детская библиотека'
+			content: contentString
 	});
 
-	var marker = new google.maps.Marker({
-			position: myLatlng,
-			map: map,
-			title: 'Российская государственная детская библиотека'
+
+	var image = '/images/design/baloon.png';
+	var myLatLng = new google.maps.LatLng(55.766172,37.601609);
+	var beachMarker = new google.maps.Marker({
+	  position: myLatLng,
+	  map: map,
+	  icon: image
 	});
 
-	google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open(map, marker);
+	google.maps.event.addListener(beachMarker, 'click', function() {
+		infowindow.open(map,beachMarker);
 	});
 }
 
