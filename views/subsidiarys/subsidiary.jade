@@ -1,0 +1,38 @@
+extends ../layout
+
+block title
+	title= 'ФИЛИАЛЫ | ' + subsidiary.i18n.title.get('ru').toUpperCase()
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/subsidiary.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/js/scroll.js' + version)
+	script(type='text/javascript', src='/build/js/subsidiary.js' + version)
+
+
+block content
+	.content_title= subsidiary.i18n.title.get('ru')
+	.content_body= subsidiary.i18n.description.get('ru')
+
+
+
+
+block scroll
+	.content_title Государственный центральный музей современной истории России
+	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')

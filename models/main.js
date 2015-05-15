@@ -75,6 +75,13 @@ var subsidiarySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	adress: { type: String, trim: true, locale: true },
+	logo: {
+		path: String,
+		position: {
+			x: String,
+			y: String
+		}
+	},
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,

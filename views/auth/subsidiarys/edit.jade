@@ -24,13 +24,19 @@ block content
 	.form_block
 		a.back_link(href='/auth/subsidiarys/') < Назад
 		.title РЕДАКТИРОВАТЬ ФИЛИАЛ
-		form(action="", method="post")
+		form(action="", method="post", enctype="multipart/form-data")
 			.form_title Заголовок:
 			+form_text_single('title', subsidiary)
 			.form_title Описание:
 			+form_text_multi('description', subsidiary)
 			.form_title Адрес:
 			+form_text_single('adress', subsidiary)
+			.form_title Логотип:
+			input(type='file', name='logo')
+			.form_title Логотип (координата x)
+			input(type="text", name="position[x]", value=subsidiary.logo.position.x)
+			.form_title Логотип (координата y)
+			input(type="text", name="position[y]", value=subsidiary.logo.position.y)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи

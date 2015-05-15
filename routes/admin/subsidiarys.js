@@ -73,6 +73,19 @@ exports.add_form = function(req, res) {
 	});
 
 
+	if (files.logo) {
+		fs.mkdir(__appdir + '/public/images/subsidiarys/' + subsidiary._id, function() {
+			var newPath = __appdir + '/public/images/subsidiarys/' + subsidiary._id + '/logo.png';
+			gm(files.logo.path).resize(280, false).write(newPath, function() {
+				subsidiary.logo.path = '/images/subsidiarys/' + subsidiary._id + '/logo.png';
+			});
+		});
+	}
+
+	subsidiary.logo.position.x = post.position.x || 0;
+	subsidiary.logo.position.y = post.position.y || 0;
+
+
 	if (!post.images) {
 		return (function () {
 			subsidiary.images = [];
@@ -133,10 +146,10 @@ exports.add_form = function(req, res) {
 
 
 exports.edit = function(req, res) {
-  var id = req.params.id;
-  var public_path = __appdir + '/public';
-  var preview_path = '/images/preview/';
-  var images_preview = [];
+	var id = req.params.id;
+	var public_path = __appdir + '/public';
+	var preview_path = '/images/preview/';
+	var images_preview = [];
 
 	Subsidiary.findById(id).exec(function(err, subsidiary) {
 		async.forEach(subsidiary.images, function(image, callback) {
@@ -171,6 +184,18 @@ exports.edit_form = function(req, res) {
 			checkNested(post, [locale, 'description'])
 				&& subsidiary.setPropertyLocalised('description', post[locale].description, locale);
 		});
+
+		subsidiary.logo.position.x = post.position.x || 0;
+		subsidiary.logo.position.y = post.position.y || 0;
+
+		if (files.logo) {
+			fs.mkdir(__appdir + '/public/images/subsidiarys/' + subsidiary._id, function() {
+				var newPath = __appdir + '/public/images/subsidiarys/' + subsidiary._id + '/logo.png';
+				gm(files.logo.path).resize(280, false).write(newPath, function() {
+					subsidiary.logo.path = '/images/subsidiarys/' + subsidiary._id + '/logo.png';
+				});
+			});
+		}
 
 		var public_path = __appdir + '/public';
 

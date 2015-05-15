@@ -122,6 +122,9 @@ app.route('/history').get(history.index);
 // === Subsidiarys Route
 app.route('/subsidiarys').get(subsidiarys.index);
 
+// === Subsidiary Route
+app.route('/subsidiarys/:id').get(subsidiarys.subsidiary);
+
 // ------------------------
 // *** Admin History Routes Block ***
 // ------------------------
