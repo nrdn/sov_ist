@@ -1,16 +1,23 @@
 extends ../layout
 
 block title
-	title КОЛЛЕКЦИИ
+	title= 'КОЛЛЕКЦИИ | ' + collect.i18n.title.get('ru').toUpperCase()
 
 block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
 	link(rel='stylesheet', type='text/css', href='/build/css/collect.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=false')
-	script(type='text/javascript', src='/build/js/g_maps.js' + version)
+	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/collect.js' + version)
 
 
 block content
-	.content_title Коллекции
+	.content_title= collect.i18n.title.get('ru')
+	.content_outer_block
+		each exhibit in exhibits
+			.content_item.exhibit
+				img.item_image(src=exhibit.images[0].thumb)
+				.item_description
+					.item_title= collect.i18n.title.get('ru')
