@@ -1,3 +1,7 @@
+body
+	overflow hidden
+.content_column.main
+	position relative
 .period_container
 	width 700px
 	h3
@@ -9,3 +13,66 @@
 		border-top 0
 		border-style solid
 		border-color #777
+
+.history_left_block_inner
+	position absolute
+	top 185px
+	right 13px
+	z-index 10000
+	bottom 0
+	a
+		display block
+		text-align left
+		margin-bottom 30px
+		border-top 1px solid
+		padding-top 5px
+		font-size 15px
+		width 89px
+		color #969696
+		position relative
+		margin-top 3px
+		padding-right 4px
+		white-space nowrap
+		cursor pointer
+		&:after
+			position absolute
+			top -3px
+			left 0px
+			width 5px
+			height 5px
+			border-radius 50%
+			display block
+			content ''
+			background #969696
+		&:before
+			position absolute
+			right -13px
+			top 0px
+			bottom -31px
+			width 4px
+			background #969696
+			content ''
+		&.active
+			&:before
+				top -10000px
+
+.history_left_block_inner a:hover, .history_left_block_inner a.active
+	color #f00
+
+.history_left_block_inner a:hover:after, .history_left_block_inner a.active:after, .history_left_block_inner a.active:before
+	background-color #f00
+
+.column_inner_2
+	.history_left_stripe
+		&.red_stripe
+			&:after
+				top 0
+				bottom 0
+				right 0
+				left 0
+				background #f00
+				content ''
+				display block
+				position absolute
+				z-index 10000000
+
