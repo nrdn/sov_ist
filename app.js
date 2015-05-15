@@ -116,6 +116,9 @@ app.route('/exposure').get(exposure.index);
 // === Collections Route
 app.route('/collections').get(collects.index);
 
+// === Collection Route
+app.route('/collections/:id').get(collects.collect);
+
 // === History Route
 app.route('/history').get(history.index);
 

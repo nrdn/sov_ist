@@ -1,0 +1,16 @@
+extends ../layout
+
+block title
+	title КОЛЛЕКЦИИ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/collect.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='https://maps.googleapis.com/maps/api/js?sensor=false')
+	script(type='text/javascript', src='/build/js/g_maps.js' + version)
+	script(type='text/javascript', src='/build/js/collect.js' + version)
+
+
+block content
+	.content_title Коллекции

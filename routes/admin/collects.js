@@ -70,7 +70,14 @@ exports.add_form = function(req, res) {
 			var newPath = __appdir + '/public/images/collects/' + collect._id + '/logo.png';
 			gm(files.logo.path).resize(520, false).write(newPath, function() {
 				collect.logo.path = '/images/collects/' + collect._id + '/logo.png';
+				collect.save(function(err, collect) {
+					res.redirect('/auth/collects');
+				});
 			});
+		});
+	} else {
+		collect.save(function(err, collect) {
+			res.redirect('/auth/collects');
 		});
 	}
 
@@ -118,13 +125,16 @@ exports.edit_form = function(req, res) {
 				var newPath = __appdir + '/public/images/collects/' + collect._id + '/logo.png';
 				gm(files.logo.path).resize(520, false).write(newPath, function() {
 					collect.logo.path = '/images/collects/' + collect._id + '/logo.png';
+					collect.save(function(err, collect) {
+						res.redirect('/auth/collects');
+					});
 				});
 			});
+		} else {
+			collect.save(function(err, collect) {
+				res.redirect('/auth/collects');
+			});
 		}
-
-		collect.save(function(err, collect) {
-			res.redirect('/auth/collects');
-		});
 	});
 }
 
