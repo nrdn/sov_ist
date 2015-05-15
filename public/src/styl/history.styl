@@ -2,11 +2,26 @@ body
 	overflow hidden
 .content_column.main
 	position relative
+	&:after
+		display block
+		width 4px
+		content ''
+		background #969696
+		height 100%
+		right 0px
+		position absolute
+		top 0
 .period_container
 	width 700px
+	padding 10px
+	margin-top 50px
+	&.animated
+	&.animated_last
+		background #f0f0f0
+		border-top 1px solid #b8b8b8
+		border-bottom 1px solid #b8b8b8
 	h3
 		font 22pt/24pt 'PT Serif'
-		margin-top 60px
 	h4
 		font 16pt/20pt 'PT Sans'
 	hr
@@ -53,14 +68,19 @@ body
 			background #969696
 			content ''
 		&.active
+		&.active_last
 			&:before
 				top -10000px
 
-.history_left_block_inner a:hover, .history_left_block_inner a.active
-	color #f00
-
-.history_left_block_inner a:hover:after, .history_left_block_inner a.active:after, .history_left_block_inner a.active:before
-	background-color #f00
+.history_left_block_inner
+	a
+		&:hover
+		&.active
+		&.active_last
+			color #f00
+			&:after
+			&:before
+				background-color #f00
 
 .column_inner_2
 	.history_left_stripe
