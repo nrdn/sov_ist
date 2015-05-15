@@ -7,6 +7,7 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/internships.css' + version)
 
 block content_scripts
+	script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/js/internships.js' + version)
 
 
@@ -39,3 +40,14 @@ block content
 		p
 			| Оплата стажировки производится по безналичному расчету на основании заявки на участие и двустороннего договора, ссылка для скачивания бланка договора размещена ниже. В заявке необходимо указать: ФИО, должность обучающегося, адрес, номер телефона, факса, электронную почту и реквизиты вашего банка.
 		p Телефон лаборатории музееведения ГЦМСИР 8(495)699-14-56, 8(495)699-36-26
+
+block scroll
+	.content_title
+	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/internships/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/05.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/06.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/internships/07.jpg')
