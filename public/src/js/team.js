@@ -29,7 +29,7 @@ $(document).ready(function() {
 		$('.content_item[data-fil='+ $(this).attr('data-fil') +']').addClass('current');
 	}
 
-		$('.content_item').on('mouseover', sortfil1);
-		$('.people_info').on('mouseover', sortfil2);
+		//$('.content_item').on('mouseover', sortfil1);
+		//$('.people_info').on('mouseover', sortfil2);
 
 });
