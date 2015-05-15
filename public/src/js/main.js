@@ -32,7 +32,7 @@ $(document).ready(function() {
 						$container.masonry('layout');
 					});
 				} else {
-					$('.column_main_inner').off('scroll');
+					$('.column_main_inner').off('scroll.load');
 				}
 
 				skip+= 5;
@@ -41,13 +41,13 @@ $(document).ready(function() {
 		}
 	}
 
-	$('.column_main_inner').on('scroll', scrollLoad);
+	$('.column_main_inner').on('scroll.load', scrollLoad);
 
 	$('.navigate_item').on('click', function() {
 		skip = 6;
 		var type = $(this).attr('class').split(' ')[1];
 
-		$('.column_main_inner').on('scroll', scrollLoad);
+		$('.column_main_inner').on('scroll.load', scrollLoad);
 
 		context.indexOf(type) !== -1
 			? context.splice(context.indexOf(type), 1)
