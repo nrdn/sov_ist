@@ -35,7 +35,7 @@ $(document).ready(function() {
 				}
 			});
 		}
-	}
+	};
 
 	$column_main.on('scroll.load', scrollLoad);
 

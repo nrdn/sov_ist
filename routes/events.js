@@ -51,12 +51,9 @@ exports.get_events = function(req, res) {
 		: Event.find({'type': post.context.type});
 
 	Query.sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
-		if (events.length > 0) {
-			var result = jade.renderFile(__appdir + '/views/events/get_events.jade', {events: events});
-			res.send(result);
-		} else {
-			res.send('out');
-		}
-
+		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};
+		events.length > 0
+			? res.send(jade.renderFile(__appdir + '/views/events/get_events.jade', opts))
+			: res.send('out');
 	});
 }
