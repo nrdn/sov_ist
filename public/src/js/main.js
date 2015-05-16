@@ -21,10 +21,9 @@ $(document).ready(function() {
 		var column_height = $column_main.height();
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
-			var limit = skip + 6;
 			$column_main.off('scroll.load');
 
-			$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: limit} }).done(function(elems) {
+			$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
 
 				if (elems != 'out') {
 					$elems = $(elems);
