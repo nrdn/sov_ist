@@ -27,6 +27,5 @@ exports.get_events = function(req, res) {
 		events.length > 0
 			? res.send(jade.renderFile(__appdir + '/views/events/get_events.jade', opts))
 			: res.send('out');
-
 	});
 }
