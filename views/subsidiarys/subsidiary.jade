@@ -11,7 +11,7 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
-	script(type='text/javascript', src='/build/js/subsidiary.js' + version)
+	//script(type='text/javascript', src='/build/js/subsidiary.js' + version)
 
 
 block content
@@ -24,15 +24,5 @@ block content
 block scroll
 	.content_title Государственный центральный музей современной истории России
 	.content_scroll_items
-		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
-		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+	each image in subsidiary.images
+		img.content_scroll_item(src=image.thumb)
