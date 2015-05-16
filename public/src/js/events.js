@@ -24,7 +24,7 @@ $(document).ready(function() {
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
 			$column_main.off('scroll.load');
 
-			$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
+			$.ajax({ url: '/events', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
 
 				if (elems != 'out') {
 					$elems = $(elems);
