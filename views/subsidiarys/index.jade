@@ -16,7 +16,8 @@ block content
 	.content_outer_block
 		.content_map_block(style='background-image: url(/images/design/map.png)')
 			each subsidiary in subsidiarys
-				img.content_map_item(src=subsidiary.logo.path, class=subsidiary._id, style='top:' + subsidiary.logo.position.x + 'px; left:' + subsidiary.logo.position.y + 'px;')
+				a(href='/subsidiarys/' + subsidiary._id)
+					img.content_map_item(src=subsidiary.logo.path, class=subsidiary._id, style='top:' + subsidiary.logo.position.x + 'px; left:' + subsidiary.logo.position.y + 'px;')
 
 		.content_items_block
 			each subsidiary in subsidiarys
