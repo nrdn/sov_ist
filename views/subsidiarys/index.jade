@@ -14,6 +14,12 @@ block content_scripts
 block content
 	.content_title Филиалы
 	.content_outer_block
+		.content_inner_text
+			В структуру музея Современной истории России входят 7 отделов,
+			br
+			| включая два мемориальных комплекса.
+			br
+			b Музей предлагает специальные единые абонементы на посещение всех отделов музея.
 		.content_map_block(style='background-image: url(/images/design/map.png)')
 			each subsidiary in subsidiarys
 				a(href='/subsidiarys/' + subsidiary._id)
