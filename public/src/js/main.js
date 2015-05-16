@@ -21,7 +21,7 @@ $(document).ready(function() {
 		var column_height = $column_main.height();
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
-			var limit = skip + 5;
+			var limit = skip + 6;
 			$column_main.off('scroll.load');
 
 			$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: limit} }).done(function(elems) {
@@ -29,14 +29,12 @@ $(document).ready(function() {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
+						skip+= 7;
 						$container.masonry('layout');
 						$column_main.on('scroll.load', scrollLoad);
 					});
 				}
-
-				skip+= 5;
 			});
-
 		}
 	}
 
