@@ -19,7 +19,7 @@ block content
 				img.content_map_item(src=subsidiary.logo.path, class=subsidiary._id, style='top:' + subsidiary.logo.position.x + 'px; left:' + subsidiary.logo.position.y + 'px;')
 
 		.content_items_block
-			each subsidiary in subsidiarys.reverse()
+			each subsidiary in subsidiarys
 				a.content_item(class=subsidiary._id, href='/subsidiarys/' + subsidiary._id)= subsidiary.i18n.title.get('ru')
 
 
