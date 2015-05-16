@@ -7,6 +7,7 @@ $(document).ready(function() {
 	};
 
 	var $container = $('.content_outer_block');
+	var $column_main = $('.column_main_inner');
 
 	$container.imagesLoaded(function() {
 		$container.masonry({
