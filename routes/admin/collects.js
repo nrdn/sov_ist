@@ -80,10 +80,6 @@ exports.add_form = function(req, res) {
 			res.redirect('/auth/collects');
 		});
 	}
-
-	collect.save(function(err, collect) {
-		res.redirect('back');
-	});
 }
 
 
