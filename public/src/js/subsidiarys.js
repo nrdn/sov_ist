@@ -9,7 +9,7 @@ $(document).ready(function() {
 
 $('.content_item').hover(
   function() {
-    $('.content_map_block a').eq($(this).index()).find('.content_map_item').addClass('current');
+    $('.content_map_block a').eq($(this).index() - 1).find('.content_map_item').addClass('current');
   }, function() {
     $('.content_map_item').removeClass('current');
   }
