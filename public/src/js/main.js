@@ -29,14 +29,12 @@ $(document).ready(function() {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
+						skip+= 7;
 						$container.masonry('layout');
 						$column_main.on('scroll.load', scrollLoad);
 					});
 				}
-
-				skip+= 7;
 			});
-
 		}
 	}
 
