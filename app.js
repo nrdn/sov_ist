@@ -21,11 +21,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use(cookieParser());
 
+var MongoStore = require('connect-mongo')(session);
+
 app.use(session({
 	key: 'sovhis.sess',
 	resave: false,
 	saveUninitialized: false,
 	secret: 'keyboard cat',
+	store: new MongoStore({ mongooseConnection: mongoose.connection }),
 	cookie: {
 		path: '/',
 		maxAge: 1000 * 60 * 60 * 3 // 3 hours
