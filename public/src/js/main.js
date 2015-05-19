@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var context = [];
-	var skip = 6;
+	var skip = 12;
 
 	var $container = $('.content_outer_block');
 	var $column_main = $('.column_main_inner');
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	$column_main.on('scroll.load', scrollLoad);
 
 	$('.navigate_item').on('click', function() {
-		skip = 6;
+		skip = 12;
 		var type = $(this).attr('class').split(' ')[1];
 
 		$column_main.on('scroll.load', scrollLoad);

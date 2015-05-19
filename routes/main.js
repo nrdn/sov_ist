@@ -9,7 +9,7 @@ var __appdir = path.dirname(require.main.filename);
 
 exports.index = function(req, res) {
 	News.find().sort('-date').limit(5).exec(function(err, news) {
-		Event.find().sort('-date').limit(6).exec(function(err, events) {
+		Event.find().sort('-date').limit(12).exec(function(err, events) {
 			res.render('main', {events: events, news: news});
 		});
 	});

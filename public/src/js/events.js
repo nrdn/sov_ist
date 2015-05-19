@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var skip = 6;
+	var skip = 12;
 	var context = {
 		type: $('.content_title').attr('class').split(' ')[1],
 		categorys: [],
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 
 	$('.navigate_item').on('click', function() {
-		skip = 6;
+		skip = 12;
 		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
 		var nav_item = $(this).attr('class').split(' ')[1];
 
