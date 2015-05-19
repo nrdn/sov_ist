@@ -8,12 +8,16 @@ block content_style
 
 block content_scripts
 	script(type='text/javascript', src='/build/js/partners.js' + version)
-
+	script(type='text/javascript', src='/build/js/scroll.js' + version)
 
 block content
-	.content_title Партнерство
+	//.content_title Партнерство
 	.parters_block
-		.info_block_title Наш музей всегда открыт для позитивного сотрудничества и партнерства.
+		.info_block_title Наш музей всегда открыт
+			br
+			|	для позитивного сотрудничества
+			br
+			|	и партнерства.
 		.partners_phone тел.: (495) 699-99-12
 		.partners_phone факс: (495) 699-12-73
 	.partners_divide
@@ -33,10 +37,12 @@ block content
 			a.partner_item(target='_blank', href='http://tass.ru/')
 				.partner_item_image(style='background-image:url(images/design/partners/06.png)')
 				.partner_item_type
+
+		.partner_block
 			a.partner_item.rp_item(target='_blank', href='http://rospatriotcentr.ru/')
 				.partner_item_image(style='background-image:url(images/design/partners/08.png)')
 				.partner_item_type
-			.partner_item
+			.partner_item.tripadvisor
 				#TA_excellent165.TA_excellent
 					#CDSWIDEXC.widEXC
 						.bravoBox
@@ -54,3 +60,23 @@ block content
 					// / cdsEXCBadge
 				script(src='http://www.jscache.com/wejs?wtype=excellent&uniq=165&locationId=300334&lang=ru&display_version=2')
 				script(src='http://www.tripadvisor.ru/WidgetEmbed-excellent?lang=ru&display_version=2&locationId=300334&uniq=165')
+
+block scroll
+	.content_title
+	.content_scroll_items
+		img.content_scroll_item(src='/images/design/backgrounds/01.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/02.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/03.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/05.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/06.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/07.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/08.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/09.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/10.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/04.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/11.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/12.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/13.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/14.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/15.jpg')
+		img.content_scroll_item(src='/images/design/backgrounds/main/16.jpg')
