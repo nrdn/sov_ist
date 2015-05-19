@@ -3,7 +3,12 @@ var Exhibit = require('../models/main.js').Exhibit;
 
 exports.index = function(req, res) {
 	Collect.find().sort('-date').exec(function(err, collects) {
-		res.render('collects', {collects: collects});
+		var ids = collects.map(function(collect) {
+			return collect._id.toString();
+		});
+		Exhibit.where('collect').in(ids).limit(10).exec(function(err, exhibits) {
+			res.render('collects', {collects: collects, exhibits: exhibits});
+		});
 	});
 }
 
