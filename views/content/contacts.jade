@@ -5,6 +5,7 @@ block title
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/contacts.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/contacts_mobile.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='http://maps.googleapis.com/maps/api/js?sensor=false')
@@ -19,10 +20,14 @@ block scroll
 	.contacts_scroll_inner
 		.contacts_title= 'Контактная информация'
 
-		p.info_block Информация: +7 (495) 699-54-58
-		p.info_block Экскурсионное бюро: +7 (495)699-67-24
-		p.info_block Приемная: +7 (495)699-52-17,
-		p.info_block Факс: +7 (495)699-12-73
+		p.info_block Информация:
+			span +7 (495) 699-54-58
+		p.info_block Экскурсионное бюро:
+			span +7 (495)699-67-24
+		p.info_block Приемная:
+			span +7 (495)699-52-17,
+		p.info_block Факс:
+			span +7 (495)699-12-73
 		p.info_block sovrhistory@mail.ru
 		.info_block_title Адрес:
 		p.info_block 125009, Россия, Москва,
