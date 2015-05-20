@@ -87,6 +87,7 @@ $(document).ready(function() {
 					popup: function( $popup, $button ) {
 									var list_headers = {
 													// Name : Font
+													'Header 0' : '<div>',
 													'Header 1' : '<h1>',
 													'Header 2' : '<h2>',
 													'Header 3' : '<h3>',
