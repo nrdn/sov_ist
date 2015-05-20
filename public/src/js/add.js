@@ -125,10 +125,10 @@ $(document).ready(function() {
 							image: '\uf0cd',
 							hotkey: 'u'
 					},
-					// removeformat: {
-					// 		title: 'Remove format',
-					// 		image: '\uf12d'
-					// },
+					removeformat: {
+							title: 'Remove format',
+							image: '\uf12d'
+					},
 			},
 			submit: {
 					title: 'Submit',
