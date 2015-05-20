@@ -23,3 +23,10 @@ block content
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
 				.item_description
 					.item_title= exhibit.i18n.title.get('ru')
+
+
+block scroll
+	.content_title
+	.content_scroll_items
+		each image in hall.images
+			img.content_scroll_item(src=image.thumb)
