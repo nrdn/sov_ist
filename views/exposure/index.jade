@@ -19,7 +19,7 @@ block content
 	.content_outer_block
 		each hall in halls
 			a.content_item.hall(href='/exposure/' + hall._id)
-				img.item_image(src=hall.images[0].original)
+				img.item_image(src=hall.images[0].thumb)
 				.item_description
 					.item_title= hall.i18n.title.get('ru')
 
