@@ -57,22 +57,57 @@ $(document).ready(function() {
 	$('.forward').on('click', snakeForward);
 
 
-	$('form').submit(function(event) {
-		var areas = $('textarea');
-		areas.each(function() {
-			var newValue = $(this).val().replace(/\n/g, "<br />");
-			$(this).val(newValue);
-		});
-		$('form').submit();
+	// $('form').submit(function(event) {
+	// 	var areas = $('textarea');
+	// 	areas.each(function() {
+	// 		var newValue = $(this).val().replace(/\n/g, "<br />");
+	// 		$(this).val(newValue);
+	// 	});
+	// 	$('form').submit();
+	// });
+
+	$(document).on('paste','[contenteditable]',function(e) {
+	    e.preventDefault();
+	    var text = (e.originalEvent || e).clipboardData.getData('text/plain') || prompt('Paste something..');
+	    window.document.execCommand('insertText', false, text);
 	});
+
 
 	var $editor = $('.editor').wysiwyg({
 			classes: 'editor',
-			toolbar: 'top',
+			toolbar: 'top-selection',
 			buttons: {
-					insertlink: {
-							title: 'Insert link',
-							image: '\uf08e',
+			insertlink: {
+					title: 'Insert link',
+					image: '\uf08e',
+			},
+			header: {
+					title: 'Header',
+					image: '\uf1dc',
+					popup: function( $popup, $button ) {
+									var list_headers = {
+													// Name : Font
+													'Header 1' : '<h1>',
+													'Header 2' : '<h2>',
+													'Header 3' : '<h3>',
+											};
+									var $list = $('<div/>').addClass('wysiwyg-plugin-list')
+																				 .attr('unselectable','on');
+									$.each( list_headers, function( name, format ) {
+											var $link = $('<a/>').attr('href','#')
+																					 .css( 'font-family', format )
+																					 .html( name )
+																					 .click(function(event) {
+																							$editor.wysiwyg('shell').format(format).closePopup();
+																							// prevent link-href-#
+																							event.stopPropagation();
+																							event.preventDefault();
+																							return false;
+																					});
+											$list.append( $link );
+									});
+									$popup.append( $list );
+								 }
 					},
 				 bold: {
 							title: 'Bold (Ctrl+B)',
@@ -89,15 +124,15 @@ $(document).ready(function() {
 							image: '\uf0cd',
 							hotkey: 'u'
 					},
-					removeformat: {
-							title: 'Remove format',
-							image: '\uf12d'
-					},
+					// removeformat: {
+					// 		title: 'Remove format',
+					// 		image: '\uf12d'
+					// },
 			},
-      submit: {
-          title: 'Submit',
-          image: '\uf00c'
-      },
+			submit: {
+					title: 'Submit',
+					image: '\uf00c'
+			},
 			// placeholder: 'Type your text here...',
 			placeholderUrl: 'www.example.com',
 	});
