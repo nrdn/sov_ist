@@ -1,20 +1,22 @@
 extends ../layout
 
 block title
-	title= 'КОЛЛЕКЦИИ | ' + collect.i18n.title.get('ru').toUpperCase()
+	title= 'ЭКСПОЗИЦИЯ | ' + hall.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
-	link(rel='stylesheet', type='text/css', href='/build/css/collect.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/hall.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
-	script(type='text/javascript', src='/build/js/collect.js' + version)
+	script(type='text/javascript', src='/build/js/hall.js' + version)
 
 
 block content
-	.content_title= collect.i18n.title.get('ru')
+	.content_title= hall.i18n.title.get('ru')
+	.content_s_title= hall.i18n.s_title.get('ru')
+	.content_description= hall.i18n.description.get('ru')
 	.content_outer_block
 		each exhibit in exhibits
 			.content_item.exhibit

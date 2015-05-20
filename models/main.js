@@ -60,6 +60,7 @@ var collectSchema = new Schema({
 
 var hallSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
+	s_title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
 	images: [{

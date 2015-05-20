@@ -116,6 +116,9 @@ app.route('/news/:id').get(news.news);
 // === Exposure Route
 app.route('/exposure').get(exposure.index);
 
+// === Exposure hall Route
+app.route('/exposure/:id').get(exposure.hall);
+
 // === Collections Route
 app.route('/collections').get(collects.index);
 
