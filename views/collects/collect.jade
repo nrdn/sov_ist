@@ -23,3 +23,12 @@ block content
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
 				.item_description
 					.item_title= exhibit.i18n.title.get('ru')
+					.item_body= exhibit.i18n.description.get('ru')
+
+block content_up
+	.exhibit_preview_block
+		.exhibit_preview_inner
+			.exhibit_images_preview_block
+			.exhibit_description_block
+				.exhibit_title Привет
+				.exhibit_body Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ipsam vel ut provident reprehenderit, necessitatibus optio eos hic vero excepturi. Quo nesciunt, possimus facere voluptate iure quam amet vitae a.

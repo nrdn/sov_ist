@@ -16,7 +16,7 @@ $(document).ready(function() {
 					&& $container.has(event.target).length === 0)
 			{
 					$('.column_main_inner').removeClass('stop_scroll');
-					$('.images_preview_block').remove();
+					$('.exhibit_preview_block').hide().find('.exhibit_images_preview_block').empty();
 			}
 		})
 
@@ -31,16 +31,20 @@ $(document).ready(function() {
 				return $('<img/>', { 'src': image.original, 'class': 'image_preview' });
 			});
 
-			var $preview = $('<div/>', {'class': 'images_preview_block'});
+			var exhibit_title = $(this).find('.item_title').text();
+			var exhibit_body = $(this).find('.item_body').text();
 
-			$('.main_block').prepend($preview.append($images));
+			$('.exhibit_preview_block').show()
+				.find('.exhibit_images_preview_block').append($images).end()
+				.find('.exhibit_title').text(exhibit_title).end()
+				.find('.exhibit_body').text(exhibit_body);
+
 			$('.column_main_inner').addClass('stop_scroll');
 
 		})
 
-
 		.on('click', '.image_preview', function(event) {
-			var length = $('.images_preview_block').children('.image_preview').length - 1;
+			var length = $('.exhibit_images_preview_block').children('.image_preview').length - 1;
 			index = $(this).index();
 
 			index != length
