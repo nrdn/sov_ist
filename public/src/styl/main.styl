@@ -4,14 +4,17 @@
 
 .content_item
 	&:hover
-		img
-			opacity 0.7
+		&:after
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background rgba(0,0,0,0.2)
+			content ''
+			z-index 1000
 	&.event
 		float left
-	&.important
-		&:hover
-			opacity 0.7
-			background-color rgb(240, 240, 240)
 	&.news
 		box-sizing border-box
 		// background-color #604A8A
