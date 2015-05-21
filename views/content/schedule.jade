@@ -18,32 +18,41 @@ block content
 		.schedule_block_inner.content_block_left
 			.info_block_title Стоимость
 			p.info_block
-				span.highlited_block Полный билет:
-				| 250 руб.
+				span.highlited_block 250 руб.
+				span полный билет
 			p.info_block
-				span.highlited_block Льготный билет:
-				| 100 руб.
-				br
-				| (для учащихся, студентов вузов РФ, пенсионеров).
+				span.highlited_block.benefit_block 100 руб.
+				span льготный билет
+					br
+					| (для учащихся, студентов вузов РФ, 
+					br
+					| пенсионеров).
+
+			.info_block_title Единый билет:
 			p.info_block
-				.highlited_block Единый билет:
-				br
-				| (ГЦМСИР и 4 отдела;
-				br
-				| срок действия — 10 дней,
+				i (ГЦМСИР и 4 отдела;
+					br
+					| срок действия — 10 дней,
 				br
 				| включая день продажи):
 				br
-				| — для взрослых:: 550 руб.,
-				br
-				| — для учащихся, студентов вузов РФ,
-				br
-				| пенсионеров: 250 руб.
-			p.info_block Любительская фотосъемка: 250 руб.
-			p.info_block Любительская видеосъемка: 500 руб.
+			p.info_block
+				span.highlited_block 550 руб.
+				span для взрослых
+			p.info_block
+				span.highlited_block.benefit_block.benefit_block2 250 руб.
+				span для учащихся, студентов вузов РФ, 
+					br
+					| пенсионеров
+			p.info_block
+				span.highlited_block 250 руб.
+				span любительская фотосъемка
+			p.info_block
+				span.highlited_block 500 руб.
+				span любительская видеосъемка
 
 		.schedule_block_inner.content_block_right
-			.info_block_title Бесплатный вход
+			.info_block_title Бесплатное посещение
 			p.info_block Дети до 7 лет
 				br
 				| Инвалиды 1,2 групп*
@@ -63,7 +72,8 @@ block content
 			p.info_block воспитанники Суворовских военных
 				br
 				| и Нахимовских военно-морских училищ*.
-			p.info_block * по предоставлении соответствующих документов
+			p.info_block
+				i * по предоставлении соответствующих документов
 
 block scroll
 	.content_title
