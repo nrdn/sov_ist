@@ -37,7 +37,7 @@ $(document).ready(function() {
 			$('.exhibit_preview_block').show()
 				.find('.exhibit_images_preview_block').append($images).end()
 				.find('.exhibit_title').text(exhibit_title).end()
-				.find('.exhibit_body').append(exhibit_body);
+				.find('.exhibit_body').empty().append(exhibit_body);
 
 			$('.column_main_inner').addClass('stop_scroll');
 
