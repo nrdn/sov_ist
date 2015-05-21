@@ -5,6 +5,16 @@
 
 .content_item
 	cursor pointer
+	&:hover
+		&:after
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background rgba(0,0,0,0.2)
+			content ''
+			z-index 0
 	.item_body
 		display none
 
