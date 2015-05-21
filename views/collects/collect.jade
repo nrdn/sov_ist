@@ -10,9 +10,9 @@ block content_style
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/js/collect.js' + version)
 	script(type='text/javascript').
 		var exhibits =!{JSON.stringify(exhibits.map(function(exhibit) { return {'_id': exhibit._id, 'images': exhibit.images} }))}
-	script(type='text/javascript', src='/build/js/collect.js' + version)
 
 
 block content
