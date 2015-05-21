@@ -11,13 +11,15 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/collect.js' + version)
+	script(type='text/javascript').
+		var exhibits =!{JSON.stringify(exhibits.map(function(exhibit) { return {'_id': exhibit._id, 'images': exhibit.images} }))}
 
 
 block content
 	.content_title= collect.i18n.title.get('ru')
 	.content_outer_block
 		each exhibit in exhibits
-			.content_item.exhibit
+			.content_item.exhibit(class=exhibit._id)
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
 				.item_description
 					.item_title= exhibit.i18n.title.get('ru')
