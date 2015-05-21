@@ -19,7 +19,7 @@ block content
 	.content_title= collect.i18n.title.get('ru')
 	.content_outer_block
 		each exhibit in exhibits
-			.content_item.exhibit(class=exhibit._id)
+			.content_item.exhibit(class=exhibit._id.toString())
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
 				.item_description
 					.item_title= exhibit.i18n.title.get('ru')
