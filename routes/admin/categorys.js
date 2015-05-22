@@ -1,4 +1,5 @@
 var Category = require('../../models/main.js').Category;
+var Event = require('../../models/main.js').Event;
 
 
 // ------------------------
@@ -104,6 +105,8 @@ exports.edit_form = function(req, res) {
 exports.remove = function(req, res) {
   var id = req.body.id;
   Category.findByIdAndRemove(id, function() {
-    res.send('ok');
+    Event.update({'categorys': id}, {$pull: {'categorys': id}}, {multi: true}).exec(function() {
+      res.send('ok');
+    });
   });
 }

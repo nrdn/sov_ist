@@ -1,8 +1,10 @@
 var fs = require('fs');
 var path = require('path');
 var gm = require('gm').subClass({ imageMagick: true });
+var del = require('del');
 
 var Collect = require('../../models/main.js').Collect;
+var Exhibit = require('../../models/main.js').Exhibit;
 
 var __appdir = path.dirname(require.main.filename);
 
@@ -143,7 +145,9 @@ exports.edit_form = function(req, res) {
 exports.remove = function(req, res) {
 	var id = req.body.id;
 	Collect.findByIdAndRemove(id, function() {
-		// deleteFolderRecursive(__dirname + '/public/images/events/' + id);
-		res.send('ok');
+		Exhibit.update({'collect': id}, {$unset: {'collect': id}}, {multi: true}).exec(function() {
+			del.sync([__appdir + '/public/images/collects/' + id]);
+			res.send('ok');
+		});
 	});
 }

@@ -4,6 +4,7 @@ var mkdirp = require('mkdirp');
 var del = require('del');
 var async = require('async');
 var gm = require('gm').subClass({ imageMagick: true });
+var del = require('del');
 
 var Event = require('../../models/main.js').Event;
 var Category = require('../../models/main.js').Category;
@@ -265,7 +266,7 @@ exports.edit_form = function(req, res) {
 exports.remove = function(req, res) {
 	var id = req.body.id;
 	Event.findByIdAndRemove(id, function() {
-		// deleteFolderRecursive(__dirname + '/public/images/events/' + id);
+		del.sync(__appdir + '/public/images/events/' + id);
 		res.send('ok');
 	});
 }
