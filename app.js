@@ -60,6 +60,7 @@ var files = require('./routes/files.js');
 
 var auth = require('./routes/auth.js');
 
+var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
@@ -133,6 +134,34 @@ app.route('/subsidiarys').get(subsidiarys.index);
 
 // === Subsidiary Route
 app.route('/subsidiarys/:id').get(subsidiarys.subsidiary);
+
+
+
+// ------------------------
+// *** Admin Users Routes Block ***
+// ------------------------
+
+
+
+// === Admin users Route
+app.route('/auth/users').get(checkAuth, admin_users.list);
+
+
+// === Admin @add users Route
+app.route('/auth/users/add')
+	 .get(checkAuth, admin_users.add)
+	 .post(checkAuth, admin_users.add_form);
+
+
+// === Admin @edit users Route
+app.route('/auth/users/edit/:id')
+	 .get(checkAuth, admin_users.edit)
+	 .post(checkAuth, admin_users.edit_form);
+
+
+// === Admin @remove users Route
+app.route('/auth/users/remove')
+	 .post(checkAuth, admin_users.remove);
 
 
 

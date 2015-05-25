@@ -1,6 +1,16 @@
 var mongoose = require('mongoose'),
 		mongooseLocale = require('mongoose-locale'),
+		mongooseBcrypt = require('mongoose-bcrypt'),
 		Schema = mongoose.Schema;
+
+
+var userSchema = new Schema({
+	login: String,
+	password: String,
+	email: String,
+	status: {type: String, default: 'User'},
+	date: {type: Date, default: Date.now},
+});
 
 var newsSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
@@ -11,14 +21,6 @@ var newsSchema = new Schema({
 		original: String,
 		thumb: String
 	}]
-});
-
-var userSchema = new Schema({
-	login: String,
-	password: String,
-	email: String,
-	status: {type: String, default: 'User'},
-	date: {type: Date, default: Date.now},
 });
 
 var historySchema = new Schema({
@@ -120,6 +122,8 @@ var categorySchema = new Schema({
 // *** Plugins Block ***
 // ------------------------
 
+
+userSchema.plugin(mongooseBcrypt, { fields: ['password'] });
 
 newsSchema.plugin(mongooseLocale);
 historySchema.plugin(mongooseLocale);
