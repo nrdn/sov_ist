@@ -8,8 +8,8 @@ var User = require('../../models/main.js').User;
 
 exports.list = function(req, res) {
   var Query = req.session.status == 'Admin'
-    ? User.find()
-    : User.find({'_id': req.session.user_id});
+    ? User.find().sort('-date')
+    : User.find({'_id': req.session.user_id}).sprt('-date');
 
   Query.exec(function(err, users) {
     res.render('auth/users/', {users: users});

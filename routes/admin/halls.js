@@ -40,7 +40,7 @@ var checkNested = function (obj, layers) {
 
 
 exports.list = function(req, res) {
-	Hall.find().exec(function(err, halls) {
+	Hall.find().sort('-date').exec(function(err, halls) {
 		res.render('auth/halls/', {halls: halls});
 	});
 }

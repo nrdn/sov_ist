@@ -29,7 +29,7 @@ var checkNested = function (obj, layers) {
 
 
 exports.list = function(req, res) {
-  Category.find().exec(function(err, categorys) {
+  Category.find().sort('-date').exec(function(err, categorys) {
     res.render('auth/categorys/', {categorys: categorys});
   });
 }

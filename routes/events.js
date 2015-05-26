@@ -9,24 +9,9 @@ var Category = require('../models/main.js').Category;
 var __appdir = path.dirname(require.main.filename);
 
 
-function uniq(a) {
-	a = a.map(function(item) {
-		return item.toString();
-	});
-	uniqueArray = a.filter(function(item, pos) {
-		return a.indexOf(item) == pos;
-	});
-	return uniqueArray;
-}
-
 exports.index = function(req, res) {
-	var categorys = [];
 	Event.find({type: req.params.type}).sort('-date').limit(12).exec(function(err, events) {
-		async.each(events, function(event, callback) {
-			categorys = categorys.concat(event.categorys);
-			callback();
-		}, function() {
-			categorys = uniq(categorys);
+		Event.distinct('categorys', {type: req.params.type}).exec(function(err, categorys) {
 			Category.where('_id').in(categorys).exec(function(err, categorys) {
 				Subsidiary.find().exec(function(err, subsidiarys) {
 					res.render('events', {type: req.params.type, events: events, categorys: categorys, subsidiarys: subsidiarys});
