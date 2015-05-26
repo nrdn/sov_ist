@@ -66,7 +66,9 @@ exports.edit_form = function(req, res) {
   User.findById(id).exec(function(err, user) {
 
     user.login = post.login;
-    user.password = post.password;
+    if (post.password) {
+      user.password = post.password;
+    }
     user.email = post.email;
     user.status = post.status;
 
