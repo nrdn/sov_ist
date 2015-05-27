@@ -85,6 +85,7 @@ exports.add_form = function(req, res) {
 	event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
 	event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
+	event.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 
 	if (!post.images) {
 		return (function () {
@@ -194,6 +195,8 @@ exports.edit_form = function(req, res) {
 
 		event.interval.start = new Date(Date.UTC(post.date_start.year, post.date_start.month, post.date_start.date));
 		event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
+
+		event.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 
 		var public_path = __appdir + '/public';
 

@@ -24,5 +24,5 @@ block scroll
 		each image in event.images
 			.content_scroll_item
 				img(src=image.thumb)
-				- if (!image.description[0].value || image.description[0].value != 'Описание')
+				if (image.description[0].value != '')
 					.content_image_description: != image.description[0].value
