@@ -9,7 +9,7 @@ var User = require('../../models/main.js').User;
 exports.list = function(req, res) {
   var Query = req.session.status == 'Admin'
     ? User.find().sort('-date')
-    : User.find({'_id': req.session.user_id}).sprt('-date');
+    : User.find({'_id': req.session.user_id}).sort('-date');
 
   Query.exec(function(err, users) {
     res.render('auth/users/', {users: users});
@@ -66,7 +66,7 @@ exports.edit_form = function(req, res) {
   User.findById(id).exec(function(err, user) {
 
     user.login = post.login;
-    if (post.password) {
+    if (post.password != '') {
       user.password = post.password;
     }
     user.email = post.email;
