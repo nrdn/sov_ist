@@ -15,7 +15,7 @@ app.set('view engine', 'jade');
 app.locals.pretty = true;
 
 app.use(express.static(__dirname + '/public'));
-app.use(multer({ dest: __dirname + '/uploads'}));
+app.use(multer({ dest: __dirname + '/uploads', includeEmptyFields: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
