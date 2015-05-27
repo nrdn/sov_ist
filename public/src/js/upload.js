@@ -12,7 +12,7 @@ $(document).ready(function() {
 		allowedfiletypes: ['image/jpeg','image/png','image/gif'],
 		allowedfileextensions: ['.jpg','.jpeg','.png','.gif'],
 		maxfiles: 5,
-		maxfilesize: 8,
+		maxfilesize: 12,
 		dragOver: function() {
 			$(this).css('outline', '2px solid red');
 		},
