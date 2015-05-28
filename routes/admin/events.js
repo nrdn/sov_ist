@@ -87,6 +87,8 @@ exports.add_form = function(req, res) {
 
 	event.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 
+	event.hidden = post.hidden;
+
 	if (!post.images) {
 		return (function () {
 			event.images = [];
@@ -197,6 +199,8 @@ exports.edit_form = function(req, res) {
 		event.interval.end = new Date(Date.UTC(post.date_end.year, post.date_end.month, post.date_end.date));
 
 		event.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
+
+		event.hidden = post.hidden;
 
 		var public_path = __appdir + '/public';
 

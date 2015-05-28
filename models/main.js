@@ -16,6 +16,7 @@ var newsSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	date: {type: Date, default: Date.now},
+	hidden: Boolean,
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,
@@ -97,6 +98,7 @@ var eventSchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
 	categorys: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
+	hidden: Boolean,
 	interval: {
 		start: Date,
 		end: Date

@@ -8,8 +8,8 @@ var __appdir = path.dirname(require.main.filename);
 
 
 exports.index = function(req, res) {
-	News.find().sort('-date').limit(5).exec(function(err, news) {
-		Event.find().sort('-date').limit(12).exec(function(err, events) {
+	News.where('hidden').exists(false).sort('-date').limit(5).exec(function(err, news) {
+		Event.where('hidden').exists(false).sort('-date').limit(12).exec(function(err, events) {
 			res.render('main', {events: events, news: news});
 		});
 	});
@@ -19,8 +19,8 @@ exports.get_events = function(req, res) {
 	var post = req.body;
 
 	var Query = post.context
-		? Event.where('type').in(post.context)
-		: Event.find();
+		? Event.where('hidden').exists(false).where('type').in(post.context)
+		: Event.where('hidden').exists(false);
 
 	Query.sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
 		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};
