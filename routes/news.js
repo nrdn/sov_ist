@@ -11,7 +11,7 @@ var News = require('../models/main.js').News;
 
 
 exports.index = function(req, res) {
-  News.where('hidden').exists(false).limit(5).sort('-date').exec(function(err, news) {
+  News.where('hidden').exists(false).limit(12).sort('-date').exec(function(err, news) {
     res.render('news', {news: news});
   });
 }

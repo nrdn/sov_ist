@@ -109,7 +109,9 @@ app.route('/events/:type').get(events.index);
 app.route('/events/:type/:id').get(events.event);
 
 // === News Route
-app.route('/news').get(news.index);
+app.route('/news')
+	.get(news.index)
+	.post(news.get_news);
 
 // === News Route
 app.route('/news/:id').get(news.news);
