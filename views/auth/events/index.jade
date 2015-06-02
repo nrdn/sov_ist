@@ -1,4 +1,5 @@
 extends ../../layout
+include ../forms.jade
 
 block title
 	title= 'СОБЫТИЯ'
@@ -23,9 +24,17 @@ block content
 		a#action Мероприятие
 		a#excursion Экскурсия
 		a#xxi Тверская XXI
+
+	if (categorys.length > 0)
+		.content_navigate_block.categorys
+			.navigate_title Категории:
+			.navigate_items_block
+				each category in categorys
+					.navigate_item(class=category._id)= category.i18n.title.get('ru')
+
 	.main_menu_block
 		each event in events
-			.event(class= event.type)
+			.event(class= event.type + ' ' + event.categorys.join(' '))
 				a.rm_event(href='#', id=event._id)= 'удалить '
 				!=' | '
 				a(href='/auth/events/edit/' + event._id)= event.i18n.title.get('ru') ? event.i18n.title.get('ru') : 'Заголовок события'
