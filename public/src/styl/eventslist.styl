@@ -1,23 +1,18 @@
 .add
-	float left
 	line-height 16pt
-	&:after
-		content '||'
-		margin-left 10px
-		display inline-block
 .event_type_block
-	display inline-block
+	display block
 	margin-bottom 25px
+	width 100%
+	overflow hidden
 	a
-		margin-left 10px
+		margin-right 10px
 		cursor pointer
 		line-height 16pt
+		display block
+		float left
 	.active
 		background #000
 		color #fff
 	.last
-		&:after
-			clear both
-			float none
-			content ''
-			display block
+		clear both
