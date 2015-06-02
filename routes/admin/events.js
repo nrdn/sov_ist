@@ -41,7 +41,11 @@ var checkNested = function (obj, layers) {
 
 exports.list = function(req, res) {
 	Event.find().sort('-date').exec(function(err, events) {
-		res.render('auth/events/', {events: events});
+		Event.distinct('categorys').exec(function(err, categorys) {
+			Category.where('_id').in(categorys).exec(function(err, categorys) {
+				res.render('auth/events/', {events: events, categorys: categorys});
+			});
+		});
 	});
 }
 

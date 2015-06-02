@@ -23,14 +23,12 @@ block content
 		a#lecture Лекция
 		a#action Мероприятие
 		a#excursion Экскурсия
-		a#xxi Тверская XXI
+		a.last#xxi Тверская XXI
 
-	if (categorys.length > 0)
-		.content_navigate_block.categorys
-			.navigate_title Категории:
-			.navigate_items_block
-				each category in categorys
-					.navigate_item(class=category._id)= category.i18n.title.get('ru')
+
+		each category in categorys
+			a(id= category.id)= category.i18n.title.get('ru')
+
 
 	.main_menu_block
 		each event in events
