@@ -34,11 +34,11 @@ block content
 			.form_title Филиал:
 			+form_single_select('subsidiary', subsidiarys, event.subsidiary)
 			.form_title Статус
-			input(type='checkbox', name='status', value='important', checked=event.status)
-			|важное
-			.form_title Видимость:
-			input(type='checkbox', name='hidden', value='true', checked=event.hidden)
-			|скрыть
+			select(name='status')
+				option(value='') обычный
+				option(value='important', selected=event.status == 'important') важный
+				option(value='out', selected=event.status == 'out') прошедший
+				option(value='hidden', selected=event.status == 'hidden') скрытый
 			.form_title Тип:
 			select(name='type')
 				option(value='exhibition', selected=event.type == 'exhibition') Выставка

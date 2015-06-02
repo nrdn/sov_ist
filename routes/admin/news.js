@@ -72,8 +72,7 @@ exports.add_form = function(req, res) {
 
 
 	news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
-
-	news.hidden = post.hidden;
+	news.status = post.status;
 
 
 	if (!post.images) {
@@ -177,7 +176,7 @@ exports.edit_form = function(req, res) {
 
 
 		news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
-		news.hidden = post.hidden;
+		news.status = post.status;
 
 
 		var public_path = __appdir + '/public';
