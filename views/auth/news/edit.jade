@@ -39,7 +39,7 @@ block content
 			.form_title Статус:
 			select(name='status')
 				option(value='') обычный
-				option(value='out', selected=news.status == 'out') прошедший
+				option(value='out', selected=news.status == 'out') в разделе
 				option(value='hidden', selected=news.status == 'hidden') скрытый
 			.form_title Дата публикации:
 			+form_calendar('date', news.date)
