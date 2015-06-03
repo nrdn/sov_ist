@@ -17,6 +17,7 @@ var newsSchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	date: {type: Date, default: Date.now},
 	status: String,
+	videos: [{type: String, trim: true}],
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,
@@ -105,6 +106,7 @@ var eventSchema = new Schema({
 	},
 	status: String,
 	type: String,
+	videos: [{type: String, trim: true}],
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,

@@ -43,6 +43,8 @@ block content
 				option(value='hidden', selected=news.status == 'hidden') скрытый
 			.form_title Дата публикации:
 			+form_calendar('date', news.date)
+			.form_title Видео:
+			+form_multiple_input('videos', news.videos)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи

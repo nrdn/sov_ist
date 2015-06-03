@@ -42,6 +42,7 @@ $(document).ready(function() {
 		var $snake = $(this).parent('.snake_outer').children('.snake');
 		$snake.first().clone()
 			.find('option').prop('selected', false).end()
+			.find('.input').val('').end()
 			.insertAfter($snake.last());
 	}
 

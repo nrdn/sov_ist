@@ -54,6 +54,8 @@ block content
 			+form_calendar('date_start', event.interval.start)
 			.form_title Дата окончания события:
 			+form_calendar('date_end', event.interval.end)
+			.form_title Видео:
+			+form_multiple_input('videos', event.videos)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи

@@ -74,6 +74,8 @@ exports.add_form = function(req, res) {
 	news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 	news.status = post.status;
 
+	news.videos = post.videos.filter(function(n){ return n != '' });
+
 
 	if (!post.images) {
 		return (function () {
@@ -177,6 +179,8 @@ exports.edit_form = function(req, res) {
 
 		news.date = new Date(Date.UTC(post.date.year, post.date.month, post.date.date));
 		news.status = post.status;
+
+		news.videos = post.videos.filter(function(n){ return n != '' });
 
 
 		var public_path = __appdir + '/public';
