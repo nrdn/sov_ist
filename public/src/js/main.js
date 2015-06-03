@@ -51,7 +51,7 @@ $(document).ready(function() {
 
 		var current_elems = document.getElementsByClassName('event');
 
-		$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 6}, async: true }).done(function(elems) {
+		$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 6}, async: false }).done(function(elems) {
 			if (elems != 'out') {
 				$elems = $(elems);
 				$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
