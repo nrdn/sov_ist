@@ -21,12 +21,16 @@ exports.index = function(req, res) {
 	});
 }
 
+
 exports.event = function(req, res) {
 	var id = req.params.id;
 	Event.findById(id).exec(function(err, event) {
-		res.render('events/event.jade', {event: event});
+		Subsidiary.findById(event.subsidiary).exec(function(err, subsidiary) {
+			res.render('events/event.jade', {event: event, subsidiary: subsidiary});
+		});
 	});
 }
+
 
 exports.get_events = function(req, res) {
 	var post = req.body;
