@@ -17,7 +17,7 @@ block content_scripts
 
 block content
 	.content_title= collect.i18n.title.get('ru')
-	.content_body= collect.i18n.description.get('ru')
+	.content_body: != collect.i18n.description.get('ru')
 	.content_outer_block
 		each exhibit in exhibits
 			.content_item.exhibit(class=exhibit._id.toString())
