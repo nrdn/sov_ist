@@ -14,7 +14,10 @@ block content_scripts
 block content
 	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 	.content_title= event.i18n.title.get('ru')
-	.content_date= event.interval.start.getDate() + ' ' + months[event.interval.start.getMonth()] + ' ' + event.interval.start.getFullYear() + ' - ' + event.interval.end.getDate() + ' ' + months[event.interval.end.getMonth()] + ' ' + event.interval.end.getFullYear()
+	if event.s_title && event.i18n.s_title.get('ru') != ''
+		.content_s_title= event.i18n.s_title.get('ru')
+	else
+		.content_date= event.interval.start.getDate() + ' ' + months[event.interval.start.getMonth()] + ' ' + event.interval.start.getFullYear() + ' - ' + event.interval.end.getDate() + ' ' + months[event.interval.end.getMonth()] + ' ' + event.interval.end.getFullYear()
 	.content_body: != event.i18n.description.get('ru')
 
 

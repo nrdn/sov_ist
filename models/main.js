@@ -95,6 +95,7 @@ var subsidiarySchema = new Schema({
 
 var eventSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
+	s_title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	subsidiary: { type: Schema.Types.ObjectId, ref: 'Subsidiary' },
 	categorys: [{ type: Schema.Types.ObjectId, ref: 'Category' }],

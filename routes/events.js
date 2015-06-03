@@ -24,7 +24,7 @@ exports.index = function(req, res) {
 exports.event = function(req, res) {
 	var id = req.params.id;
 	Event.findById(id).exec(function(err, event) {
-		res.render('events/event.jade', {event: event})
+		res.render('events/event.jade', {event: event});
 	});
 }
 
