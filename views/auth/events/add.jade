@@ -27,8 +27,6 @@ block content
 		form(action="", method="post")
 			.form_title Заголовок:
 			+form_text_single('title')
-			.form_title Подзаголовок (перекрывает дату):
-			+form_text_single('s_title')
 			.form_title Описание:
 			+form_text_multi('description')
 			.form_title Категории:
@@ -54,6 +52,10 @@ block content
 			+form_calendar('date_start')
 			.form_title Дата окончания события:
 			+form_calendar('date_end')
+			br
+			br
+			input(type='checkbox', name='date_hidden', value='true')
+			!=' скрыть дату'
 			.form_title Видео:
 			+form_multiple_input('videos')
 			.form_title Изображения:
