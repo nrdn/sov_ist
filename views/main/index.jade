@@ -13,11 +13,13 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/js/main.js' + version)
 
-mixin getInterval(start, end)
-	!= ('0' + start.getUTCDate()).slice(-2) + '/' + ('0' + (start.getUTCMonth() + 1)).slice(-2) + '/' + ('0' + start.getUTCFullYear()).slice(-2)
-	!= ' - '
-	!= ('0' + end.getUTCDate()).slice(-2) + '/' + ('0' + (end.getUTCMonth() + 1)).slice(-2) + '/' + ('0' + end.getUTCFullYear()).slice(-2)
-
+mixin compareInterval(start, end)
+	if (start.getUTCDate() == end.getUTCDate() && start.getUTCMonth() == end.getUTCMonth() && start.getUTCFullYear() == end.getUTCFullYear())
+		!= ('0' + start.getUTCDate()).slice(-2) + '/' + ('0' + (start.getUTCMonth() + 1)).slice(-2) + '/' + ('0' + start.getUTCFullYear()).slice(-2)
+	else
+		!= ('0' + start.getUTCDate()).slice(-2) + '/' + ('0' + (start.getUTCMonth() + 1)).slice(-2) + '/' + ('0' + start.getUTCFullYear()).slice(-2)
+		!= ' - '
+		!= ('0' + end.getUTCDate()).slice(-2) + '/' + ('0' + (end.getUTCMonth() + 1)).slice(-2) + '/' + ('0' + end.getUTCFullYear()).slice(-2)
 
 block content
 	- var months = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
@@ -42,13 +44,13 @@ block content
 			if (event.status == 'important')
 				a.content_item.event.important(href='/events/' + event.type + '/' + event._id, style='background-image: url(' + (event.images && event.images.length > 0 && event.images[0].original) + ')')
 					.item_description
-						.item_date: +getInterval(event.interval.start, event.interval.end)
+						.item_date: +compareInterval(event.interval.start, event.interval.end)
 						.item_title= event.i18n.title.get('ru')
 			else
 				a.content_item.event(href='/events/' + event.type +'/' + event._id)
 					img.item_image(src=event.images && event.images.length > 0 && event.images[0].thumb)
 					.item_description
-						.item_date: +getInterval(event.interval.start, event.interval.end)
+						.item_date: +compareInterval(event.interval.start, event.interval.end)
 						.item_title= event.i18n.title.get('ru')
 
 block scroll
