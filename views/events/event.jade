@@ -24,7 +24,7 @@ block content
 		.content_date: +compareInterval(event.interval.start, event.interval.end)
 
 
-	.content_subs= subsidiary && subsidiary.i18n.title.get('ru')
+	.content_subs= event.subsidiary && event.subsidiary.i18n.title.get('ru')
 
 	.content_body: != event.i18n.description.get('ru')
 
