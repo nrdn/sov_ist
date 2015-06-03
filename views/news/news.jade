@@ -17,6 +17,14 @@ block content
 	.content_date= news.date.getDate() + ' ' + months[news.date.getMonth()] + ' ' + news.date.getFullYear()
 	.content_body: != news.i18n.description.get('ru')
 
+	if (news.videos && news.videos.length == 1)
+		.content_video_block
+			each video in news.videos
+				.content_video_item.important_video: != video
+	else if (news.videos && news.videos.length > 1)
+		.content_video_block
+			each video in news.videos
+				.content_video_item: != video
 
 block scroll
 	.content_title
@@ -26,3 +34,4 @@ block scroll
 				img(src=image.thumb)
 				if (image.description[0].value != '')
 					.content_image_description: != image.description[0].value
+
