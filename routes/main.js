@@ -19,7 +19,7 @@ exports.get_events = function(req, res) {
 	var post = req.body;
 
 	var Query = post.context
-		? Event.find().nor([{'status': 'hidden'}, {'status': 'out'}]).where('type').in(post.context)
+		? Event.find({'type': {'$in': post.context}}).nor([{'status': 'hidden'}, {'status': 'out'}])
 		: Event.find().nor([{'status': 'hidden'}, {'status': 'out'}]);
 
 	Query.sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
