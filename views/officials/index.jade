@@ -31,7 +31,7 @@ block content
 				.item_description
 					.item_title= item.i18n.title.get('ru')
 					.item_body: +trimString(item.i18n.description.get('ru').replace(/(<([^>]+)>)/ig, ''), 100)
-					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
+					//- .item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 
 block scroll
 	.content_title

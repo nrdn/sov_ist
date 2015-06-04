@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= 'НОВОСТИ | ' + officials.i18n.title.get('ru').toUpperCase()
+	title= officials.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/officials_item.css' + version)
@@ -14,7 +14,7 @@ block content_scripts
 block content
 	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 	.content_title= officials.i18n.title.get('ru')
-	.content_date= officials.date.getDate() + ' ' + months[officials.date.getMonth()] + ' ' + officials.date.getFullYear()
+	//- .content_date= officials.date.getDate() + ' ' + months[officials.date.getMonth()] + ' ' + officials.date.getFullYear()
 	.content_body: != officials.i18n.description.get('ru')
 
 	if (officials.videos && officials.videos.length == 1)

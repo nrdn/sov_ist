@@ -2,7 +2,7 @@ extends ../../layout
 include ../forms.jade
 
 block title
-	title ДОБАВИТЬ НОВОСТЬ
+	title ДОБАВИТЬ МАТЕРИАЛ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/libs/css/font-awesome.css')
@@ -30,7 +30,7 @@ block content_scripts
 block content
 	.form_block
 		a.back_link(href='/auth/officials') < Назад
-		.title ДОБАВИТЬ НОВОСТЬ
+		.title ДОБАВИТЬ МАТЕРИАЛ (ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ)
 		form(action="/auth/officials/add", method="post")
 			.form_title Заголовок:
 			+form_text_single('title')

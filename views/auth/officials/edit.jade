@@ -2,7 +2,7 @@ extends ../../layout
 include ../forms.jade
 
 block title
-	title РЕДАКТИРОВАТЬ НОВОСТЬ
+	title РЕДАКТИРОВАТЬ МАТЕРИАЛ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/libs/css/font-awesome.css')
@@ -29,26 +29,26 @@ block content_scripts
 
 block content
 	.form_block
-		a.back_link(href='/auth/official') < Назад
-		.title РЕДАКТИРОВАТЬ НОВОСТЬ
+		a.back_link(href='/auth/officials') < Назад
+		.title РЕДАКТИРОВАТЬ МАТЕРИАЛ (ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ)
 		form(action="", method="post")
 			.form_title Заголовок:
-			+form_text_single('title', official)
+			+form_text_single('title', officials)
 			.form_title Описание:
-			+form_text_multi('description', official)
+			+form_text_multi('description', officials)
 			.form_title Статус:
 			select(name='status')
 				option(value='') обычный
-				option(value='out', selected=official.status == 'out') в разделе
-				option(value='hidden', selected=official.status == 'hidden') скрытый
+				option(value='out', selected=officials.status == 'out') в разделе
+				option(value='hidden', selected=officials.status == 'hidden') скрытый
 			.form_title Дата публикации:
-			+form_calendar('date', official.date)
+			+form_calendar('date', officials.date)
 			.form_title Видео:
-			+form_multiple_input('videos', official.videos)
+			+form_multiple_input('videos', officials.videos)
 			.form_title Изображения:
 			.form_images_upload
 				.form_desc_title Нажми или перетащи
-				each image, i in official.images
+				each image, i in officials.images
 					.image_upload_block
 						.image_upload_preview(style='background-image:url(' + image.thumb + ')')
 							.image_upload_delete Удалить
