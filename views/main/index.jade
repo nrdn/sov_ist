@@ -32,6 +32,7 @@ block content
 				a.content_item.news(href='/news/' + item._id)
 					.item_title= item.i18n.title.get('ru')
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
+			a.content_item.news.content_news_goto(href= '/news/') Перейти в новости
 		.content_events_block
 			+eventsList(events)
 
