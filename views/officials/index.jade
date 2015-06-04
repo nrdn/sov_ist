@@ -32,6 +32,10 @@ block content
 					.item_title= item.i18n.title.get('ru')
 					.item_body: +trimString(item.i18n.description.get('ru').replace(/(<([^>]+)>)/ig, ''), 100)
 					//- .item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
+		a.content_item.officials.important(href='/partners')
+			.item_description
+				.item_title Партнерство
+				.item_body Информация для партнеров
 
 block scroll
 	.content_title
