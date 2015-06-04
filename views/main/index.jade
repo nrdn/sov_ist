@@ -18,14 +18,19 @@ block content
 	- var months = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 	.content_title Историю создаете вы
 	a.content_banner(href= 'http://pobedaonline.ru/')
-	.content_navigate_block
+	.content_navigate_block.types
 		.navigate_title Наши последние события:
 		.navigate_items_block
-			//- .navigate_item.excursion Экскурсии
+			.navigate_item.excursion Экскурсии
 			.navigate_item.exhibition Выставки
-			//- .navigate_item.lecture Лекции
+			.navigate_item.lecture Лекции
 			.navigate_item.action Мероприятия
-			.navigate_item.xxi Тверская XXI
+			//- .navigate_item.xxi Тверская XXI
+	.content_navigate_block.categorys
+		.navigate_title Категории:
+		.navigate_items_block
+			each category in categorys
+				.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
 	.content_outer_block
 		.content_news_block
 			each item in news

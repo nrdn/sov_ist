@@ -27,6 +27,9 @@ block content
 		form(action="/auth/categorys/add", method="post")
 			.form_title Заголовок:
 			+form_text_single('title')
+			.form_title Видимость:
+			input(type='checkbox', name='status', value='main')
+			|на главной
 			br
 			br
 			input(type='submit', value='отправить')

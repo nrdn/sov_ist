@@ -27,6 +27,9 @@ block content
 		form(action="", method="post")
 			.form_title Заголовок:
 			+form_text_single('title', category)
+			.form_title Видимость:
+			input(type='checkbox', name='status', value='main', checked=category.status)
+			|на главной
 			br
 			br
 			input(type='submit', value='отправить')

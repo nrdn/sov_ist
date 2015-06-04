@@ -57,6 +57,8 @@ exports.add_form = function(req, res) {
 
   });
 
+  category.status = post.status;
+
   category.save(function(err, category) {
     res.redirect('/auth/categorys');
   });
@@ -89,6 +91,8 @@ exports.edit_form = function(req, res) {
         && category.setPropertyLocalised('title', post[locale].title, locale);
 
     });
+
+    category.status = post.status;
 
     category.save(function(err, category) {
       res.redirect('/auth/categorys');

@@ -56,7 +56,10 @@ $(document).ready(function() {
 				$elems = $(elems);
 				$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
 					$container.masonry('layout');
+					$column_main.on('scroll.load', scrollLoad);
 				});
+			} else {
+				$container.masonry('remove', current_elems).masonry('layout');
 			}
 		});
 	});

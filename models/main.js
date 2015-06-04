@@ -131,6 +131,7 @@ var eventSchema = new Schema({
 var categorySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	category: { type: Schema.Types.ObjectId, ref: 'Category' },
+	status: String,
 	date: {type: Date, default: Date.now}
 });
 
