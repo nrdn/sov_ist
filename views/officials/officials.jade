@@ -1,0 +1,37 @@
+extends ../layout
+
+block title
+	title= 'НОВОСТИ | ' + officials.i18n.title.get('ru').toUpperCase()
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/officials_item.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/scroll.js' + version)
+	script(type='text/javascript', src='/build/js/officials_item.js' + version)
+
+
+block content
+	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+	.content_title= officials.i18n.title.get('ru')
+	.content_date= officials.date.getDate() + ' ' + months[officials.date.getMonth()] + ' ' + officials.date.getFullYear()
+	.content_body: != officials.i18n.description.get('ru')
+
+	if (officials.videos && officials.videos.length == 1)
+		.content_video_block
+			each video in officials.videos
+				.content_video_item.important_video: != video
+	else if (officials.videos && officials.videos.length > 1)
+		.content_video_block
+			each video in officials.videos
+				.content_video_item: != video
+
+block scroll
+	.content_title
+	.content_scroll_items
+		each image in officials.images
+			.content_scroll_item
+				img(src=image.thumb)
+				if (image.description[0].value != '')
+					.content_image_description: != image.description[0].value
+

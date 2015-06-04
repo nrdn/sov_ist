@@ -51,6 +51,7 @@ app.use(function(req, res, next) {
 var main = require('./routes/main.js');
 var events = require('./routes/events.js');
 var news = require('./routes/news.js');
+var officials = require('./routes/officials.js');
 var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
@@ -63,6 +64,7 @@ var auth = require('./routes/auth.js');
 var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
+var admin_officials = require('./routes/admin/officials.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
 var admin_halls = require('./routes/admin/halls.js');
@@ -115,6 +117,16 @@ app.route('/news')
 
 // === News Route
 app.route('/news/:id').get(news.news);
+
+
+// === Officials Route
+app.route('/officials')
+	.get(officials.index)
+	.post(officials.officials);
+
+// === Officials Route
+app.route('/officials/:id').get(officials.officials);
+
 
 // === Exposure Route
 app.route('/exposure').get(exposure.index);
@@ -192,6 +204,33 @@ app.route('/auth/news/edit/:id')
 // === Admin @remove news Route
 app.route('/auth/news/remove')
 	 .post(checkAuth, admin_news.remove);
+
+
+// === Admin news Route
+app.route('/auth/officials').get(checkAuth, admin_officials.list);
+
+
+// ------------------------
+// *** Admin Officials Routes Block ***
+// ------------------------
+
+
+// === Admin @add news Route
+app.route('/auth/officials/add')
+	 .get(checkAuth, admin_officials.add)
+	 .post(checkAuth, admin_officials.add_form);
+
+
+// === Admin @edit news Route
+app.route('/auth/officials/edit/:id')
+	 .get(checkAuth, admin_officials.edit)
+	 .post(checkAuth, admin_officials.edit_form);
+
+
+// === Admin @remove news Route
+app.route('/auth/officials/remove')
+	 .post(checkAuth, admin_officials.remove);
+
 
 
 
@@ -433,8 +472,8 @@ app.route('/team').get(content.team);
 // === Internships Route
 app.route('/internships').get(content.internships);
 
-// === Oficial Route
-app.route('/official').get(content.official);
+// === Stati Oficial Route
+//- app.route('/officials').get(content.officials);
 
 // === Partners Route
 app.route('/partners').get(content.partners);
