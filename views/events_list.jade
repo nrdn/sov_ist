@@ -13,6 +13,7 @@ mixin eventsList(events)
 				.item_description
 					if (!event.interval.hidden)
 						.item_date: +compareInterval(event.interval.start, event.interval.end)
+					.item_subs(class='subs_after' + event.subsidiary)
 					.item_title= event.i18n.title.get('ru')
 		else
 			a.content_item.event(href='/events/' + event.type +'/' + event._id)
@@ -20,4 +21,5 @@ mixin eventsList(events)
 				.item_description
 					if (!event.interval.hidden)
 						.item_date: +compareInterval(event.interval.start, event.interval.end)
+					.item_subs(class='subs_after' + event.subsidiary)
 					.item_title= event.i18n.title.get('ru')
