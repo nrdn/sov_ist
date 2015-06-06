@@ -38,6 +38,19 @@ var officialsSchema = new Schema({
 	}]
 });
 
+var vacancySchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	description: { type: String, trim: true, locale: true },
+	date: {type: Date, default: Date.now},
+	status: String,
+	videos: [{type: String, trim: true}],
+	images: [{
+		description: { type: String, trim: true, locale: true },
+		original: String,
+		thumb: String
+	}]
+});
+
 var historySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
@@ -144,6 +157,7 @@ userSchema.plugin(mongooseBcrypt, { fields: ['password'] });
 
 newsSchema.plugin(mongooseLocale);
 officialsSchema.plugin(mongooseLocale);
+vacancySchema.plugin(mongooseLocale);
 historySchema.plugin(mongooseLocale);
 exhibitSchema.plugin(mongooseLocale);
 collectSchema.plugin(mongooseLocale);
@@ -170,6 +184,7 @@ eventSchema.index({'title.value': 'text', 'description.value': 'text'}, {languag
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.News = mongoose.model('News', newsSchema);
 module.exports.Officials = mongoose.model('Officials', officialsSchema);
+module.exports.Vacancy = mongoose.model('Vacancy', officialsSchema);
 module.exports.History = mongoose.model('History', historySchema);
 module.exports.Exhibit = mongoose.model('Exhibit', exhibitSchema);
 module.exports.Collect = mongoose.model('Collect', collectSchema);
