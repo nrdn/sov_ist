@@ -34,13 +34,13 @@ exports.get_events = function(req, res) {
 	var post = req.body;
 
 	if (post.context.categorys && post.context.subsidiarys) {
-		var Query = Event.find({'subsidiary': {'$in': post.context.subsidiarys}, 'categorys': {'$in': post.context.categorys}});
+		var Query = Event.find({'type': post.context.type, 'subsidiary': {'$in': post.context.subsidiarys}, 'categorys': {'$in': post.context.categorys}});
 	} else if (post.context.categorys && !post.context.subsidiarys) {
-		var Query = Event.find({'categorys': {'$in': post.context.categorys} });
+		var Query = Event.find({'type': post.context.type, 'categorys': {'$in': post.context.categorys} });
 	} else if (!post.context.categorys && post.context.subsidiarys) {
-		var Query = Event.find({'subsidiary': {'$in': post.context.subsidiarys} });
+		var Query = Event.find({'type': post.context.type, 'subsidiary': {'$in': post.context.subsidiarys} });
 	} else {
-		var Query = Event.find();
+		var Query = Event.find({'type': post.context.type});
 	}
 
 	// var Query = post.context.categorys || post.context.subsidiarys
