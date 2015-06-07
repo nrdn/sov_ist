@@ -7,6 +7,7 @@ block title
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
 	link(rel='stylesheet', type='text/css', href='/build/css/main.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/events_subsidiary_after.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
@@ -15,28 +16,30 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/main.js' + version)
 
 block content
-	- var months = ['января', 'февраля', 'мара', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 	.content_title Историю создаете вы
 	a.content_banner(href= 'http://pobedaonline.ru/')
 	.content_navigate_block.types
 		.navigate_title Наши последние события:
 		.navigate_items_block
-			.navigate_item.excursion Экскурсии
+			//- .navigate_item.excursion Экскурсии
 			.navigate_item.exhibition Выставки
 			.navigate_item.lecture Лекции
 			.navigate_item.action Мероприятия
 			//- .navigate_item.xxi Тверская XXI
-	.content_navigate_block.categorys
-		.navigate_title Категории:
-		.navigate_items_block
-			each category in categorys
-				.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
+	if (categorys.length > 0)
+		.content_navigate_block.categorys
+			.navigate_title Категории:
+			.navigate_items_block
+				each category in categorys
+					.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
 	.content_outer_block
 		.content_news_block
 			each item in news
 				a.content_item.news(href='/news/' + item._id)
 					.item_title= item.i18n.title.get('ru')
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
+			a.content_item.news.content_news_goto(href= '/news/') Перейти в новости
 		.content_events_block
 			+eventsList(events)
 

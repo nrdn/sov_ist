@@ -52,6 +52,7 @@ var main = require('./routes/main.js');
 var events = require('./routes/events.js');
 var news = require('./routes/news.js');
 var officials = require('./routes/officials.js');
+var vacancys = require('./routes/vacancys.js');
 var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
@@ -65,6 +66,7 @@ var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
 var admin_officials = require('./routes/admin/officials.js');
+var admin_vacancys = require('./routes/admin/vacancys.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
 var admin_halls = require('./routes/admin/halls.js');
@@ -128,6 +130,15 @@ app.route('/officials')
 app.route('/officials/:id').get(officials.officials);
 
 
+// === Vacancys Route
+app.route('/vacancys')
+	.get(vacancys.index)
+	.post(vacancys.vacancys);
+
+// === Vacancys Route
+app.route('/vacancys/:id').get(vacancys.vacancys);
+
+
 // === Exposure Route
 app.route('/exposure').get(exposure.index);
 
@@ -180,7 +191,7 @@ app.route('/auth/users/remove')
 
 
 // ------------------------
-// *** Admin History Routes Block ***
+// *** Admin News Routes Block ***
 // ------------------------
 
 
@@ -206,31 +217,57 @@ app.route('/auth/news/remove')
 	 .post(checkAuth, admin_news.remove);
 
 
-// === Admin news Route
-app.route('/auth/officials').get(checkAuth, admin_officials.list);
-
 
 // ------------------------
 // *** Admin Officials Routes Block ***
 // ------------------------
 
 
-// === Admin @add news Route
+// === Admin officals Route
+app.route('/auth/officials').get(checkAuth, admin_officials.list);
+
+
+
+// === Admin @add officials Route
 app.route('/auth/officials/add')
 	 .get(checkAuth, admin_officials.add)
 	 .post(checkAuth, admin_officials.add_form);
 
 
-// === Admin @edit news Route
+// === Admin @edit officials Route
 app.route('/auth/officials/edit/:id')
 	 .get(checkAuth, admin_officials.edit)
 	 .post(checkAuth, admin_officials.edit_form);
 
 
-// === Admin @remove news Route
+// === Admin @remove officials Route
 app.route('/auth/officials/remove')
 	 .post(checkAuth, admin_officials.remove);
 
+
+// ------------------------
+// *** Admin Vacncys Routes Block ***
+// ------------------------
+
+// === Admin officals Route
+app.route('/auth/vacancys').get(checkAuth, admin_vacancys.list);
+
+
+// === Admin @add vacancys Route
+app.route('/auth/vacancys/add')
+	 .get(checkAuth, admin_vacancys.add)
+	 .post(checkAuth, admin_vacancys.add_form);
+
+
+// === Admin @edit vacancys Route
+app.route('/auth/vacancys/edit/:id')
+	 .get(checkAuth, admin_vacancys.edit)
+	 .post(checkAuth, admin_vacancys.edit_form);
+
+
+// === Admin @remove vacancys Route
+app.route('/auth/vacancys/remove')
+	 .post(checkAuth, admin_vacancys.remove);
 
 
 
@@ -470,7 +507,7 @@ app.route('/about').get(content.about);
 app.route('/team').get(content.team);
 
 // === Internships Route
-app.route('/internships').get(content.internships);
+//- app.route('/internships').get(content.internships);
 
 // === Stati Oficial Route
 //- app.route('/officials').get(content.officials);
