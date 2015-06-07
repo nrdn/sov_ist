@@ -22,9 +22,20 @@ exports.index = function(req, res) {
 exports.get_events = function(req, res) {
 	var post = req.body;
 
-	var Query = post.context.categorys || post.context.types
-		? Event.find().or([{ 'categorys': {'$in': post.context.categorys || []} }, { 'type': {'$in': post.context.types || []} }])
-		: Event.find();
+	if (post.context.categorys && post.context.types) {
+		var Query = Event.find({'type': {'$in': post.context.types}, 'categorys': {'$in': post.context.categorys}});
+	} else if (post.context.categorys && !post.context.types) {
+		var Query = Event.find({'categorys': {'$in': post.context.categorys} });
+	} else if (!post.context.categorys && post.context.types) {
+		var Query = Event.find({'type': {'$in': post.context.types} });
+	} else {
+		var Query = Event.find();
+	}
+
+	// var Query = post.context.categorys || post.context.types
+	// 	// ? Event.find().or([{ 'categorys': {'$in': post.context.categorys || []} }, { 'type': {'$in': post.context.types || []} }])
+	// 	? Event.find({'type': {'$in': post.context.types}, 'categorys': {'$in': post.context.categorys}})
+	// 	: Event.find();
 
 	Query.nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
 		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};

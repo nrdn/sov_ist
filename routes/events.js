@@ -33,9 +33,19 @@ exports.event = function(req, res) {
 exports.get_events = function(req, res) {
 	var post = req.body;
 
-	var Query = post.context.categorys || post.context.subsidiarys
-		? Event.find({'type': post.context.type}).or([{ 'categorys': {'$in': post.context.categorys || []} }, { 'subsidiary': {'$in': post.context.subsidiarys || []} }])
-		: Event.find({'type': post.context.type});
+	if (post.context.categorys && post.context.subsidiarys) {
+		var Query = Event.find({'subsidiary': {'$in': post.context.subsidiarys}, 'categorys': {'$in': post.context.categorys}});
+	} else if (post.context.categorys && !post.context.subsidiarys) {
+		var Query = Event.find({'categorys': {'$in': post.context.categorys} });
+	} else if (!post.context.categorys && post.context.subsidiarys) {
+		var Query = Event.find({'subsidiary': {'$in': post.context.subsidiarys} });
+	} else {
+		var Query = Event.find();
+	}
+
+	// var Query = post.context.categorys || post.context.subsidiarys
+	// 	? Event.find({'type': post.context.type}).or([{ 'categorys': {'$in': post.context.categorys || []} }, { 'subsidiary': {'$in': post.context.subsidiarys || []} }])
+	// 	: Event.find({'type': post.context.type});
 
 	Query.where('status').ne('hidden').sort('-date').skip(post.skip).limit(post.limit).exec(function(err, events) {
 		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};
