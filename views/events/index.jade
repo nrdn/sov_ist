@@ -2,7 +2,7 @@ extends ../layout
 include ../events_list.jade
 
 block title
-	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'education': 'Музейно-образовательные программы', 'teach': 'Центр музейно-прикладной педагогики', 'action': 'Мероприятия'}
+	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'education': 'Образовательные программы', 'teach': 'Центр прикладной педагогики', 'action': 'Мероприятия'}
 	title= types[type]
 
 block content_style
@@ -16,7 +16,7 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/events.js' + version)
 
 block content
-	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'education': 'Музейно-образовательные программы', 'teach': 'Центр музейно-прикладной педагогики', 'action': 'Мероприятия'}
+	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'education': 'Образовательные программы', 'teach': 'Центр прикладной педагогики', 'action': 'Мероприятия'}
 	.content_title(class=type)= types[type]
 
 	.content_navigate_block.subsidiarys
