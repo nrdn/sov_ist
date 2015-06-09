@@ -25,18 +25,18 @@ $(document).ready(function() {
 		var column_height = $column_main.height();
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
-			$column_main.off('scroll.load');
+			$column_main.off('scroll.load').promise().done(function() {
+				$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
 
-			$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
-
-				if (elems != 'out') {
-					$elems = $(elems);
-					$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
-						skip+= 6;
-						$container.masonry('layout');
-						$column_main.on('scroll.load', scrollLoad);
-					});
-				}
+					if (elems != 'out') {
+						$elems = $(elems);
+						$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
+							skip+= 6;
+							$container.masonry('layout');
+							$column_main.on('scroll.load', scrollLoad);
+						});
+					}
+				});
 			});
 		}
 	};
@@ -53,16 +53,18 @@ $(document).ready(function() {
 
 		var current_elems = document.getElementsByClassName('event');
 
-		$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12}, async: false }).done(function(elems) {
-			if (elems != 'out') {
-				$elems = $(elems);
-				$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
-					$container.masonry('layout');
-					$column_main.on('scroll.load', scrollLoad);
-				});
-			} else {
-				$container.masonry('remove', current_elems).masonry('layout');
-			}
+		$column_main.off('scroll.load').promise().done(function() {
+			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12}, async: false }).done(function(elems) {
+				if (elems != 'out') {
+					$elems = $(elems);
+					$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
+						$container.masonry('layout');
+						$column_main.on('scroll.load', scrollLoad);
+					});
+				} else {
+					$container.masonry('remove', current_elems).masonry('layout');
+				}
+			});
 		});
 	});
 });
