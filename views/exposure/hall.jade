@@ -30,4 +30,7 @@ block scroll
 	.content_title
 	.content_scroll_items
 		each image in hall.images
-			img.content_scroll_item(src=image.thumb)
+			.content_scroll_item
+				img(src=image.thumb)
+				if (image.description[0].value != '')
+					.content_image_description: != image.description[0].value
