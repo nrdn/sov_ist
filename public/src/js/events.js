@@ -1,6 +1,6 @@
 $(document).ready(function() {
-	var skip = 12;
 	var context = {
+		skip: 12,
 		type: $('.content_title').attr('class').split(' ')[1],
 		categorys: [],
 		subsidiarys: []
@@ -23,12 +23,12 @@ $(document).ready(function() {
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
 			$column_main.off('scroll.load').promise().done(function() {
-				$.ajax({ url: '/events', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
+				$.ajax({ url: '/events', method: 'POST', async: false, data: {context: context, skip: context.skip, limit: 6} }).done(function(elems) {
 
 					if (elems != 'out') {
 						$elems = $(elems);
 						$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
-							skip+= 6;
+							context.skip+= 6;
 							$container.masonry('layout');
 							$column_main.on('scroll.load', scrollLoad);
 						});
@@ -42,7 +42,7 @@ $(document).ready(function() {
 
 
 	$('.navigate_item').on('click', function() {
-		skip = 12;
+		context.skip = 12;
 		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
 		var nav_item = $(this).attr('class').split(' ')[1];
 
