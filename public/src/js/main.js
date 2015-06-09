@@ -1,7 +1,6 @@
 $(document).ready(function() {
-	var skip = 12;
 	var context = {
-		send: true,
+		skip: 12,
 		types: [],
 		categorys: []
 	};
@@ -26,12 +25,12 @@ $(document).ready(function() {
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
 			$column_main.off('scroll.load').promise().done(function() {
-				$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: skip, limit: 6} }).done(function(elems) {
+				$.ajax({ url: '/', method: 'POST', async: false, data: {context: context, skip: context.skip, limit: 6} }).done(function(elems) {
 
 					if (elems != 'out') {
 						$elems = $(elems);
 						$container.append($elems).masonry('appended', $elems).imagesLoaded(function() {
-							skip+= 6;
+							context.skip+= 6;
 							$container.masonry('layout');
 							$column_main.on('scroll.load', scrollLoad);
 						});
@@ -44,7 +43,7 @@ $(document).ready(function() {
 	$column_main.on('scroll.load', scrollLoad);
 
 	$('.navigate_item').on('click', function() {
-		skip = 12;
+		context.skip = 12;
 		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
 		var nav_item = $(this).attr('class').split(' ')[1];
 

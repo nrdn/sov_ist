@@ -21,7 +21,7 @@ exports.search = function(req, res) {
 	var search = searchNormalize(req.body.search);
 
 	Exhibit.find({ $text: { $search: search } }, { score : { $meta: 'textScore' } }).sort({ score : { $meta : 'textScore' } }).select('title _id').exec(function(err, exhibits) {
-		Event.find({ $text: { $search: search } }, { score : { $meta: 'textScore' } }).sort({ score : { $meta : 'textScore' } }).select('title _id').exec(function(err, events) {
+		Event.find({ $text: { $search: search } }, { score : { $meta: 'textScore' } }).sort({ score : { $meta : 'textScore' } }).select('title _id type').exec(function(err, events) {
 			res.send({events: events, exhibits: exhibits});
 		});
 	});
