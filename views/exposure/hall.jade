@@ -32,5 +32,5 @@ block scroll
 		each image in hall.images
 			.content_scroll_item
 				img(src=image.thumb)
-				if (image.description[0].value != '')
+				if (image.description[0].value != '' || image.description[0].value != 'Описание')
 					.content_image_description: != image.description[0].value
