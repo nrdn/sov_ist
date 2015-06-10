@@ -16,9 +16,22 @@ $(document).ready(function() {
 			itemSelector: '.event',
 			isInitLayout: false
 		}).masonry('stamp', news_stamp).masonry('layout').css('opacity', 1);
+
+		if (!history.state || (history.state.types.length == 0 && history.state.categorys.length == 0)) {
+			history.pushState(context);
+		} else {
+			context = history.state;
+			context.types.forEach(function(item) {
+				$('.' + item).addClass('selected').data('clicked', true);
+			});
+			context.categorys.forEach(function(item) {
+				$('.' + item).addClass('selected').data('clicked', true);
+			});
+			getData();
+		}
 	});
 
-	var scrollLoad = function() {
+	function scrollLoad(event) {
 
 		var outer_offset_bottom = $container.offset().top + $container.height();
 		var column_height = $column_main.height();
@@ -40,16 +53,7 @@ $(document).ready(function() {
 		}
 	};
 
-	$column_main.on('scroll.load', scrollLoad);
-
-	$('.navigate_item').on('click', function() {
-		context.skip = 12;
-		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
-		var nav_item = $(this).attr('class').split(' ')[1];
-
-		if (context[context_item].indexOf(nav_item) !== -1) context[context_item].splice(context[context_item].indexOf(nav_item), 1);
-		else context[context_item].push(nav_item);
-
+	function getData() {
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
@@ -65,5 +69,20 @@ $(document).ready(function() {
 				}
 			});
 		});
-	});
+	}
+
+	function clickLoader(event) {
+		context.skip = 12;
+		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
+		var nav_item = $(this).attr('class').split(' ')[1];
+
+		if (context[context_item].indexOf(nav_item) !== -1) context[context_item].splice(context[context_item].indexOf(nav_item), 1);
+		else context[context_item].push(nav_item);
+
+		getData();
+		history.replaceState(context);
+	}
+
+	$column_main.on('scroll.load', scrollLoad);
+	$('.navigate_item').on('click', clickLoader);
 });
