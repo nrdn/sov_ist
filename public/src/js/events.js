@@ -15,10 +15,10 @@ $(document).ready(function() {
 			gutter: 20
 		});
 
-		if (!history.state || (history.state.subsidiarys.length == 0 && history.state.categorys.length == 0)) {
-			history.pushState(context);
+		if (!window.history.state || (window.history.state.subsidiarys.length == 0 && window.history.state.categorys.length == 0)) {
+			window.history.pushState(context, 'context');
 		} else {
-			context = history.state;
+			context = window.history.state;
 			context.subsidiarys.forEach(function(item) {
 				$('.' + item).addClass('selected').data('clicked', true);
 			});
@@ -78,7 +78,7 @@ $(document).ready(function() {
 		else context[context_item].push(nav_item);
 
 		getData();
-		history.replaceState(context);
+		window.history.replaceState(context, 'context');
 	}
 
 	$column_main.on('scroll.load', scrollLoad);

@@ -75,6 +75,7 @@ exports.add_form = function(req, res) {
 			&& subsidiary.setPropertyLocalised('description', post[locale].description, locale);
 	});
 
+	subsidiary.status = post.status;
 
 	if (files.logo) {
 		fs.mkdir(__appdir + '/public/images/subsidiarys/' + subsidiary._id, function() {
@@ -187,6 +188,8 @@ exports.edit_form = function(req, res) {
 			checkNested(post, [locale, 'description'])
 				&& subsidiary.setPropertyLocalised('description', post[locale].description, locale);
 		});
+
+		subsidiary.status = post.status;
 
 		subsidiary.logo.position.x = post.position.x || 0;
 		subsidiary.logo.position.y = post.position.y || 0;

@@ -31,6 +31,10 @@ block content
 			+form_text_multi('description', subsidiary)
 			.form_title Адрес:
 			+form_text_single('adress', subsidiary)
+			.form_title Статус
+			select(name='status')
+				option(value='') обычный
+				option(value='important', selected=subsidiary.status == 'important') важный
 			.form_title Логотип:
 			input(type='file', name='logo')
 			.form_title Логотип (координата x)
