@@ -23,10 +23,7 @@ block content
 		.navigate_title Филиалы:
 		.navigate_items_block
 			each subsidiary in subsidiarys
-				if (subsidiary.status == 'important')
-					.navigate_item.important(class=subsidiary._id.toString())= subsidiary.i18n.title.get('ru')
-				else
-					.navigate_item(class=subsidiary._id.toString())= subsidiary.i18n.title.get('ru')
+				.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get('ru')
 
 	if (categorys.length > 0)
 		.content_navigate_block.categorys
