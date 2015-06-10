@@ -20,8 +20,8 @@ block content
 	.content_title(class=type)= types[type]
 
 	.content_navigate_block.subsidiarys
+		.navigate_title Филиалы:
 		.navigate_items_block
-			.navigate_title Филиалы:
 			each subsidiary in subsidiarys
 				if (subsidiary.status == 'important')
 					.navigate_item.important(class=subsidiary._id.toString())= subsidiary.i18n.title.get('ru')
