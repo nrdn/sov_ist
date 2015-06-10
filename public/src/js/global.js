@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	var event_hash = window.location.hash.replace('#','').split(',');
+		$.each(event_hash, function(i) {
+			if (event_hash[i] == 'selected') {
+				setTimeout(function(){$('.navigate_item').eq(i).trigger('click');},20);
+			}
+		});
 	var search = {
 		val: '', buf: '',
 		checkResult: function() {
@@ -40,29 +46,30 @@ $(document).ready(function() {
 	.on('focusout', function(event) {
 		clearInterval(search.interval);
 	});
-
-
 	$('.option.search').on('click', function(event) {
 		$('.search_block').toggle().find('.search_input').focus();
 	});
-
 	$('.navigate_item').on('click', function() {
 		$(this).data('clicked', !$(this).data('clicked'));
-
 		if ($(this).data('clicked')) {
 			$(this).addClass('selected');
 		} else {
 			$(this).removeClass('selected');
 		}
+		event_hash = $.map($('.navigate_item'), function(el) {
+				if ($(el).attr('class').substr(-8) == 'selected') {
+					return value = 'selected';
+				} else {
+					return value = '';
+				}
+			});
+		window.location.hash = event_hash;
 	});
-
 	$('.block').css('color', '#B8B8B8').on('click', function(event) {
 		event.preventDefault();
 	});
-
 	$(document).on('mouseup', function(event) {
 		var container = $('.search_block');
-
 		if (!container.is(event.target)
 				&& container.has(event.target).length === 0)
 		{
