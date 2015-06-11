@@ -13,8 +13,10 @@ exports.index = function(req, res) {
 	Event.find({type: req.params.type}).where('status').ne('hidden').sort('-date').limit(12).populate('subsidiary').exec(function(err, events) {
 		Event.distinct('categorys', {type: req.params.type}).exec(function(err, categorys) {
 			Category.where('_id').in(categorys).exec(function(err, categorys) {
-				Subsidiary.find().exec(function(err, subsidiarys) {
-					res.render('events', {type: req.params.type, events: events, categorys: categorys, subsidiarys: subsidiarys});
+				Event.distinct('subsidiary', {type: req.params.type}).exec(function(err, subsidiarys) {
+					Subsidiary.where('_id').in(subsidiarys).exec(function(err, subsidiarys) {
+						res.render('events', {type: req.params.type, events: events, categorys: categorys, subsidiarys: subsidiarys});
+					});
 				});
 			});
 		});
