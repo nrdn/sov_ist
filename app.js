@@ -14,14 +14,23 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.locals.pretty = true;
 
+var MongoStore = require('connect-mongo')(session);
+var i18n = require('i18n');
+
+i18n.configure({
+	locales: ['ru', 'en'],
+	defaultLocale: 'ru',
+	cookie: 'locale',
+	directory: __dirname + '/locales'
+});
+
 app.use(express.static(__dirname + '/public'));
 app.use(multer({ dest: __dirname + '/uploads', includeEmptyFields: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use(cookieParser());
-
-var MongoStore = require('connect-mongo')(session);
+app.use(i18n.init);
 
 app.use(session({
 	key: 'sovhis.sess',
@@ -39,6 +48,7 @@ app.use(session({
 app.use(function(req, res, next) {
 	res.locals.session = req.session;
 	res.locals.locale = req.cookies.locale || 'ru';
+	req.locale = req.cookies.locale || 'ru';
 	next();
 });
 

@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title БИЛЕТЫ И РАСПИСАНИЕ
+	title= __('БИЛЕТЫ И РАСПИСАНИЕ')
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/schedule.css' + version)
@@ -12,68 +12,68 @@ block content_scripts
 
 
 block content
-	.content_title Билеты
+	.content_title= __('Билеты')
 
 	.schedule_block
 		.schedule_block_inner.content_block_left
-			.info_block_title Стоимость
+			.info_block_title= __('Стоимость')
 			p.info_block
-				span.highlited_block 250 руб.
-				span полный билет
+				span.highlited_block= '250 ' + __('руб.')
+				span= __('полный билет')
 			p.info_block
-				span.highlited_block.benefit_block 100 руб.
-				span льготный билет
+				span.highlited_block.benefit_block= '100 ' + __('руб.')
+				span= __('льготный билет')
 					br
-					| (для учащихся, студентов вузов РФ, 
+					!= '(' + __('для учащихся, студентов вузов РФ,')
 					br
-					| пенсионеров).
+					!= __('пенсионеров') + ')'.
 
-			.info_block_title Единый билет:
+			.info_block_title= __('Единый билет:')
 			p.info_block
-				i (ГЦМСИР и 4 отдела;
+				i= '(' + __('ГЦМСИР и 4 отдела;')
 					br
-					| срок действия — 10 дней,
+					!= __('срок действия — 10 дней,')
 				br
-				| включая день продажи):
+				!= __('включая день продажи') + '):'
 				br
 			p.info_block
-				span.highlited_block 550 руб.
-				span для взрослых
+				span.highlited_block= '550 ' + __('руб.')
+				span= __('для взрослых')
 			p.info_block
-				span.highlited_block.benefit_block.benefit_block2 250 руб.
-				span для учащихся, студентов вузов РФ, 
+				span.highlited_block.benefit_block.benefit_block2= '250' + __('руб.')
+				span= __('для учащихся, студентов вузов РФ,')
 					br
-					| пенсионеров
+					!= __('пенсионеров')
 			p.info_block
-				span.highlited_block 250 руб.
-				span любительская фотосъемка
+				span.highlited_block= '250 ' + __('руб.')
+				span= __('любительская фотосъемка')
 			p.info_block
-				span.highlited_block 500 руб.
-				span любительская видеосъемка
+				span.highlited_block= '500 ' + __('руб.')
+				span= __('любительская видеосъемка')
 
 		.schedule_block_inner.content_block_right
-			.info_block_title Бесплатное посещение
-			p.info_block Дети до 7 лет
+			.info_block_title= __('Бесплатное посещение')
+			p.info_block= __('Дети до 7 лет')
 				br
-				| Инвалиды 1,2 групп*
+				!= __('Инвалиды 1,2 групп*')
 				br
-				|	Герои Советского Союза
+				!=	__('Герои Советского Союза')
 				br
-				|	Герои Российской Федерации
+				!=	__('Герои Российской Федерации')
 				br
-				|	Полные кавалеры Ордена Славы*
+				!=	__('Полные кавалеры Ордена Славы*')
 				br
-				|	Члены ИКОМ*
-			p.info_block.highlited_block Первый вторник месяца:
-			p.info_block лица, не достигшие 18 лет;
+				!=	__('Члены ИКОМ*')
+			p.info_block.highlited_block= __('Первый вторник месяца:')
+			p.info_block= __('лица, не достигшие 18 лет;')
 				br
-				| члены многодетных семей
-			p.info_block.highlited_block Каждый вторник:
-			p.info_block воспитанники Суворовских военных
+				!= __('члены многодетных семей')
+			p.info_block.highlited_block= __('Каждый вторник:')
+			p.info_block= __('воспитанники Суворовских военных')
 				br
-				| и Нахимовских военно-морских училищ*.
+				!= __('и Нахимовских военно-морских училищ*.')
 			p.info_block
-				i * по предоставлении соответствующих документов
+				!= __('* по предоставлении соответствующих документов')
 
 block scroll
 	.content_title

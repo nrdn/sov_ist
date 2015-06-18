@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title КОНТАКТЫ
+	title= __('КОНТАКТЫ')
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/contacts.css' + version)
@@ -18,29 +18,29 @@ block content
 
 block scroll
 	.contacts_scroll_inner
-		.contacts_title= 'Контактная информация'
+		.contacts_title= __('Контактная информация')
 
-		p.info_block Информация: 
+		p.info_block= __('Информация:')
 			span +7 (495) 699-54-58
-		p.info_block Экскурсионное бюро: 
+		p.info_block= __('Экскурсионное бюро:')
 			span +7 (495)699-67-24
-		p.info_block Приемная: 
+		p.info_block= __('Приемная:')
 			span +7 (495)699-52-17,
-		p.info_block Факс: 
+		p.info_block= __('Факс:')
 			span +7 (495)699-12-73
 		p.info_block sovrhistory@mail.ru
-		.info_block_title Адрес:
-		p.info_block 125009, Россия, Москва,
+		.info_block_title= __('Адрес:')
+		p.info_block= __('125009, Россия, Москва,')
 			br
-			| Тверская ул., дом 21
-		.info_block_title Время работы:
-		p.info_block Вторник, среда, пятница: с 10.00 до 18.00,
+			!= __('Тверская ул., дом 21')
+		.info_block_title= __('Время работы:')
+		p.info_block= __('Вторник, среда, пятница: с 10.00 до 18.00,')
 			br
-			| касса до 17.30
-		p.info_block Четверг: с 12.00 до 21.00,
+			!= __('касса до 17.30')
+		p.info_block= __('Четверг: с 12.00 до 21.00,')
 			br
-			| касса до 20.30
-		p.info_block Суббота, воскресенье: с 11.00 до 19.00,
+			!= __('касса до 20.30')
+		p.info_block= __('Суббота, воскресенье: с 11.00 до 19.00,')
 			br
-			| касса до 18.30
-		p.info_block.info_block_last Понедельник — выходной день
+			!= __('касса до 18.30')
+		p.info_block.info_block_last= __('Понедельник — выходной день')

@@ -9,46 +9,45 @@ html
 				.header_inner
 					a.header_logo(href='/')
 						img.logo_image(src='/images/design/logo.png')
-						.logo_title Государственный центральный музей современной истории России
+						.logo_title= __('Государственный центральный музей современной истории России')
 					.menu_block.left
 						.menu_item_block
-							a.menu_item.menu_empty Музей
+							a.menu_item.menu_empty= __('Музей')
 							.menu_drop
 								.drop_inner
-									a.menu_item(href='/news') Новости
-									a.menu_item(href='/history') История музея
-									a.menu_item(href='/subsidiarys') Филиалы
-									a.menu_item(href='/exposure') Экспозиция
-									a.menu_item(href='/collections') Коллекции
-									a.menu_item(href='/vacancys') Вакансии и стажировки
-									a.menu_item(href='/officials') Официальная информация
-									//- a.menu_item(href='/team') Команда
-									a.menu_item(href='/partners') Партнерство
+									a.menu_item(href='/news')= __('Новости')
+									a.menu_item(href='/history')= __('История музея')
+									a.menu_item(href='/subsidiarys')= __('Филиалы')
+									a.menu_item(href='/exposure')= __('Экспозиция')
+									a.menu_item(href='/collections')= ('Коллекции')
+									a.menu_item(href='/vacancys')= __('Вакансии и стажировки')
+									a.menu_item(href='/officials')= __('Официальная информация')
+									//- a.menu_item(href='/team')= __('Команда')
+									a.menu_item(href='/partners')= __('Партнерство')
 						.menu_item_block
-							a.menu_item(href='http://vm.sovrhistory.ru/sovremennoy-istorii-rossii/', target='_blank') Виртуальный музей
+							a.menu_item(href='http://vm.sovrhistory.ru/sovremennoy-istorii-rossii/', target='_blank')= __('Виртуальный музей')
 						.menu_item_block
-							a.menu_item.menu_empty События
+							a.menu_item.menu_empty= __('События')
 							.menu_drop
 								.drop_inner
-									a.menu_item(href='/events/exhibition') Выставки
-									a.menu_item(href='/events/lecture') Лекции
-									a.menu_item(href='/events/action') Мероприятия
-									//- a.menu_item(href='/events/xxi') Тверская XXI
+									a.menu_item(href='/events/exhibition')= __('Выставки')
+									a.menu_item(href='/events/lecture')= __('Лекции')
+									a.menu_item(href='/events/action')= __('Мероприятия')
 						.menu_item_block
-							a.menu_item.menu_empty Посетителям
+							a.menu_item.menu_empty= __('Посетителям')
 							.menu_drop
 								.drop_inner
-									a.menu_item(href='/events/excursion') Экскурсии
-									a.menu_item(href='/events/education') Образовательные программы
-									a.menu_item(href='/events/teach') Центр музейной педагогики
-									//- a.menu_item(href='/visitors/souvenirs').block Сувенирная продукция
-									a.menu_item(href='/visitors/schedule') Билеты и расписание
+									a.menu_item(href='/events/excursion')= __('Экскурсии')
+									a.menu_item(href='/events/education')= __('Образовательные программы')
+									a.menu_item(href='/events/teach')= __('Центр музейной педагогики')
+									//- a.menu_item(href='/visitors/souvenirs').block= __('Сувенирная продукция')
+									a.menu_item(href='/visitors/schedule')= __('Билеты и расписание')
 						//- .menu_item_block
 							a.menu_item(href='/partners') Партнерство
 						.menu_item_block
-							a.menu_item(href='/live') Живая история
+							a.menu_item(href='/live')= __('Живая история')
 						.menu_item_block
-							a.menu_item(href='/visitors/contacts') Контакты
+							a.menu_item(href='/visitors/contacts')= __('Контакты')
 					.menu_block.right
 						.social_block
 							a(href='https://vk.com/sovr_history', target='_blank') 
@@ -57,16 +56,19 @@ html
 							a.inst(href='https://instagram.com/sovr.history', target='_blank') 
 						.options_block
 							.option.search 
-							.option.lang.block EN
+							if (locale == 'ru')
+								a.option.lang(href='/lang/en') EN
+							else
+								a.option.lang(href='/lang/ru') RU
 				.search_block
 					.search_inner
 						input.search_input(type='text', placeholder='Найти...')
 						.search_result
 							.search_context.exhibits
-								.context_title Экспонаты
+								.context_title= __('Экспонаты')
 								.context_results_block
 							.search_context.events
-								.context_title События
+								.context_title= __('События')
 								.context_results_block
 			.content_block
 				.content_up_block
@@ -81,11 +83,11 @@ html
 									a(href='https://www.facebook.com/sovr.history', target='_blank') 
 									a(href='https://twitter.com/sovrmuse', target='_blank') 
 									a(href='https://instagram.com/sovr.history', target='_blank') 
-								.footer_block_inner 2015. Государственный центральный музей современной истории России.
+								.footer_block_inner= '2015' +  __('Государственный центральный музей современной истории России')
 									br
-									| Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.
+									!= __('Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.')
 									br
-									b Сайт находится в стадии бета-тестирования.
+									b= __('Сайт находится в стадии бета-тестирования.')
 								.footer_bureau
 									a(href='http://nrdn.ru', target='_blank')
 										img(src='/images/design/nrdn.png')

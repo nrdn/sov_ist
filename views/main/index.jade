@@ -2,7 +2,7 @@ extends ../layout
 include ../events_list.jade
 
 block title
-	title ГЛАВНАЯ
+	title= __('ГЦМСИР')
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
@@ -17,33 +17,32 @@ block content_scripts
 
 block content
 	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-	.content_title Историю создаете вы
+	.content_title= __('Историю создаете вы')
 	a.content_banner(href= 'http://pobedaonline.ru/')
 	.content_navigate_block.types
-		.navigate_title Наши последние события:
+		.navigate_title= __('Наши последние события:')
 		.navigate_items_block
-			//- .navigate_item.excursion Экскурсии
-			.navigate_item.exhibition Выставки
-			.navigate_item.lecture Лекции
-			.navigate_item.action Мероприятия
-			//- .navigate_item.xxi Тверская XXI
+			//- .navigate_item.excursion= __('Экскурсии')
+			.navigate_item.exhibition= __('Выставки')
+			.navigate_item.lecture= __('Лекции')
+			.navigate_item.action= __('Мероприятия')
 	if (categorys.length > 0)
 		.content_navigate_block.categorys
-			.navigate_title Категории:
+			.navigate_title= __('Категории:')
 			.navigate_items_block
 				each category in categorys
-					.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
+					.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
 	.content_outer_block
 		.content_news_block
 			each item in news
 				a.content_item.news(href='/news/' + item._id)
-					.item_title= item.i18n.title.get('ru')
+					.item_title= item.i18n.title.get(locale)
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
-			a.content_item.news.content_news_goto(href= '/news/') Перейти в новости
+			a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в новости')
 		.content_events_block
 			+eventsList(events)
 
 block scroll
-	.content_title Государственный центральный музей современной истории России
+	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
 		include ../gallerys/main.jade

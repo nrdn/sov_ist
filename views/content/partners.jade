@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title ПАРТНЕРСТВО
+	title= __('ПАРТНЕРСТВО')
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/partners.css' + version)
@@ -11,15 +11,15 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 
 block content
-	//- .content_title Партнерство
+	//- .content_title= __('Партнерство')
 	.parters_block
-		.info_block_title Наш музей всегда открыт
+		.info_block_title= __('Наш музей всегда открыт')
 			br
-			|	для позитивного сотрудничества
+			!= __('для позитивного сотрудничества')
 			br
-			|	и партнерства.
-		.partners_phone тел.: (495) 699-99-12
-		.partners_phone факс: (495) 699-12-73
+			!= __('и партнерства.')
+		.partners_phone= __('тел.:') + ' (495) 699-99-12'
+		.partners_phone= __('факс:') + ' (495) 699-12-73'
 	.partners_divide
 
 
@@ -47,12 +47,12 @@ block content
 					#CDSWIDEXC.widEXC
 						.bravoBox
 							.bravoWrapper
-								.bravoText  Браво!
+								.bravoText= __('Браво!')
 							img(src='http://www.tripadvisor.ru/img/cdsi/partner/transparent_pixel-11863-2.gif', height='1', width='1')
 						br
 						#CDSWIDEXCLINK.widEXCLINK
 							a(target='_blank', href='http://www.tripadvisor.ru/Attraction_Review-g298484-d300334-Reviews-Modern_Russian_History_Museum-Moscow_Central_Russia.html', onclick='ta.cds.handleTALink(11863,this);return true;')
-								| Государственный центральный музей современной истории России 25 чел. оценил(и) на "отлично"
+								!= __('Государственный центральный музей современной истории России 25 чел. оценил(и) на "отлично"')
 							br
 						.widEXCTALOGO
 							a(target='_blank', href='http://www.tripadvisor.ru/')
