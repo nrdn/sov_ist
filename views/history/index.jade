@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title ИСТОРИЯ
+	title= __('ИСТОРИЯ')
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
@@ -13,7 +13,7 @@ block content_scripts
 
 
 block content
-	.content_title История
+	.content_title= __('История')
 	.period_container.start
 		h3
 			a#y1831
@@ -145,6 +145,6 @@ block content
 			a.last_xxi(href='#xxi') XXI век
 
 block scroll
-	.content_title Государственный центральный музей современной истории России
+	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
 		include ../gallerys/history.jade

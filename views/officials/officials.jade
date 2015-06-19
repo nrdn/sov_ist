@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= officials.i18n.title.get('ru').toUpperCase()
+	title= __('ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ') + ' | ' + officials.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/officials_item.css' + version)

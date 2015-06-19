@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= 'ЭКСПОЗИЦИЯ | ' + hall.i18n.title.get('ru').toUpperCase()
+	title= __('ЭКСПОЗИЦИЯ') + ' | ' + hall.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)

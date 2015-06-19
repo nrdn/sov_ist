@@ -31,12 +31,12 @@ block content
 			.navigate_title= __('Категории:')
 			.navigate_items_block
 				each category in categorys
-					.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
+					.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
 	.content_outer_block
 		.content_news_block
 			each item in news
 				a.content_item.news(href='/news/' + item._id)
-					.item_title= item.i18n.title.get(locale)
+					.item_title= item.i18n.title.get('ru')
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 			a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в новости')
 		.content_events_block

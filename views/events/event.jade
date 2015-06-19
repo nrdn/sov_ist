@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= 'СОБЫТИЯ | ' + event.i18n.title.get('ru').toUpperCase()
+	title= __('СОБЫТИЯ') + ' | ' + event.i18n.title.get('ru').toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/event.css' + version)

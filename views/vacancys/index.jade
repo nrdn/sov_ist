@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title ВАКАНСИИ И СТАЖИРОВКИ
+	title= __('ВАКАНСИИ И СТАЖИРОВКИ')
 
 block content_style
 	//- link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
@@ -24,7 +24,7 @@ mixin trimString(str, length)
 
 block content
 	- var months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
-	.content_title Вакансии и стажировки
+	.content_title= __('Вакансии и стажировки')
 	.content_outer_block
 		each vacancy in vacancys
 			a.content_item.officials.important(href='/vacancys/' + vacancy._id)

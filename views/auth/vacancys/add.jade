@@ -30,6 +30,7 @@ block content_scripts
 block content
 	.form_block
 		a.back_link(href='/auth/vacancys') < Назад
+		button.toggle_eng(type='button') перевод
 		.title ДОБАВИТЬ ВАКАНСИЮ/СТАЖИРОВКУ
 		form(action="/auth/vacancys/add", method="post")
 			.form_title Заголовок:

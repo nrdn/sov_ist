@@ -30,6 +30,7 @@ block content_scripts
 block content
 	.form_block
 		a.back_link(href='/auth/news') < Назад
+		button.toggle_eng(type='button') перевод
 		.title ДОБАВИТЬ НОВОСТЬ
 		form(action="/auth/news/add", method="post")
 			.form_title Заголовок:

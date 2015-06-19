@@ -1,9 +1,5 @@
 $(document).ready(function() {
-	var count = $('.child').size();
 	var eng = true;
-	var event = false;
-	var project = false;
-	var news = false;
 
 
 // ------------------------
@@ -11,22 +7,17 @@ $(document).ready(function() {
 // ------------------------
 
 
-	function checkEnglish () {
-		if (eng === true)
-			$('.en').prop('disabled', true);
-		else
-			$('.en').prop('disabled', false).show();
-	}
-
 	function toggleEnglish () {
 		if (eng = !eng) {
 			eng = true;
-			$('.en').prop('disabled', eng).hide();
+			$('.en').prop('disabled', eng).filter('input').hide();
+			$('.en').parent('.wysiwyg-container').hide();
 			$('.ru').css('float','none');
 		}
 		else {
 			eng = false;
-			$('.en').prop('disabled', eng).show();
+			$('.en').prop('disabled', eng).filter('input').show();
+			$('.en').parent('.wysiwyg-container').show();
 			$('.ru').css('float','left');
 		}
 	}
@@ -138,7 +129,6 @@ $(document).ready(function() {
 			// placeholder: 'Type your text here...',
 			placeholderUrl: 'www.example.com',
 	});
-
 
 
 });
