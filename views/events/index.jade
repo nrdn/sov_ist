@@ -19,11 +19,12 @@ block content
 	- var types = {'exhibition': 'Выставки', 'excursion': 'Экскурсии', 'lecture': 'Лекции', 'education': 'Образовательные программы', 'teach': 'Центр прикладной педагогики', 'action': 'Мероприятия'}
 	.content_title(class=type)= types[type]
 
-	.content_navigate_block.subsidiarys
-		.navigate_title= __('Филиалы:')
-		.navigate_items_block
-			each subsidiary in subsidiarys
-				.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get('ru')
+	if (subsidiarys.length > 0)
+		.content_navigate_block.subsidiarys
+			.navigate_title= __('Филиалы:')
+			.navigate_items_block
+				each subsidiary in subsidiarys
+					.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get('ru')
 
 	if (categorys.length > 0)
 		.content_navigate_block.categorys

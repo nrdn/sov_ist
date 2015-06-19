@@ -9,9 +9,9 @@ var __appdir = path.dirname(require.main.filename);
 
 
 exports.index = function(req, res) {
-	News.find().nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').limit(5).exec(function(err, news) {
-		Event.find().nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').limit(12).populate('subsidiary').exec(function(err, events) {
-			Category.where('status').equals('main').exec(function(err, categorys) {
+	News.find().where('title.lg').equals(req.locale).nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').limit(5).exec(function(err, news) {
+		Event.find().where('title.lg').equals(req.locale).nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').limit(12).populate('subsidiary').exec(function(err, events) {
+			Category.where('title.lg').equals(req.locale).where('status').equals('main').exec(function(err, categorys) {
 				res.render('main', {events: events, news: news, categorys: categorys});
 			});
 		});
@@ -37,7 +37,7 @@ exports.get_events = function(req, res) {
 	// 	? Event.find({'type': {'$in': post.context.types}, 'categorys': {'$in': post.context.categorys}})
 	// 	: Event.find();
 
-	Query.nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').skip(post.skip).limit(post.limit).populate('subsidiary').exec(function(err, events) {
+	Query.where('title.lg').equals(req.locale).nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').skip(post.skip).limit(post.limit).populate('subsidiary').exec(function(err, events) {
 		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};
 		events.length > 0
 			? res.send(jade.renderFile(__appdir + '/views/events/get_events.jade', opts))
