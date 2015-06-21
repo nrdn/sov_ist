@@ -13,11 +13,7 @@ block content_scripts
 block content
 	//- .content_title= __('Партнерство')
 	.parters_block
-		.info_block_title= __('Наш музей всегда открыт')
-			br
-			!= __('для позитивного сотрудничества')
-			br
-			!= __('и партнерства.')
+		.info_block_title!= __('Наш музей всегда открыт <br> для позитивного сотрудничества <br> и партнерства.')
 		.partners_phone= __('тел.:') + ' (495) 699-99-12'
 		.partners_phone= __('факс:') + ' (495) 699-12-73'
 	.partners_divide
