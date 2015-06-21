@@ -38,7 +38,7 @@ exports.get_events = function(req, res) {
 	// 	: Event.find();
 
 	Query.where('title.lg').equals(req.locale).nor([{'status': 'hidden'}, {'status': 'out'}]).sort('-date').skip(post.skip).limit(post.limit).populate('subsidiary').exec(function(err, events) {
-		var opts = {events: events, compileDebug: false, debug: false, cache: true, pretty: false};
+		var opts = {events: events, locale: req.locale, compileDebug: false, debug: false, cache: true, pretty: false};
 		events.length > 0
 			? res.send(jade.renderFile(__appdir + '/views/events/get_events.jade', opts))
 			: res.send('out');

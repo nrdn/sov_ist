@@ -30,8 +30,7 @@ exports.get_officials = function(req, res) {
 
   Officials.where('title.lg').equals(req.locale).where('status').ne('hidden').sort('-date').skip(post.skip).limit(post.limit).exec(function(err, officials) {
     if (officials.length > 0) {
-      var data = jade.renderFile(__appdir + '/views/officials/get_officials.jade', {officials: officials});
-      res.send(data);
+      res.send(jade.renderFile(__appdir + '/views/officials/get_officials.jade', {officials: officials, locale: req.locale}));
     } else {
       res.send('out');
     }

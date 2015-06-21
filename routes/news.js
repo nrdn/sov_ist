@@ -30,8 +30,7 @@ exports.get_news = function(req, res) {
 
   News.where('title.lg').equals(req.locale).where('status').ne('hidden').sort('-date').skip(post.skip).limit(post.limit).exec(function(err, news) {
     if (news.length > 0) {
-      var data = jade.renderFile(__appdir + '/views/news/get_news.jade', {news: news});
-      res.send(data);
+      res.send(jade.renderFile(__appdir + '/views/news/get_news.jade', {news: news, locale: req.locale}));
     } else {
       res.send('out');
     }

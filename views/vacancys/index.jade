@@ -28,8 +28,8 @@ block content
 		each vacancy in vacancys
 			a.content_item.officials.important(href='/vacancys/' + vacancy._id)
 				.item_description
-					.item_title= vacancy.i18n.title.get('ru')
-					.item_body: +trimString(vacancy.i18n.description.get('ru').replace(/(<([^>]+)>)/ig, ''), 100)
+					.item_title= vacancy.i18n.title.get(locale)
+					.item_body: +trimString(vacancy.i18n.description.get(locale).replace(/(<([^>]+)>)/ig, ''), 100)
 					//- .item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 
 block scroll

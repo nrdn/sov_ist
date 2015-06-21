@@ -21,7 +21,7 @@ block content
 			a.content_item.hall(href='/exposure/' + hall._id)
 				img.item_image(src=hall.images && hall.images.length > 0 && hall.images[0].thumb)
 				.item_description
-					.item_title= hall.i18n.title.get('ru')
+					.item_title= hall.i18n.title.get(locale)
 
 //- block scroll
 //- 	.content_title Государственный центральный музей современной истории России

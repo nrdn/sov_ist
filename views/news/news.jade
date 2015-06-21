@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= __('НОВОСТИ') + ' | ' + news.i18n.title.get('ru').toUpperCase()
+	title= __('НОВОСТИ') + ' | ' + news.i18n.title.get(locale).toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/news_item.css' + version)
@@ -12,9 +12,9 @@ block content_scripts
 
 
 block content
-	.content_title= news.i18n.title.get('ru')
+	.content_title= news.i18n.title.get(locale)
 	.content_date= news.date.getDate() + ' ' + months[news.date.getMonth()] + ' ' + news.date.getFullYear()
-	.content_body: != news.i18n.description.get('ru')
+	.content_body: != news.i18n.description.get(locale)
 
 	if (news.videos && news.videos.length == 1)
 		.content_video_block

@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= __('ЭКСПОЗИЦИЯ') + ' | ' + hall.i18n.title.get('ru').toUpperCase()
+	title= __('ЭКСПОЗИЦИЯ') + ' | ' + hall.i18n.title.get(locale).toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
@@ -15,15 +15,15 @@ block content_scripts
 
 
 block content
-	.content_title= hall.i18n.title.get('ru')
-	.content_s_title= hall.i18n.s_title.get('ru')
-	.content_description: != hall.i18n.description.get('ru')
+	.content_title= hall.i18n.title.get(locale)
+	.content_s_title= hall.i18n.s_title.get(locale)
+	.content_description: != hall.i18n.description.get(locale)
 	.content_outer_block
 		each exhibit in exhibits
 			.content_item.exhibit
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
 				.item_description
-					.item_title= exhibit.i18n.title.get('ru')
+					.item_title= exhibit.i18n.title.get(locale)
 
 
 block scroll

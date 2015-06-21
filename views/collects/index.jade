@@ -21,10 +21,10 @@ block content
 			a.content_item.collect(href='/collections/' + collect._id)
 				img.item_image(src=collect.logo.path)
 				.item_description
-					.item_title= collect.i18n.title.get('ru')
+					.item_title= collect.i18n.title.get(locale)
 
 block scroll
-	.content_title Государственный центральный музей современной истории России
+	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
 		each exhibit in exhibits
 			img.content_scroll_item(src=exhibit.images[0].thumb)

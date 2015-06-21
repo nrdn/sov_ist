@@ -29,8 +29,7 @@ exports.get_vacancys = function(req, res) {
 
   Vacancy.where('title.lg').equals(req.locale).where('status').ne('hidden').sort('-date').skip(post.skip).limit(post.limit).exec(function(err, vacancy) {
     if (vacancys.length > 0) {
-      var data = jade.renderFile(__appdir + '/views/vacancys/get_vacancys.jade', {vacancy: vacancy});
-      res.send(data);
+      res.send(jade.renderFile(__appdir + '/views/vacancys/get_vacancys.jade', {vacancy: vacancy, locale: req.locale}));
     } else {
       res.send('out');
     }

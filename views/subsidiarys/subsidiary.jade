@@ -1,7 +1,7 @@
 extends ../layout
 
 block title
-	title= 'ФИЛИАЛЫ | ' + subsidiary.i18n.title.get('ru').toUpperCase()
+	title= 'ФИЛИАЛЫ | ' + subsidiary.i18n.title.get(locale).toUpperCase()
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
@@ -15,14 +15,14 @@ block content_scripts
 
 
 block content
-	.content_title= subsidiary.i18n.title.get('ru')
-	.content_body: != subsidiary.i18n.description.get('ru')
+	.content_title= subsidiary.i18n.title.get(locale)
+	.content_body: != subsidiary.i18n.description.get(locale)
 
 
 
 
 block scroll
-	.content_title Государственный центральный музей современной истории России
+	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
 	each image in subsidiary.images
 		img.content_scroll_item(src=image.thumb)

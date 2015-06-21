@@ -11,6 +11,6 @@ mixin trimString(str, length)
 each item in official
 	a.content_item.official.important(href='/official/' + item._id)
 		.item_description
-			.item_title= item.i18n.title.get('ru')
-			.item_body: +trimString(item.i18n.description.get('ru').replace(/(<([^>]+)>)/ig, ''), 100)
+			.item_title= item.i18n.title.get(locale)
+			.item_body: +trimString(item.i18n.description.get(locale).replace(/(<([^>]+)>)/ig, ''), 100)
 			.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()

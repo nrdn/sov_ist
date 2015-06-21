@@ -22,14 +22,14 @@ block content
 			.navigate_title= __('Филиалы:')
 			.navigate_items_block
 				each subsidiary in subsidiarys
-					.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get('ru')
+					.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get(locale)
 
 	if (categorys.length > 0)
 		.content_navigate_block.categorys
 			.navigate_title= __('Категории:')
 			.navigate_items_block
 				each category in categorys
-					.navigate_item(class=category._id.toString())= category.i18n.title.get('ru')
+					.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
 	.content_outer_block
 		+eventsList(events)
 
