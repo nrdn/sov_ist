@@ -47,14 +47,7 @@ block content
 			.form_title Видео:
 			+form_multiple_input('videos', news.videos)
 			.form_title Изображения:
-			.form_images_upload
-				.form_desc_title Нажми или перетащи
-				each image, i in news.images
-					.image_upload_block
-						.image_upload_preview(style='background-image:url(' + image.thumb + ')')
-							.image_upload_delete Удалить
-						textarea.image_upload_description(name='images[description][]', placeholder='Описание')= image.description.filter(function(locale) { return locale.lg == 'ru' })[0].value
-						input.image_upload_form(type='hidden', name='images[path][]', value=images_preview[i])
+			+form_images_upload(news.images)
 			br
 			br
 			input(type='submit', value='отправить')

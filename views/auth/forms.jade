@@ -81,3 +81,17 @@ mixin form_multiple_input(path, options)
 					input.back(type="button", value="-")
 					input.input(type='text', name=path + '[]', value=option)
 		input.forward(type="button", value="+")
+
+//- Images Upload Form
+
+mixin form_images_upload(images)
+	- function get_locale(option, lang) {var locale = option.filter(function(locale) { return locale.lg == lang })[0]; if (locale) {return locale.value } else {return ''} }
+	.form_images_upload
+		.form_desc_title Нажми или перетащи
+		each image, i in images
+			.image_upload_block
+				.image_upload_preview(style='background-image:url(' + image.thumb + ')')
+					.image_upload_delete Удалить
+				textarea.image_upload_description.ru_img(name='images[description][ru][]', placeholder='Описание') #{get_locale(image.description, 'ru')}
+				textarea.image_upload_description.en_img(name='images[description][en][]', disabled, placeholder='Description') #{get_locale(image.description, 'en')}
+				input.image_upload_form(type='hidden', name='images[path][]', value=images_preview[i])

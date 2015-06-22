@@ -12,12 +12,14 @@ $(document).ready(function() {
 			eng = true;
 			$('.en').prop('disabled', eng).filter('input').hide();
 			$('.en').parent('.wysiwyg-container').hide();
+			$('.en_img').prop('disabled', eng).hide();
 			$('.ru').css('float','none');
 		}
 		else {
 			eng = false;
 			$('.en').prop('disabled', eng).filter('input').show();
 			$('.en').parent('.wysiwyg-container').show();
+			$('.en_img').prop('disabled', eng).show();
 			$('.ru').css('float','left');
 		}
 	}
