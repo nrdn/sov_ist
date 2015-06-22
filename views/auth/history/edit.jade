@@ -28,8 +28,7 @@ block content
 			.form_title Дата конца:
 			+form_calendar('date_end', history.interval.end)
 			.form_title Изображения:
-			.form_images_upload
-				.form_desc_title Перетащи сюда
+			+form_images_upload(exhibit.images)
 			br
 			br
 			input(type='submit', value='отправить')
