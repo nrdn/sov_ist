@@ -9,6 +9,7 @@ block title
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/news_item.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/ya_share.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
@@ -28,6 +29,8 @@ block content
 		.content_video_block
 			each video in news.videos
 				.content_video_item: != video
+
+	| <script type="text/javascript" src="//yastatic.net/share/share.js" charset="utf-8"></script><div class="yashare-auto-init" data-yashareL10n="ru" data-yashareType="none" data-yashareQuickServices="vkontakte,facebook,twitter,gplus"></div>
 
 block scroll
 	- function get_locale(option, lang) {var locale = option.filter(function(locale) { return locale.lg == lang })[0]; if (locale) {return locale.value } else {return ''} }
