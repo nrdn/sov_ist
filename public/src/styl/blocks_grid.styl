@@ -18,6 +18,9 @@
 	text-decoration none
 	color black
 	display block
+	&:hover
+		.item_title
+			color #777
 	.item_image
 		width 220px
 		display block
@@ -29,7 +32,8 @@
 		.item_date
 			font 10pt/12pt 'PT Sans'
 		.item_title
-			font-weight bold
+			//font-weight bold
+			font 12pt/14pt 'PT Sans'
 	&.important
 		background-size cover
 		background-position center
@@ -40,14 +44,19 @@
 			box-sizing border-box
 			width 460px
 			color white
-			text-shadow 1px 1px 2px black
 			position absolute
 			padding 10px
 			bottom 0
+			background url(/images/design/bckg.png) 0 0
+			background-size 100% 170%
+			padding-top 50px
 			.item_date
 				font 10pt/12pt 'PT Sans'
+			.item_subs
+				color #676767
 			.item_title
 				font 16pt/18pt 'PT Sans'
+				color #fff
 
 
 // Test
