@@ -25,6 +25,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	width 100%
 	background-color rgba(0, 0, 0, 0.7)
 	z-index 999
+	overflow-y scroll
 
 .search_block
 	width 100%
@@ -78,6 +79,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	padding-bottom 10px
 	margin 0 auto
 	overflow hidden
+
+
 
 .menu_block
 	overflow hidden
@@ -171,30 +174,44 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .content_columns_block
 	overflow hidden
-	width 1280px
-	margin 0 auto
+	//width 1280px
+	width 100%
+	//margin 0 auto
 
 .content_column
 	box-sizing border-box
 	&.main
 		overflow hidden
-		width 960px
-		float left
+		//width 960px
+		width 100%
+		//float left
 		.content_title
 			padding-top 90px
 			margin-bottom 60px
 			font 24pt/26pt 'PT Serif'
 		.column_main_inner
-			width 955px
-			padding-right 25px
+			//width 955px
+			width 100%
+			//padding-right 25px
 			overflow-y scroll
 			height 100%
+			.column_main_inner_block
+				width 1280px
+				margin 0 auto
+				position relative
+				height 100%
+				z-index 10
+				.content_main_inner_block_content
+					width 940px
 		.content_outer_block
 			overflow hidden
 	&.scroll
 		overflow hidden
+		right 0
+		z-index 100
+		top 0
 		width 320px
-		float left
+		position absolute
 		.content_title
 			display none // !!!!!!!!!!
 			top 70px
@@ -210,8 +227,19 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			overflow-x hidden
 			width 335px
 			height 100%
-
-
+	.fixed_column
+		position fixed
+		top 0
+		bottom 0
+		left 0
+		right 0
+		z-index -1
+		overflow-y scroll
+		.fixed_column_inner
+			width 1280px
+			margin 0 auto
+			position relative
+			height 100%
 .content_column
 	&.main
 		// background-color #DFA3D7
