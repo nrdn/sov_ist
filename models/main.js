@@ -25,19 +25,6 @@ var newsSchema = new Schema({
 	}]
 });
 
-var officialsSchema = new Schema({
-	title: { type: String, trim: true, locale: true },
-	description: { type: String, trim: true, locale: true },
-	date: {type: Date, default: Date.now},
-	status: String,
-	videos: [{type: String, trim: true}],
-	images: [{
-		description: { type: String, trim: true, locale: true },
-		original: String,
-		thumb: String
-	}]
-});
-
 var vacancySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
@@ -149,6 +136,16 @@ var categorySchema = new Schema({
 	date: {type: Date, default: Date.now}
 });
 
+var gallerySchema = new Schema({
+	type: String,
+	description: { type: String, trim: true, locale: true },
+	path: {
+		original: String,
+		thumb: String
+	},
+	date: {type: Date, default: Date.now}
+});
+
 
 // ------------------------
 // *** Plugins Block ***
@@ -158,7 +155,6 @@ var categorySchema = new Schema({
 userSchema.plugin(mongooseBcrypt, { fields: ['password'] });
 
 newsSchema.plugin(mongooseLocale);
-officialsSchema.plugin(mongooseLocale);
 vacancySchema.plugin(mongooseLocale);
 historySchema.plugin(mongooseLocale);
 exhibitSchema.plugin(mongooseLocale);
@@ -167,6 +163,7 @@ hallSchema.plugin(mongooseLocale);
 subsidiarySchema.plugin(mongooseLocale);
 eventSchema.plugin(mongooseLocale);
 categorySchema.plugin(mongooseLocale);
+gallerySchema.plugin(mongooseLocale);
 
 
 // ------------------------
@@ -185,8 +182,7 @@ eventSchema.index({'title.value': 'text', 'description.value': 'text'}, {languag
 
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.News = mongoose.model('News', newsSchema);
-module.exports.Officials = mongoose.model('Officials', officialsSchema);
-module.exports.Vacancy = mongoose.model('Vacancy', officialsSchema);
+module.exports.Vacancy = mongoose.model('Vacancy', vacancySchema);
 module.exports.History = mongoose.model('History', historySchema);
 module.exports.Exhibit = mongoose.model('Exhibit', exhibitSchema);
 module.exports.Collect = mongoose.model('Collect', collectSchema);
@@ -194,3 +190,4 @@ module.exports.Hall = mongoose.model('Hall', hallSchema);
 module.exports.Subsidiary = mongoose.model('Subsidiary', subsidiarySchema);
 module.exports.Event = mongoose.model('Event', eventSchema);
 module.exports.Category = mongoose.model('Category', categorySchema);
+module.exports.Gallery = mongoose.model('Gallery', gallerySchema);

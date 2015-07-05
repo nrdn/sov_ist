@@ -61,7 +61,6 @@ app.use(function(req, res, next) {
 var main = require('./routes/main.js');
 var events = require('./routes/events.js');
 var news = require('./routes/news.js');
-var officials = require('./routes/officials.js');
 var vacancys = require('./routes/vacancys.js');
 var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
@@ -75,7 +74,6 @@ var auth = require('./routes/auth.js');
 var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
-var admin_officials = require('./routes/admin/officials.js');
 var admin_vacancys = require('./routes/admin/vacancys.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
@@ -83,6 +81,11 @@ var admin_halls = require('./routes/admin/halls.js');
 var admin_subsidiarys = require('./routes/admin/subsidiarys.js');
 var admin_events = require('./routes/admin/events.js');
 var admin_categorys = require('./routes/admin/categorys.js');
+
+var admin_official = require('./routes/admin/official.js');
+var admin_contacts = require('./routes/admin/contacts.js');
+var admin_schedule = require('./routes/admin/schedule.js');
+var admin_gallerys = require('./routes/admin/gallerys.js');
 
 var options = require('./routes/admin/options.js');
 var globals = require('./routes/globals.js');
@@ -98,6 +101,16 @@ function checkAuth (req, res, next) {
 	req.session.user_id ? next() : res.redirect('/login');
 }
 
+var Gallery = require('./models/main.js').Gallery;
+
+function imageGallery(type) {
+  return function(req, res, next) {
+    Gallery.where('type').equals(type).exec(function(err, images) {
+    	res.locals.images = images;
+    	next();
+    });
+  }
+}
 
 
 // ------------------------
@@ -108,7 +121,7 @@ function checkAuth (req, res, next) {
 
 // === Main Route
 app.route('/')
-	.get(main.index)
+	.get(imageGallery('main'), main.index)
 	.post(main.get_events);
 
 // === Events Route
@@ -124,7 +137,7 @@ app.route('/events/:type/:id').get(events.event);
 
 // === News Route
 app.route('/news')
-	.get(news.index)
+	.get(imageGallery('main'), news.index)
 	.post(news.get_news);
 
 // === News Route
@@ -132,21 +145,17 @@ app.route('/news/:id').get(news.news);
 
 
 // === Officials Route
-app.route('/officials')
-	.get(officials.index)
-	.post(officials.officials);
-
-// === Officials Route
-app.route('/officials/:id').get(officials.officials);
+app.route('/official')
+	.get(content.official)
 
 
 // === Vacancys Route
 app.route('/vacancys')
-	.get(vacancys.index)
+	.get(imageGallery('interships'), vacancys.index)
 	.post(vacancys.vacancys);
 
 // === Vacancys Route
-app.route('/vacancys/:id').get(vacancys.vacancys);
+app.route('/vacancys/:id').get(imageGallery('interships'), vacancys.vacancys);
 
 
 // === Exposure Route
@@ -229,37 +238,11 @@ app.route('/auth/news/remove')
 
 
 // ------------------------
-// *** Admin Officials Routes Block ***
+// *** Admin Vacancys Routes Block ***
 // ------------------------
 
 
-// === Admin officals Route
-app.route('/auth/officials').get(checkAuth, admin_officials.list);
-
-
-
-// === Admin @add officials Route
-app.route('/auth/officials/add')
-	 .get(checkAuth, admin_officials.add)
-	 .post(checkAuth, admin_officials.add_form);
-
-
-// === Admin @edit officials Route
-app.route('/auth/officials/edit/:id')
-	 .get(checkAuth, admin_officials.edit)
-	 .post(checkAuth, admin_officials.edit_form);
-
-
-// === Admin @remove officials Route
-app.route('/auth/officials/remove')
-	 .post(checkAuth, admin_officials.remove);
-
-
-// ------------------------
-// *** Admin Vacncys Routes Block ***
-// ------------------------
-
-// === Admin officals Route
+// === Admin vacancys Route
 app.route('/auth/vacancys').get(checkAuth, admin_vacancys.list);
 
 
@@ -478,6 +461,51 @@ app.route('/auth/categorys/remove')
 
 
 // ------------------------
+// *** Admin Gallerys Routes Block ***
+// ------------------------
+
+
+
+// === Admin gallerys Route
+app.route('/auth/gallerys').get(checkAuth, admin_gallerys.list);
+
+
+// === Admin @add gallerys Route
+app.route('/auth/gallerys/add')
+	 .get(checkAuth, admin_gallerys.add)
+	 .post(checkAuth, admin_gallerys.add_form);
+
+
+// === Admin @edit gallerys Route
+app.route('/auth/gallerys/edit/:id')
+	 .get(checkAuth, admin_gallerys.edit)
+	 .post(checkAuth, admin_gallerys.edit_form);
+
+
+// === Admin @remove gallerys Route
+app.route('/auth/gallerys/remove')
+	 .post(checkAuth, admin_gallerys.remove);
+
+
+// ------------------------
+// *** Admin Contacts Content ***
+// ------------------------
+
+
+app.route('/auth/contacts')
+	 .get(checkAuth, admin_contacts.edit)
+	 .post(checkAuth, admin_contacts.edit_form);
+
+app.route('/auth/official')
+	 .get(checkAuth, admin_official.edit)
+	 .post(checkAuth, admin_official.edit_form);
+
+app.route('/auth/schedule')
+	 .get(checkAuth, admin_schedule.edit)
+	 .post(checkAuth, admin_schedule.edit_form);
+
+
+// ------------------------
 // *** Auth Routes Block ***
 // ------------------------
 
@@ -509,39 +537,23 @@ app.route('/registr')
 // ------------------------
 
 
-
-// === About Route
-app.route('/about').get(content.about);
-
 // === Team Route
 app.route('/team').get(content.team);
 
-// === Internships Route
-//- app.route('/internships').get(content.internships);
-
-// === Stati Oficial Route
-//- app.route('/officials').get(content.officials);
-
 // === Partners Route
-app.route('/partners').get(content.partners);
+app.route('/partners').get(imageGallery('main'), content.partners);
 
 // === Live Route
 app.route('/live').get(content.live);
 
-
-// === Visitors Route
-app.route('/visitors').get(content.visitors);
-
 // === Schedule Route
-app.route('/visitors/schedule').get(content.schedule);
-
-// === Souvenirs Route
-app.route('/visitors/souvenirs').get(content.souvenirs);
+app.route('/schedule').get(imageGallery('main'), content.schedule);
 
 // === Contacts Route
-app.route('/visitors/contacts').get(content.contacts);
+app.route('/contacts').get(content.contacts);
 
-
+// === Official Route
+app.route('/official').get(content.contacts);
 
 
 
