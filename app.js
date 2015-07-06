@@ -66,6 +66,7 @@ var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
 var subsidiarys = require('./routes/subsidiarys.js');
+var souvenirs = require('./routes/souvenirs.js');
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
 
@@ -170,6 +171,11 @@ app.route('/subsidiarys').get(subsidiarys.index);
 // === Subsidiary Route
 app.route('/subsidiarys/:id').get(subsidiarys.subsidiary);
 
+// === Souvenirs Route
+app.route('/souvenirs').get(souvenirs.index);
+
+// === Souvenir Route
+app.route('/souvenirs/:id').get(souvenirs.catalogue);
 
 
 // ------------------------
