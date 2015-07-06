@@ -14,7 +14,6 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/js/main.js' + version)
-	script(type='text/javascript', src='/build/js/randomize.js' + version)
 
 block content
 	.content_title= __('Историю создаете вы')
@@ -42,10 +41,12 @@ block content
 		.content_events_block
 			+eventsList(events)
 
+
 block scroll
 	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
-		each image in images
-			.content_scroll_item
-				img(src=image.path.thumb)
-				.content_image_description= image.i18n.description.get(locale)
+		include ../gallerys/main.jade
+		//- each image in images
+		//- 	.content_scroll_item
+		//- 		img(src=image.path.thumb)
+		//- 		.content_image_description= image.i18n.description.get(locale)
