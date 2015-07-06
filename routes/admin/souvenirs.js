@@ -61,6 +61,7 @@ exports.add_form = function(req, res) {
   var post = req.body;
   var files = req.files;
   var images = [];
+  var catalogue_id = req.params.id;
 
   var souvenir = new Souvenir();
 
@@ -75,7 +76,7 @@ exports.add_form = function(req, res) {
   });
 
 
-  souvenir.catalogue = post.catalogue;
+  souvenir.catalogue = catalogue_id;
 
 
   if (!post.images) {
@@ -177,10 +178,11 @@ exports.edit = function(req, res) {
 exports.edit_form = function(req, res) {
   var post = req.body;
   var files = req.files;
-  var id = req.params.souvenir_id;
+  var souvenir_id = req.params.souvenir_id;
+  var catalogue_id = req.params.id;
   var images = [];
 
-  Souvenir.findById(id).exec(function(err, souvenir) {
+  Souvenir.findById(souvenir_id).exec(function(err, souvenir) {
 
     var locales = post.en ? ['ru', 'en'] : ['ru'];
 
@@ -193,7 +195,7 @@ exports.edit_form = function(req, res) {
     });
 
 
-    souvenir.catalogue = post.catalogue;
+    souvenir.catalogue = catalogue_id
 
 
     var public_path = __appdir + '/public';
