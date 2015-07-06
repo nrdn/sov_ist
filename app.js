@@ -143,11 +143,11 @@ app.route('/official')
 
 // === Vacancys Route
 app.route('/vacancys')
-	.get(globals.imageGallery('interships'), vacancys.index)
+	.get(globals.imageGallery('main'), vacancys.index)
 	.post(vacancys.vacancys);
 
 // === Vacancys Route
-app.route('/vacancys/:id').get(globals.imageGallery('interships'), vacancys.vacancys);
+app.route('/vacancys/:id').get(globals.imageGallery('main'), vacancys.vacancys);
 
 
 // === Exposure Route
@@ -163,7 +163,7 @@ app.route('/collections').get(collects.index);
 app.route('/collections/:id').get(collects.collect);
 
 // === History Route
-app.route('/history').get(history.index);
+app.route('/history').get(globals.imageGallery('history'), history.index);
 
 // === Subsidiarys Route
 app.route('/subsidiarys').get(subsidiarys.index);
