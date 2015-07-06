@@ -81,6 +81,8 @@ var admin_halls = require('./routes/admin/halls.js');
 var admin_subsidiarys = require('./routes/admin/subsidiarys.js');
 var admin_events = require('./routes/admin/events.js');
 var admin_categorys = require('./routes/admin/categorys.js');
+var admin_catalogues= require('./routes/admin/catalogues.js');
+var admin_souvenirs = require('./routes/admin/souvenirs.js');
 
 var admin_official = require('./routes/admin/official.js');
 var admin_contacts = require('./routes/admin/contacts.js');
@@ -101,17 +103,6 @@ function checkAuth (req, res, next) {
 	req.session.user_id ? next() : res.redirect('/login');
 }
 
-var Gallery = require('./models/main.js').Gallery;
-
-function imageGallery(type) {
-  return function(req, res, next) {
-    Gallery.where('type').equals(type).exec(function(err, images) {
-    	res.locals.images = images;
-    	next();
-    });
-  }
-}
-
 
 // ------------------------
 // *** Main Routes Block ***
@@ -121,7 +112,7 @@ function imageGallery(type) {
 
 // === Main Route
 app.route('/')
-	.get(imageGallery('main'), main.index)
+	.get(globals.imageGallery('main'), main.index)
 	.post(main.get_events);
 
 // === Events Route
@@ -137,7 +128,7 @@ app.route('/events/:type/:id').get(events.event);
 
 // === News Route
 app.route('/news')
-	.get(imageGallery('main'), news.index)
+	.get(globals.imageGallery('main'), news.index)
 	.post(news.get_news);
 
 // === News Route
@@ -151,11 +142,11 @@ app.route('/official')
 
 // === Vacancys Route
 app.route('/vacancys')
-	.get(imageGallery('interships'), vacancys.index)
+	.get(globals.imageGallery('interships'), vacancys.index)
 	.post(vacancys.vacancys);
 
 // === Vacancys Route
-app.route('/vacancys/:id').get(imageGallery('interships'), vacancys.vacancys);
+app.route('/vacancys/:id').get(globals.imageGallery('interships'), vacancys.vacancys);
 
 
 // === Exposure Route
@@ -459,6 +450,57 @@ app.route('/auth/categorys/remove')
 	 .post(checkAuth, admin_categorys.remove);
 
 
+// ------------------------
+// *** Admin Catalogues Routes Block ***
+// ------------------------
+
+
+// === Admin catalogues Route
+app.route('/auth/catalogues').get(checkAuth, admin_catalogues.list);
+
+
+// === Admin @add catalogues Route
+app.route('/auth/catalogues/add')
+	 .get(checkAuth, admin_catalogues.add)
+	 .post(checkAuth, admin_catalogues.add_form);
+
+
+// === Admin @edit catalogues Route
+app.route('/auth/catalogues/edit/:id')
+	 .get(checkAuth, admin_catalogues.edit)
+	 .post(checkAuth, admin_catalogues.edit_form);
+
+
+// === Admin @remove catalogues Route
+app.route('/auth/catalogues/remove')
+	 .post(checkAuth, admin_catalogues.remove);
+
+
+// ------------------------
+// *** Admin Souvenirs Routes Block ***
+// ------------------------
+
+
+// === Admin souvenirs Route
+app.route('/auth/catalogues/edit/:id/souvenirs').get(checkAuth, admin_souvenirs.list);
+
+
+// === Admin @add souvenirs Route
+app.route('/auth/catalogues/edit/:id/souvenirs/add')
+	 .get(checkAuth, admin_souvenirs.add)
+	 .post(checkAuth, admin_souvenirs.add_form);
+
+
+// === Admin @edit souvenirs Route
+app.route('/auth/catalogues/edit/:id/souvenirs/edit/:souvenir_id')
+	 .get(checkAuth, admin_souvenirs.edit)
+	 .post(checkAuth, admin_souvenirs.edit_form);
+
+
+// === Admin @remove souvenirs Route
+app.route('/auth/catalogues/edit/:id/souvenirs/edit/:souvenir_id/remove')
+	 .post(checkAuth, admin_souvenirs.remove);
+
 
 // ------------------------
 // *** Admin Gallerys Routes Block ***
@@ -541,13 +583,13 @@ app.route('/registr')
 app.route('/team').get(content.team);
 
 // === Partners Route
-app.route('/partners').get(imageGallery('main'), content.partners);
+app.route('/partners').get(globals.imageGallery('main'), content.partners);
 
 // === Live Route
 app.route('/live').get(content.live);
 
 // === Schedule Route
-app.route('/schedule').get(imageGallery('main'), content.schedule);
+app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
 
 // === Contacts Route
 app.route('/contacts').get(content.contacts);

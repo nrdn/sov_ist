@@ -146,6 +146,27 @@ var gallerySchema = new Schema({
 	date: {type: Date, default: Date.now}
 });
 
+var catalogueSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	description: { type: String, trim: true, locale: true },
+	logo: {
+		path: String
+	},
+	date: {type: Date, default: Date.now}
+});
+
+var souvenirSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	description: { type: String, trim: true, locale: true },
+	catalogue: { type: Schema.Types.ObjectId, ref: 'Catalogue' },
+	images: [{
+		description: { type: String, trim: true, locale: true },
+		original: String,
+		thumb: String
+	}],
+	date: {type: Date, default: Date.now}
+});
+
 
 // ------------------------
 // *** Plugins Block ***
@@ -164,6 +185,8 @@ subsidiarySchema.plugin(mongooseLocale);
 eventSchema.plugin(mongooseLocale);
 categorySchema.plugin(mongooseLocale);
 gallerySchema.plugin(mongooseLocale);
+catalogueSchema.plugin(mongooseLocale);
+souvenirSchema.plugin(mongooseLocale);
 
 
 // ------------------------
@@ -191,3 +214,5 @@ module.exports.Subsidiary = mongoose.model('Subsidiary', subsidiarySchema);
 module.exports.Event = mongoose.model('Event', eventSchema);
 module.exports.Category = mongoose.model('Category', categorySchema);
 module.exports.Gallery = mongoose.model('Gallery', gallerySchema);
+module.exports.Catalogue = mongoose.model('Catalogue', catalogueSchema);
+module.exports.Souvenir = mongoose.model('Souvenir', souvenirSchema);

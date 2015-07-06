@@ -2,6 +2,7 @@ var async = require('async');
 
 var Event = require('../models/main.js').Event;
 var Exhibit = require('../models/main.js').Exhibit;
+var Gallery = require('../models/main.js').Gallery;
 
 function searchNormalize(search) {
 	var words = search.split(' ');
@@ -31,4 +32,14 @@ exports.search = function(req, res) {
 exports.locale = function(req, res) {
   res.cookie('locale', req.params.locale);
   res.redirect('back');
+}
+
+
+exports.imageGallery = function(type) {
+  return function(req, res, next) {
+    Gallery.where('type').equals(type).exec(function(err, images) {
+    	res.locals.images = images;
+    	next();
+    });
+  }
 }
