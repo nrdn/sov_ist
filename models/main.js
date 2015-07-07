@@ -169,6 +169,25 @@ var souvenirSchema = new Schema({
 
 
 // ------------------------
+// *** Statics Block ***
+// ------------------------
+
+
+gallerySchema.statics.random = function(opts, limit, callback) {
+	this.count(function(err, count) {
+		if (err) {
+			return callback(err);
+		}
+
+		var skip_max = (count - limit) <= 0 ? 0 : count - limit;
+		var skip_rand = Math.floor(Math.random() * (skip_max + 1));
+
+		this.find(opts).skip(skip_rand).limit(limit).exec(callback);
+	}.bind(this));
+};
+
+
+// ------------------------
 // *** Plugins Block ***
 // ------------------------
 
