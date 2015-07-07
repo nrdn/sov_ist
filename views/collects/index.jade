@@ -15,7 +15,7 @@ block content_scripts
 
 
 block content
-	.content_title Коллекции
+	.content_title= __('Коллекции')
 	.content_outer_block
 		each collect in collects
 			a.content_item.collect(href='/collections/' + collect._id)
