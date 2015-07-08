@@ -19,7 +19,7 @@ block content
 
 	if (subsidiarys.length > 0)
 		.content_navigate_block.subsidiarys
-			.navigate_title= __('Филиалы:')
+			//- .navigate_title= __('Филиалы:')
 			.navigate_items_block
 				each subsidiary in subsidiarys
 					.navigate_item(class=subsidiary._id.toString(), class=subsidiary.status == 'important' && 'important')= subsidiary.i18n.title.get(locale)
