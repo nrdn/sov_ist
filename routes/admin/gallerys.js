@@ -80,7 +80,7 @@ exports.add_form = function(req, res) {
 	fs.mkdir(__appdir + '/public/images/gallerys/' + gallery._id, function() {
 		var newPath = __appdir + '/public/images/gallerys/' + gallery._id;;
 		gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-			gm(files.image.path).resize(520, false).write(newPath + '/thumb.jpg', function() {
+			gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
 				gallery.path.original = '/images/gallerys/' + gallery._id + '/logo.jpg';
 				gallery.path.thumb = '/images/gallerys/' + gallery._id + '/thumb.jpg';
 				gallery.save(function() {
@@ -134,7 +134,7 @@ exports.edit_form = function(req, res) {
 		fs.mkdir(__appdir + '/public/images/gallerys/' + gallery._id, function() {
 			var newPath = __appdir + '/public/images/gallerys/' + gallery._id;;
 			gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-				gm(files.image.path).resize(520, false).write(newPath + '/thumb.jpg', function() {
+				gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
 					gallery.path.original = '/images/gallerys/' + gallery._id + '/logo.jpg';
 					gallery.path.thumb = '/images/gallerys/' + gallery._id + '/thumb.jpg';
 					gallery.save(function() {
