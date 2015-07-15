@@ -38,7 +38,7 @@ exports.locale = function(req, res) {
 exports.imageGallery = function(type) {
   return function(req, res, next) {
     Gallery.random({'type': type}, 25, function(err, images) {
-    	res.locals.images = images.sort(function() {return .5 - Math.random(); });
+    	res.locals.images = images;
     	next();
     });
   }
