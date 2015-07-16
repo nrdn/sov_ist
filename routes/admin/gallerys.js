@@ -38,7 +38,7 @@ var checkNested = function (obj, layers) {
 
 
 exports.list = function(req, res) {
-	Gallery.find().sort('-date').exec(function(err, gallerys) {
+	Gallery.find().sort('year').exec(function(err, gallerys) {
 		res.render('auth/gallerys/', {gallerys: gallerys});
 	});
 }
@@ -68,6 +68,7 @@ exports.add_form = function(req, res) {
 	});
 
 	gallery.type = post.type;
+	gallery.year = post.year;
 
 	if (!files.image) {
 		return (function () {
@@ -122,6 +123,7 @@ exports.edit_form = function(req, res) {
 		});
 
 		gallery.type = post.type;
+		gallery.year = post.year;
 
 		if (!files.image) {
 			return (function () {

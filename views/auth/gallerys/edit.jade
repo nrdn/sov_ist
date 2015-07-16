@@ -25,6 +25,8 @@ block content
 		form(action="", method="post", enctype="multipart/form-data")
 			.form_title Описание:
 			+form_text_single('description', gallery)
+			.form_title Год:
+			input(type='text', name='year', value=gallery.year)
 			.form_title Тип
 			select(name='type')
 				option(value='main', selected=gallery.type == 'main') главная

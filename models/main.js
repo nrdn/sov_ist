@@ -139,6 +139,7 @@ var categorySchema = new Schema({
 var gallerySchema = new Schema({
 	type: String,
 	description: { type: String, trim: true, locale: true },
+	year: Number,
 	path: {
 		original: String,
 		thumb: String
@@ -173,7 +174,7 @@ var souvenirSchema = new Schema({
 // ------------------------
 
 
-gallerySchema.statics.random = function(opts, limit, callback) {
+gallerySchema.statics.random = function(opts, limit, sort, callback) {
 	this.count(function(err, count) {
 		if (err) {
 			return callback(err);
@@ -182,7 +183,7 @@ gallerySchema.statics.random = function(opts, limit, callback) {
 		var skip_max = (count - limit) <= 0 ? 0 : count - limit;
 		var skip_rand = Math.floor(Math.random() * (skip_max + 1));
 
-		this.find(opts).skip(skip_rand).limit(limit).exec(callback);
+		this.find(opts).sort(sort).skip(skip_rand).limit(limit).exec(callback);
 	}.bind(this));
 };
 
