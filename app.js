@@ -151,7 +151,7 @@ app.route('/vacancys/:id').get(globals.imageGallery('main'), vacancys.vacancys);
 
 
 // === Exposure Route
-app.route('/exposure').get(exposure.index);
+app.route('/exposure').get(globals.imageGallery('main'), exposure.index);
 
 // === Exposure hall Route
 app.route('/exposure/:id').get(exposure.hall);

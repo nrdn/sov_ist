@@ -25,9 +25,12 @@ block content
 
 
 block scroll
+	- function get_locale(option, lang) {var locale = option.filter(function(locale) { return locale.lg == lang })[0]; if (locale) {return locale.value } else {return ''} }
 	.content_title= __('Государственный центральный музей современной истории России')
 	.content_scroll_items
 		each image in images
 			.content_scroll_item
 				img(src=image.path.thumb)
-				.content_image_description= image.i18n.description.get(locale)
+				- var description = get_locale(image.description, locale)
+				if (description != '')
+					.content_image_description= image.i18n.description.get(locale)
