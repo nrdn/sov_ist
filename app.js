@@ -67,6 +67,7 @@ var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
 var subsidiarys = require('./routes/subsidiarys.js');
 var souvenirs = require('./routes/souvenirs.js');
+var magazines = require('./routes/magazines.js');
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
 
@@ -84,6 +85,7 @@ var admin_events = require('./routes/admin/events.js');
 var admin_categorys = require('./routes/admin/categorys.js');
 var admin_catalogues= require('./routes/admin/catalogues.js');
 var admin_souvenirs = require('./routes/admin/souvenirs.js');
+var admin_magazines = require('./routes/admin/magazines.js');
 
 var admin_official = require('./routes/admin/official.js');
 var admin_contacts = require('./routes/admin/contacts.js');
@@ -149,6 +151,13 @@ app.route('/vacancys')
 // === Vacancys Route
 app.route('/vacancys/:id').get(globals.imageGallery('main'), vacancys.vacancys);
 
+// === Magazines Route
+app.route('/magazines')
+	.get(globals.imageGallery('main'), magazines.index)
+	.post(magazines.get_magazines)
+
+// === Magazine Route
+app.route('/magazines/:id').get(magazines.magazine)
 
 // === Exposure Route
 app.route('/exposure').get(globals.imageGallery('main'), exposure.index);
@@ -536,6 +545,33 @@ app.route('/auth/gallerys/remove')
 
 
 // ------------------------
+// *** Admin Magazines Routes Block ***
+// ------------------------
+
+
+
+// === Admin magazines Route
+app.route('/auth/magazines').get(checkAuth, admin_magazines.list);
+
+
+// === Admin @add magazines Route
+app.route('/auth/magazines/add')
+	 .get(checkAuth, admin_magazines.add)
+	 .post(checkAuth, admin_magazines.add_form);
+
+
+// === Admin @edit magazines Route
+app.route('/auth/magazines/edit/:id')
+	 .get(checkAuth, admin_magazines.edit)
+	 .post(checkAuth, admin_magazines.edit_form);
+
+
+// === Admin @remove magazines Route
+app.route('/auth/magazines/remove')
+	 .post(checkAuth, admin_magazines.remove);
+
+
+// ------------------------
 // *** Admin Contacts Content ***
 // ------------------------
 
@@ -590,9 +626,6 @@ app.route('/team').get(content.team);
 
 // === Partners Route
 app.route('/partners').get(globals.imageGallery('main'), content.partners);
-
-// === Live Route
-app.route('/live').get(content.live);
 
 // === Schedule Route
 app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
