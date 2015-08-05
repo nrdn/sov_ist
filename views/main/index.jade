@@ -38,6 +38,24 @@ block content
 					.item_title= item.i18n.title.get(locale)
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 			a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в новости')
+				if (locale == 'ru')
+					|	<div id="TA_cdsratingsonlynarrow952" class="TA_cdsratingsonlynarrow">
+					|	<ul id="iBRFdOO" class="TA_links QjBezkEX">
+					|	<li id="fti80SqXm" class="Q4mLutx">
+					|	<a target="_blank" href="http://www.tripadvisor.ru/"><img src="http://www.tripadvisor.ru/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
+					|	</li>
+					|	</ul>
+					|	</div>
+					|	<script src="http://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=952&amp;locationId=300334&amp;lang=ru&amp;border=true&amp;shadow=true&amp;backgroundColor=white&amp;display_version=2"></script>
+				else
+					| <div id="TA_cdsratingsonlynarrow187" class="TA_cdsratingsonlynarrow">
+					| <ul id="nHT1RY1" class="TA_links p0ySUCvD4Jqu">
+					| <li id="LhTiNgpNFDDg" class="5yXMPaIYZ5k">
+					| <a target="_blank" href="http://www.tripadvisor.com/"><img src="http://www.tripadvisor.com/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a>
+					| </li>
+					| </ul>
+					| </div>
+					| <script src="http://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=187&amp;locationId=300334&amp;lang=en_US&amp;border=true&amp;shadow=true&amp;backgroundColor=white&amp;display_version=2"></script>
 		.content_events_block
 			+eventsList(events)
 
