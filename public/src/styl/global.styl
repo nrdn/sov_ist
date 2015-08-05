@@ -171,30 +171,42 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .content_columns_block
 	overflow hidden
-	width 1280px
-	margin 0 auto
+	//-width 1280px
+	//-margin 0 auto
+	width 100%
 
 .content_column
 	box-sizing border-box
 	&.main
 		overflow hidden
-		width 960px
+		//-width 960px
+		width 100%
 		float left
 		.content_title
 			padding-top 90px
 			margin-bottom 60px
 			font 24pt/26pt 'PT Serif'
 		.column_main_inner
-			width 955px
-			padding-right 25px
+			//-width 955px
+			width 100%
+			//-padding-right 25px
 			overflow-y scroll
 			height 100%
+			.columns_main_inner_block
+				width 1280px
+				margin 0 auto
+				.columns_main_inner_block_inner
+					width 940px
 		.content_outer_block
 			overflow hidden
 	&.scroll
 		overflow hidden
 		width 320px
-		float left
+		float right
+		position fixed
+		top 0
+		left 50%
+		margin-left 320px
 		.content_title
 			display none // !!!!!!!!!!
 			top 70px
@@ -210,6 +222,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			overflow-x hidden
 			width 335px
 			height 100%
+
 
 
 .content_column

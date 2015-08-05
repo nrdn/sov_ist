@@ -77,20 +77,23 @@ html
 				.content_columns_block
 					.content_column.main
 						.column_main_inner
-							block content
-							.footer_block
-								//- .social_block
-									a(href='https://vk.com/sovr_history', target='_blank') 
-									a(href='https://www.facebook.com/sovr.history', target='_blank') 
-									a(href='https://twitter.com/sovrmuse', target='_blank') 
-									a(href='https://instagram.com/sovr.history', target='_blank') 
-								.footer_block_inner= '© 2015. ' +  __('Государственный центральный музей современной истории России')
-									br
-									!= __('Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.')
-									br
-									b= __('Сайт находится в стадии бета-тестирования.')
-								.footer_bureau
-									span.nrdn_type Дизайн и разработка —
-									a.nrdn_name(href='http://nrdn.ru', target='_blank') Народный архитектор
-					.content_column.scroll
-						block scroll
+							.columns_main_inner_block
+								.columns_main_inner_block_inner
+									block content
+									.footer_block
+										//- .social_block
+											a(href='https://vk.com/sovr_history', target='_blank') 
+											a(href='https://www.facebook.com/sovr.history', target='_blank') 
+											a(href='https://twitter.com/sovrmuse', target='_blank') 
+											a(href='https://instagram.com/sovr.history', target='_blank') 
+										.footer_block_inner= '© 2015. ' +  __('Государственный центральный музей современной истории России')
+											br
+											!= __('Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.')
+											br
+											b= __('Сайт находится в стадии бета-тестирования.')
+										.footer_bureau
+											span.nrdn_type Дизайн и разработка —
+											a.nrdn_name(href='http://nrdn.ru', target='_blank') Народный архитектор
+
+							.content_column.scroll
+								block scroll
