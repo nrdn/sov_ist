@@ -12,7 +12,7 @@ mixin eventsList(events)
 	each event in events
 		if (event.status == 'important')
 			a.content_item.event.important(href='/events/' + event.type +'/' + event._id, style='background-image: url(' + (event.images && event.images.length > 0 && event.images[0].original) + ')')
-				.item_type= types[event.type]
+				.item_type= (event.type == 'teach' || event.type == 'education') ? 'факультатив' : types[event.type]
 				.item_description
 					if (!event.interval.hidden)
 						.item_date: +compareInterval(event.interval.start, event.interval.end)
@@ -21,7 +21,7 @@ mixin eventsList(events)
 					.item_title= event.i18n.title.get(locale)
 		else
 			a.content_item.event(href='/events/' + event.type +'/' + event._id)
-				.item_type= types[event.type]
+				.item_type= (event.type == 'teach' || event.type == 'education') ? 'факультатив' : types[event.type]
 				img.item_image(src=event.images && event.images.length > 0 && event.images[0].thumb)
 				.item_description
 					if (!event.interval.hidden)
