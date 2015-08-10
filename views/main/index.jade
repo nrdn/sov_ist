@@ -18,19 +18,19 @@ block content_scripts
 block content
 	.content_title= __('Историю создаете вы')
 	a.content_banner(href= 'http://pobedaonline.ru/')
-	.content_navigate_block.types
-		.navigate_title= __('Наши последние события:')
-		.navigate_items_block
-			//- .navigate_item.excursion= __('Экскурсии')
-			.navigate_item.exhibition= __('Выставки')
-			.navigate_item.lecture= __('Лекции')
-			.navigate_item.action= __('Мероприятия')
-	if (categorys.length > 0)
-		.content_navigate_block.categorys
-			.navigate_title= __('Категории:')
-			.navigate_items_block
-				each category in categorys
-					.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
+	//- .content_navigate_block.types
+	//- 	.navigate_title= __('Наши последние события:')
+	//- 	.navigate_items_block
+	//- 		//- .navigate_item.excursion= __('Экскурсии')
+	//- 		.navigate_item.exhibition= __('Выставки')
+	//- 		.navigate_item.lecture= __('Лекции')
+	//- 		.navigate_item.action= __('Мероприятия')
+	//- if (categorys.length > 0)
+	//- 	.content_navigate_block.categorys
+	//- 		.navigate_title= __('Категории:')
+	//- 		.navigate_items_block
+	//- 			each category in categorys
+	//- 				.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
 	.content_outer_block
 		.content_news_block
 			each item in news
