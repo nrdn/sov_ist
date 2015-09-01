@@ -18,14 +18,17 @@ block content_scripts
 block content
 	.content_title= __('Историю создаете вы')
 	a.content_banner(href= 'http://pobedaonline.ru/')
-	.content_navigate_block.types
+	//-.content_navigate_block.types
 		.navigate_title= __('Наши последние события:')
 		.navigate_items_block
 			//- .navigate_item.excursion= __('Экскурсии')
-			.navigate_item.exhibition= __('Выставки')
-			.navigate_item.lecture= __('Лекции')
-			.navigate_item.action= __('Мероприятия')
-	if (categorys.length > 0)
+			//-a.navigate_item.exhibition(href='/events/exhibition')= __('Выставки')
+			//-a.navigate_item.lecture(href='/events/lecture')= __('Лекции')
+			//-a.navigate_item.action(href='/events/action')= __('Мероприятия')
+			a.navigate_button(href='/events/exhibition')= __('Выставки')
+			a.navigate_button(href='/events/lecture')= __('Лекции')
+			a.navigate_button(href='/events/action')= __('Мероприятия')
+	//-if (categorys.length > 0)
 		.content_navigate_block.categorys
 			.navigate_title= __('Категории:')
 			.navigate_items_block
