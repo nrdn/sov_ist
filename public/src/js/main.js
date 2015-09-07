@@ -85,4 +85,5 @@ $(document).ready(function() {
 
 	$column_main.on('scroll.load', scrollLoad);
 	$('.navigate_item').on('click', clickLoader);
+
 });

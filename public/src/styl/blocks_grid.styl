@@ -18,18 +18,25 @@
 	text-decoration none
 	color black
 	display block
-	.item_image
-		width 220px
+	.content_inner
 		display block
-	.item_description
-		padding-top 10px
-		position relative
-		z-index 1
-		background #fff
-		.item_date
-			font 10pt/12pt 'PT Sans'
-		.item_title
-			font-weight bold
+		text-decoration none
+		.item_image
+			width 220px
+			display block
+		.item_description
+			padding-top 10px
+			position relative
+			z-index 1
+			background #fff
+			.item_date
+				font 10pt/12pt 'PT Sans'
+				color #000
+				text-decoration none
+			.item_title
+				font-weight bold
+				color #000
+				text-decoration none
 	&.important
 		background-size cover
 		background-position center
@@ -46,9 +53,12 @@
 			bottom 0
 			.item_date
 				font 10pt/12pt 'PT Sans'
+				color #fff
 			.item_title
 				font 16pt/18pt 'PT Sans'
-
+				color #fff
+			.item_category
+				color #eee
 
 // Test
 

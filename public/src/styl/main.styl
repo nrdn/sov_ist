@@ -42,16 +42,73 @@
 .content_item
 	&.event
 		float left
-		&:hover
+		.content_inner
+			&:hover
+				&:after
+					position absolute
+					top 0
+					left 0
+					right 0
+					bottom 0
+					background rgba(0,0,0,0.2)
+					content ''
+					z-index 0
+		.item_category
+			font-size 14px
+			color #777
+			display block
+			text-decoration underline
+			&:hover
+				color #c4143b
+			&.ru
+				&.exhibition
+					&:after
+						content 'Выставки'
+				&.excursion
+					&:after
+						content 'Экскурсии'
+				&.lecture
+					&:after
+						content 'Лекции'
+				&.teach
+					&:after
+						content 'Центр музейной педагогики'
+				&.action
+					&:after
+						content 'Мероприятия'
+				&.education
+					&:after
+						content 'Образовательные программы'
+				&.special
+					&:after
+						content 'Спецпроекты'
+
+			&.en
+				&.exhibition
+					&:after
+						content 'Exhibitions'
+				&.excursion
+					&:after
+						content 'Excursions'
+				&.lecture
+					&:after
+						content 'Lectures'
+				&.teach
+					&:after
+						content 'Museum pedagogic centre'
+				&.action
+					&:after
+						content 'Actions'
+				&.education
+					&:after
+						content 'Educational programs'
+				&.special
+					&:after
+						content 'Special projects'
+
 			&:after
-				position absolute
-				top 0
-				left 0
-				right 0
-				bottom 0
-				background rgba(0,0,0,0.2)
+				display block
 				content ''
-				z-index 0
 	&.news
 		box-sizing border-box
 		// background-color #604A8A
