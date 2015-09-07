@@ -16,12 +16,11 @@ mixin eventsList(events)
 							.item_date: +compareInterval(event.interval.start, event.interval.end)
 						if (event.subsidiary)
 							.item_subs= event.subsidiary.i18n.title.get(locale)
-						if (locale == 'ru')
-							.item_category.ru(class=event.type, href='/events/' + event.type)
-						else
-							.item_category.en(class=event.type, href='/events/' + event.type)
-
 						.item_title= event.i18n.title.get(locale)
+				if (locale == 'ru')
+					a.item_category.ru(class=event.type, href='/events/' + event.type)
+				else
+					a.item_category.en(class=event.type, href='/events/' + event.type)
 		else
 			.content_item.event
 				a.content_inner(href='/events/' + event.type +'/' + event._id)
@@ -31,9 +30,10 @@ mixin eventsList(events)
 							.item_date: +compareInterval(event.interval.start, event.interval.end)
 						if (event.subsidiary)
 							.item_subs= event.subsidiary.i18n.title.get(locale)
-						if (locale == 'ru')
-							.item_category.ru(class=event.type, href='/events/' + event.type)
-						else
-							.item_category.en(class=event.type, href='/events/' + event.type)
 
 						.item_title= event.i18n.title.get(locale)
+
+				if (locale == 'ru')
+					a.item_category.ru(class=event.type, href='/events/' + event.type)
+				else
+					a.item_category.en(class=event.type, href='/events/' + event.type)

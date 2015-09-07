@@ -43,21 +43,23 @@
 	&.event
 		float left
 		.content_inner
-			&:hover
-				&:after
-					position absolute
-					top 0
-					left 0
-					right 0
-					bottom 0
-					background rgba(0,0,0,0.2)
-					content ''
-					z-index 0
+		&:hover
+			&:after
+				position absolute
+				top 0
+				left 0
+				right 0
+				bottom 0px
+				background rgba(0,0,0,0.2)
+				content ''
+				z-index 0
 		.item_category
 			font-size 14px
 			color #777
 			display block
 			text-decoration underline
+			background #fff
+			margin-bottom 20px
 			&:hover
 				color #c4143b
 			&.ru
@@ -109,6 +111,9 @@
 			&:after
 				display block
 				content ''
+				background #fff
+				position relative
+				z-index 10
 	&.news
 		box-sizing border-box
 		// background-color #604A8A
