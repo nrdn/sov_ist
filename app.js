@@ -624,6 +624,10 @@ app.route('/registr')
 // === Team Route
 app.route('/team').get(content.team);
 
+
+// === Test Route
+app.route('/test').get(content.test);
+
 // === Partners Route
 app.route('/partners').get(globals.imageGallery('main'), content.partners);
 
