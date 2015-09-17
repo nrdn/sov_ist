@@ -2,7 +2,7 @@ extends ../../layout
 include ../forms.jade
 
 block title
-	title ДОБАВИТЬ НОВОСТЬ
+	title ДОБАВИТЬ АНОНС
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/libs/css/font-awesome.css')
@@ -31,7 +31,7 @@ block content
 	.form_block
 		a.back_link(href='/auth/news') < Назад
 		button.toggle_eng(type='button') перевод
-		.title ДОБАВИТЬ НОВОСТЬ
+		.title ДОБАВИТЬ АНОНС
 		form(action="/auth/news/add", method="post")
 			.form_title Заголовок:
 			+form_text_single('title')

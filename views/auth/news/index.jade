@@ -1,7 +1,7 @@
 extends ../../layout
 
 block title
-	title НОВОСТИ
+	title АНОНСЫ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
@@ -11,9 +11,9 @@ block content_scripts
 
 block content
 	a.back_link(href='/auth') < Назад
-	.title НОВОСТИ
+	.title АНОНСЫ
 	br
-	a.add(href='/auth/news/add') добавить новость
+	a.add(href='/auth/news/add') добавить анонс
 	br
 	br
 	.main_menu_block

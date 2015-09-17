@@ -16,7 +16,8 @@ html
 							a.menu_item.menu_empty= __('Музей')
 							.menu_drop
 								.drop_inner
-									a.menu_item(href='/news')= __('Новости')
+									a.menu_item(href='/news')= __('Анонсы')
+									a.menu_item(href='/events/special')= __('Новости')
 									a.menu_item(href='/history')= __('История музея')
 									a.menu_item(href='/subsidiarys')= __('Филиалы')
 									a.menu_item(href='/exposure')= __('Экспозиция')
@@ -50,7 +51,7 @@ html
 							.menu_drop
 								.drop_inner
 									a.menu_item(href='/magazines')= __('Журнал')
-									a.menu_item(href='/events/special')= __('Спецпроекты')
+									//- a.menu_item(href='/specials')= __('Спецпроекты')
 						.menu_item_block
 							a.menu_item(href='/contacts')= __('Контакты')
 					.menu_block.right
