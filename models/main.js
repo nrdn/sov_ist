@@ -179,6 +179,17 @@ var magazineSchema = new Schema({
 	date: {type: Date, default: Date.now}
 });
 
+var specialSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	description: { type: String, trim: true, locale: true },
+	num: Number,
+	url: { type: String, trim: true },
+	path: {
+		original: String,
+		thumb: String
+	},
+	date: {type: Date, default: Date.now}
+});
 
 // ------------------------
 // *** Statics Block ***
@@ -219,6 +230,7 @@ gallerySchema.plugin(mongooseLocale);
 catalogueSchema.plugin(mongooseLocale);
 souvenirSchema.plugin(mongooseLocale);
 magazineSchema.plugin(mongooseLocale);
+specialSchema.plugin(mongooseLocale);
 
 
 // ------------------------
@@ -247,5 +259,6 @@ module.exports.Event = mongoose.model('Event', eventSchema);
 module.exports.Category = mongoose.model('Category', categorySchema);
 module.exports.Gallery = mongoose.model('Gallery', gallerySchema);
 module.exports.Magazine = mongoose.model('Magazine', magazineSchema);
+module.exports.Special = mongoose.model('Special', specialSchema);
 module.exports.Catalogue = mongoose.model('Catalogue', catalogueSchema);
 module.exports.Souvenir = mongoose.model('Souvenir', souvenirSchema);

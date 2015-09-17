@@ -1,0 +1,15 @@
+extends ../layout
+
+block title
+	title= special.i18n.title.get('ru').toUpperCase() + ' № ' + special.num
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/magazine.css' + version)
+
+//- block content_scripts
+//- 	script(type='text/javascript', src='/build/js/live.js' + version)
+
+
+block content
+	.content_title= special.i18n.title.get('ru') + ' № ' + special.num
+	.content_body!= special.url

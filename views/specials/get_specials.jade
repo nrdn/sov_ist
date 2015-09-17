@@ -1,0 +1,7 @@
+include ../vars.jade
+
+each special in specials
+	a.content_item.collect(href='/specials/' + special._id)
+		img.item_image(src=special.path.thumb)
+		.item_description
+			.item_title= special.i18n.title.get(locale)

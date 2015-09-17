@@ -68,6 +68,8 @@ var exposure = require('./routes/exposure.js');
 var subsidiarys = require('./routes/subsidiarys.js');
 var souvenirs = require('./routes/souvenirs.js');
 var magazines = require('./routes/magazines.js');
+var specials = require('./routes/specials.js');
+
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
 
@@ -86,6 +88,8 @@ var admin_categorys = require('./routes/admin/categorys.js');
 var admin_catalogues= require('./routes/admin/catalogues.js');
 var admin_souvenirs = require('./routes/admin/souvenirs.js');
 var admin_magazines = require('./routes/admin/magazines.js');
+
+var admin_specials = require('./routes/admin/specials.js');
 
 var admin_official = require('./routes/admin/official.js');
 var admin_contacts = require('./routes/admin/contacts.js');
@@ -158,6 +162,16 @@ app.route('/magazines')
 
 // === Magazine Route
 app.route('/magazines/:id').get(magazines.magazine)
+
+
+// === Specials Route
+app.route('/specials')
+	.get(globals.imageGallery('main'), specials.index)
+	.post(specials.get_specials)
+
+// === Special Route
+app.route('/specials/:id').get(specials.special)
+
 
 // === Exposure Route
 app.route('/exposure').get(globals.imageGallery('main'), exposure.index);
@@ -569,6 +583,32 @@ app.route('/auth/magazines/edit/:id')
 // === Admin @remove magazines Route
 app.route('/auth/magazines/remove')
 	 .post(checkAuth, admin_magazines.remove);
+
+
+
+
+// === Admin specials Route
+app.route('/auth/specials').get(checkAuth, admin_specials.list);
+
+
+// === Admin @add specials Route
+app.route('/auth/specials/add')
+	 .get(checkAuth, admin_specials.add)
+	 .post(checkAuth, admin_specials.add_form);
+
+
+// === Admin @edit specials Route
+app.route('/auth/specials/edit/:id')
+	 .get(checkAuth, admin_specials.edit)
+	 .post(checkAuth, admin_specials.edit_form);
+
+
+// === Admin @remove specials Route
+app.route('/auth/specials/remove')
+	 .post(checkAuth, admin_specials.remove);
+
+
+
 
 
 // ------------------------
