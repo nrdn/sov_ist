@@ -69,6 +69,7 @@ var subsidiarys = require('./routes/subsidiarys.js');
 var souvenirs = require('./routes/souvenirs.js');
 var magazines = require('./routes/magazines.js');
 var specials = require('./routes/specials.js');
+var teams = require('./routes/team.js');
 
 var content = require('./routes/content.js');
 var files = require('./routes/files.js');
@@ -88,8 +89,8 @@ var admin_categorys = require('./routes/admin/categorys.js');
 var admin_catalogues= require('./routes/admin/catalogues.js');
 var admin_souvenirs = require('./routes/admin/souvenirs.js');
 var admin_magazines = require('./routes/admin/magazines.js');
-
 var admin_specials = require('./routes/admin/specials.js');
+var admin_team = require('./routes/admin/team.js');
 
 var admin_official = require('./routes/admin/official.js');
 var admin_contacts = require('./routes/admin/contacts.js');
@@ -171,6 +172,15 @@ app.route('/specials')
 
 // === Special Route
 app.route('/specials/:id').get(specials.special)
+
+
+// === Team Route
+app.route('/team')
+	.get(globals.imageGallery('main'), teams.index)
+	.post(teams.get_teams)
+
+// === Team Route
+app.route('/team/:id').get(teams.team)
 
 
 // === Exposure Route
@@ -611,6 +621,30 @@ app.route('/auth/specials/remove')
 
 
 
+// === Admin team Route
+app.route('/auth/team').get(checkAuth, admin_team.list);
+
+
+// === Admin @add team Route
+app.route('/auth/team/add')
+	 .get(checkAuth, admin_team.add)
+	 .post(checkAuth, admin_team.add_form);
+
+
+// === Admin @edit team Route
+app.route('/auth/team/edit/:id')
+	 .get(checkAuth, admin_team.edit)
+	 .post(checkAuth, admin_team.edit_form);
+
+
+// === Admin @remove team Route
+app.route('/auth/team/remove')
+	 .post(checkAuth, admin_team.remove);
+
+
+
+
+
 // ------------------------
 // *** Admin Contacts Content ***
 // ------------------------
@@ -662,7 +696,7 @@ app.route('/registr')
 
 
 // === Team Route
-app.route('/team').get(content.team);
+//- app.route('/team').get(content.team);
 
 
 // === Test Route

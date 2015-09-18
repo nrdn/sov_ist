@@ -1,0 +1,16 @@
+extends ../layout
+
+block title
+	title= team.i18n.title.get('ru').toUpperCase()
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/team.css' + version)
+
+//- block content_scripts
+//- 	script(type='text/javascript', src='/build/js/live.js' + version)
+
+
+block content
+	.content_title= team.i18n.title.get('ru')
+	//-.content_body!= team.url
+	.team_test= team

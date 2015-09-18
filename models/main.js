@@ -191,6 +191,17 @@ var specialSchema = new Schema({
 	date: {type: Date, default: Date.now}
 });
 
+var teamSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	images: [{
+		description: { type: String, trim: true, locale: true },
+		title: { type: String, trim: true, locale: true },
+		original: String,
+		thumb: String
+	}],
+	date: {type: Date, default: Date.now}
+});
+
 // ------------------------
 // *** Statics Block ***
 // ------------------------
@@ -231,7 +242,7 @@ catalogueSchema.plugin(mongooseLocale);
 souvenirSchema.plugin(mongooseLocale);
 magazineSchema.plugin(mongooseLocale);
 specialSchema.plugin(mongooseLocale);
-
+teamSchema.plugin(mongooseLocale);
 
 // ------------------------
 // *** Index Block ***
@@ -260,5 +271,6 @@ module.exports.Category = mongoose.model('Category', categorySchema);
 module.exports.Gallery = mongoose.model('Gallery', gallerySchema);
 module.exports.Magazine = mongoose.model('Magazine', magazineSchema);
 module.exports.Special = mongoose.model('Special', specialSchema);
+module.exports.Team = mongoose.model('Team', teamSchema);
 module.exports.Catalogue = mongoose.model('Catalogue', catalogueSchema);
 module.exports.Souvenir = mongoose.model('Souvenir', souvenirSchema);
