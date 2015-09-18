@@ -181,6 +181,7 @@ var magazineSchema = new Schema({
 
 var specialSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
+	subtitle: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
 	num: Number,
 	url: { type: String, trim: true },

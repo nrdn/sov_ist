@@ -5,12 +5,12 @@ block title
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
-	link(rel='stylesheet', type='text/css', href='/build/css/collects.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/specials.css' + version)
 
 block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
-	script(type='text/javascript', src='/build/js/scroll.js' + version)
+	//-script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/js/collects.js' + version)
 
 mixin trimString(str, length)
@@ -30,8 +30,9 @@ block content
 				img.item_image(src=special.path.thumb)
 				.item_description
 					.item_title= special.i18n.title.get(locale)
+					.item_subtitle= special.i18n.subtitle.get(locale)
 
-block scroll
+//-block scroll
 	.content_title
 	.content_scroll_items
 		each image in images

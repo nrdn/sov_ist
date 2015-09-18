@@ -1,15 +1,20 @@
 extends ../layout
 
 block title
-	title= special.i18n.title.get('ru').toUpperCase() + ' № ' + special.num
-
+	title= special.i18n.title.get('ru').toUpperCase()
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/magazine.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/special.css' + version)
 
-//- block content_scripts
-//- 	script(type='text/javascript', src='/build/js/live.js' + version)
+block content_scripts
+	script(type='text/javascript', src='/build/js/special.js' + version)
 
 
 block content
-	.content_title= special.i18n.title.get('ru') + ' № ' + special.num
-	.content_body!= special.url
+	.content_outer#quiz
+		.content_title= special.i18n.title.get(locale)
+		.content_subtitle(style='background-image: url(' + (special.path.original)+')')
+			.content_subtitle_inner= special.i18n.subtitle.get(locale)
+			.content_decription: != special.i18n.description.get(locale)
+			a.content_quiz(href="#quiz")
+				span Начать тест
+		.content_test!= special.url

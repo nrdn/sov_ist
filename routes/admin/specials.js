@@ -66,6 +66,9 @@ exports.add_form = function(req, res) {
 		checkNested(post, [locale, 'title'])
 			&& special.setPropertyLocalised('title', post[locale].title, locale);
 
+		checkNested(post, [locale, 'subtitle'])
+			&& special.setPropertyLocalised('subtitle', post[locale].subtitle, locale);
+
 		checkNested(post, [locale, 'description'])
 			&& special.setPropertyLocalised('description', post[locale].description, locale);
 
@@ -86,7 +89,7 @@ exports.add_form = function(req, res) {
 		var newPath = __appdir + '/public/images/specials/' + special._id;;
 		gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
 			gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-				special.path.original = '/images/specials/' + special._id + '/logo.jpg';
+				special.path.original = '/images/specials/' + special._id + '/original.jpg';
 				special.path.thumb = '/images/specials/' + special._id + '/thumb.jpg';
 				special.save(function() {
 					res.redirect('/auth/specials');
@@ -125,6 +128,9 @@ exports.edit_form = function(req, res) {
 			checkNested(post, [locale, 'title'])
 				&& special.setPropertyLocalised('title', post[locale].title, locale);
 
+			checkNested(post, [locale, 'subtitle'])
+				&& special.setPropertyLocalised('subtitle', post[locale].subtitle, locale);
+
 			checkNested(post, [locale, 'description'])
 				&& special.setPropertyLocalised('description', post[locale].description, locale);
 
@@ -145,7 +151,7 @@ exports.edit_form = function(req, res) {
 			var newPath = __appdir + '/public/images/specials/' + special._id;;
 			gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
 				gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-					special.path.original = '/images/specials/' + special._id + '/logo.jpg';
+					special.path.original = '/images/specials/' + special._id + '/original.jpg';
 					special.path.thumb = '/images/specials/' + special._id + '/thumb.jpg';
 					special.save(function() {
 						res.redirect('/auth/specials');

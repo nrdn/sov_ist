@@ -21,4 +21,4 @@ block content
 			.gallery
 				a.rm_special(href='#', id=special._id)= 'удалить '
 				!=' | '
-				a(href='/auth/specials/edit/' + special._id)= special.i18n.title.get('ru') ? special.i18n.title.get('ru') + ' № ' + special.description : 'Название спецпроекта'
+				a(href='/auth/specials/edit/' + special._id)= special.i18n.title.get('ru') ? special.i18n.title.get('ru') : 'Название спецпроекта'

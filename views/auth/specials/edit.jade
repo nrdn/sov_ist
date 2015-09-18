@@ -22,14 +22,16 @@ block content
 		form(action="", method="post", enctype="multipart/form-data")
 			.form_title Заголовок:
 			+form_text_single('title', special)
-			.form_title Номер:
-			input(type='text', name='num', value=special.num)
+			.form_title Подзаголовок:
+			+form_text_single('subtitle', special)
 			.form_title Описание:
 			+form_text_multi('description', special)
 			.form_title Ссылка:
 			input(type='text', name='url', value=special.url)
 			.form_title Изображение:
 			input(type='file', name='image')
+			.form_title Номер:
+			input(type='text', name='num', value=special.num)
 			br
 			br
 			input(type='submit', value='отправить')
