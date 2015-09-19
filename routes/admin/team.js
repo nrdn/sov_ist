@@ -68,8 +68,6 @@ exports.add_form = function(req, res) {
 			&& team.setPropertyLocalised('title', post[locale].title, locale);
 	});
 
-	team.url = post.url;
-	team.num = post.num;
 
 	if (!files.image) {
 		return (function () {
@@ -113,6 +111,15 @@ exports.add_form = function(req, res) {
 			image_obj.description.en = post.images.description.en[i];
 		}
 
+		if (post.images.title.ru) {
+			image_obj.description.ru = post.images.description.ru[i];
+		}
+
+		if (post.images.title.en) {
+			image_obj.description.en = post.images.description.en[i];
+		}
+
+
 		images.push(image_obj);
 	});
 
@@ -137,14 +144,15 @@ exports.add_form = function(req, res) {
 						value: image.description.en
 					})
 				}
+
 				image_obj.title = [{
 					lg: 'ru',
-					value: image.description.ru
+					value: image.title.ru
 				}]
 				if (image.title.en) {
-					image_obj.description.push({
+					image_obj.title.push({
 						lg: 'en',
-						value: image.description.en
+						value: image.title.en
 					})
 				}
 				team.images.push(image_obj);
@@ -203,8 +211,6 @@ exports.edit_form = function(req, res) {
 				&& team.setPropertyLocalised('title', post[locale].title, locale);
 		});
 
-		team.url = post.url;
-		team.num = post.num;
 
 		if (!files.image) {
 			return (function () {
