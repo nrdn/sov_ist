@@ -166,7 +166,7 @@ app.route('/magazines')
 app.route('/magazines/:id').get(magazines.magazine)
 
 // === Teams Route
-app.route('/teams')
+app.route('/team')
 	.get(globals.imageGallery('main'), teams.index)
 	.post(teams.get_teams)
 
@@ -688,7 +688,7 @@ app.route('/registr')
 
 
 // === Team Route
-app.route('/team').get(content.team);
+app.route('/team_st').get(content.team);
 
 
 // === Test Route
