@@ -11,7 +11,7 @@ var Team = require('../models/main.js').Team;
 
 
 exports.index = function(req, res) {
-  Team.where('title.lg').equals(req.locale).limit(12).sort('num').exec(function(err, teams) {
+  Team.where('title.lg').equals(req.locale).limit(20).sort('num').exec(function(err, teams) {
     res.render('teams', {teams: teams});
   });
 }
