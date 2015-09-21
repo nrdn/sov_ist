@@ -26,10 +26,10 @@ block content
 			input(type='text', name='num', value=team.num)
 			.form_title Должность:
 			+form_text_single('position', team)
-			.form_title E-mail:
-			input(type='text', name='email', value=team.email)
 			.form_title Телефон:
-			input(type='text', name='phone', value=team.phone)
+			input(type='text', name='phone', value=team.phone, placeholder='+7 (495) 123-45-67')
+			.form_title E-mail:
+			input(type='text', name='email', value=team.email, placeholder='info@sovrhistory.ru')
 			.form_title Изображение:
 			input(type='file', name='image')
 			br
