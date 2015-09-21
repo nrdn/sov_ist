@@ -20,5 +20,6 @@ $(document).ready(function() {
 	$('.rm_gallery').on('click', {path:'/auth/gallerys/remove', description: 'Удалить фотографию?'}, remove);
 	$('.rm_magazine').on('click', {path:'/auth/magazines/remove', description: 'Удалить журнал?'}, remove);
 	$('.rm_special').on('click', {path:'/auth/specials/remove', description: 'Удалить спецпроект?'}, remove);
+	$('.rm_team').on('click', {path:'/auth/teams/remove', description: 'Удалить члена команды?'}, remove);
 
 });
