@@ -35,12 +35,14 @@ block scroll
 	.content_scroll_items
 		each team in teams
 			.block_inner
-				.people_info
-					if (team.title)
-						.people_name= team.i18n.title.get(locale)
-					if (team.position)
-						.people_type= team.i18n.position.get(locale)
-					if (team.phone)
-						.people_phone= 'Телефон:' + team.phone
-					if (team.email)
-						.people_email= 'E-mail:' + team.email
+				if (team.phone || team.email)
+					.people_info
+						if (team.title)
+							.people_name= team.i18n.title.get(locale)
+						if (team.position)
+							.people_type= team.i18n.position.get(locale)
+						if (team.phone)
+							.people_phone= 'Телефон: ' + team.phone
+						if (team.email)
+							.people_email= 'E-mail: '
+								a(href='mailto:'+team.email+'')=team.email
