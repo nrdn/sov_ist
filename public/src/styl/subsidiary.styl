@@ -11,17 +11,31 @@
 				left 0
 				right 0
 				background #ccc
-				padding 16px 0
+				overflow hidden
+				z-index 1000
+				.subsidiary_logo
+					width 55px
+					background-size 100%
+					background-position 0
+					background-repeat no-repeat
+					margin-right 10px
+					float left
+					height 49px
+				a
+					padding 16px 0
 				@media screen and (max-width: 1280px)
 					top 57px
 			.subsidiary_menu_inner
 				width 1280px
 				margin 0 auto
+				overflow hidden
 				@media screen and (max-width: 1280px)
 					width 980px
 				a
 					color #7b7b7b
 					margin-right 20px
+					display block
+					float left
 					&:hover
 						color #333
 	.anchor_base
