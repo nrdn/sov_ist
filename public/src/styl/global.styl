@@ -293,8 +293,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	padding-top 15px
 	margin-top 20px
 	padding-bottom 20px
-	text-align center
-	.social_block
+	.footer_menu
 		float none
 		display block
 		text-align center
@@ -302,12 +301,63 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			float none
 			display inline-block
 			color #7b7b7b
+			margin-left 10px
+			font-family 'PT Sans'
+			font-size 11pt
+			margin-bottom 4px
+			&:first-child
+				margin-left 0
 			&:hover
 				color #333
 	.footer_block_inner
-		width 540px
-		margin 15px auto 15px
+		margin 35px auto 40px
 		color #7b7b7b
+		overflow hidden
+		.footer_adress
+			float left
+			width 320px
+			margin-right 60px
+			.footer_museum_title
+				margin-bottom 2px
+				font-weight bold
+				background url("/images/design/copy.png") 0 0 no-repeat
+				padding-left 65px
+				background-size 50px
+				width 189px
+				font 8pt/10pt 'PT Serif'
+			.footer_museum_phone
+				margin-bottom 2px
+				padding-left 65px
+			.footer_museum_email
+				margin-bottom 2px
+				padding-left 65px
+				display block
+				color #7b7b7b
+				text-decoration none
+				&:hover
+					text-decoration underline
+					color #9b9b9b
+			.footer_museum_address
+				margin-bottom 3px
+				padding-left 65px
+		.footer_shelude
+			float left
+			width 390px
+			.day_shelude
+				font-weight bold
+				float left
+			.time_shelude
+				font-weight normal
+				float none
+				padding-left 5px
+				overflow hidden
+	.footer_rights
+		clear none
+		float none
+		color #7b7b7b
+		text-align center
+		border-top 1px solid #b8b8b8
+		padding-top 13px
 	.footer_bureau
 		text-align center
 		line-height 40px
