@@ -3,6 +3,8 @@
 		.content_title
 			width 700px
 			margin-bottom 30px
+			&.fixedtitle
+				margin-bottom 78px
 		.subsidiary_menu
 			margin-bottom 30px
 			&.fixed
@@ -13,21 +15,22 @@
 				background #ccc
 				overflow hidden
 				z-index 100
-				.subsidiary_logo
-					width 55px
-					background-size 125%
-					background-position 0
-					background-repeat no-repeat
-					margin-right 10px
-					float left
-					height 49px
+				.subsidiary_menu_inner
+					width 1280px
+					margin 0 auto
+					.subsidiary_logo
+						width 55px
+						background-size 125%
+						background-position 0
+						background-repeat no-repeat
+						margin-right 10px
+						float left
+						height 49px
 				a
 					padding 16px 0
 				@media screen and (max-width: 1280px)
 					top 57px
 			.subsidiary_menu_inner
-				width 1280px
-				margin 0 auto
 				overflow hidden
 				@media screen and (max-width: 1280px)
 					width 980px
