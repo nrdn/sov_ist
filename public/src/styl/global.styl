@@ -288,15 +288,17 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 
 .footer_block
-	border-top 1px solid #b8b8b8
+	//-border-top 1px solid #b8b8b8
 	font 10pt/12pt 'PT Serif'
 	padding-top 15px
-	margin-top 20px
-	padding-bottom 20px
+	margin-top 30px
+	padding-bottom 30px
 	.footer_menu
 		float none
 		display block
 		text-align center
+		@media screen and (max-width: 1280px)
+			text-align left
 		a
 			float none
 			display inline-block
@@ -305,6 +307,9 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			font-family 'PT Sans'
 			font-size 11pt
 			margin-bottom 4px
+			@media screen and (max-width: 1280px)
+				margin-left 0
+				margin-right 10px
 			&:first-child
 				margin-left 0
 			&:hover
@@ -343,14 +348,20 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		.footer_shelude
 			float left
 			width 390px
+			@media screen and (max-width: 1280px)
+				width 315px
 			.day_shelude
 				font-weight bold
 				float left
+				@media screen and (max-width: 1280px)
+					float none
 			.time_shelude
 				font-weight normal
 				float none
 				padding-left 5px
 				overflow hidden
+				@media screen and (max-width: 1280px)
+					padding-left 0
 	.footer_rights
 		clear none
 		float none
