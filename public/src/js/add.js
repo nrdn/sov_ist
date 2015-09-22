@@ -134,4 +134,15 @@ $(document).ready(function() {
 		});
 	});
 
+function replaceQuotes() {
+	console.log(this);
+	var q = $(this).parents('.wysiwyg-container.editor').find('.wysiwyg-editor').html();
+	p = q.replace(/"([^"]*)"/g, '«$1»');
+
+	$(this).parents('.wysiwyg-container.editor').find('.wysiwyg-editor').html(p);
+}
+
+$('.wysiwyg-toolbar.wysiwyg-toolbar-top').append('<a class="quotes">«»</a>');
+$('.quotes').on('click', replaceQuotes);
+
 });
