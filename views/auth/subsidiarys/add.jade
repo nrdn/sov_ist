@@ -18,6 +18,7 @@ block content_scripts
 	script(type='text/javascript', src='/build/js/add.js')
 
 block content
+
 	- var year = new Date()
 	- year = year.getFullYear()
 	- var months = ['ЯНВАРЬ', 'ФЕВРАЛЬ', 'МАРТ', 'АПРЕЛЬ', 'МАЙ', 'ИЮНЬ', 'ИЮЛЬ', 'АВГУСТ', 'СЕНТЯБРЬ', 'ОКТЯБРЬ', 'НОЯБРЬ', 'ДЕКАБРЬ']
@@ -29,6 +30,21 @@ block content
 			.form_title Заголовок:
 			+form_text_single('title')
 			.form_title Описание:
+				.note для навигации по филиалам используются хештеги
+					br
+					| #exposure" -- Экспозиция
+					br
+					| #excursion" -- Экскурсии
+					br
+					| #schelude" -- Режим работы
+					br
+					| #price" -- Стоимость посещения
+					br
+					| #contacts" -- Контакты
+					br
+					| Их необходимо вставлять в текст рядом с заголовком раздела, например на предыдущей строке.
+					br
+					br
 			+form_text_multi('description')
 			.form_title Адрес:
 			+form_text_single('adress')

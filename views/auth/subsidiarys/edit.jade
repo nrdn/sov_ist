@@ -29,6 +29,21 @@ block content
 			.form_title Заголовок:
 			+form_text_single('title', subsidiary)
 			.form_title Описание:
+				.note для навигации по филиалам используются хештеги
+					br
+					| #exposure" -- Экспозиция
+					br
+					| #excursion" -- Экскурсии
+					br
+					| #schelude" -- Режим работы
+					br
+					| #price" -- Стоимость посещения
+					br
+					| #contacts" -- Контакты
+					br
+					| Их необходимо вставлять в текст рядом с заголовком раздела, например на предыдущей строке.
+					br
+					br
 			+form_text_multi('description', subsidiary)
 			.form_title Адрес:
 			+form_text_single('adress', subsidiary)

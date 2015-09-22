@@ -1,3 +1,32 @@
-.content_body
-.content_title
-	width 700px
+.content_columns_block
+	.content_column
+		.content_title
+			width 700px
+			margin-bottom 30px
+		.subsidiary_menu
+			margin-bottom 30px
+			&.fixed
+				position: fixed
+				top 45px
+				left 0
+				right 0
+				background #ccc
+				padding 16px 0
+				@media screen and (max-width: 1280px)
+					top 57px
+			.subsidiary_menu_inner
+				width 1280px
+				margin 0 auto
+				@media screen and (max-width: 1280px)
+					width 980px
+				a
+					color #7b7b7b
+					margin-right 20px
+					&:hover
+						color #333
+	.anchor_base
+		position relative
+		div
+			position absolute
+			top -120px
+			width 100px

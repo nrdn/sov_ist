@@ -11,13 +11,33 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
-	//- script(type='text/javascript', src='/build/js/subsidiary.js' + version)
+	script(type='text/javascript', src='/build/js/subsidiary.js' + version)
 
 
 block content
 	.content_title= subsidiary.i18n.title.get(locale)
-	.content_body: != subsidiary.i18n.description.get(locale)
+	.subsidiary_menu
+		.subsidiary_menu_inner
+			.subsidiary_logo(style='background-image:url('+ subsidiary.logo.path +')')
+			- var b = subsidiary.i18n.description.get(locale)
+			- var c = b.replace("#exposure","<div class='anchor_base'><div id='exposure'>#exposure</div></div>")
+			- if (c != b)
+				a(href="#exposure")= __('Экспозиция')
+			- var d = c.replace("#excursion","<div class='anchor_base'><div id='excursion'>#excursion</div></div>")
+			- if (d != c)
+				a(href="#excursion")= __('Экскурсии')
+			- var e = d.replace("#schelude","<div class='anchor_base'><div id='schelude'>#schelude</div></div>")
+			- if (e != d)
+				a(href="#schelude")= __('Режим работы')
+			- var f = e.replace("#price","<div class='anchor_base'><div id='price'>#price</div></div>")
+			- if (f != e)
+				a(href="#price")= __('Стоимость посещения')
+			- var g = f.replace("#contacts","<div class='anchor_base'><div id='contacts'>#contacts</div></div>")
+			- if (g != f)
+				a(href="#contacts")= __('Контакты')
 
+	.content_body
+		.content_text: != g
 
 
 
