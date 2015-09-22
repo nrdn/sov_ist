@@ -99,19 +99,19 @@ html
 										a.footer_museum_email(href='mailto:museum@sovrhistory.ru') museum@sovrhistory.ru
 										.footer_museum_address=  __('125009, г. Москва, Тверская ул., дом 21')
 									.footer_shelude
-										.day_shelude Вторник, среда, пятница:
-										.time_shelude с 11.00 до 19.00, касса до 18.30
-										.day_shelude Четверг:
-										.time_shelude с 12.00 до 21.00, касса до 20.30
-										.day_shelude Суббота, воскресенье:
-										.time_shelude с 11.00 до 19.00, касса до 18.30
-										.day_shelude Понедельник — выходной день
+										.day_shelude= __('Вторник, среда, пятница:')
+										.time_shelude= __('с 11.00 до 19.00, касса до 18.30')
+										.day_shelude= __('Четверг:')
+										.time_shelude= __('с 12.00 до 21.00, касса до 20.30')
+										.day_shelude= __('Суббота, воскресенье:')
+										.time_shelude= __('с 11.00 до 19.00, касса до 18.30')
+										.day_shelude= __('Понедельник — выходной день')
 
 								.footer_rights='© 2015. ' + __('Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.')
 									br
 									b= __('Сайт находится в стадии бета-тестирования.')
 								.footer_bureau
-									span.nrdn_type Дизайн и разработка —
-									a.nrdn_name(href='http://nrdn.ru', target='_blank') Народный архитектор
+									span.nrdn_type= __('Дизайн и разработка —')
+									a.nrdn_name(href='http://nrdn.ru', target='_blank')= __('Народный архитектор')
 					.content_column.scroll
 						block scroll
