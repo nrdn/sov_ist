@@ -27,7 +27,7 @@ block content
 	.content_outer_block
 		each special in specials
 			a.content_item.collect(href='/specials/' + special._id)
-				img.item_image(src=special.path.thumb)
+				img.item_image(src=special.images[0].thumb)
 				.item_description
 					.item_title= special.i18n.title.get(locale)
 					.item_subtitle= special.i18n.subtitle.get(locale)

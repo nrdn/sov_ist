@@ -10,8 +10,12 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
 
 block content_scripts
+
 	script(type='text/javascript', src='/build/libs/js/wysiwyg.js')
 	script(type='text/javascript', src='/build/libs/js/wysiwyg-editor.js')
+	script(type='text/javascript', src='/build/libs/js/jquery-ui-1.10.4.custom.min.js')
+	script(type='text/javascript', src='/build/libs/js/jquery.filedrop.js')
+	script(type='text/javascript', src='/build/js/upload.js')
 	script(type='text/javascript', src='/build/js/add.js')
 
 block content
@@ -28,8 +32,14 @@ block content
 			+form_text_multi('description')
 			.form_title Ссылка:
 			input(type='text', name='url')
-			.form_title Изображение:
-			input(type='file', name='image')
+			.note Если вставить ссылку на тест, то будет загружен тест.
+				br
+				| В других случаях -- фотогалерея.
+				br
+				| Фоновое изображение -- первая фотография.
+			.form_title Изображения:
+			.form_images_upload
+				.form_desc_title Перетащи сюда
 			.form_title Номер:
 			input(type='text', name='num')
 			br

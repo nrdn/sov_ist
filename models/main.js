@@ -201,10 +201,11 @@ var specialSchema = new Schema({
 	description: { type: String, trim: true, locale: true },
 	num: Number,
 	url: { type: String, trim: true },
-	path: {
+	images: [{
+		description: { type: String, trim: true, locale: true },
 		original: String,
 		thumb: String
-	},
+	}],
 	date: {type: Date, default: Date.now}
 });
 

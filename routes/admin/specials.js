@@ -56,6 +56,7 @@ exports.add = function(req, res) {
 exports.add_form = function(req, res) {
 	var post = req.body;
 	var files = req.files;
+	var images = [];
 
 	var special = new Special();
 
@@ -77,26 +78,80 @@ exports.add_form = function(req, res) {
 	special.url = post.url;
 	special.num = post.num;
 
-	if (!files.image) {
-		return (function () {
-			special.save(function(err, special) {
-				res.redirect('back');
-			});
-		})();
-	}
 
-	fs.mkdir(__appdir + '/public/images/specials/' + special._id, function() {
-		var newPath = __appdir + '/public/images/specials/' + special._id;;
-		gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-			gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-				special.path.original = '/images/specials/' + special._id + '/original.jpg';
-				special.path.thumb = '/images/specials/' + special._id + '/thumb.jpg';
-				special.save(function() {
-					res.redirect('/auth/specials');
-				});
-			});
-		});
-	});
+
+
+ if (!post.images) {
+    return (function () {
+      special.images = [];
+      special.save(function(err, special) {
+        res.redirect('back');
+      });
+    })();
+  }
+
+  var public_path = __appdir + '/public';
+
+  var images_path = {
+    original: '/images/specials/' + special._id + '/original/',
+    thumb: '/images/specials/' + special._id + '/thumb/',
+  }
+
+  mkdirp.sync(public_path + images_path.original);
+  mkdirp.sync(public_path + images_path.thumb);
+
+  post.images.path.forEach(function(item, i) {
+    var image_obj = {};
+    image_obj.path = post.images.path[i];
+    image_obj.description = {ru:null, en:null};
+
+    if (post.images.description.ru) {
+      image_obj.description.ru = post.images.description.ru[i];
+    }
+
+    if (post.images.description.en) {
+      image_obj.description.en = post.images.description.en[i];
+    }
+
+    images.push(image_obj);
+  });
+
+
+
+
+
+  async.forEachSeries(images, function(image, callback) {
+    var name = new Date();
+    name = name.getTime();
+    var original_path = images_path.original + name + '.jpg';
+    var thumb_path = images_path.thumb + name + '.jpg';
+
+    gm(public_path + image.path).resize(520, false).write(public_path + thumb_path, function() {
+      gm(public_path + image.path).write(public_path + original_path, function() {
+        var image_obj = {};
+        image_obj.original = original_path;
+        image_obj.thumb = thumb_path;
+        image_obj.description = [{
+          lg: 'ru',
+          value: image.description.ru
+        }]
+        if (image.description.en) {
+          image_obj.description.push({
+            lg: 'en',
+            value: image.description.en
+          })
+        }
+        special.images.push(image_obj);
+        callback();
+      });
+    });
+  }, function() {
+    special.save(function() {
+      res.redirect('back');
+    });
+  });
+
+
 
 }
 
@@ -108,23 +163,41 @@ exports.add_form = function(req, res) {
 
 exports.edit = function(req, res) {
 	var id = req.params.id;
+  var public_path = __appdir + '/public';
+  var preview_path = '/images/preview/';
+  var images_preview = [];
 
-	Special.findById(id).exec(function(err, special) {
+
+	/*Special.findById(id).exec(function(err, special) {
 		res.render('auth/specials/edit.jade', {special: special});
 	});
+	*/
+
+ 	Special.findById(id).exec(function(err, special) {
+ 	  async.forEach(special.images, function(image, callback) {
+ 	    var image_path = __appdir + '/public' + image.original;
+ 	    var image_name = image.original.split('/')[5];
+ 	    fs.createReadStream(image_path).pipe(fs.createWriteStream(public_path + preview_path + image_name));
+ 	    images_preview.push(preview_path + image_name);
+ 	    callback();
+ 	  }, function() {
+ 	    res.render('auth/specials/edit.jade', {images_preview: images_preview, special: special});
+ 	  });
+ 	});
+
 }
 
 exports.edit_form = function(req, res) {
 	var id = req.params.id;
 	var post = req.body;
 	var files = req.files;
+  var images = [];
 
 	Special.findById(id).exec(function(err, special) {
 
 		var locales = post.en ? ['ru', 'en'] : ['ru'];
 
 		locales.forEach(function(locale) {
-
 			checkNested(post, [locale, 'title'])
 				&& special.setPropertyLocalised('title', post[locale].title, locale);
 
@@ -139,28 +212,80 @@ exports.edit_form = function(req, res) {
 		special.url = post.url;
 		special.num = post.num;
 
-		if (!files.image) {
-			return (function () {
-				special.save(function(err, special) {
-					res.redirect('back');
-				});
-			})();
-		}
 
-		fs.mkdir(__appdir + '/public/images/specials/' + special._id, function() {
-			var newPath = __appdir + '/public/images/specials/' + special._id;;
-			gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-				gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-					special.path.original = '/images/specials/' + special._id + '/original.jpg';
-					special.path.thumb = '/images/specials/' + special._id + '/thumb.jpg';
-					special.save(function() {
-						res.redirect('/auth/specials');
-					});
-				});
-			});
-		});
 
-	});
+
+    var public_path = __appdir + '/public';
+
+    var images_path = {
+      original: '/images/specials/' + special._id + '/original/',
+      thumb: '/images/specials/' + special._id + '/thumb/',
+    }
+
+    del.sync([public_path + images_path.original, public_path + images_path.thumb]);
+
+    if (!post.images) {
+      return (function () {
+        special.images = [];
+        special.save(function() {
+          res.redirect('back');
+        });
+      })();
+    }
+
+    mkdirp.sync(public_path + images_path.original);
+    mkdirp.sync(public_path + images_path.thumb);
+
+    special.images = [];
+
+    post.images.path.forEach(function(item, i) {
+      var image_obj = {};
+      image_obj.path = post.images.path[i];
+      image_obj.description = {ru:null, en:null};
+
+      if (post.images.description.ru) {
+        image_obj.description.ru = post.images.description.ru[i];
+      }
+
+      if (post.images.description.en) {
+        image_obj.description.en = post.images.description.en[i];
+      }
+
+      images.push(image_obj);
+    });
+
+    async.forEachSeries(images, function(image, callback) {
+      var name = new Date();
+      name = name.getTime();
+      var original_path = images_path.original + name + '.jpg';
+      var thumb_path = images_path.thumb + name + '.jpg';
+
+      gm(public_path + image.path).resize(520, false).write(public_path + thumb_path, function() {
+        gm(public_path + image.path).write(public_path + original_path, function() {
+          var image_obj = {};
+          image_obj.original = original_path;
+          image_obj.thumb = thumb_path;
+          image_obj.description = [{
+            lg: 'ru',
+            value: image.description.ru
+          }]
+          if (image.description.en) {
+            image_obj.description.push({
+              lg: 'en',
+              value: image.description.en
+            })
+          }
+          special.images.push(image_obj);
+          callback();
+        });
+      });
+    }, function() {
+      special.save(function() {
+        res.redirect('/auth/specials');
+      })
+    });
+});
+
 }
 
 

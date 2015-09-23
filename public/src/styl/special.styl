@@ -61,3 +61,52 @@ iframe
 	width 100%
 	border none
 	height 1200px
+
+.content_test
+	&.content_slider
+		width 945px
+		position relative
+		overflow hidden
+		@media screen and (max-width: 1280px)
+			width 720px
+		.content_photo
+			position relative
+			width 100%
+			display none
+			overflow hidden
+			min-height 740px
+			@media screen and (max-width: 1280px)
+				min-height 580px
+			&:nth-child(1)
+				display block
+			.content_image_hover
+				height 700px
+				background-position 50%
+				background-size contain
+				background-repeat no-repeat
+				background-color #e5e5e5
+				cursor pointer
+				@media screen and (max-width: 1280px)
+					height 540px
+				&:hover
+					&:after
+						position absolute
+						top 370px
+						width 50px
+						color #fff
+						height 50px
+						margin-top -25px
+						font-size 50px
+						line-height 50px
+						right 10px
+						text-align right
+						content '>'
+						@media screen and (max-width: 1280px)
+							top 270px
+
+			.content_image_description
+				margin-top 20px
+				padding 10px 0
+				border-top 1px solid #b7b7b7
+				color #555
+				width 100%
