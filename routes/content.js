@@ -2,12 +2,12 @@ exports.team = function(req, res) {
   res.render('static/team.jade');
 }
 
-exports.official = function(req, res) {
-  res.render('static/official.jade');
+exports.partnership = function(req, res) {
+  res.render('static/partnership.jade');
 }
 
-exports.partners = function(req, res) {
-  res.render('static/partners.jade');
+exports.services = function(req, res) {
+  res.render('static/services.jade');
 }
 
 exports.live = function(req, res) {

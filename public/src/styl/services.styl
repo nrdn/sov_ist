@@ -6,10 +6,10 @@
 					display none
 
 .info_block_title
-	font: 25pt/30pt 'PT Sans';
-	text-align: center;
-	width: 700px;
-	margin: 120px auto 40px;
+	font 25pt/30pt 'PT Sans'
+	text-align center
+	width 700px
+	margin 0px auto 40px
 
 .parters_block
 	font 20pt/21pt 'PT Serif'
@@ -33,21 +33,19 @@
 	margin-bottom 25px
 	overflow hidden
 	text-align center
-	height 142px
 
 .partner_item
 	width 150px
 	display inline-block
 	filter grayscale(1)
 	-webkit-filter grayscale(1)
+	@media screen and (max-width: 1280px)
+		width 120px
 	& > div
 		margin 0 auto
 	&:hover
 		filter none
 		-webkit-filter none
-	&.tripadvisor
-		transform scale(0.5)
-		transform-origin 50% 0
 	&.rp_item
 		width 130px
 
@@ -56,6 +54,9 @@
 	background-size 130px
 	background-repeat no-repeat
 	background-position 0 35%
+	@media screen and (max-width: 1280px)
+		height 140px
+		background-size 100px
 
 .partner_item_name
 	font-weight bold

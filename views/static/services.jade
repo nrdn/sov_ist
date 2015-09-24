@@ -4,18 +4,18 @@ block title
 	title= __('ПАРТНЕРСТВО')
 
 block content_style
-	link(rel='stylesheet', type='text/css', href='/build/css/partners.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/services.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='/build/js/partners.js' + version)
+	//-script(type='text/javascript', src='/build/js/services.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 
 block content
-	//- .content_title= __('Партнерство')
+	.content_title= __('Услуги')
 	.parters_block
 		.info_block_title!= __('Наш музей всегда открыт <br> для позитивного сотрудничества <br> и партнерства.')
-		.partners_phone= __('тел.:') + ' (495) 699-99-12'
-		.partners_phone= __('факс:') + ' (495) 699-12-73'
+		//-.partners_phone= __('тел.:') + ' (495) 699-99-12'
+		//-.partners_phone= __('факс:') + ' (495) 699-12-73'
 	.partners_divide
 
 
@@ -33,8 +33,6 @@ block content
 			a.partner_item(target='_blank', href='http://tass.ru/')
 				.partner_item_image(style='background-image:url(images/design/partners/06.png)')
 				.partner_item_type
-
-		.partner_block
 			a.partner_item.rp_item(target='_blank', href='http://rospatriotcentr.ru/')
 				.partner_item_image(style='background-image:url(images/design/partners/08.png)')
 				.partner_item_type

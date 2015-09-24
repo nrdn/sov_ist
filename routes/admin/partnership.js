@@ -6,8 +6,8 @@ var __appdir = path.dirname(require.main.filename);
 
 exports.edit = function(req, res) {
 
-	var ru_path = __appdir + '/views/static/content/official/ru.html';
-	var en_path = __appdir + '/views/static/content/official/en.html';
+	var ru_path = __appdir + '/views/static/content/partnership/ru.html';
+	var en_path = __appdir + '/views/static/content/partnership/en.html';
 
 	touch.sync(ru_path);
 	touch.sync(en_path);
@@ -15,15 +15,15 @@ exports.edit = function(req, res) {
 	var ru = fs.readFileSync(ru_path);
 	var en = fs.readFileSync(en_path);
 
-	res.render('auth/official.jade', {content: {ru: ru, en: en}});
+	res.render('auth/partnership.jade', {content: {ru: ru, en: en}});
 }
 
 exports.edit_form = function(req, res) {
 	var post = req.body;
 
-	fs.writeFileSync(__appdir + '/views/static/content/official/ru.html', post.ru.content);
+	fs.writeFileSync(__appdir + '/views/static/content/partnership/ru.html', post.ru.content);
 	if (post.en) {
-		fs.writeFileSync(__appdir + '/views/static/content/official/en.html', post.en.content);
+		fs.writeFileSync(__appdir + '/views/static/content/partnership/en.html', post.en.content);
 	}
 	res.redirect('back');
 }

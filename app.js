@@ -93,7 +93,7 @@ var admin_teams = require('./routes/admin/teams.js');
 
 var admin_specials = require('./routes/admin/specials.js');
 
-var admin_official = require('./routes/admin/official.js');
+var admin_partnership = require('./routes/admin/partnership.js');
 var admin_contacts = require('./routes/admin/contacts.js');
 var admin_schedule = require('./routes/admin/schedule.js');
 var admin_gallerys = require('./routes/admin/gallerys.js');
@@ -144,9 +144,9 @@ app.route('/news')
 app.route('/news/:id').get(news.news);
 
 
-// === Officials Route
-app.route('/official')
-	.get(content.official)
+// === Partnership Route
+app.route('/partnership')
+	.get(content.partnership)
 
 
 // === Vacancys Route
@@ -646,9 +646,9 @@ app.route('/auth/contacts')
 	 .get(checkAuth, admin_contacts.edit)
 	 .post(checkAuth, admin_contacts.edit_form);
 
-app.route('/auth/official')
-	 .get(checkAuth, admin_official.edit)
-	 .post(checkAuth, admin_official.edit_form);
+app.route('/auth/partnership')
+	 .get(checkAuth, admin_partnership.edit)
+	 .post(checkAuth, admin_partnership.edit_form);
 
 app.route('/auth/schedule')
 	 .get(checkAuth, admin_schedule.edit)
@@ -694,8 +694,8 @@ app.route('/team_st').get(content.team);
 // === Test Route
 app.route('/test').get(content.test);
 
-// === Partners Route
-app.route('/partners').get(globals.imageGallery('main'), content.partners);
+// === Services Route
+app.route('/services').get(globals.imageGallery('main'), content.services);
 
 // === Schedule Route
 app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
@@ -703,8 +703,8 @@ app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
 // === Contacts Route
 app.route('/contacts').get(content.contacts);
 
-// === Official Route
-app.route('/official').get(content.contacts);
+// === Partnership Route
+app.route('/partnership').get(content.partnership);
 
 
 
