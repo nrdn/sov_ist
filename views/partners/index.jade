@@ -16,6 +16,8 @@ block content_scripts
 
 
 
+
+
 block content
 	.content_title= __('Партнеры')
 	.content_partners_description
@@ -35,7 +37,7 @@ block content
 					if (partner.title)
 						.item_title= partner.i18n.title.get(locale)
 					if (partner.position)
-						.item_type= partner.i18n.position.get(locale)
+						.item_type: != partner.i18n.position.get(locale)
 					if (partner.url)
 						a.item_url(href=partner.url, target='_blank')= partner.url
 
