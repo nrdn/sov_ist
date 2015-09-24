@@ -1,0 +1,15 @@
+include ../vars.jade
+
+mixin trimString(str, length)
+	if (str.length > length)
+		span.body: != str.substr(0, length)
+		span.etc ...
+		span.hide= str.substr(length, str.length)
+	- else
+		span.body: != str
+
+each partner in partners
+	a.content_item.collect(href='/souvenirs/' + partner._id)
+		img.item_image(src=partner.path.thumb)
+		.item_description
+			.item_title= partner.i18n.title.get(locale)

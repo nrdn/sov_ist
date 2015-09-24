@@ -21,5 +21,7 @@ $(document).ready(function() {
 	$('.rm_magazine').on('click', {path:'/auth/magazines/remove', description: 'Удалить журнал?'}, remove);
 	$('.rm_special').on('click', {path:'/auth/specials/remove', description: 'Удалить спецпроект?'}, remove);
 	$('.rm_team').on('click', {path:'/auth/teams/remove', description: 'Удалить члена команды?'}, remove);
+	$('.rm_vacancy').on('click', {path:'/auth/vacancys/remove', description: 'Удалить вакансию?'}, remove);
+	$('.rm_partner').on('click', {path:'/auth/partners/remove', description: 'Удалить партнера музея?'}, remove);
 
 });

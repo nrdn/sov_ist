@@ -62,6 +62,7 @@ var main = require('./routes/main.js');
 var events = require('./routes/events.js');
 var news = require('./routes/news.js');
 var vacancys = require('./routes/vacancys.js');
+var partners = require('./routes/partners.js');
 var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
@@ -80,6 +81,7 @@ var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
 var admin_vacancys = require('./routes/admin/vacancys.js');
+var admin_partners = require('./routes/admin/partners.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
 var admin_halls = require('./routes/admin/halls.js');
@@ -156,6 +158,16 @@ app.route('/vacancys')
 
 // === Vacancys Route
 app.route('/vacancys/:id').get(globals.imageGallery('main'), vacancys.vacancys);
+
+
+// === partners Route
+app.route('/partners')
+	.get(globals.imageGallery('main'), partners.index)
+	.post(partners.partners);
+
+// === partners Route
+app.route('/partners/:id').get(globals.imageGallery('main'), partners.partners);
+
 
 // === Magazines Route
 app.route('/magazines')
@@ -287,6 +299,33 @@ app.route('/auth/vacancys/edit/:id')
 // === Admin @remove vacancys Route
 app.route('/auth/vacancys/remove')
 	 .post(checkAuth, admin_vacancys.remove);
+
+
+
+
+// === Admin partners Route
+app.route('/auth/partners').get(checkAuth, admin_partners.list);
+
+
+// === Admin @add partners Route
+app.route('/auth/partners/add')
+	 .get(checkAuth, admin_partners.add)
+	 .post(checkAuth, admin_partners.add_form);
+
+
+// === Admin @edit partners Route
+app.route('/auth/partners/edit/:id')
+	 .get(checkAuth, admin_partners.edit)
+	 .post(checkAuth, admin_partners.edit_form);
+
+
+// === Admin @remove partners Route
+app.route('/auth/partners/remove')
+	 .post(checkAuth, admin_partners.remove);
+
+
+
+
 
 
 
@@ -704,7 +743,7 @@ app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
 app.route('/contacts').get(content.contacts);
 
 // === Partnership Route
-app.route('/partnership').get(content.partnership);
+app.route('/partnership').get(globals.imageGallery('main'), content.partnership);
 
 
 
