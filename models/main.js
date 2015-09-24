@@ -51,6 +51,17 @@ var partnerSchema = new Schema({
 	date: {type: Date, default: Date.now}
 });
 
+var serviceSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	description: { type: String, trim: true, locale: true },
+	num: Number,
+	images: [{
+		description: { type: String, trim: true, locale: true },
+		original: String,
+		thumb: String
+	}],
+	date: {type: Date, default: Date.now}
+});
 
 var historySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
@@ -252,6 +263,7 @@ userSchema.plugin(mongooseBcrypt, { fields: ['password'] });
 newsSchema.plugin(mongooseLocale);
 vacancySchema.plugin(mongooseLocale);
 partnerSchema.plugin(mongooseLocale);
+serviceSchema.plugin(mongooseLocale);
 historySchema.plugin(mongooseLocale);
 exhibitSchema.plugin(mongooseLocale);
 collectSchema.plugin(mongooseLocale);
@@ -285,6 +297,7 @@ module.exports.User = mongoose.model('User', userSchema);
 module.exports.News = mongoose.model('News', newsSchema);
 module.exports.Vacancy = mongoose.model('Vacancy', vacancySchema);
 module.exports.Partner = mongoose.model('Partner', partnerSchema);
+module.exports.Service = mongoose.model('Service', serviceSchema);
 module.exports.History = mongoose.model('History', historySchema);
 module.exports.Exhibit = mongoose.model('Exhibit', exhibitSchema);
 module.exports.Collect = mongoose.model('Collect', collectSchema);

@@ -5,11 +5,13 @@ exports.team = function(req, res) {
 exports.partnership = function(req, res) {
   res.render('static/partnership.jade');
 }
-
-exports.services = function(req, res) {
+exports.serviceship = function(req, res) {
+  res.render('static/serviceship.jade');
+}
+/*exports.services = function(req, res) {
   res.render('static/services.jade');
 }
-
+*/
 exports.live = function(req, res) {
   res.render('static/live.jade');
 }

@@ -63,6 +63,7 @@ var events = require('./routes/events.js');
 var news = require('./routes/news.js');
 var vacancys = require('./routes/vacancys.js');
 var partners = require('./routes/partners.js');
+var services = require('./routes/services.js');
 var collects = require('./routes/collects.js');
 var history = require('./routes/history.js');
 var exposure = require('./routes/exposure.js');
@@ -82,6 +83,7 @@ var admin_history = require('./routes/admin/history.js');
 var admin_news = require('./routes/admin/news.js');
 var admin_vacancys = require('./routes/admin/vacancys.js');
 var admin_partners = require('./routes/admin/partners.js');
+var admin_services = require('./routes/admin/services.js');
 var admin_exhibits = require('./routes/admin/exhibits.js');
 var admin_collects = require('./routes/admin/collects.js');
 var admin_halls = require('./routes/admin/halls.js');
@@ -96,6 +98,7 @@ var admin_teams = require('./routes/admin/teams.js');
 var admin_specials = require('./routes/admin/specials.js');
 
 var admin_partnership = require('./routes/admin/partnership.js');
+var admin_serviceship = require('./routes/admin/serviceship.js');
 var admin_contacts = require('./routes/admin/contacts.js');
 var admin_schedule = require('./routes/admin/schedule.js');
 var admin_gallerys = require('./routes/admin/gallerys.js');
@@ -150,6 +153,10 @@ app.route('/news/:id').get(news.news);
 app.route('/partnership')
 	.get(content.partnership)
 
+// === Serviceship Route
+app.route('/serviceship')
+	.get(content.serviceship)
+
 
 // === Vacancys Route
 app.route('/vacancys')
@@ -167,6 +174,16 @@ app.route('/partners')
 
 // === partners Route
 app.route('/partners/:id').get(globals.imageGallery('main'), partners.partners);
+
+
+// === services Route
+app.route('/services')
+	.get(globals.imageGallery('main'), services.index)
+	.post(services.services);
+
+// === services Route
+app.route('/services/:id').get(globals.imageGallery('main'), services.services);
+
 
 
 // === Magazines Route
@@ -325,6 +342,27 @@ app.route('/auth/partners/remove')
 
 
 
+
+
+// === Admin services Route
+app.route('/auth/services').get(checkAuth, admin_services.list);
+
+
+// === Admin @add services Route
+app.route('/auth/services/add')
+	 .get(checkAuth, admin_services.add)
+	 .post(checkAuth, admin_services.add_form);
+
+
+// === Admin @edit services Route
+app.route('/auth/services/edit/:id')
+	 .get(checkAuth, admin_services.edit)
+	 .post(checkAuth, admin_services.edit_form);
+
+
+// === Admin @remove services Route
+app.route('/auth/services/remove')
+	 .post(checkAuth, admin_services.remove);
 
 
 
@@ -689,6 +727,11 @@ app.route('/auth/partnership')
 	 .get(checkAuth, admin_partnership.edit)
 	 .post(checkAuth, admin_partnership.edit_form);
 
+app.route('/auth/serviceship')
+	 .get(checkAuth, admin_serviceship.edit)
+	 .post(checkAuth, admin_serviceship.edit_form);
+
+
 app.route('/auth/schedule')
 	 .get(checkAuth, admin_schedule.edit)
 	 .post(checkAuth, admin_schedule.edit_form);
@@ -734,7 +777,7 @@ app.route('/team_st').get(content.team);
 app.route('/test').get(content.test);
 
 // === Services Route
-app.route('/services').get(globals.imageGallery('main'), content.services);
+//-app.route('/services').get(globals.imageGallery('main'), content.services);
 
 // === Schedule Route
 app.route('/schedule').get(globals.imageGallery('main'), content.schedule);
@@ -745,6 +788,8 @@ app.route('/contacts').get(content.contacts);
 // === Partnership Route
 app.route('/partnership').get(globals.imageGallery('main'), content.partnership);
 
+// === Serviceship Route
+app.route('/serviceship').get(globals.imageGallery('main'), content.serviceship);
 
 
 // ------------------------
