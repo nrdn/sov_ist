@@ -2,7 +2,7 @@ extends ../layout
 include forms.jade
 
 block title
-	title РЕДАКТИРОВАТЬ РАЗДЕЛ ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ
+	title ПАРТНЕРЫ > ВВОДНАЯ ЧАСТЬ
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/libs/css/font-awesome.css')
@@ -16,9 +16,9 @@ block content_scripts
 
 block content
 	.form_block
-		a.back_link(href='/auth') < Назад
+		a.back_link(href='/auth/partners') < Назад
 		button.toggle_eng(type='button') перевод
-		.title РЕДАКТИРОВАТЬ РАЗДЕЛ ПАРТНЕРСТВО
+		.title ПАРТНЕРЫ > ВВОДНАЯ ЧАСТЬ
 		form(action="", method="post")
 			.form_title Контент:
 			textarea.ru.editor(name="ru[content]",)= content.ru
