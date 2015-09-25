@@ -202,10 +202,14 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 				margin 0 auto
 				@media screen and (max-width: 1280px)
 					width 980px
+				@media screen and (max-width: 1000px)
+					width 890px
 				.columns_main_inner_block_inner
 					width 945px
 					@media screen and (max-width: 1280px)
 						width 700px
+						@media screen and (max-width: 1000px)
+							margin-left 15px!important
 		.content_outer_block
 			overflow hidden
 	&.scroll
@@ -219,6 +223,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			width 270px
 			-webkit-overflow-scrolling touch
 			margin-left 215px!important
+		@media screen and (max-width: 1000px)
+			display none
 
 		.content_title
 			display none // !!!!!!!!!!

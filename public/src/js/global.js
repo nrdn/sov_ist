@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	var columns_main_scrollerrus = $('.columns_main_scrollerrus').width();
-	console.log(columns_main_scrollerrus);
 	$('.header_block').css({'right':columns_main_scrollerrus});
 	$('.content_column.scroll').css({'margin-left': '320' - columns_main_scrollerrus + 'px'});
 	$('.columns_main_inner_block_inner').css({'margin-left': - (columns_main_scrollerrus/2) });

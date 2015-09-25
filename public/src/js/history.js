@@ -1,4 +1,7 @@
 $(document).ready(function(){
+	var columns_main_scrollerrus = $('.columns_main_scrollerrus').width();
+	$('.history_left_block_inner').css({'margin-left': 50 + columns_main_scrollerrus + 'px'});
+
 	$('.column_main_inner').on('scroll', function()	{
 			var scroll_top = $('.column_main_inner').scrollTop();
 				$('.column_main_inner h4').each(function(i,elem) {
