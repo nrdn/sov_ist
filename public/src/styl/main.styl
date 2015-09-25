@@ -159,3 +159,71 @@
 	margin-bottom 20px
 	@media screen and (max-width: 1280px)
 		left 480px
+
+.overlay_block
+	position fixed
+	background rgba(0,0,0,0.8)
+	top 0
+	bottom 0
+	left 0
+	right 0
+	z-index 5000
+	display none
+.overlay_close
+	top 0
+	bottom 0
+	left 0
+	right 0
+	z-index 10
+	position absolute
+.overlay_inner
+	position absolute
+	width 300px
+	height 410px
+	margin -205px 0 0 -150px
+	top 50%
+	left 50%
+	background #fff
+	z-index 20
+	.overlay_start_block
+		width 230px
+		margin 10px auto
+		text-align center
+		border-bottom 1px solid #b8b8b8
+		padding 70px 0 10px
+		background url("/images/design/copy.png") 50% 13px no-repeat
+		background-size 90px
+		z-index 100
+	.overlay_social_block
+		overflow hidden
+		border-bottom 1px solid #B8B8B8
+		width 230px
+		margin 0 auto 20px
+		padding-bottom 10px
+		a
+			text-align center
+			font 17px/35px 'Icons'
+			width 150px
+			margin 10px auto
+			height 35px
+			display block
+			color #fff
+			cursor pointer
+			text-decoration none
+			&.subscribe_vk
+				background-color #4E729A
+			&.subscribe_fb
+				background-color #4D68A2
+			&.subscribe_tw
+				background-color #41ABE1
+			&:hover
+				opacity 0.8
+	.overlay_close_block
+		width 150px
+		margin 10px auto
+		background #b8b8b8
+		line-height 35px
+		text-align center
+		cursor pointer
+		&:hover
+			opacity 0.8

@@ -1,4 +1,40 @@
 $(document).ready(function() {
+
+//- cookie block --//
+function overlay_remove() {
+	Cookies.set('overlay_closed', 'closed', { expires: 15 });
+	$('.overlay_block').remove();
+}
+
+function vk_open() {
+	overlay_remove();
+	window.open("https://vk.com/widget_community.php?act=a_subscribe_box&oid=-40818390&state=1","","width=400,height=350")
+}
+function fb_open() {
+	overlay_remove();
+}
+function tw_open() {
+	overlay_remove();
+}
+
+
+if (Cookies.get('overlay_closed')) {
+	overlay_remove()
+}
+else {
+	$('.overlay_block').css({'display':'block'});
+}
+
+
+$('.overlay_close, .overlay_close_block').on('click', overlay_remove);
+
+$('.subscribe_vk').on('click', vk_open);
+$('.subscribe_fb').on('click', fb_open);
+$('.subscribe_tw').on('click', tw_open);
+//- cookie block --//
+
+
+
 	var context = {
 		skip: 12,
 		types: [],

@@ -13,27 +13,12 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
+	script(type='text/javascript', src='/build/libs/js/js.cookie.js' + version)
 	script(type='text/javascript', src='/build/js/main.js' + version)
 
 block content
 	.content_title= __('Историю создаете вы')
 	a.content_banner(href= 'http://pobedaonline.ru/')
-	//-.content_navigate_block.types
-		.navigate_title= __('Наши последние события:')
-		.navigate_items_block
-			//- .navigate_item.excursion= __('Экскурсии')
-			//-a.navigate_item.exhibition(href='/events/exhibition')= __('Выставки')
-			//-a.navigate_item.lecture(href='/events/lecture')= __('Лекции')
-			//-a.navigate_item.action(href='/events/action')= __('Мероприятия')
-			a.navigate_button(href='/events/exhibition')= __('Выставки')
-			a.navigate_button(href='/events/lecture')= __('Лекции')
-			a.navigate_button(href='/events/action')= __('Мероприятия')
-	//-if (categorys.length > 0)
-		.content_navigate_block.categorys
-			.navigate_title= __('Категории:')
-			.navigate_items_block
-				each category in categorys
-					.navigate_item(class=category._id.toString())= category.i18n.title.get(locale)
 	.content_outer_block
 		.content_news_block
 			each item in news
@@ -64,6 +49,15 @@ block content
 		.content_events_block
 			+eventsList(events)
 
+	.overlay_block
+		.overlay_close
+		.overlay_inner
+			.overlay_start_block= __('Подпишитесь на наши группы, чтобы первым узнавать новости музея.')
+			.overlay_social_block
+				a.subscribe_vk 
+				a.subscribe_fb(href='https://www.facebook.com/sovr.history', target='_blank') 
+				a.subscribe_tw(href='https://twitter.com/sovrmuse', target='_blank') 
+			.overlay_close_block= __('Спасибо!')
 
 block scroll
 	.content_title= __('Государственный центральный музей современной истории России')
