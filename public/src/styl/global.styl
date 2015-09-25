@@ -25,6 +25,11 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	width 100%
 	background-color rgba(0, 0, 0, 0.7)
 	z-index 999
+	.columns_main_scrollerrus
+		height 1px
+		overflow-y scroll
+		float left
+		position absolute
 
 .search_block
 	width 100%
@@ -73,8 +78,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 
 .header_inner
 .search_inner
-	//width 1280px
-	width 100%
+	width 1280px
+	//width 100%
 	padding-top 10px
 	padding-bottom 10px
 	margin 0 auto
@@ -174,7 +179,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	overflow hidden
 	//width 1280px
 	width 100%
-	margin 0 auto
+	//margin 0 auto
 
 .content_column
 	box-sizing border-box
@@ -188,17 +193,32 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			margin-bottom 60px
 			font 24pt/26pt 'PT Serif'
 		.column_main_inner
-			//width 960px
 			width 100%
-			//padding-right 25px
 			overflow-y scroll
 			height 100%
+			.columns_main_inner_block
+				width 1280px
+				margin 0 auto
+				@media screen and (max-width: 1280px)
+					width 980px
+				.columns_main_inner_block_inner
+					width 945px
+					@media screen and (max-width: 1280px)
+						width 700px
 		.content_outer_block
 			overflow hidden
 	&.scroll
 		overflow hidden
 		width 320px
-		float left
+		position fixed
+		top 0
+		left 50%
+		margin-left 320px
+		@media screen and (max-width: 1280px)
+			width 270px
+			-webkit-overflow-scrolling touch
+			margin-left 215px!important
+
 		.content_title
 			display none // !!!!!!!!!!
 			top 70px
