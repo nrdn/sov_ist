@@ -1,21 +1,33 @@
+.content_outer_block
+	min-width 940px
+	@media screen and (max-width: 1280px)
+		min-width 700px
+
 .content_item
-	border-top 1px solid #b7b7b7
-	width 100%
-	margin-bottom 0
-	color #555
 	&:hover
-		color #888
-	.item_image
-		float left
-		margin 20px 20px 20px 0
-	.item_description
-		float left
-		margin 20px 0
-		max-width 680px
-		.item_title
-			font-weight normal
-			text-align left
-			font 16pt/18pt 'PT Sans'
-		.item_subtitle
-			font-weight normal
-			text-align left
+		&:after
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background rgba(0,0,0,0.2)
+			content ''
+			z-index 0
+.content_navigate_block
+	.navigate_items_block
+		.navigate_item
+			&.important
+				&:after
+					border-right 1px solid #4b4b4b
+				&:first-child
+					padding-left 0
+					margin-left 0
+					margin-right 17px
+
+.item_category
+	display none
+
+.item_subs
+	font 10pt/12pt 'PT Sans'
+	color #b8b8b8
