@@ -26,6 +26,9 @@ block content
 					.item_title= item.i18n.title.get(locale)
 					.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 			a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в анонсы')
+			a.spbmkf(href="http://http://culturalforum.ru/")
+				img(src="images/design/spbmkf_banner_1.jpg")
+
 				if (locale == 'ru')
 					|	<div id="TA_cdsratingsonlynarrow952" class="TA_cdsratingsonlynarrow">
 					|	<ul id="iBRFdOO" class="TA_links QjBezkEX">
@@ -46,6 +49,7 @@ block content
 					| <script src="http://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=187&amp;locationId=300334&amp;lang=en_US&amp;border=true&amp;shadow=true&amp;backgroundColor=white&amp;display_version=2"></script>
 
 			| <a href="http://controlquality.ru/mark/?orgid=0373100001178"><img class="controlquality" alt="Оценка услуг" src="http://controlquality.ru/img/banner.png"></a>
+
 		.content_events_block
 			+eventsList(events)
 
