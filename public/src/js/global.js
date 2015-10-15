@@ -3,6 +3,7 @@ $(document).ready(function() {
 	$('.header_block').css({'right':columns_main_scrollerrus});
 	$('.content_column.scroll').css({'margin-left': '320' - columns_main_scrollerrus + 'px'});
 	$('.columns_main_inner_block_inner').css({'margin-left': - (columns_main_scrollerrus/2) });
+	$('.content_column.scroll').css({'right':columns_main_scrollerrus});
 	var search = {
 		val: '', buf: '',
 		checkResult: function() {
