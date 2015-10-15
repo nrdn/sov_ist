@@ -204,10 +204,13 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 					width 980px
 				@media screen and (max-width: 1000px)
 					width 890px
+				@media screen and (max-width: 920px)
+					width auto
 				.columns_main_inner_block_inner
 					width 945px
 					@media screen and (max-width: 1280px)
 						width 700px
+						margin-left 10px!important
 		.content_outer_block
 			overflow hidden
 	&.scroll
@@ -222,13 +225,14 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			-webkit-overflow-scrolling touch
 			margin-left 215px!important
 		@media screen and (max-width: 1000px)
-			margin-left 240px!important
+			margin-left 260px!important
 			width auto
 		@media screen and (max-width: 920px)
 			left 453px
 			display block
 			z-index 100
 			width auto
+			height auto
 
 		.content_title
 			display none // !!!!!!!!!!
