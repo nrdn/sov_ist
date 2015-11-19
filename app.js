@@ -12,7 +12,7 @@ var express = require('express'),
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-app.locals.pretty = true;
+
 
 var MongoStore = require('connect-mongo')(session);
 var i18n = require('i18n');
@@ -24,7 +24,12 @@ i18n.configure({
 	directory: __dirname + '/locales'
 });
 
-app.use(express.static(__dirname + '/public'));
+if (process.env.NODE_ENV != 'production') {
+	app.use(express.static(__app_root + '/public'));
+	app.locals.pretty = true;
+	app.set('json spaces', 2);
+}
+
 app.use(multer({ dest: __dirname + '/uploads', includeEmptyFields: true}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
