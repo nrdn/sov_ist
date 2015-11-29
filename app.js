@@ -38,7 +38,7 @@ app.use(cookieParser());
 app.use(i18n.init);
 
 app.use(session({
-	key: 'sovhis.sess',
+	key: 'session',
 	resave: false,
 	saveUninitialized: false,
 	secret: 'keyboard cat',
