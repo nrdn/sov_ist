@@ -40,7 +40,7 @@ var checkNested = function (obj, layers) {
 
 
 exports.list = function(req, res) {
-	Hall.find().sort('-date').exec(function(err, halls) {
+	Hall.find().sort('s_title').exec(function(err, halls) {
 		res.render('auth/halls/', {halls: halls});
 	});
 }
@@ -70,13 +70,13 @@ exports.add_form = function(req, res) {
 		checkNested(post, [locale, 'title'])
 			&& hall.setPropertyLocalised('title', post[locale].title, locale);
 
-		checkNested(post, [locale, 's_title'])
-			&& hall.setPropertyLocalised('s_title', post[locale].s_title, locale);
+		//-checkNested(post, [locale, 's_title'])
+			//-&& hall.setPropertyLocalised('s_title', post[locale].s_title, locale);
 
 		checkNested(post, [locale, 'description'])
 			&& hall.setPropertyLocalised('description', post[locale].description, locale);
 	});
-
+	hall.s_title = post.s_title;
 	hall.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 
 
@@ -191,13 +191,13 @@ exports.edit_form = function(req, res) {
 			checkNested(post, [locale, 'title'])
 				&& hall.setPropertyLocalised('title', post[locale].title, locale);
 
-		checkNested(post, [locale, 's_title'])
-			&& hall.setPropertyLocalised('s_title', post[locale].s_title, locale);
+		//-checkNested(post, [locale, 's_title'])
+			//-&& hall.setPropertyLocalised('s_title', post[locale].s_title, locale);
 
 			checkNested(post, [locale, 'description'])
 				&& hall.setPropertyLocalised('description', post[locale].description, locale);
 		});
-
+		hall.s_title = post.s_title;
 		hall.subsidiary = post.subsidiary != 'none' ? post.subsidiary : undefined;
 
 		var public_path = __appdir + '/public';

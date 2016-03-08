@@ -29,7 +29,8 @@ block content
 			.form_title Заголовок:
 			+form_text_single('title', hall)
 			.form_title Подзаголовок (номер):
-			+form_text_single('s_title', hall)
+			//-+form_text_single('s_title', hall)
+			input(name='s_title', type='number', value=hall.s_title)
 			.form_title Описание:
 			+form_text_multi('description', hall)
 			.form_title Филиал:
