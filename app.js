@@ -65,6 +65,7 @@ app.use(function(req, res, next) {
 
 var main = require('./routes/main.js');
 var events = require('./routes/events.js');
+var banners = require('./routes/banners.js');
 var news = require('./routes/news.js');
 var vacancys = require('./routes/vacancys.js');
 var partners = require('./routes/partners.js');
@@ -85,6 +86,7 @@ var auth = require('./routes/auth.js');
 
 var admin_users = require('./routes/admin/users.js');
 var admin_history = require('./routes/admin/history.js');
+var admin_banners = require('./routes/admin/banners.js');
 var admin_news = require('./routes/admin/news.js');
 var admin_vacancys = require('./routes/admin/vacancys.js');
 var admin_partners = require('./routes/admin/partners.js');
@@ -153,6 +155,8 @@ app.route('/news')
 // === News Route
 app.route('/news/:id').get(news.news);
 
+
+//!
 
 // === Partnership Route
 app.route('/partnership')
@@ -266,6 +270,31 @@ app.route('/auth/users/edit/:id')
 // === Admin @remove users Route
 app.route('/auth/users/remove')
 	 .post(checkAuth, admin_users.remove);
+
+
+// ------------------------
+// *** Admin Banners Routes Block ***
+// ------------------------
+
+// === Admin banners Route
+app.route('/auth/banners').get(checkAuth, admin_banners.list);
+
+
+// === Admin @add banners Route
+app.route('/auth/banners/add')
+	 .get(checkAuth, admin_banners.add)
+	 .post(checkAuth, admin_banners.add_form);
+
+
+// === Admin @edit banners Route
+app.route('/auth/banners/edit/:id')
+	 .get(checkAuth, admin_banners.edit)
+	 .post(checkAuth, admin_banners.edit_form);
+
+
+// === Admin @remove banners Route
+app.route('/auth/banners/remove')
+	 .post(checkAuth, admin_banners.remove);
 
 
 

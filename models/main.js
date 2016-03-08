@@ -25,6 +25,20 @@ var newsSchema = new Schema({
 	}]
 });
 
+var bannerSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	link: String,
+	num: Number,
+	top: Boolean,
+	html: Boolean,
+	code: String,
+	path: {
+		original: String,
+		thumb: String
+	},
+	date: {type: Date, default: Date.now}
+});
+
 var vacancySchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	description: { type: String, trim: true, locale: true },
@@ -37,7 +51,6 @@ var vacancySchema = new Schema({
 		thumb: String
 	}]
 });
-
 
 var partnerSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
@@ -261,6 +274,7 @@ gallerySchema.statics.random = function(opts, limit, sort, callback) {
 userSchema.plugin(mongooseBcrypt, { fields: ['password'] });
 
 newsSchema.plugin(mongooseLocale);
+bannerSchema.plugin(mongooseLocale);
 vacancySchema.plugin(mongooseLocale);
 partnerSchema.plugin(mongooseLocale);
 serviceSchema.plugin(mongooseLocale);
@@ -295,6 +309,7 @@ eventSchema.index({'title.value': 'text', 'description.value': 'text'}, {languag
 
 module.exports.User = mongoose.model('User', userSchema);
 module.exports.News = mongoose.model('News', newsSchema);
+module.exports.Banner = mongoose.model('Banner', bannerSchema);
 module.exports.Vacancy = mongoose.model('Vacancy', vacancySchema);
 module.exports.Partner = mongoose.model('Partner', partnerSchema);
 module.exports.Service = mongoose.model('Service', serviceSchema);

@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+
+function topSlider() {
+	$('.top_banner').eq(0).appendTo('.top_banner_outer');
+	$('.top_banner_counter span').eq(0).appendTo('.top_banner_counter');
+}
+var bannerSlider = setInterval(topSlider, 3000);
 //- cookie block --//
 function overlay_remove() {
 	Cookies.set('overlay_closed', 'closed', { expires: 15 });

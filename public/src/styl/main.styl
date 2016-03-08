@@ -2,43 +2,6 @@
 	opacity 0
 	transition opacity 0.2s ease-in-out
 
-.content_banner
-	display block
-	height 100px
-	margin-bottom 40px
-	background url(/images/design/bg_01.jpg) 50% 16% no-repeat
-	background-size 100%
-	position relative
-	&:after
-		content ''
-		position absolute
-		top 0
-		bottom 0
-		left 0
-		right 0
-		display block
-		background url(/images/design/osv_logo_1.png) 50% 6px no-repeat
-		background-size 380px
-	&:before
-		content 'онлайн выставка'
-		text-transform uppercase
-		text-align center
-		position absolute
-		top 67px
-		bottom 0
-		left 50%
-		margin-left -80px
-		display block
-		background url(/images/design/star_white.png) 50% 2px no-repeat
-		background-size 11px
-		color #ccc
-		font-size 8pt
-		padding-top 11px
-		border-top 1px solid #ccc
-		width 160px
-	&:hover
-		opacity 0.9
-
 .content_item
 	&.event
 		float left
@@ -228,8 +191,27 @@
 		&:hover
 			opacity 0.8
 
-.kinologo
+.kinologo, .contnet_banner
 	margin 0 0 10px
 	display block
 	img
 		width 100%
+	&:hover
+		opacity 0.8
+
+.top_banner_outer
+	height 100px
+	width 945px
+	position relative
+	.top_banner
+		height 100px
+		width 945px
+		position absolute
+		background-position 50%
+		background-repeat no-repeat
+		background-size cover
+		display block
+		&:hover
+			opacity 0.8
+.top_banner_counter
+	text-align center
