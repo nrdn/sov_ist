@@ -56,8 +56,11 @@ block content
 					| <script src="http://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=187&amp;locationId=300334&amp;lang=en_US&amp;border=true&amp;shadow=true&amp;backgroundColor=white&amp;display_version=2"></script>
 			each banner in banners
 				if (!banner.top)
-					a.contnet_banner(href=banner.link)
-						img(src=banner.path.thumb)
+					if (banner.html)
+						.contnet_banner: != banner.code
+					else
+						a.contnet_banner(href=banner.link)
+							img(src=banner.path.thumb)
 			//-a(href='http://god-kino2016.ru/').kinologo
 				img(src="images/design/kinologo.png")
 			| <a href="http://controlquality.ru/mark/?orgid=0373100001178"><img class="controlquality" alt="Оценка услуг" src="http://controlquality.ru/img/banner.png"></a>
