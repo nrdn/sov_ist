@@ -201,11 +201,12 @@
 
 .top_banner_outer
 	height 100px
-	width 945px
+	width 100%
 	position relative
+	margin-bottom 40px
 	.top_banner
 		height 100px
-		width 945px
+		width 100%
 		position absolute
 		background-position 50%
 		background-repeat no-repeat
@@ -213,11 +214,14 @@
 		display block
 		opacity 0
 		z-index -1000
-		&:nth-child(1)
-			z-index 1
-			opacity 1
-			transition opacity 0.5s ease-in
-			&:hover
-				opacity 0.8
+		transition opacity 0.1s ease-in
+		&:hover
+			opacity 0.9!important
 .top_banner_counter
 	text-align center
+	span
+		display inline-block
+		font-size 16px
+		line-height 16px
+		padding 0 3px
+		color #b8b8b8

@@ -25,7 +25,7 @@ block content
 					.top_banner: != banner.code
 				else
 					a.top_banner(href=banner.link, style='background-image:url(' + banner.path.thumb + ')')
-	.top_banner_counter
+	//-.top_banner_counter
 		each banner in banners
 			if (banner.top)
 					span ◦
@@ -58,7 +58,7 @@ block content
 				if (!banner.top)
 					a.contnet_banner(href=banner.link)
 						img(src=banner.path.thumb)
-			a(href='http://god-kino2016.ru/').kinologo
+			//-a(href='http://god-kino2016.ru/').kinologo
 				img(src="images/design/kinologo.png")
 			| <a href="http://controlquality.ru/mark/?orgid=0373100001178"><img class="controlquality" alt="Оценка услуг" src="http://controlquality.ru/img/banner.png"></a>
 
