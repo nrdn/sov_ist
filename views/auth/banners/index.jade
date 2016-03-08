@@ -17,9 +17,26 @@ block content
 	br
 	br
 	.main_menu_block
-		each banner in banners.sort(banners.num)
-			.gallery.banners
-				b= banner.html
-				a.rm_banner(href='#', id=banner._id)= 'удалить '
-				!=' | '
-				a( class= banner.top, href='/auth/banners/edit/' + banner._id)= banner.i18n.title.get('ru') ? banner.i18n.title.get('ru') + ' № ' + banner.num  : 'Название баннера'
+		b= 'Верхние баннеры'
+		br
+		hr
+		br
+		each banner in banners
+			if (banner.top)
+				.gallery.banners
+					b= banner.html
+					a.rm_banner(href='#', id=banner._id)= 'удалить '
+					!=' | '
+					a( class= banner.top, href='/auth/banners/edit/' + banner._id)= banner.i18n.title.get('ru') ? banner.i18n.title.get('ru') + ' № ' + banner.num  : 'Название 	баннера'
+		br
+		b= 'Нижние баннеры'
+		br
+		hr
+		br
+		each banner in banners
+			if (!banner.top)
+				.gallery.banners
+					b= banner.html
+					a.rm_banner(href='#', id=banner._id)= 'удалить '
+					!=' | '
+					a( class= banner.top, href='/auth/banners/edit/' + banner._id)= banner.i18n.title.get('ru') ? banner.i18n.title.get('ru') + ' № ' + banner.num  : 'Название 	баннера'

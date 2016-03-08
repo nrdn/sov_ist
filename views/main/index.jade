@@ -19,18 +19,15 @@ block content_scripts
 block content
 	.content_title= __('Историю создаете вы')
 	.top_banner_outer
-		each banner in banners.sort(banners.num)
+		each banner in banners
 			if (banner.top)
 				if (banner.html)
 					.top_banner: != banner.code
 				else
 					a.top_banner(href=banner.link, style='background-image:url(' + banner.path.thumb + ')')
 	.top_banner_counter
-		each banner, i in banners
+		each banner in banners
 			if (banner.top)
-				if (i === 0)
-					span= '●'
-				else
 					span ◦
 	.content_outer_block
 		.content_news_block
@@ -57,7 +54,7 @@ block content
 					| </ul>
 					| </div>
 					| <script src="http://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=187&amp;locationId=300334&amp;lang=en_US&amp;border=true&amp;shadow=true&amp;backgroundColor=white&amp;display_version=2"></script>
-			each banner in banners.sort(banners.num)
+			each banner in banners
 				if (!banner.top)
 					a.contnet_banner(href=banner.link)
 						img(src=banner.path.thumb)

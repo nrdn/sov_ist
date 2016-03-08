@@ -211,7 +211,13 @@
 		background-repeat no-repeat
 		background-size cover
 		display block
-		&:hover
-			opacity 0.8
+		opacity 0
+		z-index -1000
+		&:nth-child(1)
+			z-index 1
+			opacity 1
+			transition opacity 0.5s ease-in
+			&:hover
+				opacity 0.8
 .top_banner_counter
 	text-align center
