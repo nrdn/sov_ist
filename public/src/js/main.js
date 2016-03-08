@@ -9,7 +9,6 @@ function topSlider() {
 //-var bannerSlider = setInterval(topSlider, 5000);
 */
 var rnd = Math.floor(Math.random() * ($('.top_banner').length - 0)) + 0;
-console.log(rnd);
 
 $('.top_banner').hide().eq(rnd).show().css({'z-index':'10','opacity':'1'});
 
