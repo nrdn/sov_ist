@@ -24,5 +24,6 @@ $(document).ready(function() {
 	$('.rm_vacancy').on('click', {path:'/auth/vacancys/remove', description: 'Удалить вакансию?'}, remove);
 	$('.rm_partner').on('click', {path:'/auth/partners/remove', description: 'Удалить партнера музея?'}, remove);
 	$('.rm_service').on('click', {path:'/auth/services/remove', description: 'Удалить услугу?'}, remove);
+	$('.rm_banner').on('click', {path:'/auth/banners/remove', description: 'Удалить баннер?'}, remove);
 
 });
