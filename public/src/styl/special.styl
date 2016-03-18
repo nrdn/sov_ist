@@ -91,18 +91,37 @@ iframe
 				&:hover
 					&:after
 						position absolute
-						top 370px
+						line-height 630px
 						width 50px
 						color #fff
 						height 50px
-						margin-top -25px
 						font-size 50px
-						line-height 50px
 						right 10px
 						text-align right
 						content '>'
 						@media screen and (max-width: 1280px)
-							top 270px
+							line-height 540px
+			.prev_arrow
+				position absolute
+				top 0
+				left 0
+				bottom 0
+				width 40%
+				height 630px
+				&:hover
+					&:after
+						content '<'
+						text-align left
+						padding-left 10px
+						line-height 630px
+						display block
+						color #fff
+						font-size 50px
+						cursor pointer
+						@media screen and (max-width: 1280px)
+							line-height 540px
+				@media screen and (max-width: 1280px)
+					height 540px
 
 			.content_image_description
 				margin-top 20px

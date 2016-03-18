@@ -26,7 +26,7 @@ block content
 			.content_test.content_slider
 				each image in special.images
 					.content_photo
-						//-.prev_arrow
+						.prev_arrow
 						//-.next_arrow
 						.content_image_hover(style='background-image: url(' + (image.original)+')')
 						if (locale == 'ru' && !!image.description[0].value)
