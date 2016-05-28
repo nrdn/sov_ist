@@ -85,7 +85,7 @@ exports.add_form = function(req, res) {
 		var newPath = __appdir + '/public/images/banners/' + banner._id;;
 		gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
 			gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-				banner.path.original = '/images/banners/' + banner._id + '/logo.jpg';
+				banner.path.original = '/images/banners/' + banner._id + '/original.jpg';
 				banner.path.thumb = '/images/banners/' + banner._id + '/thumb.jpg';
 				banner.save(function() {
 					res.redirect('/auth/banners');
@@ -144,7 +144,7 @@ exports.edit_form = function(req, res) {
 			var newPath = __appdir + '/public/images/banners/' + banner._id;;
 			gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
 				gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-					banner.path.original = '/images/banners/' + banner._id + '/logo.jpg';
+					banner.path.original = '/images/banners/' + banner._id + '/original.jpg';
 					banner.path.thumb = '/images/banners/' + banner._id + '/thumb.jpg';
 					banner.save(function() {
 						res.redirect('/auth/banners');

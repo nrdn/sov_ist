@@ -21,7 +21,7 @@ block content
 					img.content_map_item(src=subsidiary.logo.path, class=subsidiary._id, style='top:' + subsidiary.logo.position.x + 'px; left:' + subsidiary.logo.position.y + 'px;')
 
 		.content_items_block
-			.content_items_title= __('В структуру Музея современной истории России входят 6 отделов, включая два мемориальных комплекса.')
+			.content_items_title= __('В структуру Музея современной истории России входят четыре экспозиционных отдела и два мемориальных комплекса.')
 			each subsidiary in subsidiarys
 				a.content_item(class=subsidiary._id, href='/subsidiarys/' + subsidiary._id)= subsidiary.i18n.title.get(locale)
 			.content_note= __('Музей предлагает специальные единые абонементы на посещение всех отделов музея.')

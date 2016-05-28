@@ -24,7 +24,7 @@ block content
 				if (banner.html)
 					.top_banner: != banner.code
 				else
-					a.top_banner(href=banner.link, style='background-image:url(' + banner.path.thumb + ')')
+					a.top_banner(href=banner.link, style='background-image:url(' + banner.path.original + ')')
 	//-.top_banner_counter
 		each banner in banners
 			if (banner.top)
