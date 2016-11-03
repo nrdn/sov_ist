@@ -18,7 +18,7 @@ block content_scripts
 
 block content
 	.content_title= news.i18n.title.get(locale)
-	.content_date= news.date.getDate() + ' ' + months[news.date.getMonth()] + ' ' + news.date.getFullYear()
+	//-.content_date= news.date.getDate() + ' ' + months[news.date.getMonth()] + ' ' + news.date.getFullYear()
 	.content_body: != news.i18n.description.get(locale)
 
 	if (news.videos && news.videos.length == 1)
