@@ -429,3 +429,31 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 				margin 0 6px
 			&:hover
 				opacity 1
+
+.slider_popup
+	top 0
+	right 0
+	left 0
+	bottom 0
+	background rgba(0,0,0,0.87)
+	position absolute
+	z-index 1000
+	.slider_image
+		top 10%
+		right 10%
+		left 10%
+		bottom 10%
+		position absolute
+		background-repeat no-repeat!important
+		background-position 50%!important
+		background-size contain!important
+		display flex
+		align-items flex-end
+		justify-content center
+		.slider_text
+			font-size 13.2px
+			color #fff
+			position absolute
+			bottom -27px;
+			max-width 500px
+			padding: 2px 5px;
