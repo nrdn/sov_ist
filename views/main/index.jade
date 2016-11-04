@@ -18,13 +18,18 @@ block content_scripts
 
 block content
 	.content_title= __('Историю создаете вы')
-	.top_banner_outer
-		each banner in banners
-			if (banner.top)
-				if (banner.html)
-					.top_banner: != banner.code
-				else
-					a.top_banner(href=banner.link, style='background-image:url(' + banner.path.original + ')')
+	-var showban
+	each banner in banners
+		if (banner.top)
+			-showban= true
+	if (showban == true)
+		.top_banner_outer
+			each banner in banners
+				if (banner.top)
+					if (banner.html)
+						.top_banner: != banner.code
+					else
+						a.top_banner(href=banner.link, style='background-image:url(' + banner.path.original + ')')
 	//-.top_banner_counter
 		each banner in banners
 			if (banner.top)
