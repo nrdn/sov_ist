@@ -1,17 +1,36 @@
 $(window).load(function() {
 
-	function slideConrols(body, popup, el, i, length) {
+	function slideConrols(body, popup, popupImage, popupText, el, i, slides) {
 		var cross = el('.popup_cross')[0],
 				right = el('.popup_right')[0],
-				left = el('.popup_left')[0];
+				left = el('.popup_left')[0],
+				length = slides.length;
 
 		console.log(cross);
 		console.log('i: ' + i + ', length: ' + length);
 
+		function selectSlide(num) {
+			console.log('num: ' + num);
+			popupImage.style.background = 'url(' + slides[i].original + ')';
+			popupText.textContent = slides[i].text;
+		}
+
 		cross.addEventListener('click', function() {
-			console.log('22');
 			body.removeChild(popup);
 		})
+
+		right.addEventListener('click', function() {
+			if (i < length - 1) i++
+			else i = 0
+			selectSlide(i);
+		})
+
+		left.addEventListener('click', function() {
+			if (i > 0) i--
+			else i = length - 1
+			selectSlide(i);
+		})
+
 	}
 
 	function showSlider() {
@@ -21,17 +40,21 @@ $(window).load(function() {
 				slides = [];
 
 		el('.content_scroll_item').forEach(function(item,i) {
+			console.log(item);
+		 	console.log(item.children.length);
 			slides[i] = {
-									 'path' : item.querySelectorAll('img')[0].getAttribute('src'),
-									 'original' : item.querySelectorAll('img')[0].getAttribute('src').replace('thumb.jpg','original.jpg'),
-									 'text' : item.querySelectorAll('.content_image_description')[0].textContent
+									 'path' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src') : item.getAttribute('src'),
+									 'original' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src').replace('thumb.jpg','original.jpg') : item.getAttribute('src').replace('thumb.jpg','original.jpg'),
+									 'text' : item.children.length >= 1 ? item.querySelectorAll('.content_image_description')[0].textContent : ''
 									}
+
+
 			item.addEventListener('click', function() {
 					var popup = document.createElement('div'),
 							popupText = document.createElement('div');
 							popupImage = document.createElement('div');
 
-					popup.innerHTML = '<div class="popup_control popup_cross">✕</div><div class="popup_control popup_right">&gt;</div><div class="popup_control popup_left">&lt;</div>';
+					popup.innerHTML = '<div class="popup_control popup_cross"></div><div class="popup_control popup_right"></div><div class="popup_control popup_left"></div>';
 
 					popupText.textContent = slides[i].text;
 					popupText.className = "slider_text";
@@ -45,46 +68,10 @@ $(window).load(function() {
 					popup.append(popupImage);
 					body.append(popup);
 
-					slideConrols(body, popup, el, i, slides.length);
-
-				});
+					slideConrols(body, popup, popupImage, popupText, el, i, slides);
+					});
 			});
 	}
-
-
-
-/*
-
-
-		window.onload = function (argument) {
-			var
-				dc = document,
-				container = dc.getElementsByClassName('container')[0],
-				container_images = container.getElementsByTagName('img'),
-				images_length = container_images.length,
-				i = 0;
-
-			container_images[0].style.display = 'block';
-			dc.onkeydown = checkKey;
-			function checkKey(e) {
-					(function() {
-						var i = images_length;
-							while (i--) {
-									container_images[i].setAttribute("style", "display:none;");
-							}
-					})();
-
-				e = e || window.event;
-				if (e.keyCode == '39') i < images_length - 1 ? i++ : i = 0
-				else if (e.keyCode == '37')  i > 0 ? i-- : i = images_length - 1
-				container_images[i].style.display = 'block'
-			}
-		}
-
-
-*/
-
-
 
 
 

@@ -258,6 +258,7 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		.content_scroll_item
 			overflow hidden
 			position relative
+			cursor pointer
 			img
 				width 320px
 				min-height 100px
@@ -440,27 +441,34 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	z-index 1000
 	display flex
 	.popup_control
-		color rgba(255, 255, 255, 0.39);
+		opacity 0.8
 		width 50px
 		height 50px
 		position absolute
 		line-height 50px
 		font-size 60px
 		text-align center
+		cursor pointer
+		background-size 33px
+		background-repeat no-repeat
+		background-position 50%
 		&:hover
-			color #fff
+			opacity 1
 	.popup_cross
 		top 10px
-		right 0
-		font-size 40px
+		right 8px
+		font-size 24px
+		background-image url("/images/design/slides_cross.png")
 	.popup_right
 		top 50%
 		right 0
 		margin-top -25px
+		background-image url("/images/design/slides_right.png")
 	.popup_left
 		top 50%
 		left 0
 		margin-top -25px
+		background-image url("/images/design/slides_left.png")
 	.slider_image
 		top 10%
 		right 10%
