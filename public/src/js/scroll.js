@@ -40,7 +40,7 @@ $(window).load(function() {
 			slides[i] = {
 									 'path' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src') : item.getAttribute('src'),
 									 'original' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src').replace('thumb.jpg','original.jpg') : item.getAttribute('src').replace('thumb.jpg','original.jpg'),
-									 'text' : item.children.length >= 1 ? item.querySelectorAll('.content_image_description')[0].textContent : ''
+									 'text' : item.children.length >= 1 && item.querySelectorAll('.content_image_description')[0] > 1 ? item.querySelectorAll('.content_image_description')[0].textContent : ''
 									}
 
 			item.addEventListener('click', function() {
