@@ -11,7 +11,7 @@ var Magazine = require('../models/main.js').Magazine;
 
 
 exports.index = function(req, res) {
-  Magazine.where('title.lg').equals(req.locale).limit(12).sort('-date').exec(function(err, magazines) {
+  Magazine.where('title.lg').equals(req.locale).limit(60).sort('-date').exec(function(err, magazines) {
     res.render('magazines', {magazines: magazines});
   });
 }
