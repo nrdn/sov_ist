@@ -1,7 +1,7 @@
 extends ../../layout
 
 block title
-	title= 'СПЕЦПРОЕКТЫ'
+	title= 'НОВОСТИ'
 
 block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
@@ -11,9 +11,9 @@ block content_scripts
 
 block content
 	a.back_link(href='/auth') < Назад
-	.title= 'СПЕЦПРОЕКТЫ'
+	.title= 'НОВОСТИ'
 	br
-	a.add(href='/auth/specials/add') добавить спецпроект
+	a.add(href='/auth/specials/add') добавить новость
 	br
 	br
 	.main_menu_block
@@ -21,4 +21,4 @@ block content
 			.gallery
 				a.rm_special(href='#', id=special._id)= 'удалить '
 				!=' | '
-				a(href='/auth/specials/edit/' + special._id)= special.i18n.title.get('ru') ? special.i18n.title.get('ru') : 'Название спецпроекта'
+				a(href='/auth/specials/edit/' + special._id)= special.i18n.title.get('ru') ? special.i18n.title.get('ru') : 'Название новости'
