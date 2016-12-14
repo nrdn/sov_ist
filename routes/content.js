@@ -27,3 +27,7 @@ exports.contacts = function(req, res) {
 exports.test = function(req, res) {
   res.render('static/test.jade');
 }
+
+exports.tickets = function(req, res) {
+  res.render('static/tickets.jade');
+}

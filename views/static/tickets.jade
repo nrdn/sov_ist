@@ -1,0 +1,19 @@
+extends ../layout
+
+block title
+	title Тест
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/test.css' + version)
+
+block content_scripts
+	script(src='http://anons24.ru/booking/widget.js')
+
+block content
+	.content_title
+	.content_outer_block
+		button(onclick='its_open_widget_by_event_id_partner(19, 1082)') Показать
+
+block scroll
+	.content_scroll_items

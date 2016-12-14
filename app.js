@@ -811,6 +811,10 @@ app.route('/team_st').get(content.team);
 // === Test Route
 app.route('/test').get(content.test);
 
+
+// === Tickets Route
+app.route('/tickets').get(content.tickets);
+
 // === Services Route
 //-app.route('/services').get(globals.imageGallery('main'), content.services);
 
