@@ -39,7 +39,7 @@ $(window).load(function() {
 		el('.content_scroll_item').forEach(function(item,i) {
 			slides[i] = {
 									 'path' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src') : item.getAttribute('src'),
-									 'original' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src').replace('thumb.jpg','original.jpg') : item.getAttribute('src').replace('thumb.jpg','original.jpg'),
+									 'original' : item.children.length >= 1 ? item.querySelectorAll('img')[0].getAttribute('src').replace('thumb','original') : item.getAttribute('src').replace('thumb','original'),
 									 'text' : item.children.length >= 1 && item.querySelectorAll('.content_image_description')[0] > 1 ? item.querySelectorAll('.content_image_description')[0].textContent : ''
 									}
 
