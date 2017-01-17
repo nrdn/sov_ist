@@ -17,7 +17,7 @@ $(document).ready(function() {
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
 			$column_main.off('scroll.load');
 
-			$.ajax({ url: '/officials', method: 'POST', async: false, data: {skip: skip, limit: 6} }).done(function(elems) {
+			$.ajax({ url: '/officials', method: 'POST', data: {skip: skip, limit: 6} }).done(function(elems) {
 
 				if (elems != 'out') {
 					$elems = $(elems);

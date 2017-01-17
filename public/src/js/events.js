@@ -36,7 +36,7 @@ $(document).ready(function() {
 
 		if (outer_offset_bottom - column_height <= $column_main.scrollTop()) {
 			$column_main.off('scroll.load').promise().done(function() {
-				$.ajax({ url: '/events', method: 'POST', async: false, data: {context: context, skip: context.skip, limit: 6} }).done(function(elems) {
+				$.ajax({ url: '/events', method: 'POST', data: {context: context, skip: context.skip, limit: 6} }).done(function(elems) {
 
 					if (elems != 'out') {
 						$elems = $(elems);
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
-			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 12}, async: false }).done(function(elems) {
+			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 12}}).done(function(elems) {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
