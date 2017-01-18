@@ -41,18 +41,9 @@ block content
 					.item_title= item.i18n.title.get(locale)
 					//-.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 			a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в анонсы')
-			//a.content_banner_gif(href="https://www.facebook.com/istoriyatv/videos/658933060952327", target="_blank")
-				img(src="/images/design/history_banner_400x200px.gif")
-			| <a href="http://controlquality.ru/mark/?orgid=0373100001178"><img class="controlquality" alt="Оценка услуг" src="/images/design/controlquality.png"></a>
 
-			div(style="height:930px")
-				.tripadvisor
-					if (locale == 'ru')
-						|	<div id="TA_cdsratingsonlynarrow518" class="TA_cdsratingsonlynarrow"><ul id="OTygmj" class="TA_links 9K6xlJriw"><li id="9FUQlplZH51" class="bhcZTt58kGi"><a target="_blank" href="https://www.tripadvisor.ru/"><img src="https://www.tripadvisor.ru/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a></li></ul></div><script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=518&amp;locationId=300334&amp;lang=ru&amp;border=false&amp;display_version=2"></script>
-					else
-						| <div id="TA_cdsratingsonlynarrow816" class="TA_cdsratingsonlynarrow"><ul id="rsipGGgr" class="TA_links Hlw1d83"><li id="gU8loPMBBYVm" class="wuASFe"><a target="_blank" href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a></li></ul></div><script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=816&amp;locationId=300334&amp;lang=en_US&amp;border=false&amp;display_version=2"></script>
-
-				|<a class="twitter-timeline" data-width="220" data-height="800" href="https://twitter.com/SovrMuse">Tweets by SovrMuse</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+			a(href='http://controlquality.ru/mark/?orgid=0373100001178')
+				img.controlquality(alt='Оценка услуг', src='/images/design/controlquality.png')
 
 
 			each banner in banners
@@ -62,8 +53,15 @@ block content
 					else
 						a.contnet_banner(href=banner.link)
 							img(src=banner.path.thumb)
-			//-a(href='http://god-kino2016.ru/').kinologo
-				img(src="images/design/kinologo.png")
+
+			div(style="height:930px")
+				.tripadvisor
+					if (locale == 'ru')
+						|	<div id="TA_cdsratingsonlynarrow518" class="TA_cdsratingsonlynarrow"><ul id="OTygmj" class="TA_links 9K6xlJriw"><li id="9FUQlplZH51" class="bhcZTt58kGi"><a target="_blank" href="https://www.tripadvisor.ru/"><img src="https://www.tripadvisor.ru/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a></li></ul></div><script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=518&amp;locationId=300334&amp;lang=ru&amp;border=false&amp;display_version=2"></script>
+					else
+						| <div id="TA_cdsratingsonlynarrow816" class="TA_cdsratingsonlynarrow"><ul id="rsipGGgr" class="TA_links Hlw1d83"><li id="gU8loPMBBYVm" class="wuASFe"><a target="_blank" href="https://www.tripadvisor.com/"><img src="https://www.tripadvisor.com/img/cdsi/img2/branding/tripadvisor_logo_transp_340x80-18034-2.png" alt="TripAdvisor"/></a></li></ul></div><script src="https://www.jscache.com/wejs?wtype=cdsratingsonlynarrow&amp;uniq=816&amp;locationId=300334&amp;lang=en_US&amp;border=false&amp;display_version=2"></script>
+
+				|<a class="twitter-timeline" data-width="220" data-height="800" href="https://twitter.com/SovrMuse">Tweets by SovrMuse</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 
 		.content_events_block
