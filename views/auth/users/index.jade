@@ -20,6 +20,6 @@ block content
 	.main_menu_block
 		each user in users
 			.user
-				a.rm_user(href='#', id=user._id)= 'удалить '
+				a.rm_item.rm_user(href='#', id=user._id)= 'удалить '
 				!=' | '
 				a(href='/auth/users/edit/' + user._id)= user.login

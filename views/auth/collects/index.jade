@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each collect in collects
 			.collect
-				a.rm_collect(href='#', id=collect._id)= 'удалить '
+				a.rm_item.rm_collect(href='#', id=collect._id)= 'удалить '
 				!=' | '
 				a(href='/auth/collects/edit/' + collect._id)= collect.i18n.title.get('ru')

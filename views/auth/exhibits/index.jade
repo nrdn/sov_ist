@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each exhibit in exhibits
 			.event
-				a.rm_exhibit(href='#', id=exhibit._id)= 'удалить '
+				a.rm_item.rm_exhibit(href='#', id=exhibit._id)= 'удалить '
 				!=' | '
 				a(href='/auth/exhibits/edit/' + exhibit._id)= exhibit.i18n.title.get('ru') ? exhibit.i18n.title.get('ru') : 'Заголовок экспоната'

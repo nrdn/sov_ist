@@ -23,6 +23,6 @@ block content
 	.main_menu_block
 		each service in services
 			.officials
-				a.rm_service(href='#', id=service._id)= 'удалить '
+				a.rm_item.rm_service(href='#', id=service._id)= 'удалить '
 				!=' | '
 				a(href='/auth/services/edit/' + service._id)= service.i18n.title.get('ru')

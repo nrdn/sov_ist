@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each category in categorys
 			.category
-				a.rm_category(href='#', id=category._id)= 'удалить '
+				a.rm_item.rm_category(href='#', id=category._id)= 'удалить '
 				!=' | '
 				a(href='/auth/categorys/edit/' + category._id)= category.i18n.title.get('ru')

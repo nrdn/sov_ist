@@ -36,6 +36,6 @@ block content
 	.main_menu_block
 		each event in events
 			.event(class= event.type + ' ' + event.categorys.join(' '))
-				a.rm_event(href='#', id=event._id)= 'удалить '
+				a.rm_item.rm_event(href='#', id=event._id)= 'удалить '
 				!=' | '
 				a(href='/auth/events/edit/' + event._id)= event.i18n.title.get('ru') ? event.i18n.title.get('ru') : 'Заголовок события'

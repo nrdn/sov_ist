@@ -19,7 +19,7 @@ block content
 	.main_menu_block
 		each catalogue in catalogues
 			.catalogue
-				a.rm_catalogue(href='#', id=catalogue._id)= 'удалить '
+				a.rm_item.rm_catalogue(href='#', id=catalogue._id)= 'удалить '
 				!=' | '
 				a(href='/auth/catalogues/edit/' + catalogue._id)= catalogue.i18n.title.get('ru')
 				!=' --> '

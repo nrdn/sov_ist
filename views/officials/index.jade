@@ -1,0 +1,48 @@
+extends ../layout
+
+block title
+	title= __('ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ')
+
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/blocks_grid.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/official.css' + version)
+	link(rel='stylesheet', type='text/css', href='/build/css/official_mobile.css' + version)
+
+block content_scripts
+	script(type='text/javascript', src='/build/libs/js/imagesloaded.pkgd.min.js' + version)
+	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
+	//- script(type='text/javascript', src='/build/js/scroll.js' + version)
+	script(type='text/javascript', src='/build/js/official.js' + version)
+
+
+
+block content
+	.content_title Команда
+	.content_outer_block
+
+		each official in officials
+			.content_item
+				if (official.path.thumb)
+					.item_image(style='background-image: url('+official.path.thumb +')')
+					.item_description
+						if (official.title)
+							.item_title= official.i18n.title.get(locale)
+						if (official.position)
+							.item_type= official.i18n.position.get(locale)
+
+block scroll
+	.content_scroll_items
+		each official in officials
+			.block_inner
+				if (official.phone || official.email)
+					.people_info
+						if (official.title)
+							.people_name= official.i18n.title.get(locale)
+						if (official.position)
+							.people_type= official.i18n.position.get(locale)
+						if (official.phone)
+							.people_phone= 'Телефон: ' + official.phone
+						if (official.email)
+							.people_email= 'E-mail: '
+								a(href='mailto:'+official.email+'')=official.email

@@ -23,6 +23,6 @@ block content
 	.main_menu_block
 		each partner in partners
 			.officials
-				a.rm_partner(href='#', id=partner._id)= 'удалить '
+				a.rm_item.rm_partner(href='#', id=partner._id)= 'удалить '
 				!=' | '
 				a(href='/auth/partners/edit/' + partner._id)= partner.i18n.title.get('ru')

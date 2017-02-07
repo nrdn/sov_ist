@@ -1,0 +1,24 @@
+extends ../../layout
+
+block title
+	title ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ
+
+block content_style
+	link(rel='stylesheet', type='text/css', href='/build/css/add.css')
+
+block content_scripts
+	script(type='text/javascript', src='/build/js/lists.js')
+
+block content
+	a.back_link(href='/auth') < Назад
+	.title ОФИЦИАЛЬНАЯ ИНФОРМАЦИЯ
+	br
+	a.add(href='/auth/officials/add') добавить члена команды
+	br
+	br
+	.main_menu_block
+		each official in officials
+			.gallery
+				a.rm_item.rm_official(href='#', id=official._id)= 'удалить '
+				!=' | '
+				a(href='/auth/officials/edit/' + official._id)= official.i18n.title.get('ru') ? official.i18n.title.get('ru') + ' № ' + official.num : 'Документ'

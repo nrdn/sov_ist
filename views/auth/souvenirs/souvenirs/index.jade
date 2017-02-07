@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each souvenir in souvenirs
 			.souvenir
-				a.rm_souvenir(href='#', id=souvenir._id)= 'удалить '
+				a.rm_item.rm_souvenir(href='#', id=souvenir._id)= 'удалить '
 				!=' | '
 				a(href='/auth/catalogues/edit/' + catalogue + '/souvenirs/edit/' + souvenir._id)= souvenir.i18n.title.get('ru') ? souvenir.i18n.title.get('ru') : 'Заголовок сувенира'

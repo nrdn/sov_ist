@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each subsidiary in subsidiarys
 			.event
-				a.rm_subsidiary(href='#', id=subsidiary._id)= 'удалить '
+				a.rm_item.rm_subsidiary(href='#', id=subsidiary._id)= 'удалить '
 				!=' | '
 				a(href='/auth/subsidiarys/edit/' + subsidiary._id)= subsidiary.i18n.title.get('ru') ? subsidiary.i18n.title.get('ru') : 'Название филиала'

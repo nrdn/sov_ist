@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each magazine in magazines
 			.gallery
-				a.rm_magazine(href='#', id=magazine._id)= 'удалить '
+				a.rm_item.rm_magazine(href='#', id=magazine._id)= 'удалить '
 				!=' | '
 				a(href='/auth/magazines/edit/' + magazine._id)= magazine.i18n.title.get('ru') ? magazine.i18n.title.get('ru') + ' № ' + magazine.num : 'Название журнала'

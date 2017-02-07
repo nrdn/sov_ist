@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each hall in halls
 			.hall
-				a.rm_hall(href='#', id=hall._id)= 'удалить '
+				a.rm_item.rm_hall(href='#', id=hall._id)= 'удалить '
 				!=' | '
 				a(href='/auth/halls/edit/' + hall._id)= hall.i18n.title.get('ru') ? hall.i18n.title.get('ru') : 'Название зала'

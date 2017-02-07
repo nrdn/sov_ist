@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each vacancy in vacancys
 			.officials
-				a.rm_vacancy(href='#', id=vacancy._id)= 'удалить '
+				a.rm_item.rm_vacancy(href='#', id=vacancy._id)= 'удалить '
 				!=' | '
 				a(href='/auth/vacancys/edit/' + vacancy._id)= vacancy.i18n.title.get('ru')

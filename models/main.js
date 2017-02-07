@@ -233,6 +233,21 @@ var teamSchema = new Schema({
 });
 
 
+var officialSchema = new Schema({
+	title: { type: String, trim: true, locale: true },
+	position: { type: String, trim: true, locale: true },
+	email: { type: String, trim: true },
+	phone: { type: String, trim: true },
+	url: { type: String, trim: true },
+	num: Number,
+	path: {
+		original: String,
+		thumb: String
+	},
+	date: {type: Date, default: Date.now}
+});
+
+
 var specialSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
 	subtitle: { type: String, trim: true, locale: true },
@@ -290,6 +305,7 @@ catalogueSchema.plugin(mongooseLocale);
 souvenirSchema.plugin(mongooseLocale);
 magazineSchema.plugin(mongooseLocale);
 teamSchema.plugin(mongooseLocale);
+officialSchema.plugin(mongooseLocale);
 specialSchema.plugin(mongooseLocale);
 
 
@@ -323,6 +339,7 @@ module.exports.Category = mongoose.model('Category', categorySchema);
 module.exports.Gallery = mongoose.model('Gallery', gallerySchema);
 module.exports.Magazine = mongoose.model('Magazine', magazineSchema);
 module.exports.Team = mongoose.model('Team', teamSchema);
+module.exports.Official = mongoose.model('Official', officialSchema);
 module.exports.Special = mongoose.model('Special', specialSchema);
 module.exports.Catalogue = mongoose.model('Catalogue', catalogueSchema);
 module.exports.Souvenir = mongoose.model('Souvenir', souvenirSchema);

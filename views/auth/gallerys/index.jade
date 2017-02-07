@@ -19,6 +19,6 @@ block content
 	.main_menu_block
 		each gallery in gallerys
 			.gallery
-				a.rm_gallery(href='#', id=gallery._id)= 'удалить '
+				a.rm_item.rm_gallery(href='#', id=gallery._id)= 'удалить '
 				!=' | '
 				a(href='/auth/gallerys/edit/' + gallery._id)= gallery.i18n.description.get('ru') ? gallery.i18n.description.get('ru') : 'Описание фотографии'
