@@ -235,15 +235,8 @@ var teamSchema = new Schema({
 
 var officialSchema = new Schema({
 	title: { type: String, trim: true, locale: true },
-	position: { type: String, trim: true, locale: true },
-	email: { type: String, trim: true },
-	phone: { type: String, trim: true },
-	url: { type: String, trim: true },
 	num: Number,
-	path: {
-		original: String,
-		thumb: String
-	},
+	path: { type: String},
 	date: {type: Date, default: Date.now}
 });
 

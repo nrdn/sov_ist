@@ -3,7 +3,7 @@ var fs = require('fs');
 var mkdirp = require('mkdirp');
 var del = require('del');
 var async = require('async');
-var gm = require('gm').subClass({ imageMagick: true });
+var mv = require('mv');
 var del = require('del');
 
 var Official = require('../../models/main.js').Official;
@@ -70,12 +70,13 @@ exports.add_form = function(req, res) {
 			&& official.setPropertyLocalised('position', post[locale].position, locale);
 
 	});
-
-	official.email = post.email;
-	official.phone = post.phone;
 	official.num = post.num;
 
-	if (!files.image) {
+	console.log(official);
+	console.log(files.doc);
+
+
+	if (!files.doc) {
 		return (function () {
 			official.save(function(err, official) {
 				res.redirect('back');
@@ -83,18 +84,20 @@ exports.add_form = function(req, res) {
 		})();
 	}
 
-	fs.mkdir(__appdir + '/public/images/officials/' + official._id, function() {
-		var newPath = __appdir + '/public/images/officials/' + official._id;;
-		gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-			gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-				official.path.original = '/images/officials/' + official._id + '/logo.jpg';
-				official.path.thumb = '/images/officials/' + official._id + '/thumb.jpg';
-				official.save(function() {
+	else {
+		mv(files.doc.path, __appdir + '/public/files/officials/' + files.doc.name , function(err) {
+	  	if(err) {
+				return console.log(err);
+		  }
+			console.log("The file was saved!");
+				official.path = '/files/officials/' + files.doc.name;
+
+		    official.save(function() {
 					res.redirect('/auth/officials');
-				});
 			});
+
 		});
-	});
+	}
 
 }
 
@@ -130,12 +133,9 @@ exports.edit_form = function(req, res) {
 				&& official.setPropertyLocalised('position', post[locale].position, locale);
 		});
 
-
-		official.email = post.email;
-		official.phone = post.phone;
 		official.num = post.num;
 
-		if (!files.image) {
+		if (!files.doc) {
 			return (function () {
 				official.save(function(err, official) {
 					res.redirect('back');
@@ -143,18 +143,20 @@ exports.edit_form = function(req, res) {
 			})();
 		}
 
-		fs.mkdir(__appdir + '/public/images/officials/' + official._id, function() {
-			var newPath = __appdir + '/public/images/officials/' + official._id;;
-			gm(files.image.path).resize(1200, false).write(newPath + '/original.jpg', function() {
-				gm(files.image.path).resize(400, false).write(newPath + '/thumb.jpg', function() {
-					official.path.original = '/images/officials/' + official._id + '/logo.jpg';
-					official.path.thumb = '/images/officials/' + official._id + '/thumb.jpg';
-					official.save(function() {
+		else {
+			mv(files.doc.path, __appdir + '/public/files/officials/' + files.doc.name , function(err) {
+		  	if(err) {
+					return console.log(err);
+			  }
+				console.log("The file was saved!");
+					official.path = '/files/officials/' + files.doc.name;
+
+			    official.save(function() {
 						res.redirect('/auth/officials');
-					});
 				});
+
 			});
-		});
+		}
 
 	});
 }

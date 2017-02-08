@@ -24,14 +24,8 @@ block content
 			+form_text_single('title', official)
 			.form_title Номер:
 			input(type='text', name='num', value=official.num)
-			.form_title Должность:
-			+form_text_single('position', official)
-			.form_title Телефон:
-			input(type='text', name='phone', value=official.phone, placeholder='+7 (495) 123-45-67')
-			.form_title E-mail:
-			input(type='text', name='email', value=official.email, placeholder='info@sovrhistory.ru')
-			.form_title Изображение:
-			input(type='file', name='image')
+			.form_title Ссылка на документ:
+			input(type='file', name='doc')
 			br
 			br
 			input(type='submit', value='отправить')
