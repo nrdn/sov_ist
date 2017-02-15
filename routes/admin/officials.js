@@ -73,7 +73,7 @@ exports.add_form = function(req, res) {
 	official.num = post.num;
 
 	console.log(official);
-	console.log(files.doc);
+	console.log(files.doc.path);
 
 
 	if (!files.doc) {
@@ -85,18 +85,17 @@ exports.add_form = function(req, res) {
 	}
 
 	else {
-		mv(files.doc.path, __appdir + '/public/files/officials/' + files.doc.name , function(err) {
-	  	if(err) {
-				return console.log(err);
-		  }
-			console.log("The file was saved!");
-				official.path = '/files/officials/' + files.doc.name;
+			var source = fs.createReadStream(files.doc.path);
+			var dest = fs.createWriteStream(__appdir + '/public/files/officials/' + files.doc.name);
 
+			source.pipe(dest);
+			source.on('end', function() {
+				official.path = '/files/officials/' + files.doc.name;
 		    official.save(function() {
 					res.redirect('/auth/officials');
+				});
 			});
-
-		});
+			source.on('error', function(err) { /* error */ });
 	}
 
 }
@@ -144,18 +143,17 @@ exports.edit_form = function(req, res) {
 		}
 
 		else {
-			mv(files.doc.path, __appdir + '/public/files/officials/' + files.doc.name , function(err) {
-		  	if(err) {
-					return console.log(err);
-			  }
-				console.log("The file was saved!");
-					official.path = '/files/officials/' + files.doc.name;
+				var source = fs.createReadStream(files.doc.path);
+				var dest = fs.createWriteStream(__appdir + '/public/files/officials/' + files.doc.name);
 
+				source.pipe(dest);
+				source.on('end', function() {
+					official.path = '/files/officials/' + files.doc.name;
 			    official.save(function() {
 						res.redirect('/auth/officials');
+					});
 				});
-
-			});
+				source.on('error', function(err) { /* error */ });
 		}
 
 	});
