@@ -45,16 +45,17 @@ $('.subscribe_tw').on('click', tw_open);
 //- cookie block --//
 
 
-
 	var context = {
 		skip: 12,
 		types: [],
 		categorys: []
 	};
 
-	var $container = $('.content_outer_block');
-	var $column_main = $('.column_main_inner');
-	var news_stamp = document.getElementsByClassName('content_news_block')[0];
+	var $container = $('.content_outer_block'),
+			$column_main = $('.column_main_inner'),
+			news_stamp = document.getElementsByClassName('content_news_block')[0],
+			$load_more = $('.load_more'),
+			$load_more_inner = $('.load_more_inner');
 
 	$container.imagesLoaded(function() {
 		$container.masonry({
@@ -77,6 +78,7 @@ $('.subscribe_tw').on('click', tw_open);
 			getData();
 		//}
 	});
+
 
 	function scrollLoad(event) {
 
@@ -104,6 +106,16 @@ $('.subscribe_tw').on('click', tw_open);
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
+			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12} });
+		});
+	}
+
+
+	$load_more_inner.on('click', function(elems) {
+		$load_more.hide();
+		var current_elems = document.getElementsByClassName('event');
+
+		$column_main.off('scroll.load').promise().done(function() {
 			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12} }).done(function(elems) {
 				if (elems != 'out') {
 					$elems = $(elems);
@@ -116,7 +128,8 @@ $('.subscribe_tw').on('click', tw_open);
 				}
 			});
 		});
-	}
+	})
+
 
 	function clickLoader(event) {
 		context.skip = 12;
