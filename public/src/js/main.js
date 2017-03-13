@@ -106,7 +106,7 @@ $('.subscribe_tw').on('click', tw_open);
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
-			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12} });
+			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 20} });
 		});
 	}
 
@@ -116,7 +116,7 @@ $('.subscribe_tw').on('click', tw_open);
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
-			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 12} }).done(function(elems) {
+			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 20} }).done(function(elems) {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
