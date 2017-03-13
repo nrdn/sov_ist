@@ -115,6 +115,7 @@ $('.subscribe_tw').on('click', tw_open);
 		$load_more.hide();
 		var current_elems = document.getElementsByClassName('event');
 
+
 		$column_main.off('scroll.load').promise().done(function() {
 			$.ajax({url: '/', method: 'POST', data: {context: context, skip: 0, limit: 20} }).done(function(elems) {
 				if (elems != 'out') {
