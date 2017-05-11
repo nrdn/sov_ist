@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var context = {
-		skip: 12,
+		skip: 2,
 		type: $('.content_title').attr('class').split(' ')[1],
 		categorys: [],
 		subsidiarys: []
@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
-			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 12}}).done(function(elems) {
+			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 2}}).done(function(elems) {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	}
 
 	function clickLoader() {
-		context.skip = 12;
+		context.skip = 2;
 		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
 		var nav_item = $(this).attr('class').split(' ')[1];
 

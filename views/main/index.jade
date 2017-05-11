@@ -14,7 +14,8 @@ block content_scripts
 	script(type='text/javascript', src='/build/libs/js/masonry.pkgd.min.js' + version)
 	script(type='text/javascript', src='/build/js/scroll.js' + version)
 	script(type='text/javascript', src='/build/libs/js/js.cookie.js' + version)
-	script(type='text/javascript', src='/build/js/main.js' + version)
+	script(type='text/javascript', src='/src/js/main.js' + version)
+	//script(type='text/javascript', src='/build/js/main.js' + version)
 
 block content
 	.content_title= __('Историю создаете вы')
@@ -66,8 +67,6 @@ block content
 
 		.content_events_block
 			+eventsList(events)
-		.load_more
-			.load_more_inner= __('Загрузить еще')
 
 	.overlay_block
 		.overlay_close
