@@ -250,6 +250,13 @@
 	a.top_banner
 		&:hover
 			opacity 0.9!important
+	&.top_banner_big
+		height 230px
+		@media screen and (max-width: 1280px)
+			height 175px
+		.top_banner
+			height inherit
+
 .top_banner_counter
 	text-align center
 	span
