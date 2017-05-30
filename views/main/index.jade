@@ -19,11 +19,11 @@ block content_scripts
 
 block content
 	.content_title= __('Историю создаете вы')
-	-var showban
-	each banner in banners
+	// -var showban
+	//-each banner in banners
 		if (banner.top)
 			-showban= true
-	if (showban == true)
+	//- if (showban == true)
 		.top_banner_outer
 			each banner in banners
 				if (banner.top)
