@@ -21,7 +21,7 @@ block content
 	.content_title= __('Официальная информация')
 	.content_outer_block
 		.content_item
-			a.item_title(href='http://mkrf.ru/deyatelnost/anticorruption/list.php?SECTION_ID=19663', target='_blank')= __('Сведения о доходах, об имуществе и обязательствах имущественного характер')
+			a.item_title(href='http://mkrf.ru/deyatelnost/anticorruption/list.php?SECTION_ID=19663', target='_blank')= __('Сведения о доходах, об имуществе и обязательствах имущественного характера')
 		each official in officials
 			.content_item
 				a.item_title(href=official.path, target='_blank')= official.i18n.title.get(locale)
