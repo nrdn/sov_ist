@@ -11,7 +11,7 @@ var Special = require('../models/main.js').Special;
 
 
 exports.index = function(req, res) {
-  Special.where('title.lg').equals(req.locale).limit(12).sort('-date').exec(function(err, specials) {
+  Special.where('title.lg').equals(req.locale).limit(40).sort('-date').exec(function(err, specials) {
     res.render('specials', {specials: specials});
   });
 }
