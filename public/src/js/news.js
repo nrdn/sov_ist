@@ -31,16 +31,4 @@ $(document).ready(function() {
 
 	$column_main.on('scroll.load', scrollLoad);
 
-	$('.navigate_item').on('click', function() {
-			$.ajax({ url: '/news', method: 'POST', data: {skip: skip, limit: 6} }).done(function(elems) {
-
-				if (elems != 'out') {
-					$elems = $(elems);
-					$container.append($elems).masonry('appended', $elems);
-					skip+= 7;
-					$column_main.on('scroll.load', scrollLoad);
-				}
-			});
-	})
-
 });

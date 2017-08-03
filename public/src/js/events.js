@@ -55,7 +55,7 @@ $(document).ready(function() {
 		var current_elems = document.getElementsByClassName('event');
 
 		$column_main.off('scroll.load').promise().done(function() {
-			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 2}}).done(function(elems) {
+			$.ajax({url: '/events', method: 'POST', data: {context: context, skip: 0, limit: 12}}).done(function(elems) {
 				if (elems != 'out') {
 					$elems = $(elems);
 					$container.masonry('remove', current_elems).append($elems).masonry('appended', $elems).imagesLoaded(function() {
@@ -70,7 +70,7 @@ $(document).ready(function() {
 	}
 
 	function clickLoader() {
-		context.skip = 2;
+		context.skip = 12;
 		var context_item = $(this).closest('.content_navigate_block').attr('class').split(' ')[1];
 		var nav_item = $(this).attr('class').split(' ')[1];
 
