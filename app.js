@@ -897,6 +897,9 @@ app.route('/sitemap.xml').get(files.sitemap);
 // === Files #robots.txt Route
 app.route('/robots.txt').get(files.robots);
 
+// === Files #2018 Route
+app.route('/2018').get(files.new2018);
+
 
 
 // ------------------------

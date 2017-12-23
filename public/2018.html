@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>2018</title>
+	<style>
+		html,
+		body {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			height: 100%;
+			width: 100%;
+			background: #000;
+		}
+		video {
+			width: 100%;
+			max-width: 1080px;
+		}
+	</style>
+</head>
+<body>
+	<video src="videos/2018.mp4" loop="true" autoplay="autoplay" controls="false"></video>
+	<script>
+		(function(){
+			document.querySelector("video").controls = false;
+		})()
+	</script>
+</body>
+</html>
