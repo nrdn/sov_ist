@@ -86,6 +86,7 @@ exports.add_form = function(req, res) {
 		});
 	}
 
+	subsidiary.videos = post.videos.filter(function(n){ return n != '' });
 	subsidiary.logo.position.x = post.position.x || 0;
 	subsidiary.logo.position.y = post.position.y || 0;
 
@@ -205,6 +206,8 @@ exports.edit_form = function(req, res) {
 		});
 
 		subsidiary.status = post.status;
+
+		subsidiary.videos = post.videos.filter(function(n){ return n != '' });
 
 		subsidiary.logo.position.x = post.position.x || 0;
 		subsidiary.logo.position.y = post.position.y || 0;

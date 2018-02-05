@@ -57,6 +57,8 @@ block content
 			input(type="text", name="position[x]", value=subsidiary.logo.position.x)
 			.form_title Логотип (координата y)
 			input(type="text", name="position[y]", value=subsidiary.logo.position.y)
+			.form_title Видео:
+			+form_multiple_input('videos', subsidiary.videos)
 			.form_title Изображения:
 			+form_images_upload(subsidiary.images)
 			br

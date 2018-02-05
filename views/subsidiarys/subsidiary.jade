@@ -39,7 +39,14 @@ block content
 	.content_body
 		.content_text: != g
 
-
+	if (subsidiary.videos && subsidiary.videos.length == 1)
+		.content_video_block
+			each video in subsidiary.videos
+				.content_video_item.important_video: != video
+	else if (subsidiary.videos && subsidiary.videos.length > 1)
+		.content_video_block
+			each video in subsidiary.videos
+				.content_video_item: != video
 
 block scroll
 	- function get_locale(option, lang) {var locale = option.filter(function(locale) { return locale.lg == lang })[0]; if (locale) {return locale.value } else {return ''} }

@@ -138,6 +138,7 @@ var subsidiarySchema = new Schema({
 			y: String
 		}
 	},
+	videos: [{type: String, trim: true}],
 	images: [{
 		description: { type: String, trim: true, locale: true },
 		original: String,
