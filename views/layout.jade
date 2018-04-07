@@ -116,8 +116,13 @@ html
 
 										.footer_rights='© 2015. ' + __('Все права защищены. Использование материалов сайта разрешено только с предварительного согласия правообладателей.')
 										.footer_bureau
-											span.nrdn_type= __('Дизайн и разработка —')
-											a.nrdn_name(href='http://nrdn.ru', target='_blank')= __('Народный архитектор')
+											.footer_item
+												span.f_type= __('Дизайн и разработка —')
+												a.f_name.f_nrdn(href='http://nrdn.ru', target='_blank')= __('Народный архитектор')
+											.footer_item.footer_divider= '|'
+											.footer_item
+												span.f_type= __('Продвижение —')
+												a.f_name(href='http://atdigital.ru', target='_blank')= __('AT Digital')
 										.footer_metrika
 											|<!-- Yandex.Metrika informer -->
 											<a href="https://metrika.yandex.ru/stat/?id=30260032&amp;from=informer"target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/30260032/3_1_FFFFFFFF_EFEFEFFF_0_pageviews"style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="30260032" data-lang="ru" /></a>
