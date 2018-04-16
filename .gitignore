@@ -1,5 +1,6 @@
 /node_modules*
 /db*
+/locales*
 /maket*
 /subl*
 /views/static/content*
