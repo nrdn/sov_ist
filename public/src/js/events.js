@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	var context = {
-		skip: 2,
+		skip: 12,
 		type: $('.content_title').attr('class').split(' ')[1],
 		categorys: [],
 		subsidiarys: []
