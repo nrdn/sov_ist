@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano version="1.19-pr16">
+
+    
+  <!-- Spot Style - arraw -->
+
+
+  <style name="Iconarraw"
+         url="%FIRSTXML%/spots/arraw_user_defaultpoint0.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconarraw"
+         onout="onoutIconarraw"
+
+         height="50"
+         width="50"
+         />
+  <action name="onhoverIconarraw">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconarraw">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+  <!-- unsupported kind of display : PointMap -->
+
+
+    
+  <!-- Spot Style - left -->
+
+
+  <style name="Iconleft"
+         url="%FIRSTXML%/spots/left_user_defaultpoint1.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconleft"
+         onout="onoutIconleft"
+
+         height="50"
+         width="50"
+         />
+  <action name="onhoverIconleft">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconleft">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - right -->
+
+
+  <style name="Iconright"
+         url="%FIRSTXML%/spots/rightt_user_defaultpoint2.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconright"
+         onout="onoutIconright"
+
+         height="50"
+         width="50"
+         />
+  <action name="onhoverIconright">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconright">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_2 -->
+
+
+  <style name="Iconspot_2"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint3.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_2"
+         onout="onoutIconspot_2"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_2">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_2">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_20 -->
+
+
+  <style name="Iconspot_20"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint4.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_20"
+         onout="onoutIconspot_20"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_20">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_20">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_21 -->
+
+
+  <style name="Iconspot_21"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint5.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_21"
+         onout="onoutIconspot_21"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_21">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_21">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_19 -->
+
+
+  <style name="Iconspot_19"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint6.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_19"
+         onout="onoutIconspot_19"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_19">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_19">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_23 -->
+
+
+  <style name="Iconspot_23"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint7.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_23"
+         onout="onoutIconspot_23"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_23">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_23">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_9 -->
+
+
+  <style name="Iconspot_9"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint8.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_9"
+         onout="onoutIconspot_9"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_9">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_9">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_24 -->
+
+
+  <style name="Iconspot_24"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint12.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_24"
+         onout="onoutIconspot_24"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_24">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_24">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_25 -->
+
+
+  <style name="Iconspot_25"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint13.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_25"
+         onout="onoutIconspot_25"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_25">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_25">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_26 -->
+
+
+  <style name="Iconspot_26"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint14.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_26"
+         onout="onoutIconspot_26"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_26">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_26">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_27 -->
+
+
+  <style name="Iconspot_27"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint15.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_27"
+         onout="onoutIconspot_27"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_27">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_27">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_28 -->
+
+
+  <style name="Iconspot_28"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint16.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_28"
+         onout="onoutIconspot_28"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_28">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_28">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_29_PDF -->
+
+
+  <style name="Iconspot_29_PDF"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint17.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_29_PDF"
+         onout="onoutIconspot_29_PDF"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_29_PDF">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_29_PDF">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - spot_29 -->
+
+
+  <style name="Iconspot_29"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint18.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIconspot_29"
+         onout="onoutIconspot_29"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIconspot_29">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIconspot_29">
+    hideTooltip();
+
+
+
+  </action>
+
+
+
+    
+  <!-- Spot Style - text_spot -->
+
+
+  <style name="Icontext_spot"
+         url="%FIRSTXML%/spots/lupa_spot_user_defaultpoint19.png"
+         visible="false"
+         edge="center"
+         onhover="onhoverIcontext_spot"
+         onout="onoutIcontext_spot"
+
+         height="28"
+         width="28"
+         />
+  <action name="onhoverIcontext_spot">
+    showtooltip('hotspot');
+  </action>
+  <action name="onoutIcontext_spot">
+    hideTooltip();
+
+
+
+  </action>
+
+
+<include url="%FIRSTXML%/graphics/alpo.start.screen_v1.0.6/start_screen.xml"/><events name="start_screen_event" keep="true"    onloadcomplete="hide_screen(auto);"  /> 
+<action name="viewControlZoomIn">
+	if(%1,
+		if(%2,
+			if(%2 LT view.fovmin,
+				zoomto(get(view.fovmin));
+			,
+				if(%2 LT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, -1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, -1);
+	);
+</action>
+<action name="viewControlZoomOut">
+	if(%1,
+		if(%2,
+			if(%2 GT view.fovmax,
+				zoomto(get(view.fovmax));
+			,
+				if(%2 GT view.fov,
+					zoomto(%2);
+				);
+			);
+		,
+			set(fov_moveforce, +1);
+			delayedcall(0.1, viewControlZoomStop());
+		);
+	,
+		set(fov_moveforce, +1);
+	);
+</action>
+<action name="viewControlZoomStop">
+	set(fov_moveforce, 0);
+</action>
+
+  <!-- FLOORPLAN -->
+  <action name="hideFloorplan">set(tour_displayfloorplan, false);events.dispatch(onhidetourfloorplan);</action>
+  <action name="showFloorplan">set(tour_displayfloorplan, true); events.dispatch(onshowtourfloorplan);</action>
+
+
+  <!-- Tour Information -->
+  <action name="hideTourInfo">set(tour_displayinfo, false);events.dispatch(onhidetourinfo);</action>
+  <action name="showTourInfo">set(tour_displayinfo, true); events.dispatch(onshowtourinfo);</action>
+
+
+<action name="setViewArchitectural">
+	if(normalViewActivated,stopSetViewTweens(););
+	if(current_view_isflat === true,
+		setViewNonFlat(VFOV);
+	);
+	setViewArchitecturalComplete();
+</action>
+
+<action name="setViewArchitecturalComplete">
+	set(view.fovmax, get(panoview.fovmax));
+	set(view.fisheyefovlink, 0.5);
+	tween(view.architectural, 1.0, distance(1.0, 0.45));
+	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
+	tween(view.fisheye, 0.0, distance(1.0, 0.45), easeOutQuad, 
+		set(view.stereographic,false);
+		tween(view.vlookat, get(panoview.v), distance(90, 0.45));
+	);
+	tween(view.fov, get(panoview.fov), distance(50, 0.45));
+</action>
+
+  <!-- Hide / Show Controls -->
+  <action name="hideTourControls">set(tour_displaycontrols, false);events.dispatch(hidetourcontrols);</action>
+  <action name="showTourControls">set(tour_displaycontrols, true); events.dispatch(showtourcontrols);</action>
+
+
+  <!-- Fullscreen Management -->
+  <action name="exitFullScreen" devices="fullscreensupport">set(tour_fullscreen,false);js(setFullscreen(false));</action>
+  <action name="enterFullScreen" devices="fullscreensupport">set(tour_fullscreen,true);js(setFullscreen(true));</action>
+  <action name="switchFullScreen">if(tour_fullscreen,exitFullScreen();,enterFullScreen(););</action>
+
+  
+  <events name="krpanoExitFullscreenEvent"
+    onexitfullscreen="if(tour_fullscreen,exitFullScreenChangeEvent(););"
+    keep="true" />
+
+  <action name="exitFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,false);events.dispatch(onexitfullscreen);</action>
+  <action name="enterFullScreenChangeEvent" devices="fullscreensupport">set(tour_fullscreen,true);events.dispatch(onenterfullscreen);</action>
+  <action name="exitFullScreenFallback">set(fullscreen,false);</action>
+  <action name="enterFullScreenFallback">set(fullscreen,true);</action>
+  
+  <action name="resizeFullScreenEvent">delayedcall(0,updatescreen(););</action>
+
+<action name="setViewNormal">
+	stopSetViewTweens();
+	if(current_view_isflat === true,
+		setViewNonFlat(VFOV);
+	);
+	setViewNormalComplete();
+</action>
+
+<action name="setViewNormalComplete">
+	set(view.fisheyefovlink, 0.5);
+	set(view.fovmax, get(panoview.fovmax));
+	tween(view.architectural, 0.0, distance(1.0, 0.45));
+	tween(view.pannini, 0.0, distance(1.0, 0.45), easeOutQuad, if(panniniViewActivated,restoreViewFromPannini();););
+	tween(view.vlookat, get(panoview.v), distance(90, 0.45));
+	tween(view.fov, get(panoview.fov), distance(50, 0.45));
+	tween(view.fisheye, 0.0, distance(1.0, 0.45),
+		set(view.stereographic,false);
+	);
+</action>
+
+<krpano normalViewActivated="true" />
+<action name="stopSetViewTweens">
+	stoptween(view.fov);
+	stoptween(view.vlookat);
+	stoptween(view.fisheye);
+	stoptween(view.architectural);
+	stoptween(view.pannini);
+</action>
+
+  <!-- Share Tour -->
+  <action name="shareTour">events.dispatch(onsharetour);</action>
+
+</krpano>

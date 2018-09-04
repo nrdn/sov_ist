@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<krpano>
+
+<!-- ************************ -->
+<!--         Messages         -->
+<!-- ************************ -->
+
+  <data name="en_project_title"><![CDATA[ТРИ ЦВЕТА ПРАВДЫ]]></data>
+  <data name="en_project_author_name"><![CDATA[ArtemiyFurman]]></data>
+  <data name="en_project_author_url"><![CDATA[http://furman360.com/]]></data>
+
+
+
+  <data name="en_pano44_title"><![CDATA[1]]></data>
+
+
+  <data name="en_pano12_title"><![CDATA[2]]></data>
+
+
+  <data name="en_pano14_title"><![CDATA[3]]></data>
+
+
+  <data name="en_pano16_title"><![CDATA[9]]></data>
+
+
+  <data name="en_pano18_title"><![CDATA[19]]></data>
+
+
+  <data name="en_pano20_title"><![CDATA[20]]></data>
+
+
+  <data name="en_pano22_title"><![CDATA[21]]></data>
+
+
+  <data name="en_pano45_title"><![CDATA[22]]></data>
+
+
+
+
+	<data name="en_project_floor_title"><![CDATA[ПЛАН-СХЕМА ВЫСТАВКИ]]></data>
+	<data name="en_spotmap71_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap72_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap73_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap74_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap75_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap76_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap77_tooltip"><![CDATA[]]></data>
+	<data name="en_spotmap78_tooltip"><![CDATA[]]></data>
+
+
+  <data name="en_controlBar_POBEDAzoomInTip"><![CDATA[Приблизить]]></data>
+  <data name="en_controlBar_POBEDAzoomOutTip"><![CDATA[Удалить]]></data>
+  <data name="en_controlBar_POBEDAopenFsTip"><![CDATA[Полноэкранный режим]]></data>
+  <data name="en_controlBar_POBEDAcloseFsTip"><![CDATA[Выйти из полноэкранного режима]]></data>
+  <data name="en_controlBar_POBEDAdisplayFloorplanTip"><![CDATA[Показать план-схему]]></data>
+  <data name="en_controlBar_POBEDAhideFloorplanTip"><![CDATA[Скрыть план-схему]]></data>
+  <data name="en_controlBar_POBEDAshareTip"><![CDATA[Поделиться туром]]></data>
+  <data name="en_controlBar_POBEDAdisplayControlsTip"><![CDATA[Показать навигацию]]></data>
+  <data name="en_controlBar_POBEDAhideControlsTip"><![CDATA[Скрыть навигацию]]></data>
+  <data name="en_alpo_start_screenss_title"><![CDATA[]]></data>
+  <data name="en_alpo_start_screenssfontsize"><![CDATA[6]]></data>
+  <data name="en_alpo_start_screensstitlelineheight"><![CDATA[6]]></data>
+  <data name="en_floorPlandisplay_close_text"><![CDATA[Закрыть]]></data>
+  <data name="en_socialShareclose_text"><![CDATA[Закрыть]]></data>
+  <data name="en_debugPanoramaDirectoriesseparatorString"><![CDATA[;]]></data>
+  <data name="en_contextmenuopenFsLabel"><![CDATA[Полноэкранный режим]]></data>
+  <data name="en_contextmenucloseFsLabel"><![CDATA[Выйти из полноэкранного режима]]></data>
+  <data name="en_contextmenunormallabel"><![CDATA[Нормальная проекция]]></data>
+  <data name="en_contextmenuarchitecturallabel"><![CDATA[Архитектурная проекция]]></data>
+  <data name="en_gallerynavprev_text"><![CDATA[Предыдущая]]></data>
+  <data name="en_gallerynavnext_text"><![CDATA[Следующая]]></data>
+  <data name="en_galleryclose_text"><![CDATA[Закрыть]]></data>
+  <data name="en_gallerypicture_title0"><![CDATA[]]></data>
+  <data name="en_gallerypicture_caption0"><![CDATA[<b>Икона «Покров Богоматери»</b><br>XIX-XX вв.<br>Дерево, холст, масло<br><br>Частный музей русской иконы
+]]></data>
+  <data name="en_gallerypicture_title1"><![CDATA[]]></data>
+  <data name="en_gallerypicture_caption1"><![CDATA[<b>Икона «Св. Николай Можайский»</b><br>Первая половина XVII в.<br>Дерево, темпера<br><br>Центральный музей древнерусской культуры и искусства имени Андрея Рублева
+]]></data>
+  <data name="en_buttonForASinglePanotooltip"><![CDATA[111]]></data>
+  <data name="en_buttonForASinglePanopanoid1020"><![CDATA[pano12]]></data>
+
+
+  <data name="en_vr_setup_hmd0"><![CDATA[SELECT YOUR HMD]]></data>
+  <data name="en_vr_setup_advanced"><![CDATA[ADVANCED SETTINGS]]></data>
+  <data name="en_vr_setup_title"><![CDATA[WEB VR SETTINGS]]></data>
+  <data name="en_vr_setup_dvn1"><![CDATA[Device:]]></data>
+  <data name="en_vr_setup_siz1"><![CDATA[Screen size:]]></data>
+  <data name="en_vr_setup_ipd1"><![CDATA[IPD:]]></data>
+  <data name="en_vr_setup_hmd1"><![CDATA[HMD:]]></data>
+  <data name="en_vr_setup_hmd3"><![CDATA[Customize]]></data>
+  <data name="en_vr_setup_cal"><![CDATA[Calibrate gyroscope]]></data>
+  <data name="en_vr_setup_sav"><![CDATA[SAVE]]></data>
+  <data name="en_vr_setup_rst"><![CDATA[RESET]]></data>
+  <data name="en_vr_setup_simple"><![CDATA[SIMPLE]]></data>
+  <data name="en_vr_setup_cls"><![CDATA[CLOSE]]></data>
+  <data name="en_vr_setup_m31"><![CDATA[HMD SETTINGS]]></data>
+  <data name="en_vr_setup_fov1"><![CDATA[FOV:]]></data>
+  <data name="en_vr_setup_dst1"><![CDATA[Distortion:]]></data>
+  <data name="en_vr_setup_d2tx"><![CDATA[Distortion 2:]]></data>
+  <data name="en_vr_setup_vig1"><![CDATA[Vignette:]]></data>
+  <data name="en_vr_setup_cac1"><![CDATA[Chromatic aberration:]]></data>
+  <data name="en_vr_setup_olp1"><![CDATA[Overlap:]]></data>
+  <data name="en_vr_setup_m35"><![CDATA[RETURN]]></data>
+  <data name="en_vr_setup_cb1"><![CDATA[GYROSCOPE]]></data>
+  <data name="en_vr_setup_cb2"><![CDATA[Place the device on a flat and[br]stable surface and tab CALIBRATE[br]to correct a gyroscope drifting.]]></data>
+  <data name="en_vr_setup_cb3"><![CDATA[CALIBRATE]]></data>
+  <data name="en_vr_setup_cb4"><![CDATA[RESET]]></data>
+  <data name="en_vr_setup_cb5"><![CDATA[RETURN]]></data>
+  <data name="en_vr_setup_cb6"><![CDATA[Calibrating...]]></data>
+  <data name="en_vr_setup_cb7"><![CDATA[Successful calibration]]></data>
+  <data name="en_vr_setup_cb8"><![CDATA[Calibration failed]]></data>
+  <data name="en_vr_setup_unavailable"><![CDATA[VR mode[br]is unavailable on your device]]></data>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</krpano>
