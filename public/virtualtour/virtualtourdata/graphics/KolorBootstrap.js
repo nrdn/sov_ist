@@ -533,8 +533,8 @@ function addKolorArea(pPlugID)
 {
 	if(typeof ktools.KolorPluginList.getInstance().getPlugin(pPlugID) == "undefined")
 	{
-		var kolorAreaCSS = new ktools.CssStyle("KolorAreaCSS", crossDomainTargetUrl+"virtualtourdata/graphics/KolorArea/kolorArea.css");
-		var kolorAreaJS = new ktools.Script("KolorAreaJS", crossDomainTargetUrl+"virtualtourdata/graphics/KolorArea/KolorArea.min.js", [], true);
+		var kolorAreaCSS = new ktools.CssStyle("KolorAreaCSS", crossDomainTargetUrl+"/virtualtour/virtualtourdata/graphics/KolorArea/kolorArea.css");
+		var kolorAreaJS = new ktools.Script("KolorAreaJS", crossDomainTargetUrl+"/virtualtour/virtualtourdata/graphics/KolorArea/KolorArea.min.js", [], true);
 		var kolorAreaPlugin = new ktools.KolorPlugin(pPlugID);
 		kolorAreaPlugin.addScript(kolorAreaJS);
 		kolorAreaPlugin.addCss(kolorAreaCSS);
@@ -643,8 +643,8 @@ function addKolorBox(pPlugID)
 {
 	if(typeof ktools.KolorPluginList.getInstance().getPlugin(pPlugID) == "undefined")
 	{
-		var kolorBoxCSS = new ktools.CssStyle("KolorBoxCSS", crossDomainTargetUrl+"virtualtourdata/graphics/KolorBox/kolorBox.css");
-		var kolorBoxJS = new ktools.Script("KolorBoxJS", crossDomainTargetUrl+"virtualtourdata/graphics/KolorBox/KolorBox.min.js", [], true);
+		var kolorBoxCSS = new ktools.CssStyle("KolorBoxCSS", crossDomainTargetUrl+"/virtualtour/virtualtourdata/graphics/KolorBox/kolorBox.css");
+		var kolorBoxJS = new ktools.Script("KolorBoxJS", crossDomainTargetUrl+"/virtualtour/virtualtourdata/graphics/KolorBox/KolorBox.min.js", [], true);
 		var kolorBoxPlugin = new ktools.KolorPlugin(pPlugID);
 		kolorBoxPlugin.addScript(kolorBoxJS);
 		kolorBoxPlugin.addCss(kolorBoxCSS);

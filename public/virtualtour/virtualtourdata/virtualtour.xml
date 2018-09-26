@@ -581,7 +581,7 @@
   <hotspot name="spotpoint2087" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2087" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2087">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_9_kornilov.pdf", spotpoint2087PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_9_kornilov.pdf", spotpoint2087PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -806,7 +806,7 @@
   <hotspot name="spotpoint2086" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2086" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2086">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_5_denikin.pdf", spotpoint2086PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_5_denikin.pdf", spotpoint2086PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1141,7 +1141,7 @@
   <hotspot name="spotpoint2085" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2085" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2085">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_8_kolchak.pdf", spotpoint2085PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_8_kolchak.pdf", spotpoint2085PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1371,7 +1371,7 @@
   <hotspot name="spotpoint2073" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2073" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2073">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_7_kappel.pdf", spotpoint2073PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_7_kappel.pdf", spotpoint2073PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1566,7 +1566,7 @@
   <hotspot name="spotpoint2072" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2072" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2072">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_16_udenich.pdf", spotpoint2072PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_16_udenich.pdf", spotpoint2072PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1807,7 +1807,7 @@
   <hotspot name="spotpoint1372" devices="flash" zorder="3"/>
   <hotspot name="spotpoint1372" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint1372">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/white_compress.pdf", spotpoint1372PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/white_compress.pdf", spotpoint1372PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1827,7 +1827,7 @@
   <hotspot name="spotpoint2080" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2080" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2080">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_4_vrangel.pdf", spotpoint2080PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_4_vrangel.pdf", spotpoint2080PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1847,7 +1847,7 @@
   <hotspot name="spotpoint2081" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2081" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2081">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_13_ungern.pdf", spotpoint2081PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_13_ungern.pdf", spotpoint2081PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1867,7 +1867,7 @@
   <hotspot name="spotpoint2082" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2082" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2082">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_14_frunze.pdf", spotpoint2082PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_14_frunze.pdf", spotpoint2082PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -1887,7 +1887,7 @@
   <hotspot name="spotpoint2083" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2083" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2083">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_1_bluher.pdf", spotpoint2083PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_1_bluher.pdf", spotpoint2083PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -2166,7 +2166,7 @@
   <hotspot name="spotpoint1375" devices="flash" zorder="3"/>
   <hotspot name="spotpoint1375" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint1375">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/red_compress.pdf", spotpoint1375PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/red_compress.pdf", spotpoint1375PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -2186,7 +2186,7 @@
   <hotspot name="spotpoint2084" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2084" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2084">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_12_tuhochevskiy.pdf", spotpoint2084PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_12_tuhochevskiy.pdf", spotpoint2084PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -2591,7 +2591,7 @@
   <hotspot name="spotpoint2074" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2074" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2074">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_11_trockiy.pdf", spotpoint2074PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_11_trockiy.pdf", spotpoint2074PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -2611,7 +2611,7 @@
   <hotspot name="spotpoint2075" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2075" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2075">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_2_brusilov.pdf", spotpoint2075PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_2_brusilov.pdf", spotpoint2075PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -3234,7 +3234,7 @@
   <hotspot name="spotpoint1374" devices="flash" zorder="3"/>
   <hotspot name="spotpoint1374" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint1374">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/green_compress.pdf", spotpoint1374PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/green_compress.pdf", spotpoint1374PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -3503,7 +3503,7 @@
   <hotspot name="spotpoint2076" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2076" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2076">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_10_semenov_shkuro.pdf", spotpoint2076PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_10_semenov_shkuro.pdf", spotpoint2076PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -3839,7 +3839,7 @@
   <hotspot name="spotpoint1373" devices="flash" zorder="3"/>
   <hotspot name="spotpoint1373" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint1373">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/interventy_compress.pdf", spotpoint1373PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/interventy_compress.pdf", spotpoint1373PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -4129,7 +4129,7 @@
   <hotspot name="spotpoint2077" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2077" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2077">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_15_chapaev.pdf", spotpoint2077PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_15_chapaev.pdf", spotpoint2077PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -4149,7 +4149,7 @@
   <hotspot name="spotpoint2078" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2078" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2078">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_3_buddeny.pdf", spotpoint2078PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_3_buddeny.pdf", spotpoint2078PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -4365,7 +4365,7 @@
   <hotspot name="spotpoint2079" devices="flash" zorder="3"/>
   <hotspot name="spotpoint2079" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint2079">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_6_dybenko.pdf", spotpoint2079PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/_6_dybenko.pdf", spotpoint2079PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>
@@ -5047,7 +5047,7 @@
   <hotspot name="spotpoint1371" devices="flash" zorder="3"/>
   <hotspot name="spotpoint1371" devices="html5" zorder="3" zorder2="1"/>
   <action name="onclickspotpoint1371">
-  openPDF_PdfViewer("virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/uniform.pdf", spotpoint1371PdfViewer|PdfViewer|displaypdfpdf_title);
+  openPDF_PdfViewer("/virtualtour/virtualtourdata/graphics/KolorBox/pdfjs/web/viewer.html?file=../../../../spots/uniform.pdf", spotpoint1371PdfViewer|PdfViewer|displaypdfpdf_title);
 
 
   </action>

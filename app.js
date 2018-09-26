@@ -861,6 +861,13 @@ app.route('/partnership').get(globals.imageGallery('main'), content.partnership)
 app.route('/serviceship').get(globals.imageGallery('main'), content.serviceship);
 
 
+
+
+app.get('/tri_cveta_pravdy', function(req, res) {
+    res.sendFile(__dirname + '/public/virtualtour/index.html');
+});
+
+
 // ------------------------
 // *** Options Routers Block ***
 // ------------------------
