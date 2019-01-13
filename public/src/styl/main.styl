@@ -237,6 +237,9 @@
 	width 100%
 	position relative
 	margin-bottom 40px
+	@media screen and (max-width: 920px)
+		margin 0 15px 20px
+		width calc(100vw - 40px)
 	.top_banner
 		height 100px
 		width 100%
@@ -248,8 +251,6 @@
 		opacity 0
 		z-index -1000
 		transition opacity 0.1s ease-in
-		@media screen and (max-width: 1280px)
-			background-size contain
 	a.top_banner
 		&:hover
 			opacity 0.9!important
@@ -262,3 +263,23 @@
 		line-height 16px
 		padding 0 3px
 		color #b8b8b8
+
+.news_block
+	.news_title
+		display none
+		@media screen and (max-width: 920px)
+			display block
+			height 49px
+			font 18px/50px 'PT Serif'
+			margin 0 10px
+			// border-bottom 1px solid #979797
+
+a.controlquality_block
+	max-width 220px
+	display block
+	margin 0 20px
+
+.news_banner
+	max-width 220px
+	display block
+	margin 0 20px

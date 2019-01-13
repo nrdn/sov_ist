@@ -1,0 +1,251 @@
+.header_block
+	position absolute
+	left 0
+	background-color rgba(0, 0, 0, 0.7)
+	z-index 999
+	.columns_main_scrollerrus
+		height 1px
+		overflow-y scroll
+		float left
+		position absolute
+		visibility hidden
+	@media screen and (max-width: 1280px)
+		padding 5px 0
+	@media screen and (max-width: 920px)
+		background #fff
+		border-bottom 1px solid #979797
+		padding 0
+		height 57px
+		right 0!important
+.search_block
+	width 100%
+	display none
+	padding-bottom 5px
+
+.header_inner
+.search_inner
+	width 1280px
+	//width 100%
+	padding-top 10px
+	padding-bottom 10px
+	margin 0 auto
+	overflow hidden
+	@media screen and (max-width: 1280px)
+		width calc(100vw - 70px)
+		padding 10px
+	@media screen and (max-width: 1000px)
+		padding 10px 0
+
+.header_inner
+	@media screen and (max-width: 920px)
+		padding 0 23px
+		height 57px
+		width auto
+		display flex
+		justify-content space-between
+		align-items center
+
+.menu_blocks
+	@media screen and (max-width: 920px)
+		display: none
+
+.menu_block
+	overflow hidden
+	&.left
+		float left
+		@media screen and (max-width: 1000px)
+			position absolute
+		.menu_item_block
+			margin-left 15px
+			float left
+			@media screen and (max-width: 1280px)
+				margin-left 12px
+			.menu_item
+				display block
+				margin-top 4px
+				font 12pt/14pt 'PT Sans'
+				color #fff
+				text-decoration none
+				padding-bottom 3px
+				@media screen and (max-width: 920px)
+					color #000
+				&.menu_empty
+					cursor pointer
+				&:hover
+					color rgb(196, 20, 59)
+			.menu_drop
+				width 135px
+				margin-left -10px
+				padding-top 7px
+				position absolute
+				display none
+				.drop_inner
+					width 135px
+					padding 0 10px 10px 10px
+					background-color rgba(0, 0, 0, 0.7)
+			&:hover .menu_drop
+				display block
+	&.right
+		float right
+
+.social_block
+	float left
+	a
+		color white
+		font 17px/25px 'Icons'
+		display block
+		float left
+		margin-right 5px
+		width 25px
+		text-decoration none
+		&:hover
+			color rgb(196, 20, 59)
+		&.inst
+			margin-right 0
+		&.tlg
+			height 22px
+			display inline-block
+			margin-top 3px
+			margin-left 5px
+			svg
+				height 19px
+				width 19px
+				.white
+					fill #fff
+			&:hover
+				svg
+				.white
+					fill rgb(196, 20, 59)
+.options_block
+	color white
+	float left
+	border-left 1px solid white
+	margin-left 10px
+.option
+	margin-left 10px
+	float left
+	cursor pointer
+	display block
+	color white
+	text-decoration none
+	&:hover
+		color rgb(196, 20, 59)
+	&.lang
+		margin-top 4px
+	&.search
+		width 25px
+		height 25px
+		font 17px/25px 'Icons'
+		background-size cover
+
+.header_logo
+	display block
+	overflow hidden
+	margin-right 40px
+	float left
+	@media screen and (max-width: 1280px)
+		margin-right 10px
+		margin-top -3px
+		position relative
+		overflow visible
+		&:after
+			position absolute
+			content 'ГЦМСИР'
+			top 100%
+			left 0
+			width 100%
+			color #fff
+			font 7pt/10pt 'PT Sans'
+			text-align center
+			margin-top 2px
+			letter-spacing 1px
+	svg
+		min-width 50px
+		height 23px
+		display block
+		float left
+		@media screen and (max-width: 920px)
+			width 79px
+			height 36px
+	svg *
+		fill #fff
+		@media screen and (max-width: 920px)
+			fill #000
+
+.header_logo
+	@media screen and (max-width: 920px)
+		display flex
+		justify-content center
+		align-items center
+
+
+	.logo_title
+		margin-left 15px
+		color white
+		text-decoration none
+		width 190px
+		float left
+		font 8pt/10pt 'PT Serif'
+		@media screen and (max-width: 1280px)
+			display none
+
+.menu_controls
+	display none
+	@media screen and (max-width: 920px)
+		display flex
+		align-items: center;
+		justify-content: flex-end;
+		.menu_control.show_menu svg
+			width 27px
+			height 22px
+		.menu_control.contacts svg
+			width 17px
+			height 33px
+			margin-right 28px
+
+
+.mobile_menu_block
+	display none
+	top 57px
+	height calc(100vh - 57px)
+	position absolute
+	flex-direction column
+	background #000
+	right 0
+	left 0
+
+.mobile_menu
+	display flex
+	flex-direction column
+	flex 0 0 auto
+	padding 17px 23px 25px
+
+.mobile_top_block
+	border 1px solid rgba(151, 151, 151, 0.5)
+
+.mobile_menu .menu_item
+	font-size 20px
+	line-height 24px
+	margin-top 10px
+	color #fff
+	text-decoration none
+	&:first-child
+		margin-top 0
+
+.mobile_bottom_block .menu_item
+	font-size 18px
+	line-height 21px
+	margin-top 13px
+
+
+
+@media screen and (max-width: 920px)
+	.black_and_menu {
+		background-color #000
+	}
+	.black_and_menu .mobile_menu_block {
+		display flex
+	}
+	.black_and_menu svg * {
+		fill #fff
+	}

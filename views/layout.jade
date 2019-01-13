@@ -12,58 +12,68 @@ html
 				.header_block_inner
 					.header_inner
 						a.header_logo(href='/')
-							img.logo_image(src='/images/design/logo.png')
+							include svg/logo.jade
 							.logo_title= __('Государственный центральный музей современной истории России')
-						.menu_block.left
-							.menu_item_block
-								a.menu_item.menu_empty= __('Музей')
-								.menu_drop
-									.drop_inner
-										a.menu_item(href='/history')= __('История музея')
-										a.menu_item(href='/exposure')= __('Экспозиция')
-										a.menu_item(href='/collections')= __('Коллекции')
-										a.menu_item(href='/team')= __('Команда')
-										a.menu_item(href='/subsidiarys')= __('Филиалы')
-							.menu_item_block
-								a.menu_item(href='http://vm.sovrhistory.ru/sovremennoy-istorii-rossii/', target='_blank')= __('Виртуальный музей')
-							.menu_item_block
-								a.menu_item.menu_empty= __('События')
-								.menu_drop
-									.drop_inner
-										a.menu_item(href='/news')= __('Анонсы')
-										a.menu_item(href='/events/special')= __('Новости')
-										a.menu_item(href='/events/exhibition')= __('Выставки')
-										a.menu_item(href='/events/lecture')= __('Лекции')
-										a.menu_item(href='/events/action')= __('Мероприятия')
-							.menu_item_block
-								a.menu_item.menu_empty= __('Посетителям')
-								.menu_drop
-									.drop_inner
-										a.menu_item(href='/events/excursion')= __('Экскурсии')
-										a.menu_item(href='/events/education')= __('Образовательные программы')
-										a.menu_item(href='/events/teach')= __('Центр музейной педагогики')
-										//- a.menu_item(href='/souvenirs')= __('Сувенирная продукция')
-										a.menu_item(href='/schedule')= __('Билеты и расписание')
-							.menu_item_block
-								a.menu_item(href='http://lhistory.ru', target='_blank')= __('Живая история')
-							.menu_item_block
-								a.menu_item(href='/specials')= __('Спецпроекты')
-							.menu_item_block
-								a.menu_item(href='/contacts')= __('Контакты')
-						.menu_block.right
-							.social_block
-								a(href='https://vk.com/sovr_history', target='_blank') 
-								a(href='https://www.facebook.com/sovr.history', target='_blank') 
-								a(href='https://twitter.com/sovrmuse', target='_blank') 
-								a.inst(href='https://instagram.com/sovr.history', target='_blank') 
-								a.tlg(href='https://t.me/sovrhistory', target='_blank')
-									| <svg version="1.1" id="l_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1643.4px" height="1643.4px" viewBox="678.3 678.3 1643.4 1643.4" enable-background="new 678.3 678.3 1643.4 1643.4" xml:space="preserve"><g><path fill="#F2F2F2" d="M1297.9,2101.2c-48.6,0-40.3-18.3-57.1-64.6l-142.9-470.3l1100-652.6"/><path fill="#CCCCCC" d="M1297.9,2101.2c37.5,0,54.1-17.1,75-37.5l200-194.5l-249.5-150.4"/><path class="white" d="M1323.4,1718.8l604.5,446.6c69,38.1,118.8,18.4,136-64l246.1-1159.5c25.2-101-38.5-146.8-104.5-116.9L760.6,1382.1c-98.6,39.6-98.1,94.6-18,119.1l370.8,115.7l858.4-541.6c40.5-24.6,77.7-11.4,47.2,15.7"/></g></svg>
-							.options_block
-								.option.search 
-								if (locale == 'ru')
-									a.option.lang(href='/lang/en') EN
-								else
-									a.option.lang(href='/lang/ru') RU
+						.menu_blocks
+							.menu_block.left
+								.menu_item_block
+									a.menu_item.menu_empty= __('Музей')
+									.menu_drop
+										.drop_inner
+											a.menu_item(href='/history')= __('История музея')
+											a.menu_item(href='/exposure')= __('Экспозиция')
+											a.menu_item(href='/collections')= __('Коллекции')
+											a.menu_item(href='/team')= __('Команда')
+											a.menu_item(href='/subsidiarys')= __('Филиалы')
+								.menu_item_block
+									a.menu_item(href='http://vm.sovrhistory.ru/sovremennoy-istorii-rossii/', target='_blank')= __('Виртуальный музей')
+								.menu_item_block
+									a.menu_item.menu_empty= __('События')
+									.menu_drop
+										.drop_inner
+											a.menu_item(href='/news')= __('Анонсы')
+											a.menu_item(href='/events/special')= __('Новости')
+											a.menu_item(href='/events/exhibition')= __('Выставки')
+											a.menu_item(href='/events/lecture')= __('Лекции')
+											a.menu_item(href='/events/action')= __('Мероприятия')
+								.menu_item_block
+									a.menu_item.menu_empty= __('Посетителям')
+									.menu_drop
+										.drop_inner
+											a.menu_item(href='/events/excursion')= __('Экскурсии')
+											a.menu_item(href='/events/education')= __('Образовательные программы')
+											a.menu_item(href='/events/teach')= __('Центр музейной педагогики')
+											//- a.menu_item(href='/souvenirs')= __('Сувенирная продукция')
+											a.menu_item(href='/schedule')= __('Билеты и расписание')
+								.menu_item_block
+									a.menu_item(href='http://lhistory.ru', target='_blank')= __('Живая история')
+								.menu_item_block
+									a.menu_item(href='/specials')= __('Спецпроекты')
+								.menu_item_block
+									a.menu_item(href='/contacts')= __('Контакты')
+							.menu_block.right
+								.social_block
+									a(href='https://vk.com/sovr_history', target='_blank') 
+									a(href='https://www.facebook.com/sovr.history', target='_blank') 
+									a(href='https://twitter.com/sovrmuse', target='_blank') 
+									a.inst(href='https://instagram.com/sovr.history', target='_blank') 
+									a.tlg(href='https://t.me/sovrhistory', target='_blank')
+										| <svg version="1.1" id="l_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1643.4px" height="1643.4px" viewBox="678.3 678.3 1643.4 1643.4" enable-background="new 678.3 678.3 1643.4 1643.4" xml:space="preserve"><g><path fill="#F2F2F2" d="M1297.9,2101.2c-48.6,0-40.3-18.3-57.1-64.6l-142.9-470.3l1100-652.6"/><path fill="#CCCCCC" d="M1297.9,2101.2c37.5,0,54.1-17.1,75-37.5l200-194.5l-249.5-150.4"/><path class="white" d="M1323.4,1718.8l604.5,446.6c69,38.1,118.8,18.4,136-64l246.1-1159.5c25.2-101-38.5-146.8-104.5-116.9L760.6,1382.1c-98.6,39.6-98.1,94.6-18,119.1l370.8,115.7l858.4-541.6c40.5-24.6,77.7-11.4,47.2,15.7"/></g></svg>
+								.options_block
+									.option.search 
+									if (locale == 'ru')
+										a.option.lang(href='/lang/en') EN
+									else
+										a.option.lang(href='/lang/ru') RU
+						.mobile_menu_block
+							include mobilemenu
+						.menu_controls
+							.menu_control.contacts
+								a
+									include svg/balloon.jade
+							.menu_control.show_menu
+								span
+									include svg/showmenu.jade
 				.search_block
 					.search_inner
 						input.search_input(type='text', placeholder= __('Найти...'))

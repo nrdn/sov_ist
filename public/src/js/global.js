@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	var $showMenu = $('.menu_control.show_menu');
+	var $headerBlock = $('.header_block');
+
+	console.log('$headerBlock', $headerBlock);
+	console.log('$showMenu', $showMenu);
+
 	var columns_main_scrollerrus = $('.columns_main_scrollerrus').width();
 	$('.header_block').css({'right':columns_main_scrollerrus});
 	$('.content_column.scroll').css({'margin-left': '320' - columns_main_scrollerrus + 'px'});
@@ -74,4 +80,10 @@ $(document).ready(function() {
 				container.hide();
 		}
 	});
+
+	$showMenu.on('click', function(event) {
+		$headerBlock.toggleClass('black_and_menu');
+	});
+
+
 });

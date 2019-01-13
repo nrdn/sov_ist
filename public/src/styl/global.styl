@@ -20,23 +20,6 @@ body
 html, body, .main_block, .content_block, .content_columns_block, .content_column, .column_inner_block
 	height 100%
 
-.header_block
-	position absolute
-	width 100%
-	background-color rgba(0, 0, 0, 0.7)
-	z-index 999
-	.columns_main_scrollerrus
-		height 1px
-		overflow-y scroll
-		float left
-		position absolute
-		visibility hidden
-
-.search_block
-	width 100%
-	display none
-	padding-bottom 5px
-
 .search_input
 	display block
 	width 100%
@@ -77,118 +60,6 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	&:hover
 		color rgb(196, 20, 59)
 
-.header_inner
-.search_inner
-	width 1280px
-	//width 100%
-	padding-top 10px
-	padding-bottom 10px
-	margin 0 auto
-	overflow hidden
-
-.menu_block
-	overflow hidden
-	&.left
-		float left
-		.menu_item_block
-			margin-left 15px
-			float left
-			@media screen and (max-width: 1280px)
-				margin-left 12px
-			.menu_item
-				display block
-				margin-top 4px
-				font 12pt/14pt 'PT Sans'
-				color #fff
-				text-decoration none
-				padding-bottom 3px
-				&.menu_empty
-					cursor pointer
-				&:hover
-					color rgb(196, 20, 59)
-			.menu_drop
-				width 135px
-				margin-left -10px
-				padding-top 7px
-				position absolute
-				display none
-				.drop_inner
-					width 135px
-					padding 0 10px 10px 10px
-					background-color rgba(0, 0, 0, 0.7)
-			&:hover .menu_drop
-				display block
-	&.right
-		float right
-
-.social_block
-	float left
-	a
-		color white
-		font 17px/25px 'Icons'
-		display block
-		float left
-		margin-right 5px
-		width 25px
-		text-decoration none
-		&:hover
-			color rgb(196, 20, 59)
-		&.inst
-			margin-right 0
-		&.tlg
-			height 22px
-			display inline-block
-			margin-top 3px
-			margin-left 5px
-			svg
-				height 19px
-				width 19px
-				.white
-					fill #fff
-			&:hover
-				svg
-				.white
-					fill rgb(196, 20, 59)
-.options_block
-	color white
-	float left
-	border-left 1px solid white
-	margin-left 10px
-.option
-	margin-left 10px
-	float left
-	cursor pointer
-	display block
-	color white
-	text-decoration none
-	&:hover
-		color rgb(196, 20, 59)
-	&.lang
-		margin-top 4px
-	&.search
-		width 25px
-		height 25px
-		font 17px/25px 'Icons'
-		background-size cover
-
-.header_logo
-	display block
-	overflow hidden
-	margin-right 40px
-	float left
-	.logo_image
-		min-width 50px
-		height 23px
-		display block
-		float left
-	.logo_title
-		margin-left 15px
-		color white
-		text-decoration none
-		width 190px
-		float left
-		font 8pt/10pt 'PT Serif'
-
 .content_columns_block
 	overflow hidden
 	//width 1280px
@@ -206,6 +77,23 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			padding-top 90px
 			margin-bottom 60px
 			font 24pt/26pt 'PT Serif'
+			width 690px
+			margin-right 10px
+			@media screen and (max-width: 920px)
+				width auto
+				padding-top 0
+				margin 125px 15px 20px
+
+		.content_date
+		.content_s_title
+		.content_body
+		.content_subs
+			width 690px
+			margin-right 10px
+			@media screen and (max-width: 920px)
+				width auto
+				margin-right 15px
+				margin-left 15px
 		.column_main_inner
 			width 100%
 			overflow-y scroll
@@ -224,8 +112,14 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 					@media screen and (max-width: 1280px)
 						width 700px
 						margin-left 10px!important
+					@media screen and (max-width: 920px)
+						width auto
+						margin-left 0!important
+						margin-right 0
 		.content_outer_block
 			overflow hidden
+			@media screen and (max-width: 920px)
+				background #f1f1f1
 	&.scroll
 		overflow hidden
 		width 320px
@@ -242,20 +136,9 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 			width auto
 		@media screen and (max-width: 920px)
 			left 453px
-			display block
+			display none
 			z-index 100
 			width auto
-
-		.content_title
-			display none // !!!!!!!!!!
-			top 70px
-			width 320px
-			box-sizing border-box
-			padding 10px
-			position absolute
-			color white
-			text-shadow: 1px 1px 2px black
-			font 14pt/16pt 'PT Serif'
 		.content_scroll_items
 			overflow-y scroll
 			overflow-x hidden
@@ -347,6 +230,8 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 	padding-top 15px
 	margin-top 30px
 	padding-bottom 30px
+	@media screen and (max-width: 920px)
+		margin 0 15px
 	.footer_menu
 		float none
 		display block
@@ -370,10 +255,15 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		margin 35px auto 40px
 		color #7b7b7b
 		overflow hidden
+		@media screen and (max-width: 920px)
+			margin 18px 0
 		.footer_adress
 			float left
 			width 320px
 			margin-right 60px
+			@media screen and (max-width: 920px)
+				float none
+				margin-right 0
 			.footer_museum_title
 				margin-bottom 2px
 				font-weight bold
@@ -381,27 +271,41 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 				padding-left 65px
 				background-size 50px
 				width 189px
-				font 8pt/10pt 'PT Serif'
+				@media screen and (max-width: 920px)
+					width auto
+					padding-left 0
+					background none
 			.footer_museum_phone
 				margin-bottom 2px
 				padding-left 65px
+				@media screen and (max-width: 920px)
+					padding-left 0
 			.footer_museum_email
 				margin-bottom 2px
 				padding-left 65px
 				display block
 				color #7b7b7b
 				text-decoration none
+				@media screen and (max-width: 920px)
+					padding-left 0
 				&:hover
 					text-decoration underline
 					color #9b9b9b
 			.footer_museum_address
 				margin-bottom 3px
 				padding-left 65px
+				@media screen and (max-width: 920px)
+					padding-left 0
 		.footer_shelude
 			float right
 			width 369px
 			@media screen and (max-width: 1280px)
-				width 221px
+				width 230px
+				margin-right 10px
+			@media screen and (max-width: 920px)
+				float none
+				width auto
+				margin-top 10px
 			.day_shelude
 				font-weight bold
 				float left
@@ -434,10 +338,14 @@ html, body, .main_block, .content_block, .content_columns_block, .content_column
 		text-align center
 		line-height 40px
 		font-family 'PT Sans'
+		@media screen and (max-width: 920px)
+			flex-direction column
 		.footer_item
 			&.footer_divider
 				color #333
 				margin 0 5px
+				@media screen and (max-width: 920px)
+					display none
 			.f_type
 				color #cacaca
 			.f_name
