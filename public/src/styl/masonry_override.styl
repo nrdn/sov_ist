@@ -18,8 +18,9 @@
 			// transform none!important
 			// opacity 1!important
 			&.event
-				height 320px
+				height 380px
 				background #fff
+				overflow hidden
 			&:nth-child(3)
 				order 0
 			&:nth-child(4)
@@ -46,13 +47,14 @@
 					display none
 		.content_item
 			.item_image
-				width 100%
+				display none
 			.item_description
 				padding 8px 8px 0
 			&:hover
 				&:after
 					display none
 		.content_item.important
+			background-image none
 			&.event
 				width calc(100vw - 40px)
 				max-width 380px
@@ -69,3 +71,22 @@
 					height 221px
 					background rgb(71, 71, 71)
 					text-shadow none
+
+.item_mobile_background
+	display none
+	height 154px
+	background-size cover
+	background-position 50%
+	background-repeat no-repeat
+	@media screen and (max-width: 920px)
+		display block
+
+.item_mobile_background
+	height 154px
+
+.important .item_mobile_background
+	height 332px
+
+.content_navigate_block
+	@media screen and (max-width: 920px)
+		margin 0 15px

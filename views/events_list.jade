@@ -10,6 +10,7 @@ mixin eventsList(events)
 	each event in events
 		if (event.status == 'important')
 			a.content_item.event.important(href='/events/' + event.type +'/' + event._id, style='background-image: url(' + (event.images && event.images.length > 0 && event.images[0].original) + ')')
+				.item_mobile_background(style='background-image: url(' + (event.images && event.images.length > 0 && event.images[0].original) + ')')
 				.item_description
 					if (!event.interval.hidden)
 						.item_date: +compareInterval(event.interval.start, event.interval.end)
@@ -24,6 +25,7 @@ mixin eventsList(events)
 		else
 			a.content_item.event(href='/events/' + event.type +'/' + event._id)
 				img.item_image(src=event.images && event.images.length > 0 && event.images[0].thumb)
+				.item_mobile_background(style='background-image: url(' + (event.images && event.images.length > 0 && event.images[0].original) + ')')
 				.item_description
 					if (!event.interval.hidden)
 						.item_date: +compareInterval(event.interval.start, event.interval.end)

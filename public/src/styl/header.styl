@@ -90,6 +90,8 @@
 
 .social_block
 	float left
+	@media screen and (max-width: 920px)
+		padding 17px 23px 50px
 	a
 		color white
 		font 17px/25px 'Icons'
@@ -159,6 +161,9 @@
 			text-align center
 			margin-top 2px
 			letter-spacing 1px
+	@media screen and (max-width: 920px)
+		&:after
+			top 88%
 	svg
 		min-width 50px
 		height 23px
@@ -206,6 +211,7 @@
 
 .mobile_menu_block
 	display none
+	overflow-y scroll
 	top 57px
 	height calc(100vh - 57px)
 	position absolute
@@ -219,9 +225,7 @@
 	flex-direction column
 	flex 0 0 auto
 	padding 17px 23px 25px
-
-.mobile_top_block
-	border 1px solid rgba(151, 151, 151, 0.5)
+	border-bottom 1px solid #979797
 
 .mobile_menu .menu_item
 	font-size 20px
@@ -248,4 +252,8 @@
 	}
 	.black_and_menu svg * {
 		fill #fff
+	}
+	.black_and_menu .header_inner {
+		border-bottom: 1px solid #979797
+		box-sizing: border-box
 	}

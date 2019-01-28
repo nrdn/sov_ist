@@ -81,7 +81,7 @@ $(window).load(function() {
 	var scroll_position = 0;
 	var factor = 5.55555;
 
-	parent.on('scroll', function(event) {
+	/*parent.on('scroll', function(event) {
 			var s = $(this).scrollTop(),
 					f = $('>:first', parent),l = $('>:last', parent);
 			if(s > max) {f.appendTo(parent); parent.scrollTop(s - f.height()); }
@@ -97,5 +97,5 @@ $(window).load(function() {
 				 parent.scrollTop(parent.scrollTop() + factor);
 				 scroll_position = scroll;
 			}
-	});
+	});*/
 });
