@@ -22,6 +22,7 @@ block content
 		each exhibit in exhibits
 			.content_item.exhibit(class=exhibit._id.toString())
 				img.item_image(src=exhibit.images && exhibit.images.length > 0 && exhibit.images[0].thumb)
+				.item_mobile_background(style='background-image: url(' + (exhibit.images && exhibit.images.length > 0 && exhibit.images[0].original) + ')')
 				.item_description
 					.item_title= exhibit.i18n.title.get(locale)
 					.item_body= exhibit.i18n.description.get(locale)

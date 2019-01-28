@@ -20,6 +20,7 @@ block content
 		each collect in collects
 			a.content_item.collect(href='/collections/' + collect._id)
 				img.item_image(src=collect.logo.path)
+				.item_mobile_background(style='background-image: url(' + (collect.logo.path) + ')')
 				.item_description
 					.item_title= collect.i18n.title.get(locale)
 

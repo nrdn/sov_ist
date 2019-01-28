@@ -8,13 +8,19 @@ block content_style
 	link(rel='stylesheet', type='text/css', href='/build/css/contacts_mobile.css' + version)
 
 block content_scripts
-	script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?sensor=false')
-	script(type='text/javascript', src='/build/js/g_maps.js' + version)
+	// script(type='text/javascript', src='//maps.googleapis.com/maps/api/js?sensor=false')
+	// script(type='text/javascript', src='/build/js/g_maps.js' + version)
 	//- script(type='text/javascript', src='/build/js/contacts.js' + version)
 
 
 block content
-	.map_block#map_canvas
+	.map_block
+		| <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1163b84a5d2d75f162b949f2ab8b5d388dd117f6fe580e42a5273b29e2793e58&amp;width=100%25&amp;height=650&amp;lang=ru_RU&amp;scroll=true"></script>
+	.mobile_description
+		if (locale == 'ru')
+			include content/contacts/ru.html
+		else
+			include content/contacts/en.html
 
 block scroll
 	.contacts_block

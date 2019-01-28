@@ -20,6 +20,7 @@ block content
 		each hall in halls
 			a.content_item.hall(href='/exposure/' + hall._id)
 				img.item_image(src=hall.images && hall.images.length > 0 && hall.images[0].thumb)
+				.item_mobile_background(style='background-image: url(' + (hall.images && hall.images.length > 0 && hall.images[0].original) + ')')
 				.item_description
 					.item_title= hall.i18n.title.get(locale)
 
