@@ -46,8 +46,12 @@ block content
 						.item_title= item.i18n.title.get(locale)
 						//-.item_date= item.date.getDate() + ' ' + months[item.date.getMonth()] + ' ' + item.date.getFullYear()
 				a.content_item.news.content_news_goto(href= '/news/')= __('Перейти в анонсы')
+
 				a.controlquality_block(href='http://controlquality.ru/mark/?orgid=0373100001178')
 					img.controlquality(alt='Оценка услуг', src='/images/design/controlquality.png')
+
+				.block_newsletter
+					| <script src="//static-login.sendpulse.com/apps/fc3/build/loader.js" sp-form-id="62f8509c917af141038411a04288ed6bdd709673729a4d75482ac3e5f7ced180"></script>
 
 			.news_banner
 				each banner in banners

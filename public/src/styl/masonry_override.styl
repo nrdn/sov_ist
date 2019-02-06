@@ -1,6 +1,8 @@
 // global
 .content_column.main
 	@media screen and (max-width: 920px)
+		.content_item.important .item_description .item_title
+			font 12pt/14pt 'PT Sans'
 		.content_outer_block
 			position static!important
 			height auto!important
@@ -61,9 +63,11 @@
 		.content_item.important
 			background-image none
 			&.event
-				width calc(100vw - 60px)
-				flex-grow 1
-				height 550px
+				width calc(50vw - 40px)
+				margin 10px
+				flex-grow 0
+				flex-shrink 0
+				height 380px
 				display flex
 				flex-direction column
 				justify-content flex-end
@@ -75,6 +79,8 @@
 					height 221px
 					background rgb(71, 71, 71)
 					text-shadow none
+			@media screen and (max-width: 350px)
+				width calc(100vw - 40px)
 
 .item_mobile_background
 	display none
@@ -89,13 +95,15 @@
 	height 154px
 
 .important .item_mobile_background
-	height 332px
+	// height 332px
 
 .content_navigate_block
 	@media screen and (max-width: 920px)
 		margin 0 15px
 
-.footer_newsletter
+.block_newsletter
+	margin 20px 0 30px
+	height 101px
 	#sp-form-114558
 		padding 0
 		border none
@@ -125,3 +133,5 @@
 
 		.sp-link-wrapper.sp-brandname__left
 			display none!important
+
+
