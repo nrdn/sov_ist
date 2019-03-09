@@ -238,7 +238,7 @@
 	position relative
 	margin-bottom 40px
 	@media screen and (max-width: 920px)
-		margin 0 15px 20px
+		margin 0 auto 20px
 		width calc(100vw - 40px)
 	.top_banner
 		height 100px
@@ -246,7 +246,7 @@
 		position absolute
 		background-position 50%
 		background-repeat no-repeat
-		background-size cover
+		background-size contain
 		display block
 		opacity 0
 		z-index -1000
@@ -254,6 +254,18 @@
 	a.top_banner
 		&:hover
 			opacity 0.9!important
+	@media screen and (max-width: 600px)
+		display none
+
+.top_mobile_banner_outer
+	.middle_banner
+		display block
+		img
+			width calc(80vw - 20px)
+			margin 0 auto 20px
+			display block
+	@media screen and (min-width: 600px)
+		display none
 
 .top_banner_counter
 	text-align center
@@ -277,12 +289,12 @@
 a.controlquality_block
 	max-width 220px
 	display block
-	margin 0 20px
+	margin 0 auto 20px
 
 .news_banner
 	max-width 220px
 	display block
-	margin 0 20px
+	margin 0 auto 20px
 
 .navigate_item_outer
 	text-align center

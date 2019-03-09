@@ -8,9 +8,16 @@ function topSlider() {
 }
 //-var bannerSlider = setInterval(topSlider, 5000);
 */
-var rnd = Math.floor(Math.random() * ($('.top_banner').length - 0)) + 0;
 
-$('.top_banner').hide().eq(rnd).show().css({'z-index':'10','opacity':'1'});
+if ($('.top_banner').length > 0) {
+	var rnd = Math.floor(Math.random() * ($('.top_banner').length - 0)) + 0;
+	$('.top_banner').hide().eq(rnd).show().css({'z-index':'10','opacity':'1'});
+}
+
+if ($('.middle_banner').length > 0) {
+	var rnd = Math.floor(Math.random() * ($('.middle_banner').length - 0)) + 0;
+	$('.middle_banner').hide().eq(rnd).show().css({'z-index':'10','opacity':'1'});
+}
 
 function overlay_remove() {
 	Cookies.set('overlay_closed', 'closed', { expires: 15 });

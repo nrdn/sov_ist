@@ -22,7 +22,18 @@ block content
 		hr
 		br
 		each banner in banners
-			if (banner.top)
+			if (banner.top && !banner.mobile)
+				.gallery.banners
+					a.rm_item.rm_banner(href='#', id=banner._id)= 'удалить '
+					!=' | '
+					a( class= banner.top, href='/auth/banners/edit/' + banner._id)= banner.i18n.title.get('ru') ? banner.i18n.title.get('ru') + ' № ' + banner.num  : 'Название 	баннера'
+		br
+		b= 'Верхние мобильные баннеры'
+		br
+		hr
+		br
+		each banner in banners
+			if (banner.top && banner.mobile)
 				.gallery.banners
 					a.rm_item.rm_banner(href='#', id=banner._id)= 'удалить '
 					!=' | '

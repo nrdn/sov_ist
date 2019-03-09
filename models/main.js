@@ -30,6 +30,7 @@ var bannerSchema = new Schema({
 	link: String,
 	num: Number,
 	top: Boolean,
+	mobile: Boolean,
 	html: Boolean,
 	code: String,
 	path: {

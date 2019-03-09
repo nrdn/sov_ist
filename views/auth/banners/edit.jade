@@ -27,7 +27,10 @@ block content
 			.form_title Ссылка:
 			input(type='text', name='link', value=banner.link)
 			.form_title Большой баннер:
-			input(type='checkbox', name='top', value='true', checked=banner.top)
+			input(type='checkbox', name='top', checked=banner.top)
+			hr
+			.form_title Мобильный баннер:
+			input(type='checkbox', name='mobile', checked=banner.mobile)
 			hr
 			.form_title HTML-Баннер:
 			input(type='checkbox', name='html', value='true', checked=banner.html)

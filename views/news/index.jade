@@ -25,8 +25,8 @@ mixin trimString(str, length)
 block content
 	.content_title= __('Анонсы')
 	.content_outer_block
-		each item in news
-			a.content_item.news.important(href='/news/' + item._id)
+		each item, i in news
+			a.content_item.news.important(href='/news/' + item._idm, style='order:' + i)
 				.item_description
 					.item_title= item.i18n.title.get(locale)
 					.item_body: +trimString(item.i18n.description.get(locale).replace(/(<([^>]+)>)/ig, ''), 100)

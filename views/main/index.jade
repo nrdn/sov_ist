@@ -26,17 +26,20 @@ block content
 	- if (showban == true)
 		.top_banner_outer
 			each banner in banners
-				if (banner.top)
+				if (banner.top && !banner.mobile)
 					if (banner.html)
 						.top_banner: != banner.code
 					else
 						a.top_banner(href=banner.link, style='background-image:url(' + banner.path.original + ')')
-	//-.top_banner_outer.top_banner_big
-		a.top_banner(href='http://www.rzd.ru/' style="background-image:url('/images/design/dinamich.gif')")
-	//-.top_banner_counter
-		each banner in banners
-			if (banner.top)
-					span ◦
+
+	-var showban
+	-each banner in banners
+		if (banner.top && banner.mobile)
+			.top_mobile_banner_outer
+				if (banner.top && banner.mobile)
+					if (!banner.html)
+						a.middle_banner(href=banner.link)
+							img(src=banner.path.original)
 	.content_outer_block
 		.content_news_block
 			.news_block

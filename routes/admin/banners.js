@@ -70,6 +70,7 @@ exports.add_form = function(req, res) {
 	banner.num = post.num;
 	banner.link = post.link;
 	banner.top = post.top;
+	banner.mobile = post.mobile;
 	banner.html = post.html;
 	banner.code = post.code;
 
@@ -129,6 +130,7 @@ exports.edit_form = function(req, res) {
 		banner.num = post.num;
 		banner.link = post.link;
 		banner.top = post.top;
+		banner.mobile = post.mobile;
 		banner.html = post.html;
 		banner.code = post.code;
 

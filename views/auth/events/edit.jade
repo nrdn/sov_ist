@@ -46,8 +46,8 @@ block content
 				option(value='excursion', selected=event.type == 'excursion') Экскурсия
 				option(value='lecture', selected=event.type == 'lecture') Лекция
 				option(value='action', selected=event.type == 'action') Мероприятие
-				option(value='teach', selected=event.type == 'teach') Центр прикладной педагогики
-				option(value='education', selected=event.type == 'education') Образовательные программы
+				option(value='teach', selected=event.type == 'teach') Лекции и музейные занятия
+				option(value='education', selected=event.type == 'education') Образовательные проекты
 				option(value='special', selected=event.type == 'special') Новости
 			.form_title Дата публикации:
 			+form_calendar('date', event.date)
