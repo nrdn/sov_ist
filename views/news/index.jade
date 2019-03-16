@@ -26,8 +26,7 @@ block content
 	.content_title= __('Анонсы')
 	.content_outer_block
 		each item, i in news
-			style= '.content_item.news:nth-of-type('+ ( i+1 )+') {order:' + i + '}'
-			a.content_item.news.important(href='/news/' + item._id, style='order:' + i)
+			a.content_item.news.important(href='/news/' + item._id)
 				.item_description
 					.item_title= item.i18n.title.get(locale)
 					.item_body: +trimString(item.i18n.description.get(locale).replace(/(<([^>]+)>)/ig, ''), 100)
